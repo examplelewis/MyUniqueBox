@@ -29,6 +29,13 @@
 		ACC9EC11250BBD9600B0311D /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC9EC10250BBD9600B0311D /* CoreText.framework */; };
 		ACC9EC13250BBD9C00B0311D /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC9EC12250BBD9C00B0311D /* CoreFoundation.framework */; };
 		ACC9EC15250BBDA100B0311D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC9EC14250BBDA100B0311D /* libz.tbd */; };
+		ACC9EC26250BC30100B0311D /* PAPIAuthor.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC9EC1A250BC30100B0311D /* PAPIAuthor.m */; };
+		ACC9EC27250BC30100B0311D /* PAPIIllust.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC9EC1B250BC30100B0311D /* PAPIIllust.m */; };
+		ACC9EC28250BC30100B0311D /* PixivAPI.js in Resources */ = {isa = PBXBuildFile; fileRef = ACC9EC1D250BC30100B0311D /* PixivAPI.js */; };
+		ACC9EC29250BC30100B0311D /* PAPIIllustList.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC9EC1E250BC30100B0311D /* PAPIIllustList.m */; };
+		ACC9EC2A250BC30100B0311D /* PixivAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC9EC22250BC30100B0311D /* PixivAPI.m */; };
+		ACC9EC2B250BC30100B0311D /* SAPIIllust.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC9EC24250BC30100B0311D /* SAPIIllust.m */; };
+		ACC9EC2F250BC30800B0311D /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC9EC2E250BC30800B0311D /* XMLReader.m */; };
 		ACDCE27F250BAC0E0014BE47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCE27E250BAC0E0014BE47 /* AppDelegate.m */; };
 		ACDCE282250BAC0E0014BE47 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCE281250BAC0E0014BE47 /* ViewController.m */; };
 		ACDCE284250BAC100014BE47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDCE283250BAC100014BE47 /* Assets.xcassets */; };
@@ -96,6 +103,20 @@
 		ACC9EC12250BBD9C00B0311D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		ACC9EC14250BBDA100B0311D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		ACC9EC18250BBF4500B0311D /* MyUniqueBox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyUniqueBox-Prefix.pch"; sourceTree = "<group>"; };
+		ACC9EC1A250BC30100B0311D /* PAPIAuthor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPIAuthor.m; sourceTree = "<group>"; };
+		ACC9EC1B250BC30100B0311D /* PAPIIllust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPIIllust.m; sourceTree = "<group>"; };
+		ACC9EC1C250BC30100B0311D /* PixivAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixivAPI.h; sourceTree = "<group>"; };
+		ACC9EC1D250BC30100B0311D /* PixivAPI.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = PixivAPI.js; sourceTree = "<group>"; };
+		ACC9EC1E250BC30100B0311D /* PAPIIllustList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PAPIIllustList.m; sourceTree = "<group>"; };
+		ACC9EC1F250BC30100B0311D /* SAPIIllust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SAPIIllust.h; sourceTree = "<group>"; };
+		ACC9EC20250BC30100B0311D /* PAPIIllust.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPIIllust.h; sourceTree = "<group>"; };
+		ACC9EC21250BC30100B0311D /* PAPIAuthor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPIAuthor.h; sourceTree = "<group>"; };
+		ACC9EC22250BC30100B0311D /* PixivAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PixivAPI.m; sourceTree = "<group>"; };
+		ACC9EC23250BC30100B0311D /* PixivDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PixivDefines.h; sourceTree = "<group>"; };
+		ACC9EC24250BC30100B0311D /* SAPIIllust.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SAPIIllust.m; sourceTree = "<group>"; };
+		ACC9EC25250BC30100B0311D /* PAPIIllustList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PAPIIllustList.h; sourceTree = "<group>"; };
+		ACC9EC2D250BC30800B0311D /* XMLReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLReader.h; sourceTree = "<group>"; };
+		ACC9EC2E250BC30800B0311D /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 		ACDCE27A250BAC0E0014BE47 /* MyUniqueBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyUniqueBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDCE27D250BAC0E0014BE47 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ACDCE27E250BAC0E0014BE47 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -175,6 +196,8 @@
 		ACC9EBD7250BB97400B0311D /* Third Parties */ = {
 			isa = PBXGroup;
 			children = (
+				ACC9EC19250BC30100B0311D /* PixivAPI */,
+				ACC9EC2C250BC30800B0311D /* XMLReader */,
 				ACC9EBDA250BBC8400B0311D /* YYCategories */,
 			);
 			path = "Third Parties";
@@ -235,6 +258,34 @@
 				ACC9EC18250BBF4500B0311D /* MyUniqueBox-Prefix.pch */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		ACC9EC19250BC30100B0311D /* PixivAPI */ = {
+			isa = PBXGroup;
+			children = (
+				ACC9EC1A250BC30100B0311D /* PAPIAuthor.m */,
+				ACC9EC1B250BC30100B0311D /* PAPIIllust.m */,
+				ACC9EC1C250BC30100B0311D /* PixivAPI.h */,
+				ACC9EC1D250BC30100B0311D /* PixivAPI.js */,
+				ACC9EC1E250BC30100B0311D /* PAPIIllustList.m */,
+				ACC9EC1F250BC30100B0311D /* SAPIIllust.h */,
+				ACC9EC20250BC30100B0311D /* PAPIIllust.h */,
+				ACC9EC21250BC30100B0311D /* PAPIAuthor.h */,
+				ACC9EC22250BC30100B0311D /* PixivAPI.m */,
+				ACC9EC23250BC30100B0311D /* PixivDefines.h */,
+				ACC9EC24250BC30100B0311D /* SAPIIllust.m */,
+				ACC9EC25250BC30100B0311D /* PAPIIllustList.h */,
+			);
+			path = PixivAPI;
+			sourceTree = "<group>";
+		};
+		ACC9EC2C250BC30800B0311D /* XMLReader */ = {
+			isa = PBXGroup;
+			children = (
+				ACC9EC2D250BC30800B0311D /* XMLReader.h */,
+				ACC9EC2E250BC30800B0311D /* XMLReader.m */,
+			);
+			path = XMLReader;
 			sourceTree = "<group>";
 		};
 		ACDCE271250BAC0E0014BE47 = {
@@ -396,6 +447,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACC9EC28250BC30100B0311D /* PixivAPI.js in Resources */,
 				ACDCE284250BAC100014BE47 /* Assets.xcassets in Resources */,
 				ACDCE287250BAC100014BE47 /* Main.storyboard in Resources */,
 			);
@@ -467,15 +519,21 @@
 				ACC9EBFA250BBC8400B0311D /* NSArray+YYAdd.m in Sources */,
 				ACC9EBFD250BBC8400B0311D /* NSObject+YYAdd.m in Sources */,
 				ACC9EC07250BBC8400B0311D /* NSObject+YYAddForKVO.m in Sources */,
+				ACC9EC2B250BC30100B0311D /* SAPIIllust.m in Sources */,
 				ACC9EBFE250BBC8400B0311D /* NSData+YYAdd.m in Sources */,
+				ACC9EC26250BC30100B0311D /* PAPIAuthor.m in Sources */,
 				ACDCE282250BAC0E0014BE47 /* ViewController.m in Sources */,
 				ACC9EBFC250BBC8400B0311D /* NSBundle+YYAdd.m in Sources */,
 				ACC9EBFB250BBC8400B0311D /* NSNumber+YYAdd.m in Sources */,
 				ACDCE28A250BAC100014BE47 /* main.m in Sources */,
 				ACC9EC05250BBC8400B0311D /* NSNotificationCenter+YYAdd.m in Sources */,
+				ACC9EC27250BC30100B0311D /* PAPIIllust.m in Sources */,
+				ACC9EC2A250BC30100B0311D /* PixivAPI.m in Sources */,
 				ACDCE27F250BAC0E0014BE47 /* AppDelegate.m in Sources */,
+				ACC9EC2F250BC30800B0311D /* XMLReader.m in Sources */,
 				ACC9EC02250BBC8400B0311D /* NSObject+YYAddForARC.m in Sources */,
 				ACC9EC00250BBC8400B0311D /* NSKeyedUnarchiver+YYAdd.m in Sources */,
+				ACC9EC29250BC30100B0311D /* PAPIIllustList.m in Sources */,
 				ACC9EC03250BBC8400B0311D /* NSDate+YYAdd.m in Sources */,
 				ACC9EC06250BBC8400B0311D /* NSDictionary+YYAdd.m in Sources */,
 				ACC9EBFF250BBC8400B0311D /* NSThread+YYAdd.m in Sources */,
