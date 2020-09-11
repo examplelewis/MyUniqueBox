@@ -1,0 +1,645 @@
+
+/* Class = "NSMenuItem"; title = "Lower"; ObjectID = "1Xa-id-he1"; */
+"1Xa-id-he1.title" = "Lower";
+
+/* Class = "NSMenuItem"; title = "MyUniqueBox"; ObjectID = "1Xt-HY-uBw"; */
+"1Xt-HY-uBw.title" = "MyUniqueBox";
+
+/* Class = "NSMenu"; title = "Find"; ObjectID = "1b7-l0-nxx"; */
+"1b7-l0-nxx.title" = "Find";
+
+/* Class = "NSMenuItem"; title = "整理下载的 Webm 文件"; ObjectID = "1vU-dC-ZS7"; */
+"1vU-dC-ZS7.title" = "整理下载的 Webm 文件";
+
+/* Class = "NSMenuItem"; title = "Show Fonts"; ObjectID = "27u-1U-Dob"; */
+"27u-1U-Dob.title" = "Show Fonts";
+
+/* Class = "NSMenuItem"; title = "打开参数配置文件"; ObjectID = "2Ie-Di-bxX"; */
+"2Ie-Di-bxX.title" = "打开参数配置文件";
+
+/* Class = "NSMenuItem"; title = "是否抓取过用户"; ObjectID = "2OO-2W-OUZ"; */
+"2OO-2W-OUZ.title" = "是否抓取过用户";
+
+/* Class = "NSMenuItem"; title = "移动整理好的日常图片"; ObjectID = "2Vx-ud-yGb"; */
+"2Vx-ud-yGb.title" = "移动整理好的日常图片";
+
+/* Class = "NSMenuItem"; title = "整理下载的 18 图片"; ObjectID = "2n0-QC-JI5"; */
+"2n0-QC-JI5.title" = "整理下载的 18 图片";
+
+/* Class = "NSMenuItem"; title = "Transformations"; ObjectID = "2oI-Rn-ZJC"; */
+"2oI-Rn-ZJC.title" = "Transformations";
+
+/* Class = "NSMenuItem"; title = "Justify"; ObjectID = "2wv-Xs-lJW"; */
+"2wv-Xs-lJW.title" = "Justify";
+
+/* Class = "NSMenuItem"; title = "下载上一阶段获取到的图片"; ObjectID = "3va-wx-zHe"; */
+"3va-wx-zHe.title" = "下载上一阶段获取到的图片";
+
+/* Class = "NSMenuItem"; title = "整理下载好的图片"; ObjectID = "44E-1k-iwT"; */
+"44E-1k-iwT.title" = "整理下载好的图片";
+
+/* Class = "NSMenuItem"; title = "Find"; ObjectID = "4EN-yA-p0u"; */
+"4EN-yA-p0u.title" = "Find";
+
+/* Class = "NSMenuItem"; title = "Quit MyUniqueBox"; ObjectID = "4sb-4s-VLi"; */
+"4sb-4s-VLi.title" = "Quit MyUniqueBox";
+
+/* Class = "NSMenuItem"; title = "解析图包评论中的资源地址[Page URL]"; ObjectID = "4uH-lA-MTg"; */
+"4uH-lA-MTg.title" = "解析图包评论中的资源地址[Page URL]";
+
+/* Class = "NSMenu"; title = "图站通用"; ObjectID = "4x5-AP-cAL"; */
+"4x5-AP-cAL.title" = "图站通用";
+
+/* Class = "NSMenuItem"; title = "Use None"; ObjectID = "5BT-Wz-HZs"; */
+"5BT-Wz-HZs.title" = "Use None";
+
+/* Class = "NSMenuItem"; title = "下载微博收藏的图片(输入数量 < 50)"; ObjectID = "5Mh-S9-s9g"; */
+"5Mh-S9-s9g.title" = "下载微博收藏的图片(输入数量 < 50)";
+
+/* Class = "NSMenuItem"; title = "Edit"; ObjectID = "5QF-Oa-p0T"; */
+"5QF-Oa-p0T.title" = "Edit";
+
+/* Class = "NSMenuItem"; title = "About MyUniqueBox"; ObjectID = "5kV-Vb-QxS"; */
+"5kV-Vb-QxS.title" = "About MyUniqueBox";
+
+/* Class = "NSMenu"; title = "Ligatures"; ObjectID = "5ub-Mt-9yN"; */
+"5ub-Mt-9yN.title" = "Ligatures";
+
+/* Class = "NSMenuItem"; title = "下载 动漫 图片"; ObjectID = "5xU-jX-YsP"; */
+"5xU-jX-YsP.title" = "下载 动漫 图片";
+
+/* Class = "NSMenuItem"; title = "下载 游戏 图片"; ObjectID = "6Zr-VM-FHP"; */
+"6Zr-VM-FHP.title" = "下载 游戏 图片";
+
+/* Class = "NSMenuItem"; title = "Redo"; ObjectID = "6dh-zS-Vam"; */
+"6dh-zS-Vam.title" = "Redo";
+
+/* Class = "NSMenu"; title = "Deviantart"; ObjectID = "6eS-Sf-zJs"; */
+"6eS-Sf-zJs.title" = "Deviantart";
+
+/* Class = "NSMenuItem"; title = "Paste Style"; ObjectID = "6yJ-ys-8UZ"; */
+"6yJ-ys-8UZ.title" = "Paste Style";
+
+/* Class = "NSMenuItem"; title = "获取重复收藏的微博ID"; ObjectID = "76d-jK-3tR"; */
+"76d-jK-3tR.title" = "获取重复收藏的微博ID";
+
+/* Class = "NSMenu"; title = "资源"; ObjectID = "7BQ-fk-Rfb"; */
+"7BQ-fk-Rfb.title" = "资源";
+
+/* Class = "NSMenu"; title = "Pixiv"; ObjectID = "7Zy-5s-N4Y"; */
+"7Zy-5s-N4Y.title" = "Pixiv";
+
+/* Class = "NSMenu"; title = "绝对领域"; ObjectID = "7oS-Tp-sep"; */
+"7oS-Tp-sep.title" = "绝对领域";
+
+/* Class = "NSMenuItem"; title = "Writing Direction"; ObjectID = "7sn-W7-qeo"; */
+"7sn-W7-qeo.title" = "Writing Direction";
+
+/* Class = "NSMenuItem"; title = "Bold"; ObjectID = "80X-iq-cip"; */
+"80X-iq-cip.title" = "Bold";
+
+/* Class = "NSMenuItem"; title = "解析输入的网页地址"; ObjectID = "8Ds-XB-2nW"; */
+"8Ds-XB-2nW.title" = "解析输入的网页地址";
+
+/* Class = "NSMenu"; title = "整理"; ObjectID = "8O0-se-tqp"; */
+"8O0-se-tqp.title" = "整理";
+
+/* Class = "NSMenuItem"; title = "整理下载的 18 图片"; ObjectID = "8P9-gd-GVk"; */
+"8P9-gd-GVk.title" = "整理下载的 18 图片";
+
+/* Class = "NSMenuItem"; title = "下载 游戏 图片"; ObjectID = "8jm-dx-2cM"; */
+"8jm-dx-2cM.title" = "下载 游戏 图片";
+
+/* Class = "NSMenuItem"; title = "从文件中解析"; ObjectID = "9Qd-6E-52w"; */
+"9Qd-6E-52w.title" = "从文件中解析";
+
+/* Class = "NSMenuItem"; title = "\tRight to Left"; ObjectID = "9dm-1d-tXp"; */
+"9dm-1d-tXp.title" = "\tRight to Left";
+
+/* Class = "NSMenuItem"; title = "获取单个用户的图片[User ID]"; ObjectID = "9h0-Vo-fZX"; */
+"9h0-Vo-fZX.title" = "获取单个用户的图片[User ID]";
+
+/* Class = "NSMenuItem"; title = "Substitutions"; ObjectID = "9ic-FL-obx"; */
+"9ic-FL-obx.title" = "Substitutions";
+
+/* Class = "NSMenuItem"; title = "Smart Copy/Paste"; ObjectID = "9yt-4B-nSM"; */
+"9yt-4B-nSM.title" = "Smart Copy/Paste";
+
+/* Class = "NSMenu"; title = "Main Menu"; ObjectID = "AYu-sK-qS6"; */
+"AYu-sK-qS6.title" = "Main Menu";
+
+/* Class = "NSMenuItem"; title = "打开授权配置文件"; ObjectID = "Agh-0j-TXY"; */
+"Agh-0j-TXY.title" = "打开授权配置文件";
+
+/* Class = "NSMenuItem"; title = "获取日常图片地址"; ObjectID = "AhH-ko-WYH"; */
+"AhH-ko-WYH.title" = "获取日常图片地址";
+
+/* Class = "NSMenuItem"; title = "根据图片获取作品地址"; ObjectID = "Amm-AX-L7N"; */
+"Amm-AX-L7N.title" = "根据图片获取作品地址";
+
+/* Class = "NSMenuItem"; title = "Smaller"; ObjectID = "B0V-mI-dI5"; */
+"B0V-mI-dI5.title" = "Smaller";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "BOF-NM-1cW"; */
+"BOF-NM-1cW.title" = "Preferences…";
+
+/* Class = "NSMenuItem"; title = "资源"; ObjectID = "BRL-cD-3ic"; */
+"BRL-cD-3ic.title" = "资源";
+
+/* Class = "NSMenu"; title = "半次元"; ObjectID = "BZc-e5-qZ9"; */
+"BZc-e5-qZ9.title" = "半次元";
+
+/* Class = "NSMenuItem"; title = "Copy Ruler"; ObjectID = "Bci-S9-ZzX"; */
+"Bci-S9-ZzX.title" = "Copy Ruler";
+
+/* Class = "NSMenu"; title = "归档"; ObjectID = "Bvp-3c-RNo"; */
+"Bvp-3c-RNo.title" = "归档";
+
+/* Class = "NSMenuItem"; title = "Text"; ObjectID = "Cls-6o-S1f"; */
+"Cls-6o-S1f.title" = "Text";
+
+/* Class = "NSMenuItem"; title = "Close"; ObjectID = "DVo-aG-piG"; */
+"DVo-aG-piG.title" = "Close";
+
+/* Class = "NSMenuItem"; title = "下载 Fate 图片"; ObjectID = "DZX-Ct-Kyt"; */
+"DZX-Ct-Kyt.title" = "下载 Fate 图片";
+
+/* Class = "NSMenuItem"; title = "更新确定拉黑的用户"; ObjectID = "ESB-sl-XTO"; */
+"ESB-sl-XTO.title" = "更新确定拉黑的用户";
+
+/* Class = "NSMenuItem"; title = "下载 18 图片"; ObjectID = "Exc-D9-zQo"; */
+"Exc-D9-zQo.title" = "下载 18 图片";
+
+/* Class = "NSMenu"; title = "Help"; ObjectID = "F2S-fz-NVQ"; */
+"F2S-fz-NVQ.title" = "Help";
+
+/* Class = "NSMenu"; title = "微博"; ObjectID = "FAl-aY-84H"; */
+"FAl-aY-84H.title" = "微博";
+
+/* Class = "NSMenuItem"; title = "MyUniqueBox Help"; ObjectID = "FKE-Sm-Kum"; */
+"FKE-Sm-Kum.title" = "MyUniqueBox Help";
+
+/* Class = "NSMenu"; title = "Substitutions"; ObjectID = "FeM-D8-WVr"; */
+"FeM-D8-WVr.title" = "Substitutions";
+
+/* Class = "NSMenu"; title = "Baseline"; ObjectID = "GDk-Uo-fRL"; */
+"GDk-Uo-fRL.title" = "Baseline";
+
+/* Class = "NSMenuItem"; title = "Paragraph"; ObjectID = "GEi-6V-wsZ"; */
+"GEi-6V-wsZ.title" = "Paragraph";
+
+/* Class = "NSMenuItem"; title = "Align Left"; ObjectID = "Glo-PJ-ttJ"; */
+"Glo-PJ-ttJ.title" = "Align Left";
+
+/* Class = "NSMenuItem"; title = "Ligatures"; ObjectID = "GvQ-4v-PII"; */
+"GvQ-4v-PII.title" = "Ligatures";
+
+/* Class = "NSMenuItem"; title = "下载 特定标签 图片"; ObjectID = "Gwy-BX-gC3"; */
+"Gwy-BX-gC3.title" = "下载 特定标签 图片";
+
+/* Class = "NSMenuItem"; title = "Text Replacement"; ObjectID = "HFQ-gK-NFA"; */
+"HFQ-gK-NFA.title" = "Text Replacement";
+
+/* Class = "NSMenuItem"; title = "ExHentai"; ObjectID = "IM8-EZ-20d"; */
+"IM8-EZ-20d.title" = "ExHentai";
+
+/* Class = "NSWindow"; title = "Window"; ObjectID = "IQv-IB-iLA"; */
+"IQv-IB-iLA.title" = "Window";
+
+/* Class = "NSMenuItem"; title = "\tRight to Left"; ObjectID = "Iat-qv-aE2"; */
+"Iat-qv-aE2.title" = "\tRight to Left";
+
+/* Class = "NSMenuItem"; title = "从输入框中获取图片[不查重]"; ObjectID = "Iun-vL-2hB"; */
+"Iun-vL-2hB.title" = "从输入框中获取图片[不查重]";
+
+/* Class = "NSMenuItem"; title = "Align Right"; ObjectID = "KEW-VR-GsG"; */
+"KEW-VR-GsG.title" = "Align Right";
+
+/* Class = "NSMenuItem"; title = "Baseline"; ObjectID = "KW5-fC-vHH"; */
+"KW5-fC-vHH.title" = "Baseline";
+
+/* Class = "NSMenuItem"; title = "Show All"; ObjectID = "Kd2-mp-pUS"; */
+"Kd2-mp-pUS.title" = "Show All";
+
+/* Class = "NSMenuItem"; title = "WorldCosplay"; ObjectID = "Kl2-Sp-pGb"; */
+"Kl2-Sp-pGb.title" = "WorldCosplay";
+
+/* Class = "NSMenuItem"; title = "Deviantart"; ObjectID = "LSp-ao-dPp"; */
+"LSp-ao-dPp.title" = "Deviantart";
+
+/* Class = "NSMenu"; title = "ExHentai"; ObjectID = "M20-IW-1xB"; */
+"M20-IW-1xB.title" = "ExHentai";
+
+/* Class = "NSMenuItem"; title = "图站通用"; ObjectID = "M5J-eh-oL0"; */
+"M5J-eh-oL0.title" = "图站通用";
+
+/* Class = "NSMenuItem"; title = "整理下载好的图片"; ObjectID = "MZ5-Ax-Ous"; */
+"MZ5-Ax-Ous.title" = "整理下载好的图片";
+
+/* Class = "NSMenuItem"; title = "获取微博用户推荐的画师"; ObjectID = "MiG-ia-mmz"; */
+"MiG-ia-mmz.title" = "获取微博用户推荐的画师";
+
+/* Class = "NSMenu"; title = "Gelbooru"; ObjectID = "N1k-Cu-qTX"; */
+"N1k-Cu-qTX.title" = "Gelbooru";
+
+/* Class = "NSMenuItem"; title = "Services"; ObjectID = "NMo-om-nkz"; */
+"NMo-om-nkz.title" = "Services";
+
+/* Class = "NSMenuItem"; title = "更新不确定拉黑的用户"; ObjectID = "NcO-Ic-mO5"; */
+"NcO-Ic-mO5.title" = "更新不确定拉黑的用户";
+
+/* Class = "NSMenuItem"; title = "提取 GelbooruDownloader 下载的标签"; ObjectID = "Nfv-o5-Wh1"; */
+"Nfv-o5-Wh1.title" = "提取 GelbooruDownloader 下载的标签";
+
+/* Class = "NSMenuItem"; title = "Copy Style"; ObjectID = "OIX-KV-nXX"; */
+"OIX-KV-nXX.title" = "Copy Style";
+
+/* Class = "NSMenuItem"; title = "下载 Overwatch 图片"; ObjectID = "ON1-R9-HeZ"; */
+"ON1-R9-HeZ.title" = "下载 Overwatch 图片";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "OY7-WF-poV"; */
+"OY7-WF-poV.title" = "Minimize";
+
+/* Class = "NSMenuItem"; title = "Hide MyUniqueBox"; ObjectID = "Olw-nP-bQN"; */
+"Olw-nP-bQN.title" = "Hide MyUniqueBox";
+
+/* Class = "NSMenuItem"; title = "Find Previous"; ObjectID = "OwM-mh-QMV"; */
+"OwM-mh-QMV.title" = "Find Previous";
+
+/* Class = "NSMenuItem"; title = "Italic"; ObjectID = "PQ4-eQ-e9P"; */
+"PQ4-eQ-e9P.title" = "Italic";
+
+/* Class = "NSMenuItem"; title = "取消重复收藏的微博[Weibo IDs]"; ObjectID = "Qk2-d8-6bK"; */
+"Qk2-d8-6bK.title" = "取消重复收藏的微博[Weibo IDs]";
+
+/* Class = "NSMenuItem"; title = "版本号："; ObjectID = "QqU-fc-Ppb"; */
+"QqU-fc-Ppb.title" = "版本号：";
+
+/* Class = "NSMenuItem"; title = "整理 ExHentai 导出的用户"; ObjectID = "R0y-Bw-gyK"; */
+"R0y-Bw-gyK.title" = "整理 ExHentai 导出的用户";
+
+/* Class = "NSMenuItem"; title = "Select All"; ObjectID = "Ruw-6m-B2m"; */
+"Ruw-6m-B2m.title" = "Select All";
+
+/* Class = "NSMenuItem"; title = "Jump to Selection"; ObjectID = "S0p-oC-mLd"; */
+"S0p-oC-mLd.title" = "Jump to Selection";
+
+/* Class = "NSMenuItem"; title = "从输入框中解析HTML"; ObjectID = "SN2-Q6-UE8"; */
+"SN2-Q6-UE8.title" = "从输入框中解析HTML";
+
+/* Class = "NSMenuItem"; title = "Use All"; ObjectID = "SgC-hD-T1K"; */
+"SgC-hD-T1K.title" = "Use All";
+
+/* Class = "NSMenuItem"; title = "Pixiv"; ObjectID = "TUF-Ym-agd"; */
+"TUF-Ym-agd.title" = "Pixiv";
+
+/* Class = "NSMenuItem"; title = "Use None"; ObjectID = "Td5-gZ-hQD"; */
+"Td5-gZ-hQD.title" = "Use None";
+
+/* Class = "NSMenuItem"; title = "Capitalize"; ObjectID = "UEZ-Bs-lqG"; */
+"UEZ-Bs-lqG.title" = "Capitalize";
+
+/* Class = "NSMenuItem"; title = "Use Default"; ObjectID = "URI-B0-GwO"; */
+"URI-B0-GwO.title" = "Use Default";
+
+/* Class = "NSMenuItem"; title = "整理下载好的用户"; ObjectID = "V0X-EN-YYJ"; */
+"V0X-EN-YYJ.title" = "整理下载好的用户";
+
+/* Class = "NSMenuItem"; title = "手动存储多个推荐的画师[Format Strings]"; ObjectID = "V4v-AL-efE"; */
+"V4v-AL-efE.title" = "手动存储多个推荐的画师[Format Strings]";
+
+/* Class = "NSMenuItem"; title = "Loosen"; ObjectID = "VHP-eT-gCa"; */
+"VHP-eT-gCa.title" = "Loosen";
+
+/* Class = "NSMenuItem"; title = "Gelbooru"; ObjectID = "VLC-1D-uv2"; */
+"VLC-1D-uv2.title" = "Gelbooru";
+
+/* Class = "NSMenuItem"; title = "Hide Others"; ObjectID = "Vdr-fp-XzO"; */
+"Vdr-fp-XzO.title" = "Hide Others";
+
+/* Class = "NSMenuItem"; title = "下载 碧蓝航线 图片"; ObjectID = "VxE-LJ-luP"; */
+"VxE-LJ-luP.title" = "下载 碧蓝航线 图片";
+
+/* Class = "NSMenu"; title = "Edit"; ObjectID = "W48-6f-4Dl"; */
+"W48-6f-4Dl.title" = "Edit";
+
+/* Class = "NSMenuItem"; title = "Paste and Match Style"; ObjectID = "WeT-3V-zwk"; */
+"WeT-3V-zwk.title" = "Paste and Match Style";
+
+/* Class = "NSMenuItem"; title = "下载多个页面的图片[URLs]"; ObjectID = "Wvy-Mf-qwp"; */
+"Wvy-Mf-qwp.title" = "下载多个页面的图片[URLs]";
+
+/* Class = "NSMenuItem"; title = "下载 Webm 文件"; ObjectID = "XNC-FM-xb6"; */
+"XNC-FM-xb6.title" = "下载 Webm 文件";
+
+/* Class = "NSMenuItem"; title = "图站整理"; ObjectID = "XTc-vA-f3A"; */
+"XTc-vA-f3A.title" = "图站整理";
+
+/* Class = "NSMenuItem"; title = "\tLeft to Right"; ObjectID = "XVF-V1-MvI"; */
+"XVF-V1-MvI.title" = "\tLeft to Right";
+
+/* Class = "NSMenuItem"; title = "Find…"; ObjectID = "Xz5-n4-O0W"; */
+"Xz5-n4-O0W.title" = "Find…";
+
+/* Class = "NSMenuItem"; title = "显示授权详细信息"; ObjectID = "Y4J-gP-1XE"; */
+"Y4J-gP-1XE.title" = "显示授权详细信息";
+
+/* Class = "NSMenuItem"; title = "分离 GelbooruDownloader 下载的 gif 和 webm 文件"; ObjectID = "Y8p-GL-axe"; */
+"Y8p-GL-axe.title" = "分离 GelbooruDownloader 下载的 gif 和 webm 文件";
+
+/* Class = "NSMenuItem"; title = "Find and Replace…"; ObjectID = "YEy-JH-Tfz"; */
+"YEy-JH-Tfz.title" = "Find and Replace…";
+
+/* Class = "NSMenuItem"; title = "Paste Ruler"; ObjectID = "YJO-aW-cnf"; */
+"YJO-aW-cnf.title" = "Paste Ruler";
+
+/* Class = "NSMenuItem"; title = "整理下载的 游戏 图片"; ObjectID = "YMF-oJ-VNY"; */
+"YMF-oJ-VNY.title" = "整理下载的 游戏 图片";
+
+/* Class = "NSMenuItem"; title = "Tighten"; ObjectID = "YQI-3M-JKK"; */
+"YQI-3M-JKK.title" = "Tighten";
+
+/* Class = "NSMenuItem"; title = "下载 18 图片"; ObjectID = "Z2W-bd-AtF"; */
+"Z2W-bd-AtF.title" = "下载 18 图片";
+
+/* Class = "NSMenuItem"; title = "整理下载的 特定标签 图片"; ObjectID = "aE6-QZ-ss4"; */
+"aE6-QZ-ss4.title" = "整理下载的 特定标签 图片";
+
+/* Class = "NSMenu"; title = "WorldCosplay"; ObjectID = "aoS-OD-ZfS"; */
+"aoS-OD-ZfS.title" = "WorldCosplay";
+
+/* Class = "NSMenu"; title = "图站整理"; ObjectID = "bBx-gK-Rel"; */
+"bBx-gK-Rel.title" = "图站整理";
+
+/* Class = "NSMenuItem"; title = "下载 特定标签 图片"; ObjectID = "bDz-q4-emm"; */
+"bDz-q4-emm.title" = "下载 特定标签 图片";
+
+/* Class = "NSMenuItem"; title = "Superscript"; ObjectID = "bNm-0l-aWz"; */
+"bNm-0l-aWz.title" = "Superscript";
+
+/* Class = "NSMenuItem"; title = "打开网页请求授权"; ObjectID = "bOZ-Ny-m2m"; */
+"bOZ-Ny-m2m.title" = "打开网页请求授权";
+
+/* Class = "NSMenu"; title = "File"; ObjectID = "bib-Uj-vzu"; */
+"bib-Uj-vzu.title" = "File";
+
+/* Class = "NSMenuItem"; title = "Use Selection for Find"; ObjectID = "buJ-ug-pKt"; */
+"buJ-ug-pKt.title" = "Use Selection for Find";
+
+/* Class = "NSMenu"; title = "Transformations"; ObjectID = "c8a-y6-VQd"; */
+"c8a-y6-VQd.title" = "Transformations";
+
+/* Class = "NSMenuItem"; title = "获取关注和拉黑的重复名单"; ObjectID = "c8q-Tl-Nco"; */
+"c8q-Tl-Nco.title" = "获取关注和拉黑的重复名单";
+
+/* Class = "NSMenu"; title = "Kern"; ObjectID = "cWa-cy-C9U"; */
+"cWa-cy-C9U.title" = "Kern";
+
+/* Class = "NSMenuItem"; title = "整理下载好的图片"; ObjectID = "cgX-rb-d35"; */
+"cgX-rb-d35.title" = "整理下载好的图片";
+
+/* Class = "NSMenuItem"; title = "Use Default"; ObjectID = "cqd-3u-Zu8"; */
+"cqd-3u-Zu8.title" = "Use Default";
+
+/* Class = "NSMenuItem"; title = "Smart Links"; ObjectID = "cwL-P1-jid"; */
+"cwL-P1-jid.title" = "Smart Links";
+
+/* Class = "NSMenuItem"; title = "Make Lower Case"; ObjectID = "d9M-CD-aMd"; */
+"d9M-CD-aMd.title" = "Make Lower Case";
+
+/* Class = "NSMenuItem"; title = "Rule34"; ObjectID = "dGw-Dv-R4D"; */
+"dGw-Dv-R4D.title" = "Rule34";
+
+/* Class = "NSMenuItem"; title = "File"; ObjectID = "dMs-cI-mzQ"; */
+"dMs-cI-mzQ.title" = "File";
+
+/* Class = "NSMenuItem"; title = "Undo"; ObjectID = "dRJ-4n-Yzg"; */
+"dRJ-4n-Yzg.title" = "Undo";
+
+/* Class = "NSMenu"; title = "Font"; ObjectID = "dm0-Bt-BeN"; */
+"dm0-Bt-BeN.title" = "Font";
+
+/* Class = "NSMenuItem"; title = "更新关注用户的ID"; ObjectID = "eWX-gi-rFS"; */
+"eWX-gi-rFS.title" = "更新关注用户的ID";
+
+/* Class = "NSMenuItem"; title = "Bigger"; ObjectID = "ecO-Ao-xq7"; */
+"ecO-Ao-xq7.title" = "Bigger";
+
+/* Class = "NSMenuItem"; title = "Show Colors"; ObjectID = "eio-So-G9r"; */
+"eio-So-G9r.title" = "Show Colors";
+
+/* Class = "NSMenuItem"; title = "\tLeft to Right"; ObjectID = "ejI-K2-NWt"; */
+"ejI-K2-NWt.title" = "\tLeft to Right";
+
+/* Class = "NSMenuItem"; title = "Subscript"; ObjectID = "etT-DG-xWd"; */
+"etT-DG-xWd.title" = "Subscript";
+
+/* Class = "NSMenuItem"; title = "删除将要下载用户的下载记录"; ObjectID = "ev1-Pr-3Qb"; */
+"ev1-Pr-3Qb.title" = "删除将要下载用户的下载记录";
+
+/* Class = "NSMenuItem"; title = "是否拉黑过用户"; ObjectID = "f5S-BE-jbk"; */
+"f5S-BE-jbk.title" = "是否拉黑过用户";
+
+/* Class = "NSMenuItem"; title = "下载微博收藏的图片(全部)"; ObjectID = "fsP-8Z-vL8"; */
+"fsP-8Z-vL8.title" = "下载微博收藏的图片(全部)";
+
+/* Class = "NSMenuItem"; title = "下载 Webm 文件"; ObjectID = "gBi-kM-eLj"; */
+"gBi-kM-eLj.title" = "下载 Webm 文件";
+
+/* Class = "NSMenuItem"; title = "半次元"; ObjectID = "gRI-i9-Zlo"; */
+"gRI-i9-Zlo.title" = "半次元";
+
+/* Class = "NSMenuItem"; title = "Paste"; ObjectID = "gVA-U4-sdL"; */
+"gVA-U4-sdL.title" = "Paste";
+
+/* Class = "NSMenuItem"; title = "解析黑名单信息"; ObjectID = "hEG-B7-oDk"; */
+"hEG-B7-oDk.title" = "解析黑名单信息";
+
+/* Class = "NSMenuItem"; title = "最近编译："; ObjectID = "hIq-EG-i1R"; */
+"hIq-EG-i1R.title" = "最近编译：";
+
+/* Class = "NSMenuItem"; title = "Smart Quotes"; ObjectID = "hQb-2v-fYv"; */
+"hQb-2v-fYv.title" = "Smart Quotes";
+
+/* Class = "NSMenuItem"; title = "下载 Fate 图片"; ObjectID = "hoO-ED-Na2"; */
+"hoO-ED-Na2.title" = "下载 Fate 图片";
+
+/* Class = "NSMenuItem"; title = "下载并整理日常图片【暂时不用】"; ObjectID = "hrp-gG-Vwm"; */
+"hrp-gG-Vwm.title" = "下载并整理日常图片【暂时不用】";
+
+/* Class = "NSMenu"; title = "Services"; ObjectID = "hz9-B4-Xy5"; */
+"hz9-B4-Xy5.title" = "Services";
+
+/* Class = "NSMenu"; title = "Rule34"; ObjectID = "i2j-tu-Zss"; */
+"i2j-tu-Zss.title" = "Rule34";
+
+/* Class = "NSMenuItem"; title = "绝对领域"; ObjectID = "iGk-fk-wBR"; */
+"iGk-fk-wBR.title" = "绝对领域";
+
+/* Class = "NSMenuItem"; title = "归档"; ObjectID = "iQI-jx-Vsm"; */
+"iQI-jx-Vsm.title" = "归档";
+
+/* Class = "NSMenuItem"; title = "根据参数获取图片地址"; ObjectID = "iqw-f7-oRJ"; */
+"iqw-f7-oRJ.title" = "根据参数获取图片地址";
+
+/* Class = "NSMenu"; title = "Text"; ObjectID = "jNQ-8K-MGk"; */
+"jNQ-8K-MGk.title" = "Text";
+
+/* Class = "NSMenu"; title = "Writing Direction"; ObjectID = "jZN-n7-O3y"; */
+"jZN-n7-O3y.title" = "Writing Direction";
+
+/* Class = "NSMenuItem"; title = "Center"; ObjectID = "jin-gh-QqD"; */
+"jin-gh-QqD.title" = "Center";
+
+/* Class = "NSMenuItem"; title = "检查用户状态"; ObjectID = "k0U-Db-Fdh"; */
+"k0U-Db-Fdh.title" = "检查用户状态";
+
+/* Class = "NSMenuItem"; title = "\tDefault"; ObjectID = "kF5-xW-hNr"; */
+"kF5-xW-hNr.title" = "\tDefault";
+
+/* Class = "NSMenuItem"; title = "Selection"; ObjectID = "ktK-5A-qSd"; */
+"ktK-5A-qSd.title" = "Selection";
+
+/* Class = "NSMenuItem"; title = "下载图片"; ObjectID = "lGc-zI-kAI"; */
+"lGc-zI-kAI.title" = "下载图片";
+
+/* Class = "NSMenuItem"; title = "下载多个图片[Image Page URLs]"; ObjectID = "lKE-Lz-0Zi"; */
+"lKE-Lz-0Zi.title" = "下载多个图片[Image Page URLs]";
+
+/* Class = "NSMenuItem"; title = "存储 未筛选 的用户"; ObjectID = "lg8-vK-saI"; */
+"lg8-vK-saI.title" = "存储 未筛选 的用户";
+
+/* Class = "NSMenuItem"; title = "获取日常图片地址【暂时不用】"; ObjectID = "nJN-Q0-DMG"; */
+"nJN-Q0-DMG.title" = "获取日常图片地址【暂时不用】";
+
+/* Class = "NSMenuItem"; title = "整理"; ObjectID = "nbR-HJ-bQh"; */
+"nbR-HJ-bQh.title" = "整理";
+
+/* Class = "NSMenuItem"; title = "Underline"; ObjectID = "nc4-Sj-hjJ"; */
+"nc4-Sj-hjJ.title" = "Underline";
+
+/* Class = "NSMenuItem"; title = "从输入框中获取图片[查重]"; ObjectID = "o98-jB-UfV"; */
+"o98-jB-UfV.title" = "从输入框中获取图片[查重]";
+
+/* Class = "NSMenuItem"; title = "获取时间线的图片"; ObjectID = "oO9-8b-cur"; */
+"oO9-8b-cur.title" = "获取时间线的图片";
+
+/* Class = "NSMenuItem"; title = "移动整理好的日常图片【暂时不用】"; ObjectID = "oWK-hS-OVZ"; */
+"oWK-hS-OVZ.title" = "移动整理好的日常图片【暂时不用】";
+
+/* Class = "NSMenuItem"; title = "整理下载的 动漫 图片"; ObjectID = "oi2-fM-CpB"; */
+"oi2-fM-CpB.title" = "整理下载的 动漫 图片";
+
+/* Class = "NSMenuItem"; title = "整理下载的 Webm 文件"; ObjectID = "p6q-gq-Qeh"; */
+"p6q-gq-Qeh.title" = "整理下载的 Webm 文件";
+
+/* Class = "NSMenuItem"; title = "Delete"; ObjectID = "pa3-QI-u2k"; */
+"pa3-QI-u2k.title" = "Delete";
+
+/* Class = "NSMenuItem"; title = "下载单个图包的图片[Page URL]"; ObjectID = "puK-57-Pxf"; */
+"puK-57-Pxf.title" = "下载单个图包的图片[Page URL]";
+
+/* Class = "NSMenuItem"; title = "解析输入的HTML"; ObjectID = "pvx-g5-AMJ"; */
+"pvx-g5-AMJ.title" = "解析输入的HTML";
+
+/* Class = "NSMenuItem"; title = "下载 碧蓝航线 图片"; ObjectID = "pya-2G-MyC"; */
+"pya-2G-MyC.title" = "下载 碧蓝航线 图片";
+
+/* Class = "NSMenuItem"; title = "Find Next"; ObjectID = "q09-fT-Sye"; */
+"q09-fT-Sye.title" = "Find Next";
+
+/* Class = "NSMenuItem"; title = "Font"; ObjectID = "q2c-ld-6wP"; */
+"q2c-ld-6wP.title" = "Font";
+
+/* Class = "NSMenuItem"; title = "是否关注了用户"; ObjectID = "qD6-Lg-4GR"; */
+"qD6-Lg-4GR.title" = "是否关注了用户";
+
+/* Class = "NSMenuItem"; title = "下载 动漫 图片"; ObjectID = "qcC-2I-5EA"; */
+"qcC-2I-5EA.title" = "下载 动漫 图片";
+
+/* Class = "NSMenuItem"; title = "重命名上一阶段下载的图片"; ObjectID = "rSI-Yb-GVH"; */
+"rSI-Yb-GVH.title" = "重命名上一阶段下载的图片";
+
+/* Class = "NSMenuItem"; title = "Smart Dashes"; ObjectID = "rgM-f4-ycn"; */
+"rgM-f4-ycn.title" = "Smart Dashes";
+
+/* Class = "NSMenuItem"; title = "微博"; ObjectID = "rpk-JB-Lsq"; */
+"rpk-JB-Lsq.title" = "微博";
+
+/* Class = "NSMenuItem"; title = "整理下载的 动漫 图片"; ObjectID = "rre-qK-uox"; */
+"rre-qK-uox.title" = "整理下载的 动漫 图片";
+
+/* Class = "NSMenuItem"; title = "抓取 Gelbooru 的所有标签【未完成】"; ObjectID = "spR-XA-gL0"; */
+"spR-XA-gL0.title" = "抓取 Gelbooru 的所有标签【未完成】";
+
+/* Class = "NSMenuItem"; title = "Use Default"; ObjectID = "t1F-dL-nFR"; */
+"t1F-dL-nFR.title" = "Use Default";
+
+/* Class = "NSMenuItem"; title = "Data Detectors"; ObjectID = "tRr-pd-1PS"; */
+"tRr-pd-1PS.title" = "Data Detectors";
+
+/* Class = "NSMenuItem"; title = "获取多个图包的种子文件[Page URLs]"; ObjectID = "uL0-DS-g3N"; */
+"uL0-DS-g3N.title" = "获取多个图包的种子文件[Page URLs]";
+
+/* Class = "NSMenuItem"; title = "下载并整理日常图片"; ObjectID = "uPX-E7-nJY"; */
+"uPX-E7-nJY.title" = "下载并整理日常图片";
+
+/* Class = "NSMenu"; title = "MyUniqueBox"; ObjectID = "uQy-DD-JDr"; */
+"uQy-DD-JDr.title" = "MyUniqueBox";
+
+/* Class = "NSMenuItem"; title = "Cut"; ObjectID = "uRl-iY-unG"; */
+"uRl-iY-unG.title" = "Cut";
+
+/* Class = "NSMenuItem"; title = "整理下载的 特定标签 图片"; ObjectID = "uSM-aY-CWN"; */
+"uSM-aY-CWN.title" = "整理下载的 特定标签 图片";
+
+/* Class = "NSMenuItem"; title = "Make Upper Case"; ObjectID = "vmV-6d-7jI"; */
+"vmV-6d-7jI.title" = "Make Upper Case";
+
+/* Class = "NSMenuItem"; title = "从输入框中解析"; ObjectID = "wBM-Ge-Eyh"; */
+"wBM-Ge-Eyh.title" = "从输入框中解析";
+
+/* Class = "NSMenuItem"; title = "把最新的收藏标记为边界"; ObjectID = "wR8-dK-uyp"; */
+"wR8-dK-uyp.title" = "把最新的收藏标记为边界";
+
+/* Class = "NSMenuItem"; title = "Kern"; ObjectID = "wiw-4o-cGz"; */
+"wiw-4o-cGz.title" = "Kern";
+
+/* Class = "NSMenuItem"; title = "从书签文件中获取图片"; ObjectID = "wlb-ne-a2S"; */
+"wlb-ne-a2S.title" = "从书签文件中获取图片";
+
+/* Class = "NSMenuItem"; title = "Help"; ObjectID = "wpr-3q-Mcd"; */
+"wpr-3q-Mcd.title" = "Help";
+
+/* Class = "NSMenuItem"; title = "Show Ruler"; ObjectID = "wyz-Rq-nOj"; */
+"wyz-Rq-nOj.title" = "Show Ruler";
+
+/* Class = "NSMenuItem"; title = "Copy"; ObjectID = "x3v-GG-iWU"; */
+"x3v-GG-iWU.title" = "Copy";
+
+/* Class = "NSMenuItem"; title = "Raise"; ObjectID = "xhL-bF-Xdg"; */
+"xhL-bF-Xdg.title" = "Raise";
+
+/* Class = "NSMenuItem"; title = "获取illust的图片"; ObjectID = "xkY-SX-6GJ"; */
+"xkY-SX-6GJ.title" = "获取illust的图片";
+
+/* Class = "NSMenuItem"; title = "下载 Overwatch 图片"; ObjectID = "xqd-nZ-OX7"; */
+"xqd-nZ-OX7.title" = "下载 Overwatch 图片";
+
+/* Class = "NSMenuItem"; title = "\tDefault"; ObjectID = "ygt-K2-fuQ"; */
+"ygt-K2-fuQ.title" = "\tDefault";
+
+/* Class = "NSMenuItem"; title = "获取用户的图片"; ObjectID = "ynt-a3-sup"; */
+"ynt-a3-sup.title" = "获取用户的图片";
+
+/* Class = "NSMenuItem"; title = "Show Substitutions"; ObjectID = "z6F-FW-3nz"; */
+"z6F-FW-3nz.title" = "Show Substitutions";
+
+/* Class = "NSMenuItem"; title = "通过内容获取边界"; ObjectID = "zhB-qd-8L6"; */
+"zhB-qd-8L6.title" = "通过内容获取边界";
+
+/* Class = "NSMenuItem"; title = "整理下载的 游戏 图片"; ObjectID = "zr8-z6-gUD"; */
+"zr8-z6-gUD.title" = "整理下载的 游戏 图片";
+
+/* Class = "NSMenuItem"; title = "查看最新的日志文件"; ObjectID = "zws-lX-xzj"; */
+"zws-lX-xzj.title" = "查看最新的日志文件";
