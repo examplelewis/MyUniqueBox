@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		20C16586D5C82EE507AEB31B /* libPods-MyUniqueBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553C02ABF77D14E37F76373 /* libPods-MyUniqueBox.a */; };
+		ACA93E82250BFBC3008F65A8 /* MUBCookieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA93E81250BFBC3008F65A8 /* MUBCookieManager.m */; };
+		ACA93E85250BFC10008F65A8 /* MUBCookieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA93E84250BFC10008F65A8 /* MUBCookieModel.m */; };
+		ACA93E89250BFC71008F65A8 /* MUBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA93E88250BFC71008F65A8 /* MUBModel.m */; };
 		ACC9EBFA250BBC8400B0311D /* NSArray+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC9EBDD250BBC8400B0311D /* NSArray+YYAdd.m */; };
 		ACC9EBFB250BBC8400B0311D /* NSNumber+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC9EBDE250BBC8400B0311D /* NSNumber+YYAdd.m */; };
 		ACC9EBFC250BBC8400B0311D /* NSBundle+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC9EBE3250BBC8400B0311D /* NSBundle+YYAdd.m */; };
@@ -66,6 +69,12 @@
 		0CD11C90F80CD22493D9C250 /* Pods-MyUniqueBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUniqueBox.release.xcconfig"; path = "Target Support Files/Pods-MyUniqueBox/Pods-MyUniqueBox.release.xcconfig"; sourceTree = "<group>"; };
 		3553C02ABF77D14E37F76373 /* libPods-MyUniqueBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyUniqueBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA93E76250BE4CE008F65A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ACA93E80250BFBC3008F65A8 /* MUBCookieManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBCookieManager.h; sourceTree = "<group>"; };
+		ACA93E81250BFBC3008F65A8 /* MUBCookieManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBCookieManager.m; sourceTree = "<group>"; };
+		ACA93E83250BFC10008F65A8 /* MUBCookieModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBCookieModel.h; sourceTree = "<group>"; };
+		ACA93E84250BFC10008F65A8 /* MUBCookieModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBCookieModel.m; sourceTree = "<group>"; };
+		ACA93E87250BFC71008F65A8 /* MUBModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBModel.h; sourceTree = "<group>"; };
+		ACA93E88250BFC71008F65A8 /* MUBModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBModel.m; sourceTree = "<group>"; };
 		ACC9EBDB250BBC8400B0311D /* YYCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCategories.h; sourceTree = "<group>"; };
 		ACC9EBDD250BBC8400B0311D /* NSArray+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+YYAdd.m"; sourceTree = "<group>"; };
 		ACC9EBDE250BBC8400B0311D /* NSNumber+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+YYAdd.m"; sourceTree = "<group>"; };
@@ -193,6 +202,170 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		ACA93E78250BFB0C008F65A8 /* Universal */ = {
+			isa = PBXGroup;
+			children = (
+				ACA93E94250BFF0C008F65A8 /* Categories */,
+				ACA93E95250BFF14008F65A8 /* Classes */,
+				ACA93E8A250BFDCD008F65A8 /* Managers */,
+			);
+			path = Universal;
+			sourceTree = "<group>";
+		};
+		ACA93E79250BFB22008F65A8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				ACA93E7A250BFB3A008F65A8 /* Resource */,
+				ACA93E7B250BFB41008F65A8 /* File */,
+				ACA93E7C250BFB4B008F65A8 /* Download */,
+				ACA93E7D250BFB52008F65A8 /* Tool */,
+				ACA93E7E250BFB63008F65A8 /* Archived */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		ACA93E7A250BFB3A008F65A8 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		ACA93E7B250BFB41008F65A8 /* File */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
+		ACA93E7C250BFB4B008F65A8 /* Download */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Download;
+			sourceTree = "<group>";
+		};
+		ACA93E7D250BFB52008F65A8 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		ACA93E7E250BFB63008F65A8 /* Archived */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Archived;
+			sourceTree = "<group>";
+		};
+		ACA93E7F250BFBA9008F65A8 /* Cookie */ = {
+			isa = PBXGroup;
+			children = (
+				ACA93E80250BFBC3008F65A8 /* MUBCookieManager.h */,
+				ACA93E81250BFBC3008F65A8 /* MUBCookieManager.m */,
+				ACA93E83250BFC10008F65A8 /* MUBCookieModel.h */,
+				ACA93E84250BFC10008F65A8 /* MUBCookieModel.m */,
+			);
+			path = Cookie;
+			sourceTree = "<group>";
+		};
+		ACA93E8A250BFDCD008F65A8 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				ACA93E7F250BFBA9008F65A8 /* Cookie */,
+				ACA93E8E250BFE1F008F65A8 /* Download */,
+				ACA93E8B250BFDE9008F65A8 /* File */,
+				ACA93E91250BFE7C008F65A8 /* HTTP */,
+				ACA93E8D250BFDF5008F65A8 /* Log */,
+				ACA93E8F250BFE36008F65A8 /* MenuItem */,
+				ACA93E90250BFE66008F65A8 /* Setting */,
+				ACA93E93250BFEDB008F65A8 /* SQL */,
+				ACA93E8C250BFDEE008F65A8 /* UI */,
+				ACA93E92250BFE89008F65A8 /* Utility */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		ACA93E8B250BFDE9008F65A8 /* File */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
+		ACA93E8C250BFDEE008F65A8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		ACA93E8D250BFDF5008F65A8 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		ACA93E8E250BFE1F008F65A8 /* Download */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Download;
+			sourceTree = "<group>";
+		};
+		ACA93E8F250BFE36008F65A8 /* MenuItem */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MenuItem;
+			sourceTree = "<group>";
+		};
+		ACA93E90250BFE66008F65A8 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		ACA93E91250BFE7C008F65A8 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HTTP;
+			sourceTree = "<group>";
+		};
+		ACA93E92250BFE89008F65A8 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		ACA93E93250BFEDB008F65A8 /* SQL */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SQL;
+			sourceTree = "<group>";
+		};
+		ACA93E94250BFF0C008F65A8 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		ACA93E95250BFF14008F65A8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				ACA93E87250BFC71008F65A8 /* MUBModel.h */,
+				ACA93E88250BFC71008F65A8 /* MUBModel.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		ACC9EBD7250BB97400B0311D /* Third Parties */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +491,8 @@
 				ACDCE280250BAC0E0014BE47 /* ViewController.h */,
 				ACDCE281250BAC0E0014BE47 /* ViewController.m */,
 				ACDCE285250BAC100014BE47 /* Main.storyboard */,
+				ACA93E78250BFB0C008F65A8 /* Universal */,
+				ACA93E79250BFB22008F65A8 /* Main */,
 				ACC9EC17250BBEF900B0311D /* Resources */,
 				ACC9EBD7250BB97400B0311D /* Third Parties */,
 			);
@@ -521,6 +696,7 @@
 				ACC9EC2B250BC30100B0311D /* SAPIIllust.m in Sources */,
 				ACC9EBFE250BBC8400B0311D /* NSData+YYAdd.m in Sources */,
 				ACC9EC26250BC30100B0311D /* PAPIAuthor.m in Sources */,
+				ACA93E82250BFBC3008F65A8 /* MUBCookieManager.m in Sources */,
 				ACDCE282250BAC0E0014BE47 /* ViewController.m in Sources */,
 				ACC9EBFC250BBC8400B0311D /* NSBundle+YYAdd.m in Sources */,
 				ACC9EBFB250BBC8400B0311D /* NSNumber+YYAdd.m in Sources */,
@@ -528,6 +704,7 @@
 				ACC9EC05250BBC8400B0311D /* NSNotificationCenter+YYAdd.m in Sources */,
 				ACC9EC27250BC30100B0311D /* PAPIIllust.m in Sources */,
 				ACC9EC2A250BC30100B0311D /* PixivAPI.m in Sources */,
+				ACA93E85250BFC10008F65A8 /* MUBCookieModel.m in Sources */,
 				ACDCE27F250BAC0E0014BE47 /* AppDelegate.m in Sources */,
 				ACC9EC2F250BC30800B0311D /* XMLReader.m in Sources */,
 				ACC9EC02250BBC8400B0311D /* NSObject+YYAddForARC.m in Sources */,
@@ -537,6 +714,7 @@
 				ACC9EC06250BBC8400B0311D /* NSDictionary+YYAdd.m in Sources */,
 				ACC9EBFF250BBC8400B0311D /* NSThread+YYAdd.m in Sources */,
 				ACC9EC01250BBC8400B0311D /* NSTimer+YYAdd.m in Sources */,
+				ACA93E89250BFC71008F65A8 /* MUBModel.m in Sources */,
 				ACC9EC04250BBC8400B0311D /* NSString+YYAdd.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
