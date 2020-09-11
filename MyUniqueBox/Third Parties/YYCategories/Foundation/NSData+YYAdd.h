@@ -23,35 +23,35 @@ NS_ASSUME_NONNULL_BEGIN
 /// @name Hash
 ///=============================================================================
 
-/**
- Returns a lowercase NSString for md2 hash.
- */
-- (NSString *)md2String;
-
-/**
- Returns an NSData for md2 hash.
- */
-- (NSData *)md2Data;
-
-/**
- Returns a lowercase NSString for md4 hash.
- */
-- (NSString *)md4String;
-
-/**
- Returns an NSData for md4 hash.
- */
-- (NSData *)md4Data;
-
-/**
- Returns a lowercase NSString for md5 hash.
- */
-- (NSString *)md5String;
-
-/**
- Returns an NSData for md5 hash.
- */
-- (NSData *)md5Data;
+///**
+// Returns a lowercase NSString for md2 hash.
+// */
+//- (NSString *)md2String;
+//
+///**
+// Returns an NSData for md2 hash.
+// */
+//- (NSData *)md2Data;
+//
+///**
+// Returns a lowercase NSString for md4 hash.
+// */
+//- (NSString *)md4String;
+//
+///**
+// Returns an NSData for md4 hash.
+// */
+//- (NSData *)md4Data;
+//
+///**
+// Returns a lowercase NSString for md5 hash.
+// */
+//- (NSString *)md5String;
+//
+///**
+// Returns an NSData for md5 hash.
+// */
+//- (NSData *)md5Data;
 
 /**
  Returns a lowercase NSString for sha1 hash.

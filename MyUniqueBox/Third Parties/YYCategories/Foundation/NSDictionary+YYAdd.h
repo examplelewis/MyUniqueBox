@@ -9,8 +9,6 @@
 //  LICENSE file in the root directory of this source tree.
 //
 
-#import <UIKit/UIKit.h>
-
 NS_ASSUME_NONNULL_BEGIN
 
 /**

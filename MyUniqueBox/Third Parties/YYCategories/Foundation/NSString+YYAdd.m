@@ -12,7 +12,6 @@
 #import "NSString+YYAdd.h"
 #import "NSData+YYAdd.h"
 #import "NSNumber+YYAdd.h"
-#import "UIDevice+YYAdd.h"
 #import "YYCategoriesMacro.h"
 
 YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
@@ -20,17 +19,17 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
 
 @implementation NSString (YYAdd)
 
-- (NSString *)md2String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] md2String];
-}
-
-- (NSString *)md4String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] md4String];
-}
-
-- (NSString *)md5String {
-    return [[self dataUsingEncoding:NSUTF8StringEncoding] md5String];
-}
+//- (NSString *)md2String {
+//    return [[self dataUsingEncoding:NSUTF8StringEncoding] md2String];
+//}
+//
+//- (NSString *)md4String {
+//    return [[self dataUsingEncoding:NSUTF8StringEncoding] md4String];
+//}
+//
+//- (NSString *)md5String {
+//    return [[self dataUsingEncoding:NSUTF8StringEncoding] md5String];
+//}
 
 - (NSString *)sha1String {
     return [[self dataUsingEncoding:NSUTF8StringEncoding] sha1String];
@@ -198,39 +197,39 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
     return result;
 }
 
-- (CGSize)sizeForFont:(UIFont *)font size:(CGSize)size mode:(NSLineBreakMode)lineBreakMode {
-    CGSize result;
-    if (!font) font = [UIFont systemFontOfSize:12];
-    if ([self respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
-        NSMutableDictionary *attr = [NSMutableDictionary new];
-        attr[NSFontAttributeName] = font;
-        if (lineBreakMode != NSLineBreakByWordWrapping) {
-            NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
-            paragraphStyle.lineBreakMode = lineBreakMode;
-            attr[NSParagraphStyleAttributeName] = paragraphStyle;
-        }
-        CGRect rect = [self boundingRectWithSize:size
-                                         options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
-                                      attributes:attr context:nil];
-        result = rect.size;
-    } else {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wdeprecated-declarations"
-        result = [self sizeWithFont:font constrainedToSize:size lineBreakMode:lineBreakMode];
-#pragma clang diagnostic pop
-    }
-    return result;
-}
-
-- (CGFloat)widthForFont:(UIFont *)font {
-    CGSize size = [self sizeForFont:font size:CGSizeMake(HUGE, HUGE) mode:NSLineBreakByWordWrapping];
-    return size.width;
-}
-
-- (CGFloat)heightForFont:(UIFont *)font width:(CGFloat)width {
-    CGSize size = [self sizeForFont:font size:CGSizeMake(width, HUGE) mode:NSLineBreakByWordWrapping];
-    return size.height;
-}
+//- (CGSize)sizeForFont:(UIFont *)font size:(CGSize)size mode:(NSLineBreakMode)lineBreakMode {
+//    CGSize result;
+//    if (!font) font = [UIFont systemFontOfSize:12];
+//    if ([self respondsToSelector:@selector(boundingRectWithSize:options:attributes:context:)]) {
+//        NSMutableDictionary *attr = [NSMutableDictionary new];
+//        attr[NSFontAttributeName] = font;
+//        if (lineBreakMode != NSLineBreakByWordWrapping) {
+//            NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
+//            paragraphStyle.lineBreakMode = lineBreakMode;
+//            attr[NSParagraphStyleAttributeName] = paragraphStyle;
+//        }
+//        CGRect rect = [self boundingRectWithSize:size
+//                                         options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+//                                      attributes:attr context:nil];
+//        result = rect.size;
+//    } else {
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+//        result = [self sizeWithFont:font constrainedToSize:size lineBreakMode:lineBreakMode];
+//#pragma clang diagnostic pop
+//    }
+//    return result;
+//}
+//
+//- (CGFloat)widthForFont:(UIFont *)font {
+//    CGSize size = [self sizeForFont:font size:CGSizeMake(HUGE, HUGE) mode:NSLineBreakByWordWrapping];
+//    return size.width;
+//}
+//
+//- (CGFloat)heightForFont:(UIFont *)font width:(CGFloat)width {
+//    CGSize size = [self sizeForFont:font size:CGSizeMake(width, HUGE) mode:NSLineBreakByWordWrapping];
+//    return size.height;
+//}
 
 - (BOOL)matchesRegex:(NSString *)regex options:(NSRegularExpressionOptions)options {
     NSRegularExpression *pattern = [NSRegularExpression regularExpressionWithPattern:regex options:options error:NULL];
