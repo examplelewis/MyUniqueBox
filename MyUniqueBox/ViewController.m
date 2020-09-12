@@ -10,17 +10,17 @@
 
 @implementation ViewController
 
+#pragma mark - Lifecycle
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    // Do any additional setup after loading the view.
 }
-
-
+- (void)viewDidAppear {
+    [super viewDidAppear];
+    
+    [[MUBUIManager sharedManager] setup];
+}
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];
-
-    // Update the view, if already loaded.
 }
 
 

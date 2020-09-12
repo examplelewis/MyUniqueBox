@@ -15,4 +15,17 @@
 #import <Foundation/Foundation.h>
 #import <Cocoa/Cocoa.h>
 
+#import <CocoaLumberjack.h>
+#import <DateTools/NSDate+DateTools.h>
+#import "YYCategories.h"
+#import <BlocksKit/BlocksKit.h>
+#import <Masonry.h>
+
+#import "MUBHeader.h"
+#import "MUBConstHeader.h"
+#import "MUBCategoriesHeader.h"
+#import "MUBManagersHeader.h"
+
+static DDLogLevel ddLogLevel = DDLogLevelAll;
+
 #endif /* MyUniqueBox_Prefix_pch */

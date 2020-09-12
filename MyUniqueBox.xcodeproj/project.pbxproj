@@ -46,6 +46,12 @@
 		ACDCE28A250BAC100014BE47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCE289250BAC100014BE47 /* main.m */; };
 		ACDCE295250BAC100014BE47 /* MyUniqueBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCE294250BAC100014BE47 /* MyUniqueBoxTests.m */; };
 		ACDCE2A0250BAC100014BE47 /* MyUniqueBoxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCE29F250BAC100014BE47 /* MyUniqueBoxUITests.m */; };
+		ACF363B1250D4C4A00C1DC47 /* MUBUtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF363B0250D4C4A00C1DC47 /* MUBUtilityManager.m */; };
+		ACF363B6250D536600C1DC47 /* MUBSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF363B5250D536600C1DC47 /* MUBSettingManager.m */; };
+		ACF363B9250D556300C1DC47 /* MUBFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF363B8250D556300C1DC47 /* MUBFileManager.m */; };
+		ACF3C410250D36E900070C8E /* MUBUIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C40F250D36E900070C8E /* MUBUIManager.m */; };
+		ACF3C413250D387500070C8E /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C412250D387500070C8E /* WindowController.m */; };
+		ACF3C416250D3B2200070C8E /* MUBLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C415250D3B2200070C8E /* MUBLogManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,6 +148,22 @@
 		ACDCE29B250BAC100014BE47 /* MyUniqueBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyUniqueBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDCE29F250BAC100014BE47 /* MyUniqueBoxUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyUniqueBoxUITests.m; sourceTree = "<group>"; };
 		ACDCE2A1250BAC100014BE47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACF363AD250D46B900C1DC47 /* MUBHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBHeader.h; sourceTree = "<group>"; };
+		ACF363AE250D47F600C1DC47 /* MUBCategoriesHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBCategoriesHeader.h; sourceTree = "<group>"; };
+		ACF363AF250D4C4A00C1DC47 /* MUBUtilityManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBUtilityManager.h; sourceTree = "<group>"; };
+		ACF363B0250D4C4A00C1DC47 /* MUBUtilityManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBUtilityManager.m; sourceTree = "<group>"; };
+		ACF363B2250D4C6A00C1DC47 /* MUBManagersHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBManagersHeader.h; sourceTree = "<group>"; };
+		ACF363B3250D4D2400C1DC47 /* MUBConstHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBConstHeader.h; sourceTree = "<group>"; };
+		ACF363B4250D536600C1DC47 /* MUBSettingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBSettingManager.h; sourceTree = "<group>"; };
+		ACF363B5250D536600C1DC47 /* MUBSettingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBSettingManager.m; sourceTree = "<group>"; };
+		ACF363B7250D556300C1DC47 /* MUBFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MUBFileManager.h; sourceTree = "<group>"; };
+		ACF363B8250D556300C1DC47 /* MUBFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MUBFileManager.m; sourceTree = "<group>"; };
+		ACF3C40E250D36E900070C8E /* MUBUIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBUIManager.h; sourceTree = "<group>"; };
+		ACF3C40F250D36E900070C8E /* MUBUIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBUIManager.m; sourceTree = "<group>"; };
+		ACF3C411250D387500070C8E /* WindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WindowController.h; sourceTree = "<group>"; };
+		ACF3C412250D387500070C8E /* WindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowController.m; sourceTree = "<group>"; };
+		ACF3C414250D3B2200070C8E /* MUBLogManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBLogManager.h; sourceTree = "<group>"; };
+		ACF3C415250D3B2200070C8E /* MUBLogManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBLogManager.m; sourceTree = "<group>"; };
 		D8D04F46203F206AAB2BFE55 /* Pods-MyUniqueBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUniqueBox.debug.xcconfig"; path = "Target Support Files/Pods-MyUniqueBox/Pods-MyUniqueBox.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -205,6 +227,8 @@
 		ACA93E78250BFB0C008F65A8 /* Universal */ = {
 			isa = PBXGroup;
 			children = (
+				ACF363AD250D46B900C1DC47 /* MUBHeader.h */,
+				ACF363B3250D4D2400C1DC47 /* MUBConstHeader.h */,
 				ACA93E94250BFF0C008F65A8 /* Categories */,
 				ACA93E95250BFF14008F65A8 /* Classes */,
 				ACA93E8A250BFDCD008F65A8 /* Managers */,
@@ -273,6 +297,7 @@
 		ACA93E8A250BFDCD008F65A8 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				ACF363B2250D4C6A00C1DC47 /* MUBManagersHeader.h */,
 				ACA93E7F250BFBA9008F65A8 /* Cookie */,
 				ACA93E8E250BFE1F008F65A8 /* Download */,
 				ACA93E8B250BFDE9008F65A8 /* File */,
@@ -290,6 +315,8 @@
 		ACA93E8B250BFDE9008F65A8 /* File */ = {
 			isa = PBXGroup;
 			children = (
+				ACF363B7250D556300C1DC47 /* MUBFileManager.h */,
+				ACF363B8250D556300C1DC47 /* MUBFileManager.m */,
 			);
 			path = File;
 			sourceTree = "<group>";
@@ -297,6 +324,8 @@
 		ACA93E8C250BFDEE008F65A8 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				ACF3C40E250D36E900070C8E /* MUBUIManager.h */,
+				ACF3C40F250D36E900070C8E /* MUBUIManager.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -304,6 +333,8 @@
 		ACA93E8D250BFDF5008F65A8 /* Log */ = {
 			isa = PBXGroup;
 			children = (
+				ACF3C414250D3B2200070C8E /* MUBLogManager.h */,
+				ACF3C415250D3B2200070C8E /* MUBLogManager.m */,
 			);
 			path = Log;
 			sourceTree = "<group>";
@@ -325,6 +356,8 @@
 		ACA93E90250BFE66008F65A8 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				ACF363B4250D536600C1DC47 /* MUBSettingManager.h */,
+				ACF363B5250D536600C1DC47 /* MUBSettingManager.m */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -339,6 +372,8 @@
 		ACA93E92250BFE89008F65A8 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				ACF363AF250D4C4A00C1DC47 /* MUBUtilityManager.h */,
+				ACF363B0250D4C4A00C1DC47 /* MUBUtilityManager.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -353,6 +388,7 @@
 		ACA93E94250BFF0C008F65A8 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				ACF363AE250D47F600C1DC47 /* MUBCategoriesHeader.h */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -488,6 +524,8 @@
 			children = (
 				ACDCE27D250BAC0E0014BE47 /* AppDelegate.h */,
 				ACDCE27E250BAC0E0014BE47 /* AppDelegate.m */,
+				ACF3C411250D387500070C8E /* WindowController.h */,
+				ACF3C412250D387500070C8E /* WindowController.m */,
 				ACDCE280250BAC0E0014BE47 /* ViewController.h */,
 				ACDCE281250BAC0E0014BE47 /* ViewController.m */,
 				ACDCE285250BAC100014BE47 /* Main.storyboard */,
@@ -691,12 +729,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACC9EBFA250BBC8400B0311D /* NSArray+YYAdd.m in Sources */,
+				ACF3C416250D3B2200070C8E /* MUBLogManager.m in Sources */,
+				ACF3C413250D387500070C8E /* WindowController.m in Sources */,
 				ACC9EBFD250BBC8400B0311D /* NSObject+YYAdd.m in Sources */,
 				ACC9EC07250BBC8400B0311D /* NSObject+YYAddForKVO.m in Sources */,
+				ACF363B1250D4C4A00C1DC47 /* MUBUtilityManager.m in Sources */,
 				ACC9EC2B250BC30100B0311D /* SAPIIllust.m in Sources */,
 				ACC9EBFE250BBC8400B0311D /* NSData+YYAdd.m in Sources */,
 				ACC9EC26250BC30100B0311D /* PAPIAuthor.m in Sources */,
 				ACA93E82250BFBC3008F65A8 /* MUBCookieManager.m in Sources */,
+				ACF363B9250D556300C1DC47 /* MUBFileManager.m in Sources */,
 				ACDCE282250BAC0E0014BE47 /* ViewController.m in Sources */,
 				ACC9EBFC250BBC8400B0311D /* NSBundle+YYAdd.m in Sources */,
 				ACC9EBFB250BBC8400B0311D /* NSNumber+YYAdd.m in Sources */,
@@ -704,7 +746,9 @@
 				ACC9EC05250BBC8400B0311D /* NSNotificationCenter+YYAdd.m in Sources */,
 				ACC9EC27250BC30100B0311D /* PAPIIllust.m in Sources */,
 				ACC9EC2A250BC30100B0311D /* PixivAPI.m in Sources */,
+				ACF3C410250D36E900070C8E /* MUBUIManager.m in Sources */,
 				ACA93E85250BFC10008F65A8 /* MUBCookieModel.m in Sources */,
+				ACF363B6250D536600C1DC47 /* MUBSettingManager.m in Sources */,
 				ACDCE27F250BAC0E0014BE47 /* AppDelegate.m in Sources */,
 				ACC9EC2F250BC30800B0311D /* XMLReader.m in Sources */,
 				ACC9EC02250BBC8400B0311D /* NSObject+YYAddForARC.m in Sources */,

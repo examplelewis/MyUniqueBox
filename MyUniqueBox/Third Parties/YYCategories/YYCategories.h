@@ -20,7 +20,7 @@ FOUNDATION_EXPORT const unsigned char YYCategoriesVersionString[];
 #import <YYCategories/NSString+YYAdd.h>
 #import <YYCategories/NSArray+YYAdd.h>
 #import <YYCategories/NSDictionary+YYAdd.h>
-#import <YYCategories/NSDate+YYAdd.h>
+//#import <YYCategories/NSDate+YYAdd.h>
 #import <YYCategories/NSNumber+YYAdd.h>
 #import <YYCategories/NSNotificationCenter+YYAdd.h>
 #import <YYCategories/NSKeyedUnarchiver+YYAdd.h>
@@ -36,7 +36,7 @@ FOUNDATION_EXPORT const unsigned char YYCategoriesVersionString[];
 #import "NSString+YYAdd.h"
 #import "NSArray+YYAdd.h"
 #import "NSDictionary+YYAdd.h"
-#import "NSDate+YYAdd.h"
+//#import "NSDate+YYAdd.h"
 #import "NSNumber+YYAdd.h"
 #import "NSNotificationCenter+YYAdd.h"
 #import "NSKeyedUnarchiver+YYAdd.h"

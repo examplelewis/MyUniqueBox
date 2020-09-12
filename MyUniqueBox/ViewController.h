@@ -10,6 +10,10 @@
 
 @interface ViewController : NSViewController
 
+@property (strong) IBOutlet NSTextView *inputTextView;
+@property (strong) IBOutlet NSTextView *logTextView;
+@property (strong) IBOutlet NSProgressIndicator *progressIndicator;
+@property (strong) IBOutlet NSTextField *progressLabel;
 
 @end
 
