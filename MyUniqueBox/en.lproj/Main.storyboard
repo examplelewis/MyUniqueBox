@@ -1189,7 +1189,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="644" height="524"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" smartInsertDelete="YES" id="XRQ-YY-fmv">
+                                        <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" allowsNonContiguousLayout="YES" smartInsertDelete="YES" id="XRQ-YY-fmv">
                                             <rect key="frame" x="0.0" y="0.0" width="644" height="524"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>

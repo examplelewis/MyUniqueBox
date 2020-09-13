@@ -45,7 +45,8 @@ NSString * const MUBLogAppendKey    = @"com.gongyu.MyUniqueBox.MUBLogAppendKey";
 #pragma mark - Log
 - (void)clean {
     [self.lock lock];
-    self.current = nil;
+    self.current = [NSDate date];
+    self.newestLog = nil;
 //    [self.logs removeAllObjects];
     [self.lock unlock];
     
@@ -55,21 +56,36 @@ NSString * const MUBLogAppendKey    = @"com.gongyu.MyUniqueBox.MUBLogAppendKey";
 }
 
 - (void)addNewlineLog {
-    [self addLogWithType:MUBLogTypeDefault format:@"\n"];
+    [self addLogWithType:MUBLogTypeDefault log:@"\n"];
 }
 - (void)addDefaultLogWithFormat:(NSString *)format, ... {
-    [self addLogWithType:MUBLogTypeDefault format:format];
+    va_list args;
+    va_start(args, format);
+    NSString *log = [[NSString alloc] initWithFormat:format arguments:args];
+    va_end(args);
+    
+    [self addLogWithType:MUBLogTypeDefault log:log];
 }
 - (void)addWarningLogWithFormat:(NSString *)format, ... {
-    [self addLogWithType:MUBLogTypeWarning format:format];
+    va_list args;
+    va_start(args, format);
+    NSString *log = [[NSString alloc] initWithFormat:format arguments:args];
+    va_end(args);
+    
+    [self addLogWithType:MUBLogTypeWarning log:log];
 }
 - (void)addErrorLogWithFormat:(NSString *)format, ... {
-    [self addLogWithType:MUBLogTypeError format:format];
+    va_list args;
+    va_start(args, format);
+    NSString *log = [[NSString alloc] initWithFormat:format arguments:args];
+    va_end(args);
+    
+    [self addLogWithType:MUBLogTypeError log:log];
 }
-- (void)addLogWithType:(MUBLogType)type format:(NSString *)format, ... {
-    [self addLogWithParams:@{} type:type format:format];
+- (void)addLogWithType:(MUBLogType)type log:(NSString *)log {
+    [self addLogWithParams:@{} type:type log:log];
 }
-- (void)addLogWithParams:(NSDictionary * _Nonnull)params type:(MUBLogType)type format:(NSString *)format, ... {
+- (void)addLogWithParams:(NSDictionary * _Nonnull)params type:(MUBLogType)type log:(NSString *)log {
     BOOL logTime = params[MUBLogTimeKey] ? [params[MUBLogTimeKey] boolValue] : YES;
     BOOL logAppend = params[MUBLogTimeKey] ? [params[MUBLogAppendKey] boolValue] : YES; // 是否接着另起一行
     
@@ -82,50 +98,61 @@ NSString * const MUBLogAppendKey    = @"com.gongyu.MyUniqueBox.MUBLogAppendKey";
     }
     
     // 日志
-    NSString *log = @"";
+    NSString *logs = @"";
     if (logTime) {
-        NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:self.current];
-        log = [log stringByAppendingFormat:@"%@ | %@\t\t", [[NSDate date] formattedDateWithFormat:MUBTimeFormatyMdHmsS], [MUBUtilityManager humanReadableTimeFromInterval:interval]];
+        if (self.current) {
+            NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:self.current];
+            logs = [logs stringByAppendingFormat:@"%@ | %@\t\t", [[NSDate date] formattedDateWithFormat:MUBTimeFormatyMdHmsS], [MUBUtilityManager humanReadableTimeFromInterval:interval]];
+        } else {
+            logs = [logs stringByAppendingFormat:@"%@\t\t", [[NSDate date] formattedDateWithFormat:MUBTimeFormatyMdHmsS]];
+        }
     }
-    log = [log stringByAppendingFormat:@"%@", [self logFromFormat:format]];
-    NSAttributedString *attributedLog = [[NSAttributedString alloc] initWithString:log attributes:@{NSForegroundColorAttributeName: textColor}];
+    logs = [logs stringByAppendingString:log];
+    NSAttributedString *attributedLog = [[NSAttributedString alloc] initWithString:logs attributes:@{NSForegroundColorAttributeName: textColor}];
+    
+    // 本地日志
+    if (type == MUBLogTypeDefault) {
+        [self saveDefaultLocalLog:logs];
+    } else if (type == MUBLogTypeWarning) {
+        [self saveWarningLocalLog:logs];
+    } else if (type == MUBLogTypeError) {
+        [self saveErrorLocalLog:logs];
+    }
     
     // 显示日志
-    [self.lock lock];
-    if (logAppend) {
+    if (logAppend || !self.newestLog) {
         dispatch_main_sync_safe(^{
             [[MUBUIManager defaultManager].viewController.logTextView.textStorage appendAttributedString:attributedLog];
         });
         
+        [self.lock lock];
         self.newestLog = attributedLog;
 //        [self.logs addObject:attributedLog];
+        [self.lock unlock];
     } else {
         NSRange newestLogRange = [[MUBUIManager defaultManager].viewController.logTextView.textStorage.string rangeOfString:self.newestLog.string];
         dispatch_main_sync_safe(^{
             [[MUBUIManager defaultManager].viewController.logTextView.textStorage replaceCharactersInRange:newestLogRange withAttributedString:attributedLog];
         });
         
+        [self.lock lock];
         self.newestLog = attributedLog;
 //        [self.logs removeLastObject];
 //        [self.logs addObject:attributedLog];
+        [self.lock unlock];
     }
-    
-    
-    [self.lock unlock];
 }
 
-
-
-#pragma mark - Tool
-- (NSString *)logFromFormat:(NSString *)format, ... {
-    va_list args;
-    va_start(args, format);
-    NSString *log = [[NSString alloc] initWithFormat:format arguments:args];
-    va_end(args);
-    
-    return log;
+#pragma mark - Local Log
+- (void)saveDefaultLocalLog:(NSString *)log {
+    DDLogInfo(@"%@", log);
 }
-
+- (void)saveWarningLocalLog:(NSString *)log {
+    DDLogWarn(@"%@", log);
+}
+- (void)saveErrorLocalLog:(NSString *)log {
+    DDLogError(@"%@", log);
+}
 
 
 @end

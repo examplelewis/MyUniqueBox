@@ -8,7 +8,7 @@
 
 #import "MUBSettingManager.h"
 
-static NSString * const MUBMainFolderPath = @"/Users/mercury/SynologyDrive/~同步文件夹/同步文档/MyResourceBox";
+static NSString * const MUBMainFolderPath = @"/Users/mercury/SynologyDrive/~同步文件夹/同步文档/MyUniqueBox";
 
 @implementation MUBSettingManager
 

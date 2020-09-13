@@ -23,11 +23,13 @@ typedef NS_ENUM(NSUInteger, MUBLogType) {
 
 + (instancetype)defaultManager;
 
+- (void)clean;
+
 - (void)addNewlineLog;
 - (void)addDefaultLogWithFormat:(NSString *)format, ...;
 - (void)addWarningLogWithFormat:(NSString *)format, ...;
 - (void)addErrorLogWithFormat:(NSString *)format, ...;
-- (void)addLogWithParams:(NSDictionary * _Nonnull)params type:(MUBLogType)type format:(NSString *)format, ...;
+- (void)addLogWithParams:(NSDictionary * _Nonnull)params type:(MUBLogType)type log:(NSString *)log;
 
 @end
 
