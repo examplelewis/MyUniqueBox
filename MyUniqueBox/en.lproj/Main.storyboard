@@ -682,63 +682,117 @@
                                     <items>
                                         <menuItem title="将筛选整理好的图片移动到网络图片文件夹中" tag="3000001" id="LDg-2w-Sfx">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="zaX-NC-hFI"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="将筛选整理好的图片移动到网络图片文件夹中(更新数据库)" tag="3000002" alternate="YES" id="Mfj-SY-Yf0">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="vQc-xg-zdp"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="L05-6W-X9S"/>
                                         <menuItem title="复制文件夹的层级 [选取根文件夹]" tag="3000101" id="bOb-YX-Yqe">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="SxM-fK-hr0"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="提取解压后的文件夹层级 [选取根文件夹]" tag="3000102" id="e8p-cz-Qoi">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="4HB-LZ-KKF"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="sDA-v5-mwk"/>
                                         <menuItem title="将每个子文件夹命名为根文件夹的名称 [选取根文件夹]" tag="3000201" id="6JO-SJ-p00">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="KdN-Rq-Z0h"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="将每个子文件命名为根文件夹的名称 [选取根文件夹]" tag="3000202" id="Dz9-UW-gCb">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="ger-JV-vj3"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="将所有子文件夹的名称前加上根文件夹的名称 [选取根文件夹]" tag="3000203" id="CCr-wB-vcp">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="9qE-2w-nfd"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="CaB-O2-0FU"/>
                                         <menuItem title="清空没有项目的子文件夹 [选取根文件夹]" tag="3000301" id="gnm-0o-QSc">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="kSH-1U-IPO"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="导出文件夹中的隐藏文件路径 [选取根文件夹]" tag="3000302" id="3PW-mg-RmE">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="xAY-Rh-9Aa"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hK8-uG-jHX"/>
                                         <menuItem title="提取(剪切)文件夹内的 GIF [选取根文件夹]" tag="3000401" id="EeZ-6i-Ttb">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="xlT-KJ-9W8"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="提取(剪切)文件夹内的 视频 [选取根文件夹]" tag="3000402" id="UcO-OF-36A">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="hsc-gp-nLV"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="提取(剪切)文件夹内的 特定格式 [选取根文件夹]" tag="3000403" id="IH1-S8-bNl">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="nLN-Il-PTH"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="yts-6j-8la"/>
                                         <menuItem title="为文件生成32位的随机名称(文件夹区分) [选取根文件夹]" tag="3000501" id="qhE-z4-Yz8">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="fhX-kP-r0f"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="为文件生成32位的随机名称(文件区分) [选取根文件夹]" tag="3000502" id="OlV-Uh-KfG">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="jhf-6z-GD1"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hMK-X8-8j9"/>
                                         <menuItem title="导出文件名中包含OneDrive禁止字符的路径 [选取根文件夹]" tag="3000601" id="ubW-lk-iGh">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="cfv-VV-lOe"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="替换文件名中OneDrive禁止的字符 [选取根文件夹]" tag="3000602" alternate="YES" id="1fn-8S-lPl">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="E3j-cK-vW6"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="导出文件名中包含特定字符的路径 [空格区分字符] [选取根文件夹]" tag="3000603" id="wAC-wQ-rSd">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="IlX-VP-de9"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="替换文件名中特定字符 [空格区分字符] [选取根文件夹]" tag="3000604" alternate="YES" id="5Yp-eB-Zaj">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="mxC-Xx-Z8b"/>
+                                            </connections>
                                         </menuItem>
                                     </items>
                                 </menu>

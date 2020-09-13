@@ -31,6 +31,11 @@
     return YES; //点击窗口左上方的关闭按钮退出应用程序
 }
 
+#pragma mark - MenuItem Action
+- (IBAction)customMenuItemDidPress:(NSMenuItem *)sender {
+    [MUBMenuItemManager customMenuItemDidPress:sender];
+}
+
 #pragma mark - Setup
 - (void)setupLogger {
     // 在系统上保持一周的日志文件

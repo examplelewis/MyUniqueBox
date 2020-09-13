@@ -1,5 +1,5 @@
 //
-//  MUBMenuItemManager.h
+//  NSObject+MUBAdd.h
 //  MyUniqueBox
 //
 //  Created by 龚宇 on 20/09/13.
@@ -10,9 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MUBMenuItemManager : NSObject
-
-+ (void)customMenuItemDidPress:(NSMenuItem *)sender;
+@interface NSObject (MUBAdd)
 
 @end
 

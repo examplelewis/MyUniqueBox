@@ -55,6 +55,10 @@
 		ACF22768250E55AB00A2E3F6 /* NSArray+MUBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF22767250E55AB00A2E3F6 /* NSArray+MUBAdd.m */; };
 		ACF2276B250E5A5E00A2E3F6 /* NSDictionary+MUBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF2276A250E5A5E00A2E3F6 /* NSDictionary+MUBAdd.m */; };
 		ACF2276E250E5CD400A2E3F6 /* NSColor+MUBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF2276D250E5CD400A2E3F6 /* NSColor+MUBAdd.m */; };
+		ACF22772250E670B00A2E3F6 /* MUBMenuItemFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF22771250E670B00A2E3F6 /* MUBMenuItemFileManager.m */; };
+		ACF22776250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF22775250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.m */; };
+		ACF22779250E705D00A2E3F6 /* NSObject+MUBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF22778250E705D00A2E3F6 /* NSObject+MUBAdd.m */; };
+		ACF2277C250E72AE00A2E3F6 /* MUBOpenPanelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF2277B250E72AE00A2E3F6 /* MUBOpenPanelManager.m */; };
 		ACF363B1250D4C4A00C1DC47 /* MUBUtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF363B0250D4C4A00C1DC47 /* MUBUtilityManager.m */; };
 		ACF363B6250D536600C1DC47 /* MUBSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF363B5250D536600C1DC47 /* MUBSettingManager.m */; };
 		ACF363B9250D556300C1DC47 /* MUBFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF363B8250D556300C1DC47 /* MUBFileManager.m */; };
@@ -175,6 +179,15 @@
 		ACF2276A250E5A5E00A2E3F6 /* NSDictionary+MUBAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MUBAdd.m"; sourceTree = "<group>"; };
 		ACF2276C250E5CD400A2E3F6 /* NSColor+MUBAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+MUBAdd.h"; sourceTree = "<group>"; };
 		ACF2276D250E5CD400A2E3F6 /* NSColor+MUBAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSColor+MUBAdd.m"; sourceTree = "<group>"; };
+		ACF2276F250E66AD00A2E3F6 /* MUBMenuItemHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBMenuItemHeader.h; sourceTree = "<group>"; };
+		ACF22770250E670B00A2E3F6 /* MUBMenuItemFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBMenuItemFileManager.h; sourceTree = "<group>"; };
+		ACF22771250E670B00A2E3F6 /* MUBMenuItemFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBMenuItemFileManager.m; sourceTree = "<group>"; };
+		ACF22774250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBFileSearchCharactersManager.h; sourceTree = "<group>"; };
+		ACF22775250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBFileSearchCharactersManager.m; sourceTree = "<group>"; };
+		ACF22777250E705D00A2E3F6 /* NSObject+MUBAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+MUBAdd.h"; sourceTree = "<group>"; };
+		ACF22778250E705D00A2E3F6 /* NSObject+MUBAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MUBAdd.m"; sourceTree = "<group>"; };
+		ACF2277A250E72AE00A2E3F6 /* MUBOpenPanelManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBOpenPanelManager.h; sourceTree = "<group>"; };
+		ACF2277B250E72AE00A2E3F6 /* MUBOpenPanelManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBOpenPanelManager.m; sourceTree = "<group>"; };
 		ACF363AD250D46B900C1DC47 /* MUBHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBHeader.h; sourceTree = "<group>"; };
 		ACF363AE250D47F600C1DC47 /* MUBCategoriesHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBCategoriesHeader.h; sourceTree = "<group>"; };
 		ACF363AF250D4C4A00C1DC47 /* MUBUtilityManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBUtilityManager.h; sourceTree = "<group>"; };
@@ -285,6 +298,8 @@
 		ACA93E7B250BFB41008F65A8 /* File */ = {
 			isa = PBXGroup;
 			children = (
+				ACF22774250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.h */,
+				ACF22775250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.m */,
 			);
 			path = File;
 			sourceTree = "<group>";
@@ -325,47 +340,29 @@
 			isa = PBXGroup;
 			children = (
 				ACF363B2250D4C6A00C1DC47 /* MUBManagersHeader.h */,
-				ACF22758250E1F2B00A2E3F6 /* Alert */,
-				ACA93E7F250BFBA9008F65A8 /* Cookie */,
-				ACA93E8E250BFE1F008F65A8 /* Download */,
-				ACF22765250E3A3000A2E3F6 /* Exception */,
-				ACA93E8B250BFDE9008F65A8 /* File */,
-				ACA93E91250BFE7C008F65A8 /* HTTP */,
-				ACA93E8D250BFDF5008F65A8 /* Log */,
-				ACA93E8F250BFE36008F65A8 /* MenuItem */,
-				ACA93E90250BFE66008F65A8 /* Setting */,
-				ACA93E93250BFEDB008F65A8 /* SQL */,
-				ACA93E8C250BFDEE008F65A8 /* UI */,
-				ACA93E92250BFE89008F65A8 /* Utility */,
-			);
-			path = Managers;
-			sourceTree = "<group>";
-		};
-		ACA93E8B250BFDE9008F65A8 /* File */ = {
-			isa = PBXGroup;
-			children = (
+				ACF22759250E1F3C00A2E3F6 /* MUBAlertManager.h */,
+				ACF2275A250E1F3C00A2E3F6 /* MUBAlertManager.m */,
+				ACF22762250E3A2900A2E3F6 /* MUBExceptionManager.h */,
+				ACF22763250E3A2900A2E3F6 /* MUBExceptionManager.m */,
 				ACF363B7250D556300C1DC47 /* MUBFileManager.h */,
 				ACF363B8250D556300C1DC47 /* MUBFileManager.m */,
-			);
-			path = File;
-			sourceTree = "<group>";
-		};
-		ACA93E8C250BFDEE008F65A8 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				ACF3C40E250D36E900070C8E /* MUBUIManager.h */,
-				ACF3C40F250D36E900070C8E /* MUBUIManager.m */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		ACA93E8D250BFDF5008F65A8 /* Log */ = {
-			isa = PBXGroup;
-			children = (
 				ACF3C414250D3B2200070C8E /* MUBLogManager.h */,
 				ACF3C415250D3B2200070C8E /* MUBLogManager.m */,
+				ACF2277A250E72AE00A2E3F6 /* MUBOpenPanelManager.h */,
+				ACF2277B250E72AE00A2E3F6 /* MUBOpenPanelManager.m */,
+				ACF363B4250D536600C1DC47 /* MUBSettingManager.h */,
+				ACF363B5250D536600C1DC47 /* MUBSettingManager.m */,
+				ACF3C40E250D36E900070C8E /* MUBUIManager.h */,
+				ACF3C40F250D36E900070C8E /* MUBUIManager.m */,
+				ACF363AF250D4C4A00C1DC47 /* MUBUtilityManager.h */,
+				ACF363B0250D4C4A00C1DC47 /* MUBUtilityManager.m */,
+				ACA93E7F250BFBA9008F65A8 /* Cookie */,
+				ACA93E8E250BFE1F008F65A8 /* Download */,
+				ACA93E91250BFE7C008F65A8 /* HTTP */,
+				ACA93E8F250BFE36008F65A8 /* MenuItem */,
+				ACA93E93250BFEDB008F65A8 /* SQL */,
 			);
-			path = Log;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		ACA93E8E250BFE1F008F65A8 /* Download */ = {
@@ -378,19 +375,12 @@
 		ACA93E8F250BFE36008F65A8 /* MenuItem */ = {
 			isa = PBXGroup;
 			children = (
+				ACF2276F250E66AD00A2E3F6 /* MUBMenuItemHeader.h */,
 				ACF2275F250E39BC00A2E3F6 /* MUBMenuItemManager.h */,
 				ACF22760250E39BC00A2E3F6 /* MUBMenuItemManager.m */,
+				ACF22773250E67D300A2E3F6 /* File */,
 			);
 			path = MenuItem;
-			sourceTree = "<group>";
-		};
-		ACA93E90250BFE66008F65A8 /* Setting */ = {
-			isa = PBXGroup;
-			children = (
-				ACF363B4250D536600C1DC47 /* MUBSettingManager.h */,
-				ACF363B5250D536600C1DC47 /* MUBSettingManager.m */,
-			);
-			path = Setting;
 			sourceTree = "<group>";
 		};
 		ACA93E91250BFE7C008F65A8 /* HTTP */ = {
@@ -398,15 +388,6 @@
 			children = (
 			);
 			path = HTTP;
-			sourceTree = "<group>";
-		};
-		ACA93E92250BFE89008F65A8 /* Utility */ = {
-			isa = PBXGroup;
-			children = (
-				ACF363AF250D4C4A00C1DC47 /* MUBUtilityManager.h */,
-				ACF363B0250D4C4A00C1DC47 /* MUBUtilityManager.m */,
-			);
-			path = Utility;
 			sourceTree = "<group>";
 		};
 		ACA93E93250BFEDB008F65A8 /* SQL */ = {
@@ -426,6 +407,8 @@
 				ACF2276D250E5CD400A2E3F6 /* NSColor+MUBAdd.m */,
 				ACF22769250E5A5E00A2E3F6 /* NSDictionary+MUBAdd.h */,
 				ACF2276A250E5A5E00A2E3F6 /* NSDictionary+MUBAdd.m */,
+				ACF22777250E705D00A2E3F6 /* NSObject+MUBAdd.h */,
+				ACF22778250E705D00A2E3F6 /* NSObject+MUBAdd.m */,
 				ACF22755250E100400A2E3F6 /* NSString+MUBAdd.h */,
 				ACF22756250E100400A2E3F6 /* NSString+MUBAdd.m */,
 			);
@@ -598,22 +581,13 @@
 			path = MyUniqueBoxUITests;
 			sourceTree = "<group>";
 		};
-		ACF22758250E1F2B00A2E3F6 /* Alert */ = {
+		ACF22773250E67D300A2E3F6 /* File */ = {
 			isa = PBXGroup;
 			children = (
-				ACF22759250E1F3C00A2E3F6 /* MUBAlertManager.h */,
-				ACF2275A250E1F3C00A2E3F6 /* MUBAlertManager.m */,
+				ACF22770250E670B00A2E3F6 /* MUBMenuItemFileManager.h */,
+				ACF22771250E670B00A2E3F6 /* MUBMenuItemFileManager.m */,
 			);
-			path = Alert;
-			sourceTree = "<group>";
-		};
-		ACF22765250E3A3000A2E3F6 /* Exception */ = {
-			isa = PBXGroup;
-			children = (
-				ACF22762250E3A2900A2E3F6 /* MUBExceptionManager.h */,
-				ACF22763250E3A2900A2E3F6 /* MUBExceptionManager.m */,
-			);
-			path = Exception;
+			path = File;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -793,6 +767,7 @@
 				ACF3C416250D3B2200070C8E /* MUBLogManager.m in Sources */,
 				ACF2275E250E378000A2E3F6 /* MUBModalWindowController.m in Sources */,
 				ACF3C413250D387500070C8E /* WindowController.m in Sources */,
+				ACF22779250E705D00A2E3F6 /* NSObject+MUBAdd.m in Sources */,
 				ACC9EBFD250BBC8400B0311D /* NSObject+YYAdd.m in Sources */,
 				ACC9EC07250BBC8400B0311D /* NSObject+YYAddForKVO.m in Sources */,
 				ACF363B1250D4C4A00C1DC47 /* MUBUtilityManager.m in Sources */,
@@ -804,11 +779,14 @@
 				ACF2275B250E1F3C00A2E3F6 /* MUBAlertManager.m in Sources */,
 				ACF363B9250D556300C1DC47 /* MUBFileManager.m in Sources */,
 				ACDCE282250BAC0E0014BE47 /* ViewController.m in Sources */,
+				ACF22776250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.m in Sources */,
 				ACF22757250E100400A2E3F6 /* NSString+MUBAdd.m in Sources */,
+				ACF2277C250E72AE00A2E3F6 /* MUBOpenPanelManager.m in Sources */,
 				ACF22761250E39BC00A2E3F6 /* MUBMenuItemManager.m in Sources */,
 				ACC9EBFC250BBC8400B0311D /* NSBundle+YYAdd.m in Sources */,
 				ACC9EBFB250BBC8400B0311D /* NSNumber+YYAdd.m in Sources */,
 				ACDCE28A250BAC100014BE47 /* main.m in Sources */,
+				ACF22772250E670B00A2E3F6 /* MUBMenuItemFileManager.m in Sources */,
 				ACC9EC05250BBC8400B0311D /* NSNotificationCenter+YYAdd.m in Sources */,
 				ACC9EC27250BC30100B0311D /* PAPIIllust.m in Sources */,
 				ACC9EC2A250BC30100B0311D /* PixivAPI.m in Sources */,

@@ -49,14 +49,15 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)contentIsFolderAtPath:(NSString *)contentPath;
 + (BOOL)isEmptyFolderAtPath:(NSString *)folderPath;
 
+#pragma mark - Panel
++ (NSString *)filepathFromOpenPanelURL:(NSURL *)URL;
+
 #pragma mark - Tool
 + (NSURL *)fileURLFromFilePath:(NSString *)filePath;
 + (NSString *)filePathFromFileURL:(NSURL *)fileURL;
 + (NSArray<NSURL *> *)fileURLsFromFilePaths:(NSArray<NSString *> *)filePaths;
 + (NSArray<NSString *> *)filePathsFromFileURLs:(NSArray<NSURL *> *)fileURLs;
 + (BOOL)fileShouldIgnore:(NSString *)fileName;
-
-
 
 @end
 

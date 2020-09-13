@@ -35,7 +35,16 @@
     }
 }
 - (IBAction)tempButtonDidPress:(NSButton *)sender {
-    
+    [[MUBLogManager defaultManager] addWarningLogWithFormat:@"临时方法执行失败，该方法没有实现"];
+
+//    NSString *content = self.inputTextView.string;
+//    NSString *content = [NSString stringWithContentsOfFile:@"" encoding:NSUTF8StringEncoding error:nil];
+//    NSArray *components = [content componentsSeparatedByString:@"\n"];
+//    NSMutableArray *result = [NSMutableArray array];
+//    for (NSString *string in components) {
+//
+//    }
+//    self.outputTextView.string = [MRBUtilityManager convertResultArray:result];
 }
 - (IBAction)cleanButtonDidPress:(NSButton *)sender {
     [[MUBLogManager defaultManager] clean];

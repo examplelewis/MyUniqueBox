@@ -12,6 +12,7 @@
 #import "MUBAlertManager.h"
 #import "MUBFileManager.h"
 #import "MUBLogManager.h"
+#import "MUBOpenPanelManager.h"
 #import "MUBSettingManager.h"
 #import "MUBUIManager.h"
 #import "MUBUtilityManager.h"

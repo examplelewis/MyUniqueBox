@@ -10,15 +10,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-extern NSString * const MUBLogTimeKey;
-extern NSString * const MUBLogAppendKey;
-
-typedef NS_ENUM(NSUInteger, MUBLogType) {
-    MUBLogTypeDefault,
-    MUBLogTypeWarning,
-    MUBLogTypeError
-};
-
 typedef NS_ENUM(NSUInteger, MUBLogBehavior) {
     MUBLogBehaviorNone              = 0,
     MUBLogBehaviorLevelDefault      = 1 << 0,

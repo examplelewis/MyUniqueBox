@@ -8,9 +8,6 @@
 
 #import "MUBLogManager.h"
 
-NSString * const MUBLogTimeKey      = @"com.gongyu.MyUniqueBox.MUBLogTimeKey";
-NSString * const MUBLogAppendKey    = @"com.gongyu.MyUniqueBox.MUBLogAppendKey";
-
 @interface MUBLogManager ()
 
 //@property (strong) NSMutableArray *logs; // 日志

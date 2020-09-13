@@ -229,6 +229,16 @@
     return [self contentPathsInFolder:folderPath].count == 0;
 }
 
+#pragma mark - Panel
++ (NSString *)filepathFromOpenPanelURL:(NSURL *)URL {
+    NSString *path = URL.absoluteString;
+    path = [path stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
+    path = [path stringByReplacingOccurrencesOfString:@"file://" withString:@""];
+    path = [path stringByRemovingPercentEncoding];
+    
+    return path;
+}
+
 #pragma mark - Tool
 + (NSURL *)fileURLFromFilePath:(NSString *)filePath {
     return [NSURL fileURLWithPath:filePath];
