@@ -15,7 +15,7 @@
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    
+    [self setupLogger];
 }
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
@@ -23,19 +23,17 @@
 
 #pragma mark - Setup
 - (void)setupLogger {
-    //在系统上保持一周的日志文件
-    DDLogFileManagerDefault *logFileManager = [[DDLogFileManagerDefault alloc] initWithLogsDirectory:MUBMainFolderPath];
+    // 在系统上保持一周的日志文件
+    DDLogFileManagerDefault *logFileManager = [[DDLogFileManagerDefault alloc] initWithLogsDirectory:[MUBSettingManager defaultManager].mainFolderPath];
     DDFileLogger *fileLogger = [[DDFileLogger alloc] initWithLogFileManager:logFileManager];
-    fileLogger.rollingFrequency = 60 * 60 * 24 * 7; // 7 days rolling
+    fileLogger.rollingFrequency = 60 * 60 * 24 * 7;
     fileLogger.logFileManager.maximumNumberOfLogFiles = 3;
     fileLogger.maximumFileSize = 10 * 1024 * 1024;
     
     [DDLog addLogger:fileLogger];
     
-#pragma mark RELEASE 的时候不需要添加 console 日志，只保留文件日志
+// RELEASE 的时候不需要添加 console 日志，只保留文件日志
 #ifdef DEBUG
-    NSLog(@"logDirectory: %@", logDirectory);
-    
     DDTTYLogger *ttyLogger = [DDTTYLogger sharedInstance];
     [DDLog addLogger:ttyLogger]; // console 日志
 #endif

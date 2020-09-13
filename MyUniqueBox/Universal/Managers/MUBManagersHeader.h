@@ -9,6 +9,9 @@
 #ifndef MUBManagersHeader_h
 #define MUBManagersHeader_h
 
+#import "MUBAlertManager.h"
+#import "MUBFileManager.h"
+#import "MUBLogManager.h"
 #import "MUBSettingManager.h"
 #import "MUBUIManager.h"
 #import "MUBUtilityManager.h"

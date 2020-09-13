@@ -1,5 +1,5 @@
 //
-//  MUBSettingManager.h
+//  MUBAlert.h
 //  MyUniqueBox
 //
 //  Created by 龚宇 on 20/09/13.
@@ -10,11 +10,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MUBSettingManager : NSObject
+@interface MUBAlert : NSAlert
 
-@property (strong, readonly) NSString *mainFolderPath;
+@property (assign) NSModalResponse response;
 
-+ (instancetype)defaultManager;
+- (void)addButtonWithTitles:(NSArray *)titles keyEquivalents:(NSArray *)keyEquivalents;
 
 @end
 

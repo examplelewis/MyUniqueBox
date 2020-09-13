@@ -12,18 +12,26 @@ static NSString * const MUBMainFolderPath = @"/Users/mercury/SynologyDrive/~同�
 
 @implementation MUBSettingManager
 
-+ (instancetype)sharedManager {
-    static MUBSettingManager *sharedManager = nil;
++ (instancetype)defaultManager {
+    static MUBSettingManager *defaultManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] init];
+        defaultManager = [[self alloc] init];
     });
     
-    return sharedManager;
+    return defaultManager;
 }
-
-- (NSString *)mainFolderPath {
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        if ([[MUBFileManager defaultManager] fileExistsAtPath:MUBMainFolderPath]) {
+            _mainFolderPath = MUBMainFolderPath;
+        } else {
+            [MUBAlertManager showCriticalAlertOnMainWindowWithMessage:@"主文件夹不存在" info:[NSString stringWithFormat:@"需要检查:\n%@", MUBMainFolderPath] runModal:NO handler:nil];
+        }
+    }
     
+    return self;
 }
 
 @end

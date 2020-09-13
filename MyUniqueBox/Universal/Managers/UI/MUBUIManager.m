@@ -10,14 +10,14 @@
 
 @implementation MUBUIManager
 
-+ (instancetype)sharedManager {
-    static MUBUIManager *sharedManager = nil;
++ (instancetype)defaultManager {
+    static MUBUIManager *defaultManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] init];
+        defaultManager = [[self alloc] init];
     });
     
-    return sharedManager;
+    return defaultManager;
 }
 - (void)setup {
     _appDelegate = (AppDelegate *)[NSApplication sharedApplication].delegate;

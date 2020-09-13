@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * _Nonnull const MUBLogTimeKey;
-extern NSString * _Nonnull const MUBLogAppendKey;
+NS_ASSUME_NONNULL_BEGIN
+
+extern NSString * const MUBLogTimeKey;
+extern NSString * const MUBLogAppendKey;
 
 typedef NS_ENUM(NSUInteger, MUBLogType) {
     MUBLogTypeDefault,
@@ -17,11 +19,9 @@ typedef NS_ENUM(NSUInteger, MUBLogType) {
     MUBLogTypeError
 };
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface MUBLogManager : NSObject
 
-+ (instancetype)sharedManager;
++ (instancetype)defaultManager;
 
 - (void)addNewlineLog;
 - (void)addDefaultLogWithFormat:(NSString *)format, ...;

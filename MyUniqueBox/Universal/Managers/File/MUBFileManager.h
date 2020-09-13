@@ -10,36 +10,55 @@
 
 @interface MUBFileManager : NSObject
 
-+ (instancetype)sharedManager;
+NS_ASSUME_NONNULL_BEGIN
 
-- (BOOL)createFolderAtPathIfNotExist:(NSString *)folderPath;
+#pragma mark - Lifecycle
++ (instancetype)defaultManager;
 
-- (BOOL)trashFileAtPath:(NSString *)filePath resultItemURL:(NSURL *)resultURL;
-- (BOOL)trashFileAtURL:(NSURL *)fileURL resultItemURL:(NSURL *)resultURL;
-- (void)trashFilesAtPaths:(NSArray<NSURL *> *)filePaths;
+#pragma mark - Create
+- (BOOL)createFolderAtPath:(NSString *)folderPath;
 
-- (NSArray<NSURL *> *)convertFilePathsArrayToFileURLsArray:(NSArray<NSString *> *)paths;
-- (NSArray<NSString *> *)convertFileURLsArrayToFilePathsArray:(NSArray<NSURL *> *)urls;
+#pragma mark - Trash
+- (BOOL)trashFilePath:(NSString *)filePath;
+- (BOOL)trashFileURL:(NSURL *)fileURL;
+- (BOOL)trashFileURL:(NSURL *)fileURL resultItemURL:(NSURL * _Nullable)outResultingURL;
+- (BOOL)trashItemAtURL:(NSURL *)url resultingItemURL:(NSURL * _Nullable * _Nullable)outResultingURL error:(NSError **)error;
+- (void)trashFilePaths:(NSArray<NSString *> *)filePaths;
+- (void)trashFileURLs:(NSArray<NSURL *> *)fileURLs;
 
-- (void)moveItemAtPath:(NSString *)oriPath toDestPath:(NSString *)destPath;
-- (void)moveItemAtURL:(NSURL *)oriURL toDestURL:(NSURL *)destURL;
-- (void)moveItemAtPath:(NSString *)oriPath toDestPath:(NSString *)destPath error:(NSError **)error;
-- (void)moveItemAtURL:(NSURL *)oriURL toDestURL:(NSURL *)destURL error:(NSError **)error;
+#pragma mark - Move
+- (void)moveItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath;
+- (void)moveItemFromURL:(NSURL *)fromURL toDestURL:(NSURL *)toURL;
+- (void)moveItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath error:(NSError **)error;
+- (void)moveItemFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL error:(NSError **)error;
 
-- (BOOL)isContentExistAtPath:(NSString *)contentPath;
+#pragma mark - File Path
+- (NSArray<NSString *> *)filePathsInFolder:(NSString *)folderPath;
+- (NSArray<NSString *> *)filePathsInFolder:(NSString *)folderPath extensions:(NSArray<NSString *> *)extensions;
+- (NSArray<NSString *> *)folderPathsInFolder:(NSString *)folderPath;
+- (NSArray<NSString *> *)contentPathsInFolder:(NSString *)folderPath;
+
+- (NSArray<NSString *> *)allFilePathsInFolder:(NSString *)folderPath;
+- (NSArray<NSString *> *)allFilePathsInFolder:(NSString *)folderPath extensions:(NSArray<NSString *> *)extensions;
+- (NSArray<NSString *> *)allFolderPathInFolder:(NSString *)folderPath;
+- (NSArray<NSString *> *)allContentPathsInFolder:(NSString *)folderPath;
+
+#pragma mark - Attributes
+- (NSDictionary *)allAttributesOfItemAtPath:(NSString *)path;
+- (id)attribute:(NSString *)attribute ofItemAtPath:(NSString *)path;
+
+#pragma mark - Check
+- (BOOL)fileExistsAtPath:(NSString *)contentPath;
 - (BOOL)contentIsFolderAtPath:(NSString *)contentPath;
-
-- (NSArray<NSString *> *)getFilePathsInFolder:(NSString *)folderPath;
-- (NSArray<NSString *> *)getFilePathsInFolder:(NSString *)folderPath specificExtensions:(NSArray<NSString *> *)extensions;
-- (NSArray<NSString *> *)getFolderPathsInFolder:(NSString *)folderPath;
-- (NSArray<NSString *> *)getSubFilePathsInFolder:(NSString *)folderPath;
-- (NSArray<NSString *> *)getSubFilePathsInFolder:(NSString *)folderPath specificExtensions:(NSArray<NSString *> *)extensions;
-- (NSArray<NSString *> *)getSubFoldersPathInFolder:(NSString *)folderPath;
-
-- (NSDictionary *)getAllAttributesOfItemAtPath:(NSString *)path;
-
-- (id)getSpecificAttributeOfItemAtPath:(NSString *)path attribute:(NSString *)attribute;
-
 - (BOOL)isEmptyFolderAtPath:(NSString *)folderPath;
 
+#pragma mark - Tool
+- (NSURL *)fileURLFromFilePath:(NSString *)filePath;
+- (NSString *)filePathFromFileURL:(NSURL *)fileURL;
+- (NSArray<NSURL *> *)fileURLsFromFilePaths:(NSArray<NSString *> *)filePaths;
+- (NSArray<NSString *> *)filePathsFromFileURLs:(NSArray<NSURL *> *)fileURLs;
+- (BOOL)fileShouldIgnore:(NSString *)fileName;
+
 @end
+
+NS_ASSUME_NONNULL_END

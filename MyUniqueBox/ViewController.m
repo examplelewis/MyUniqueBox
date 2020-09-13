@@ -17,7 +17,7 @@
 - (void)viewDidAppear {
     [super viewDidAppear];
     
-    [[MUBUIManager sharedManager] setup];
+    [[MUBUIManager defaultManager] setup];
 }
 - (void)setRepresentedObject:(id)representedObject {
     [super setRepresentedObject:representedObject];

@@ -23,14 +23,14 @@ NSString * const MUBLogAppendKey    = @"com.gongyu.MyUniqueBox.MUBLogAppendKey";
 @implementation MUBLogManager
 
 #pragma mark - Lifecycle
-+ (instancetype)sharedManager {
-    static MUBLogManager *sharedManager = nil;
++ (instancetype)defaultManager {
+    static MUBLogManager *defaultManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] init];
+        defaultManager = [[self alloc] init];
     });
     
-    return sharedManager;
+    return defaultManager;
 }
 - (instancetype)init {
     self = [super init];
@@ -50,7 +50,7 @@ NSString * const MUBLogAppendKey    = @"com.gongyu.MyUniqueBox.MUBLogAppendKey";
     [self.lock unlock];
     
     dispatch_main_sync_safe(^{
-        [MUBUIManager sharedManager].viewController.logTextView.string = @"";
+        [MUBUIManager defaultManager].viewController.logTextView.string = @"";
     });
 }
 
@@ -94,15 +94,15 @@ NSString * const MUBLogAppendKey    = @"com.gongyu.MyUniqueBox.MUBLogAppendKey";
     [self.lock lock];
     if (logAppend) {
         dispatch_main_sync_safe(^{
-            [[MUBUIManager sharedManager].viewController.logTextView.textStorage appendAttributedString:attributedLog];
+            [[MUBUIManager defaultManager].viewController.logTextView.textStorage appendAttributedString:attributedLog];
         });
         
         self.newestLog = attributedLog;
 //        [self.logs addObject:attributedLog];
     } else {
-        NSRange newestLogRange = [[MUBUIManager sharedManager].viewController.logTextView.textStorage.string rangeOfString:self.newestLog.string];
+        NSRange newestLogRange = [[MUBUIManager defaultManager].viewController.logTextView.textStorage.string rangeOfString:self.newestLog.string];
         dispatch_main_sync_safe(^{
-            [[MUBUIManager sharedManager].viewController.logTextView.textStorage replaceCharactersInRange:newestLogRange withAttributedString:attributedLog];
+            [[MUBUIManager defaultManager].viewController.logTextView.textStorage replaceCharactersInRange:newestLogRange withAttributedString:attributedLog];
         });
         
         self.newestLog = attributedLog;

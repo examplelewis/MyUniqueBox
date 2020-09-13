@@ -9,5 +9,6 @@
 #ifndef MUBCategoriesHeader_h
 #define MUBCategoriesHeader_h
 
+#import "NSString+MUBAdd.h"
 
 #endif /* MUBCategoriesHeader_h */

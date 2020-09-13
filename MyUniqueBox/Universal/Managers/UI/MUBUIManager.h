@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, readonly) WindowController *mainWindowController;
 @property (strong, readonly) ViewController *viewController;
 
-+ (instancetype)sharedManager;
++ (instancetype)defaultManager;
 - (void)setup;
 
 - (void)scrollNewestLogVisible;

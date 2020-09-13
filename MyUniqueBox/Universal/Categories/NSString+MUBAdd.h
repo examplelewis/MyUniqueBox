@@ -1,5 +1,5 @@
 //
-//  MUBSettingManager.h
+//  NSString+MUBAdd.h
 //  MyUniqueBox
 //
 //  Created by 龚宇 on 20/09/13.
@@ -10,11 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MUBSettingManager : NSObject
+@interface NSString (MUBAdd)
 
-@property (strong, readonly) NSString *mainFolderPath;
-
-+ (instancetype)defaultManager;
+- (BOOL)isNotNull;
 
 @end
 

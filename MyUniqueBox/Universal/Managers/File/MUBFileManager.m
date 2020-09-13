@@ -11,18 +11,18 @@
 @implementation MUBFileManager
 
 #pragma mark - Lifecycle
-+ (instancetype)sharedManager {
-    static MUBFileManager *sharedManager = nil;
++ (instancetype)defaultManager {
+    static MUBFileManager *defaultManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        sharedManager = [[self alloc] init];
+        defaultManager = [[self alloc] init];
     });
     
-    return sharedManager;
+    return defaultManager;
 }
 
 #pragma mark - Create
-- (BOOL)createFolderAtPathIfNotExist:(NSString *)folderPath {
+- (BOOL)createFolderAtPath:(NSString *)folderPath {
     if ([[NSFileManager defaultManager] fileExistsAtPath:folderPath]) {
         return YES;
     } else {
@@ -30,120 +30,113 @@
         if ([[NSFileManager defaultManager] createDirectoryAtPath:folderPath withIntermediateDirectories:YES attributes:nil error:&error]) {
             return YES;
         } else {
-            [[MRBLogManager defaultManager] showLogWithFormat:@"创建文件夹：%@ 时失败，错误原因：\n%@", folderPath, [error localizedDescription]];
+            [[MUBLogManager defaultManager] addErrorLogWithFormat:@"创建文件夹 %@ 时发生错误: \n%@", folderPath, [error localizedDescription]];
             return NO;
         }
     }
 }
 
 #pragma mark - Trash
-- (BOOL)trashFileAtPath:(NSString *)filePath resultItemURL:(NSURL *)resultURL {
+- (BOOL)trashFilePath:(NSString *)filePath {
+    return [self trashFileURL:[self fileURLFromFilePath:filePath] resultItemURL:nil];
+}
+- (BOOL)trashFileURL:(NSURL *)fileURL {
+    return [self trashFileURL:fileURL resultItemURL:nil];
+}
+- (BOOL)trashFileURL:(NSURL *)fileURL resultItemURL:(NSURL * _Nullable)outResultingURL {
     NSError *error;
-    if ([[NSFileManager defaultManager] trashItemAtURL:[NSURL fileURLWithPath:filePath] resultingItemURL:&resultURL error:&error]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 已经被删除", filePath.lastPathComponent];
+    if ([[NSFileManager defaultManager] trashItemAtURL:fileURL resultingItemURL:&outResultingURL error:&error]) {
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"%@ 已经被移动到废纸篓", fileURL.path.lastPathComponent];
         return YES;
     } else {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"删除文件 %@ 时出现错误：%@", filePath.lastPathComponent, [error localizedDescription]];
+        [[MUBLogManager defaultManager] addErrorLogWithFormat:@"移动文件 %@ 到废纸篓时发生错误: %@", fileURL.path.lastPathComponent, [error localizedDescription]];
         return NO;
     }
 }
-- (BOOL)trashFileAtURL:(NSURL *)fileURL resultItemURL:(NSURL *)resultURL {
-    NSError *error;
-    if ([[NSFileManager defaultManager] trashItemAtURL:fileURL resultingItemURL:&resultURL error:&error]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"%@ 已经被删除", fileURL.path.lastPathComponent];
-        return YES;
-    } else {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"删除文件 %@ 时出现错误：%@", fileURL.path.lastPathComponent, [error localizedDescription]];
-        return NO;
-    }
+- (BOOL)trashItemAtURL:(NSURL *)url resultingItemURL:(NSURL * _Nullable * _Nullable)outResultingURL error:(NSError **)error {
+    return [[NSFileManager defaultManager] trashItemAtURL:url resultingItemURL:outResultingURL error:error];
 }
-- (void)trashFilesAtPaths:(NSArray<NSURL *> *)filePaths {
-    [[NSWorkspace sharedWorkspace] recycleURLs:filePaths completionHandler:^(NSDictionary<NSURL *,NSURL *> * _Nonnull newURLs, NSError * _Nullable error) {
+- (void)trashFilePaths:(NSArray<NSString *> *)filePaths {
+    [self trashFileURLs:[self fileURLsFromFilePaths:filePaths]];
+}
+- (void)trashFileURLs:(NSArray<NSURL *> *)fileURLs {
+    [[NSWorkspace sharedWorkspace] recycleURLs:fileURLs completionHandler:^(NSDictionary<NSURL *,NSURL *> * _Nonnull newURLs, NSError * _Nullable error) {
         if (error) {
-            [[MRBLogManager defaultManager] showLogWithFormat:@"文件移动到废纸篓失败：\n%@", [error localizedDescription]];
-//#warning 这边应该加一个NSAlert
+            [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"文件移动到废纸篓发生错误: %@", [error localizedDescription]];
         } else {
-            [[MRBLogManager defaultManager] showLogWithFormat:@"文件移动到废纸篓成功"];
+            [[MUBLogManager defaultManager] addErrorLogWithFormat:@"文件移动到废纸篓成功"];
         }
     }];
 }
 
 #pragma mark - Move
-- (void)moveItemAtPath:(NSString *)oriPath toDestPath:(NSString *)destPath {
+- (void)moveItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath {
     NSError *error;
-    if (![[NSFileManager defaultManager] moveItemAtPath:oriPath toPath:destPath error:&error]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"移动文件：%@ 时发生错误：%@", oriPath, [error localizedDescription]];
+    if (![[NSFileManager defaultManager] moveItemAtPath:fromPath toPath:toPath error:&error]) {
+        [[MUBLogManager defaultManager] addErrorLogWithFormat:@"移动文件 %@ 时发生错误: %@", fromPath, [error localizedDescription]];
     }
 }
-- (void)moveItemAtURL:(NSURL *)oriURL toDestURL:(NSURL *)destURL {
+- (void)moveItemFromURL:(NSURL *)fromURL toDestURL:(NSURL *)toURL {
     NSError *error;
-    if (![[NSFileManager defaultManager] moveItemAtURL:oriURL toURL:destURL error:&error]) {
-        [[MRBLogManager defaultManager] showLogWithFormat:@"移动文件：%@ 时发生错误：%@", oriURL.path, [error localizedDescription]];
+    if (![[NSFileManager defaultManager] moveItemAtURL:fromURL toURL:toURL error:&error]) {
+        [[MUBLogManager defaultManager] addErrorLogWithFormat:@"移动文件 %@ 时发生错误: %@", fromURL.path, [error localizedDescription]];
     }
 }
-- (void)moveItemAtPath:(NSString *)oriPath toDestPath:(NSString *)destPath error:(NSError **)error {
-    [[NSFileManager defaultManager] moveItemAtPath:oriPath toPath:destPath error:error];
+- (void)moveItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath error:(NSError **)error {
+    [[NSFileManager defaultManager] moveItemAtPath:fromPath toPath:toPath error:error];
 }
-- (void)moveItemAtURL:(NSURL *)oriURL toDestURL:(NSURL *)destURL error:(NSError **)error {
-    [[NSFileManager defaultManager] moveItemAtURL:oriURL toURL:destURL error:error];
+- (void)moveItemFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL error:(NSError **)error {
+    [[NSFileManager defaultManager] moveItemAtURL:fromURL toURL:toURL error:error];
 }
 
-
-
-- (NSArray<NSString *> *)getFilePathsInFolder:(NSString *)folderPath {
+#pragma mark - File Path
+- (NSArray<NSString *> *)filePathsInFolder:(NSString *)folderPath {
     NSMutableArray<NSString *> *results = [NSMutableArray array];
     NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:nil];
     
-    for (NSString *fileName in contents) {
-        if ([fileName hasSuffix:@"DS_Store"]) {
+    for (NSString *content in contents) {
+        if ([self fileShouldIgnore:content]) {
             continue;
         }
         
-        NSString *folder = [folderPath stringByAppendingPathComponent:fileName];
+        NSString *filePath = [folderPath stringByAppendingPathComponent:content];
         BOOL folderFlag = YES;
-        [[NSFileManager defaultManager] fileExistsAtPath:folder isDirectory:&folderFlag];
+        [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&folderFlag];
         
         if (!folderFlag) {
-            [results addObject:folder];
-        }
-    }
-    
-    return [NSArray arrayWithArray:results];
-}
-- (NSArray<NSString *> *)getFilePathsInFolder:(NSString *)folderPath specificExtensions:(NSArray<NSString *> *)extensions {
-    NSMutableArray<NSString *> *results = [NSMutableArray array];
-    NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:nil];
-    
-    for (NSString *extension in extensions) {
-        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id  _Nonnull evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-            return [[evaluatedObject pathExtension] caseInsensitiveCompare:extension] == NSOrderedSame;
-        }];
-        
-        NSArray *filteredArray = [contents filteredArrayUsingPredicate:predicate];
-        for (NSString *fileName in filteredArray) {
-            NSString *filePath = [folderPath stringByAppendingPathComponent:fileName];
-            
             [results addObject:filePath];
         }
     }
     
-    return [NSArray arrayWithArray:results];
+    return [results copy];
 }
-- (NSArray<NSString *> *)getFolderPathsInFolder:(NSString *)folderPath {
+- (NSArray<NSString *> *)filePathsInFolder:(NSString *)folderPath extensions:(NSArray<NSString *> *)extensions {
     NSMutableArray<NSString *> *results = [NSMutableArray array];
-    
     NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:nil];
-//    if (contents.count == 1) {
-//        [[MRBLogManager defaultManager] showLogWithFormat:@"没有在：%@ 中获取到解压好的文件，已跳过", folderPath];
-//        return nil;
-//    }
     
-    for (NSString *fileName in contents) {
-        if ([fileName hasSuffix:@"DS_Store"]) {
-            continue;
+    for (NSString *extension in extensions) {
+        NSArray *filteredContents = [contents filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString * _Nonnull content, NSDictionary<NSString *,id> * _Nullable bindings) {
+            return [content.pathExtension caseInsensitiveCompare:extension] == NSOrderedSame;
+        }]];
+        for (NSString *content in filteredContents) {
+            NSString *filePath = [folderPath stringByAppendingPathComponent:content];
+            BOOL folderFlag = YES;
+            [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&folderFlag];
+            
+            if (!folderFlag) {
+                [results addObject:filePath];
+            }
         }
-        
-        NSString *folder = [folderPath stringByAppendingPathComponent:fileName];
+    }
+    
+    return [results copy];
+}
+- (NSArray<NSString *> *)folderPathsInFolder:(NSString *)folderPath {
+    NSMutableArray<NSString *> *results = [NSMutableArray array];
+    NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:nil];
+    
+    for (NSString *content in contents) {
+        NSString *folder = [folderPath stringByAppendingPathComponent:content];
         BOOL folderFlag = YES;
         [[NSFileManager defaultManager] fileExistsAtPath:folder isDirectory:&folderFlag];
         
@@ -152,57 +145,61 @@
         }
     }
     
-    return [NSArray arrayWithArray:results];
+    return [results copy];
 }
-- (NSArray<NSString *> *)getSubFilePathsInFolder:(NSString *)folderPath {
+- (NSArray<NSString *> *)contentPathsInFolder:(NSString *)folderPath {
+    NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:nil];
+    return [contents bk_map:^id(NSString *obj) {
+        return [folderPath stringByAppendingPathComponent:obj];
+    }];
+}
+- (NSArray<NSString *> *)allFilePathsInFolder:(NSString *)folderPath {
     NSMutableArray<NSString *> *results = [NSMutableArray array];
-    NSArray *contents = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:folderPath error:nil]; //所有的文件【递归】
+    NSArray *contents = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:folderPath error:nil];
     
-    for (NSString *fileName in contents) {
-        if ([fileName hasSuffix:@"DS_Store"]) {
+    for (NSString *content in contents) {
+        if ([self fileShouldIgnore:content]) {
             continue;
         }
         
-        NSString *folder = [folderPath stringByAppendingPathComponent:fileName];
+        NSString *filePath = [folderPath stringByAppendingPathComponent:content];
         BOOL folderFlag = YES;
-        [[NSFileManager defaultManager] fileExistsAtPath:folder isDirectory:&folderFlag];
+        [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&folderFlag];
         
         if (!folderFlag) {
-            [results addObject:folder];
-        }
-    }
-    
-    return [NSArray arrayWithArray:results];
-}
-- (NSArray<NSString *> *)getSubFilePathsInFolder:(NSString *)folderPath specificExtensions:(NSArray<NSString *> *)extensions {
-    NSMutableArray<NSString *> *results = [NSMutableArray array];
-    NSArray *contents = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:folderPath error:nil]; //所有的文件【递归】
-    
-    for (NSString *extension in extensions) {
-        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(id  _Nonnull evaluatedObject, NSDictionary<NSString *,id> * _Nullable bindings) {
-            return [[evaluatedObject pathExtension] caseInsensitiveCompare:extension] == NSOrderedSame;
-        }];
-        
-        NSArray *filteredArray = [contents filteredArrayUsingPredicate:predicate];
-        for (NSString *fileName in filteredArray) {
-            NSString *filePath = [folderPath stringByAppendingPathComponent:fileName];
-            
             [results addObject:filePath];
         }
     }
     
-    return [NSArray arrayWithArray:results];
+    return [results copy];
 }
-- (NSArray<NSString *> *)getSubFoldersPathInFolder:(NSString *)folderPath {
+- (NSArray<NSString *> *)allFilePathsInFolder:(NSString *)folderPath extensions:(NSArray<NSString *> *)extensions {
     NSMutableArray<NSString *> *results = [NSMutableArray array];
+    NSArray *contents = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:folderPath error:nil];
     
-    NSArray *subpaths = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:folderPath error:nil]; //所有的文件【递归】
-    for (NSString *fileName in subpaths) {
-        if ([fileName hasSuffix:@"DS_Store"]) {
-            continue;
+    for (NSString *extension in extensions) {
+        NSArray *filteredContents = [contents filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString * _Nonnull content, NSDictionary<NSString *,id> * _Nullable bindings) {
+            return [content.pathExtension caseInsensitiveCompare:extension] == NSOrderedSame;
+        }]];
+        for (NSString *content in filteredContents) {
+            NSString *filePath = [folderPath stringByAppendingPathComponent:content];
+            BOOL folderFlag = YES;
+            [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&folderFlag];
+            
+            if (!folderFlag) {
+                [results addObject:filePath];
+            }
         }
-        
-        NSString *folder = [folderPath stringByAppendingPathComponent:fileName];
+    }
+    
+    return [results copy];
+}
+- (NSArray<NSString *> *)allFolderPathInFolder:(NSString *)folderPath {
+    NSMutableArray<NSString *> *results = [NSMutableArray array];
+    NSArray *contents = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:folderPath error:nil];
+    
+    for (NSString *content in contents) {
+        NSString *folder = [folderPath stringByAppendingPathComponent:content];
         BOOL folderFlag = YES;
         [[NSFileManager defaultManager] fileExistsAtPath:folder isDirectory:&folderFlag];
         
@@ -211,54 +208,61 @@
         }
     }
     
-    return [NSArray arrayWithArray:results];
+    return [results copy];
+}
+- (NSArray<NSString *> *)allContentPathsInFolder:(NSString *)folderPath {
+    NSArray *contents = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:folderPath error:nil];
+    return [contents bk_map:^id(NSString *obj) {
+        return [folderPath stringByAppendingPathComponent:obj];
+    }];
 }
 
 #pragma mark - Attributes
-- (NSDictionary *)getAllAttributesOfItemAtPath:(NSString *)path {
+- (NSDictionary *)allAttributesOfItemAtPath:(NSString *)path {
     NSError *error;
     NSDictionary *dict = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:&error];
     return [NSDictionary dictionaryWithDictionary:dict];
 }
-
-- (id)getSpecificAttributeOfItemAtPath:(NSString *)path attribute:(NSString *)attribute {
-    return [self getAllAttributesOfItemAtPath:path][attribute];
+- (id)attribute:(NSString *)attribute ofItemAtPath:(NSString *)path {
+    return [self allAttributesOfItemAtPath:path][attribute];
 }
 
 #pragma mark - Check
-- (BOOL)isContentExistAtPath:(NSString *)contentPath {
+- (BOOL)fileExistsAtPath:(NSString *)contentPath {
     return [[NSFileManager defaultManager] fileExistsAtPath:contentPath];
 }
 - (BOOL)contentIsFolderAtPath:(NSString *)contentPath {
-    BOOL isFolder = NO;
-    [[NSFileManager defaultManager] fileExistsAtPath:contentPath isDirectory:&isFolder];
-    return isFolder;
+    BOOL folderFlag = NO;
+    [[NSFileManager defaultManager] fileExistsAtPath:contentPath isDirectory:&folderFlag];
+    return folderFlag;
 }
 - (BOOL)isEmptyFolderAtPath:(NSString *)folderPath {
-    NSArray *contents = [self getFilePathsInFolder:folderPath];
-    return contents.count == 0;
+    return [self contentPathsInFolder:folderPath].count == 0;
 }
 
 #pragma mark - Tool
-- (NSArray<NSURL *> *)convertFilePathsArrayToFileURLsArray:(NSArray<NSString *> *)paths {
-    NSMutableArray<NSURL *> *results = [NSMutableArray array];
-    
-    for (NSString *path in paths) {
-        NSURL *url = [NSURL fileURLWithPath:path];
-        [results addObject:url];
-    }
-    
-    return [NSArray arrayWithArray:results];
+- (NSURL *)fileURLFromFilePath:(NSString *)filePath {
+    return [NSURL fileURLWithPath:filePath];
 }
-- (NSArray<NSString *> *)convertFileURLsArrayToFilePathsArray:(NSArray<NSURL *> *)urls {
-    NSMutableArray<NSString *> *results = [NSMutableArray array];
-    
-    for (NSURL *url in urls) {
-        NSString *path = url.path;
-        [results addObject:path];
+- (NSString *)filePathFromFileURL:(NSURL *)fileURL {
+    return fileURL.path;
+}
+- (NSArray<NSURL *> *)fileURLsFromFilePaths:(NSArray<NSString *> *)filePaths {
+    return [filePaths bk_map:^id(NSString *obj) {
+        return [NSURL fileURLWithPath:obj];
+    }];
+}
+- (NSArray<NSString *> *)filePathsFromFileURLs:(NSArray<NSURL *> *)fileURLs {
+    return [fileURLs bk_map:^id(NSURL *obj) {
+        return obj.path;
+    }];
+}
+- (BOOL)fileShouldIgnore:(NSString *)fileName {
+    if ([fileName hasSuffix:@"DS_Store"]) {
+        return YES;
     }
     
-    return [NSArray arrayWithArray:results];
+    return NO;;
 }
 
 @end
