@@ -49,7 +49,7 @@ NSString * const MUBAlertEscapeKeyEquivalent = @"\033";
     MUBAlert *alert = [MUBAlert new];
     alert.alertStyle = style;
     alert.messageText = message;
-    if (info.isNotNull) {
+    if (info.isNotEmpty) {
         alert.informativeText = info;
     }
     

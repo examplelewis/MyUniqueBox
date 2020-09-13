@@ -12,7 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MUBUtilityManager : NSObject
 
+#pragma mark - Date & Time
 + (NSString *)humanReadableTimeFromInterval:(NSTimeInterval)interval;
+
+#pragma mark - Tool
++ (NSString *)readFileAtPath:(NSString *)path;
 
 @end
 

@@ -1,5 +1,5 @@
 //
-//  NSString+MUBAdd.h
+//  MUBMenuItemManager.h
 //  MyUniqueBox
 //
 //  Created by 龚宇 on 20/09/13.
@@ -10,12 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSString (MUBAdd)
-
-- (BOOL)isEmpty;
-- (BOOL)isNotEmpty;
-
-- (void)exportToPath:(NSString *)path;
+@interface MUBMenuItemManager : NSObject
 
 @end
 

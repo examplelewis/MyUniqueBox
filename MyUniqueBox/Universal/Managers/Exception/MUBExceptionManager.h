@@ -1,5 +1,5 @@
 //
-//  NSString+MUBAdd.h
+//  MUBExceptionManager.h
 //  MyUniqueBox
 //
 //  Created by 龚宇 on 20/09/13.
@@ -10,12 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSString (MUBAdd)
+@interface MUBExceptionManager : NSObject
 
-- (BOOL)isEmpty;
-- (BOOL)isNotEmpty;
-
-- (void)exportToPath:(NSString *)path;
+void uncaughtExceptionHandler(NSException *exception);
 
 @end
 

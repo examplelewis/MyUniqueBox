@@ -49,6 +49,12 @@
 		ACF22754250E0D7300A2E3F6 /* MUBAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF22753250E0D7300A2E3F6 /* MUBAlert.m */; };
 		ACF22757250E100400A2E3F6 /* NSString+MUBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF22756250E100400A2E3F6 /* NSString+MUBAdd.m */; };
 		ACF2275B250E1F3C00A2E3F6 /* MUBAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF2275A250E1F3C00A2E3F6 /* MUBAlertManager.m */; };
+		ACF2275E250E378000A2E3F6 /* MUBModalWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF2275D250E378000A2E3F6 /* MUBModalWindowController.m */; };
+		ACF22761250E39BC00A2E3F6 /* MUBMenuItemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF22760250E39BC00A2E3F6 /* MUBMenuItemManager.m */; };
+		ACF22764250E3A2900A2E3F6 /* MUBExceptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF22763250E3A2900A2E3F6 /* MUBExceptionManager.m */; };
+		ACF22768250E55AB00A2E3F6 /* NSArray+MUBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF22767250E55AB00A2E3F6 /* NSArray+MUBAdd.m */; };
+		ACF2276B250E5A5E00A2E3F6 /* NSDictionary+MUBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF2276A250E5A5E00A2E3F6 /* NSDictionary+MUBAdd.m */; };
+		ACF2276E250E5CD400A2E3F6 /* NSColor+MUBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF2276D250E5CD400A2E3F6 /* NSColor+MUBAdd.m */; };
 		ACF363B1250D4C4A00C1DC47 /* MUBUtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF363B0250D4C4A00C1DC47 /* MUBUtilityManager.m */; };
 		ACF363B6250D536600C1DC47 /* MUBSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF363B5250D536600C1DC47 /* MUBSettingManager.m */; };
 		ACF363B9250D556300C1DC47 /* MUBFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF363B8250D556300C1DC47 /* MUBFileManager.m */; };
@@ -157,6 +163,18 @@
 		ACF22756250E100400A2E3F6 /* NSString+MUBAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+MUBAdd.m"; sourceTree = "<group>"; };
 		ACF22759250E1F3C00A2E3F6 /* MUBAlertManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBAlertManager.h; sourceTree = "<group>"; };
 		ACF2275A250E1F3C00A2E3F6 /* MUBAlertManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBAlertManager.m; sourceTree = "<group>"; };
+		ACF2275C250E377F00A2E3F6 /* MUBModalWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBModalWindowController.h; sourceTree = "<group>"; };
+		ACF2275D250E378000A2E3F6 /* MUBModalWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBModalWindowController.m; sourceTree = "<group>"; };
+		ACF2275F250E39BC00A2E3F6 /* MUBMenuItemManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBMenuItemManager.h; sourceTree = "<group>"; };
+		ACF22760250E39BC00A2E3F6 /* MUBMenuItemManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBMenuItemManager.m; sourceTree = "<group>"; };
+		ACF22762250E3A2900A2E3F6 /* MUBExceptionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBExceptionManager.h; sourceTree = "<group>"; };
+		ACF22763250E3A2900A2E3F6 /* MUBExceptionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBExceptionManager.m; sourceTree = "<group>"; };
+		ACF22766250E55AB00A2E3F6 /* NSArray+MUBAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+MUBAdd.h"; sourceTree = "<group>"; };
+		ACF22767250E55AB00A2E3F6 /* NSArray+MUBAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MUBAdd.m"; sourceTree = "<group>"; };
+		ACF22769250E5A5E00A2E3F6 /* NSDictionary+MUBAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+MUBAdd.h"; sourceTree = "<group>"; };
+		ACF2276A250E5A5E00A2E3F6 /* NSDictionary+MUBAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MUBAdd.m"; sourceTree = "<group>"; };
+		ACF2276C250E5CD400A2E3F6 /* NSColor+MUBAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+MUBAdd.h"; sourceTree = "<group>"; };
+		ACF2276D250E5CD400A2E3F6 /* NSColor+MUBAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSColor+MUBAdd.m"; sourceTree = "<group>"; };
 		ACF363AD250D46B900C1DC47 /* MUBHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBHeader.h; sourceTree = "<group>"; };
 		ACF363AE250D47F600C1DC47 /* MUBCategoriesHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBCategoriesHeader.h; sourceTree = "<group>"; };
 		ACF363AF250D4C4A00C1DC47 /* MUBUtilityManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBUtilityManager.h; sourceTree = "<group>"; };
@@ -310,6 +328,7 @@
 				ACF22758250E1F2B00A2E3F6 /* Alert */,
 				ACA93E7F250BFBA9008F65A8 /* Cookie */,
 				ACA93E8E250BFE1F008F65A8 /* Download */,
+				ACF22765250E3A3000A2E3F6 /* Exception */,
 				ACA93E8B250BFDE9008F65A8 /* File */,
 				ACA93E91250BFE7C008F65A8 /* HTTP */,
 				ACA93E8D250BFDF5008F65A8 /* Log */,
@@ -359,6 +378,8 @@
 		ACA93E8F250BFE36008F65A8 /* MenuItem */ = {
 			isa = PBXGroup;
 			children = (
+				ACF2275F250E39BC00A2E3F6 /* MUBMenuItemManager.h */,
+				ACF22760250E39BC00A2E3F6 /* MUBMenuItemManager.m */,
 			);
 			path = MenuItem;
 			sourceTree = "<group>";
@@ -399,6 +420,12 @@
 			isa = PBXGroup;
 			children = (
 				ACF363AE250D47F600C1DC47 /* MUBCategoriesHeader.h */,
+				ACF22766250E55AB00A2E3F6 /* NSArray+MUBAdd.h */,
+				ACF22767250E55AB00A2E3F6 /* NSArray+MUBAdd.m */,
+				ACF2276C250E5CD400A2E3F6 /* NSColor+MUBAdd.h */,
+				ACF2276D250E5CD400A2E3F6 /* NSColor+MUBAdd.m */,
+				ACF22769250E5A5E00A2E3F6 /* NSDictionary+MUBAdd.h */,
+				ACF2276A250E5A5E00A2E3F6 /* NSDictionary+MUBAdd.m */,
 				ACF22755250E100400A2E3F6 /* NSString+MUBAdd.h */,
 				ACF22756250E100400A2E3F6 /* NSString+MUBAdd.m */,
 			);
@@ -412,6 +439,8 @@
 				ACF22753250E0D7300A2E3F6 /* MUBAlert.m */,
 				ACA93E87250BFC71008F65A8 /* MUBModel.h */,
 				ACA93E88250BFC71008F65A8 /* MUBModel.m */,
+				ACF2275C250E377F00A2E3F6 /* MUBModalWindowController.h */,
+				ACF2275D250E378000A2E3F6 /* MUBModalWindowController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -576,6 +605,15 @@
 				ACF2275A250E1F3C00A2E3F6 /* MUBAlertManager.m */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		ACF22765250E3A3000A2E3F6 /* Exception */ = {
+			isa = PBXGroup;
+			children = (
+				ACF22762250E3A2900A2E3F6 /* MUBExceptionManager.h */,
+				ACF22763250E3A2900A2E3F6 /* MUBExceptionManager.m */,
+			);
+			path = Exception;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -753,10 +791,12 @@
 			files = (
 				ACC9EBFA250BBC8400B0311D /* NSArray+YYAdd.m in Sources */,
 				ACF3C416250D3B2200070C8E /* MUBLogManager.m in Sources */,
+				ACF2275E250E378000A2E3F6 /* MUBModalWindowController.m in Sources */,
 				ACF3C413250D387500070C8E /* WindowController.m in Sources */,
 				ACC9EBFD250BBC8400B0311D /* NSObject+YYAdd.m in Sources */,
 				ACC9EC07250BBC8400B0311D /* NSObject+YYAddForKVO.m in Sources */,
 				ACF363B1250D4C4A00C1DC47 /* MUBUtilityManager.m in Sources */,
+				ACF2276B250E5A5E00A2E3F6 /* NSDictionary+MUBAdd.m in Sources */,
 				ACC9EC2B250BC30100B0311D /* SAPIIllust.m in Sources */,
 				ACC9EBFE250BBC8400B0311D /* NSData+YYAdd.m in Sources */,
 				ACC9EC26250BC30100B0311D /* PAPIAuthor.m in Sources */,
@@ -765,6 +805,7 @@
 				ACF363B9250D556300C1DC47 /* MUBFileManager.m in Sources */,
 				ACDCE282250BAC0E0014BE47 /* ViewController.m in Sources */,
 				ACF22757250E100400A2E3F6 /* NSString+MUBAdd.m in Sources */,
+				ACF22761250E39BC00A2E3F6 /* MUBMenuItemManager.m in Sources */,
 				ACC9EBFC250BBC8400B0311D /* NSBundle+YYAdd.m in Sources */,
 				ACC9EBFB250BBC8400B0311D /* NSNumber+YYAdd.m in Sources */,
 				ACDCE28A250BAC100014BE47 /* main.m in Sources */,
@@ -779,12 +820,15 @@
 				ACC9EC02250BBC8400B0311D /* NSObject+YYAddForARC.m in Sources */,
 				ACC9EC00250BBC8400B0311D /* NSKeyedUnarchiver+YYAdd.m in Sources */,
 				ACC9EC29250BC30100B0311D /* PAPIIllustList.m in Sources */,
+				ACF2276E250E5CD400A2E3F6 /* NSColor+MUBAdd.m in Sources */,
+				ACF22764250E3A2900A2E3F6 /* MUBExceptionManager.m in Sources */,
 				ACC9EC03250BBC8400B0311D /* NSDate+YYAdd.m in Sources */,
 				ACC9EC06250BBC8400B0311D /* NSDictionary+YYAdd.m in Sources */,
 				ACC9EBFF250BBC8400B0311D /* NSThread+YYAdd.m in Sources */,
 				ACC9EC01250BBC8400B0311D /* NSTimer+YYAdd.m in Sources */,
 				ACA93E89250BFC71008F65A8 /* MUBModel.m in Sources */,
 				ACC9EC04250BBC8400B0311D /* NSString+YYAdd.m in Sources */,
+				ACF22768250E55AB00A2E3F6 /* NSArray+MUBAdd.m in Sources */,
 				ACF22754250E0D7300A2E3F6 /* MUBAlert.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

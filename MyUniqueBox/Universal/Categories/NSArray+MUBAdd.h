@@ -1,5 +1,5 @@
 //
-//  NSString+MUBAdd.h
+//  NSArray+MUBAdd.h
 //  MyUniqueBox
 //
 //  Created by 龚宇 on 20/09/13.
@@ -10,12 +10,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NSString (MUBAdd)
+@interface NSArray (MUBAdd)
 
 - (BOOL)isEmpty;
 - (BOOL)isNotEmpty;
 
+- (NSString *)stringValue;
+
 - (void)exportToPath:(NSString *)path;
+- (void)exportToPlistPath:(NSString *)plistPath;
 
 @end
 

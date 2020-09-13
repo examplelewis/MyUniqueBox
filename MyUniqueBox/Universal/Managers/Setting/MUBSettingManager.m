@@ -24,7 +24,7 @@ static NSString * const MUBMainFolderPath = @"/Users/mercury/SynologyDrive/~同�
 - (instancetype)init {
     self = [super init];
     if (self) {
-        if ([[MUBFileManager defaultManager] fileExistsAtPath:MUBMainFolderPath]) {
+        if ([MUBFileManager fileExistsAtPath:MUBMainFolderPath]) {
             _mainFolderPath = MUBMainFolderPath;
         } else {
             [MUBAlertManager showCriticalAlertOnMainWindowWithMessage:@"主文件夹不存在" info:[NSString stringWithFormat:@"需要检查:\n%@", MUBMainFolderPath] runModal:NO handler:nil];

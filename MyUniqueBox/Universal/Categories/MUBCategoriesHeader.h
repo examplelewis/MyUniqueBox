@@ -9,6 +9,9 @@
 #ifndef MUBCategoriesHeader_h
 #define MUBCategoriesHeader_h
 
+#import "NSArray+MUBAdd.h"
+#import "NSColor+MUBAdd.h"
+#import "NSDictionary+MUBAdd.h"
 #import "NSString+MUBAdd.h"
 
 #endif /* MUBCategoriesHeader_h */

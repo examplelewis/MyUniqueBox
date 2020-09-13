@@ -12,4 +12,7 @@
 // Time Format
 static NSString * const MUBTimeFormatyMdHmsS = @"yyyy-MM-dd HH:mm:ss.SSS";
 
+// Notification Key
+static NSString * const MUBDidGetWeiboTokenNotification = @"com.gongyu.MyUniqueBox.MUBDidGetWeiboTokenNotification";
+
 #endif /* MUBConstHeader_h */

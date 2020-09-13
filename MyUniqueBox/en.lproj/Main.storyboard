@@ -1146,6 +1146,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" usesAppearanceFont="YES"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="exportButtonDidPress:" target="XfG-lQ-9wD" id="uOn-YK-Gnw"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3G6-tC-Xhf">
                                 <rect key="frame" x="279" y="595" width="67" height="32"/>
@@ -1153,6 +1156,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" usesAppearanceFont="YES"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="tempButtonDidPress:" target="XfG-lQ-9wD" id="8s1-hK-YVo"/>
+                                </connections>
                             </button>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRV-Ad-cMb">
                                 <rect key="frame" x="20" y="58" width="320" height="524"/>
@@ -1209,7 +1215,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <progressIndicator wantsLayer="YES" maxValue="100" doubleValue="50" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="KRD-t3-QTb">
+                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="KRD-t3-QTb">
                                 <rect key="frame" x="20" y="19" width="984" height="20"/>
                             </progressIndicator>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6kt-8C-eBW">
@@ -1226,6 +1232,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" usesAppearanceFont="YES"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="cleanButtonDidPress:" target="XfG-lQ-9wD" id="mEW-1C-iK4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <constraints>

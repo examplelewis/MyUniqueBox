@@ -12,52 +12,51 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#pragma mark - Lifecycle
-+ (instancetype)defaultManager;
-
 #pragma mark - Create
-- (BOOL)createFolderAtPath:(NSString *)folderPath;
++ (BOOL)createFolderAtPath:(NSString *)folderPath;
 
 #pragma mark - Trash
-- (BOOL)trashFilePath:(NSString *)filePath;
-- (BOOL)trashFileURL:(NSURL *)fileURL;
-- (BOOL)trashFileURL:(NSURL *)fileURL resultItemURL:(NSURL * _Nullable)outResultingURL;
-- (BOOL)trashItemAtURL:(NSURL *)url resultingItemURL:(NSURL * _Nullable * _Nullable)outResultingURL error:(NSError **)error;
-- (void)trashFilePaths:(NSArray<NSString *> *)filePaths;
-- (void)trashFileURLs:(NSArray<NSURL *> *)fileURLs;
++ (BOOL)trashFilePath:(NSString *)filePath;
++ (BOOL)trashFileURL:(NSURL *)fileURL;
++ (BOOL)trashFileURL:(NSURL *)fileURL resultItemURL:(NSURL * _Nullable)outResultingURL;
++ (BOOL)trashItemAtURL:(NSURL *)url resultingItemURL:(NSURL * _Nullable * _Nullable)outResultingURL error:(NSError **)error;
++ (void)trashFilePaths:(NSArray<NSString *> *)filePaths;
++ (void)trashFileURLs:(NSArray<NSURL *> *)fileURLs;
 
 #pragma mark - Move
-- (void)moveItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath;
-- (void)moveItemFromURL:(NSURL *)fromURL toDestURL:(NSURL *)toURL;
-- (void)moveItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath error:(NSError **)error;
-- (void)moveItemFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL error:(NSError **)error;
++ (void)moveItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath;
++ (void)moveItemFromURL:(NSURL *)fromURL toDestURL:(NSURL *)toURL;
++ (void)moveItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath error:(NSError **)error;
++ (void)moveItemFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL error:(NSError **)error;
 
 #pragma mark - File Path
-- (NSArray<NSString *> *)filePathsInFolder:(NSString *)folderPath;
-- (NSArray<NSString *> *)filePathsInFolder:(NSString *)folderPath extensions:(NSArray<NSString *> *)extensions;
-- (NSArray<NSString *> *)folderPathsInFolder:(NSString *)folderPath;
-- (NSArray<NSString *> *)contentPathsInFolder:(NSString *)folderPath;
++ (NSArray<NSString *> *)filePathsInFolder:(NSString *)folderPath;
++ (NSArray<NSString *> *)filePathsInFolder:(NSString *)folderPath extensions:(NSArray<NSString *> *)extensions;
++ (NSArray<NSString *> *)folderPathsInFolder:(NSString *)folderPath;
++ (NSArray<NSString *> *)contentPathsInFolder:(NSString *)folderPath;
 
-- (NSArray<NSString *> *)allFilePathsInFolder:(NSString *)folderPath;
-- (NSArray<NSString *> *)allFilePathsInFolder:(NSString *)folderPath extensions:(NSArray<NSString *> *)extensions;
-- (NSArray<NSString *> *)allFolderPathInFolder:(NSString *)folderPath;
-- (NSArray<NSString *> *)allContentPathsInFolder:(NSString *)folderPath;
++ (NSArray<NSString *> *)allFilePathsInFolder:(NSString *)folderPath;
++ (NSArray<NSString *> *)allFilePathsInFolder:(NSString *)folderPath extensions:(NSArray<NSString *> *)extensions;
++ (NSArray<NSString *> *)allFolderPathInFolder:(NSString *)folderPath;
++ (NSArray<NSString *> *)allContentPathsInFolder:(NSString *)folderPath;
 
 #pragma mark - Attributes
-- (NSDictionary *)allAttributesOfItemAtPath:(NSString *)path;
-- (id)attribute:(NSString *)attribute ofItemAtPath:(NSString *)path;
++ (NSDictionary *)allAttributesOfItemAtPath:(NSString *)path;
++ (id)attribute:(NSString *)attribute ofItemAtPath:(NSString *)path;
 
 #pragma mark - Check
-- (BOOL)fileExistsAtPath:(NSString *)contentPath;
-- (BOOL)contentIsFolderAtPath:(NSString *)contentPath;
-- (BOOL)isEmptyFolderAtPath:(NSString *)folderPath;
++ (BOOL)fileExistsAtPath:(NSString *)contentPath;
++ (BOOL)contentIsFolderAtPath:(NSString *)contentPath;
++ (BOOL)isEmptyFolderAtPath:(NSString *)folderPath;
 
 #pragma mark - Tool
-- (NSURL *)fileURLFromFilePath:(NSString *)filePath;
-- (NSString *)filePathFromFileURL:(NSURL *)fileURL;
-- (NSArray<NSURL *> *)fileURLsFromFilePaths:(NSArray<NSString *> *)filePaths;
-- (NSArray<NSString *> *)filePathsFromFileURLs:(NSArray<NSURL *> *)fileURLs;
-- (BOOL)fileShouldIgnore:(NSString *)fileName;
++ (NSURL *)fileURLFromFilePath:(NSString *)filePath;
++ (NSString *)filePathFromFileURL:(NSURL *)fileURL;
++ (NSArray<NSURL *> *)fileURLsFromFilePaths:(NSArray<NSString *> *)filePaths;
++ (NSArray<NSString *> *)filePathsFromFileURLs:(NSArray<NSURL *> *)fileURLs;
++ (BOOL)fileShouldIgnore:(NSString *)fileName;
+
+
 
 @end
 
