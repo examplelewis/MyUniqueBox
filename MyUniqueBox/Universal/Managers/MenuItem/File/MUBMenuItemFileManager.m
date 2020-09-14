@@ -7,6 +7,7 @@
 //
 
 #import "MUBMenuItemFileManager.h"
+#import "MUBFileSearchCharactersManager.h"
 
 static NSInteger const kDefaultTag = 3000000;
 
@@ -118,11 +119,11 @@ static NSInteger const kDefaultTag = 3000000;
         case 6: {
             switch (action) {
                 case 1: {
-                    
+                    [[[MUBFileSearchCharactersManager alloc] initWithCharacters:@"* ? \\ \" < > | / :  "] showOpenPanel];
                 }
                     break;
                 case 2: {
-                    
+                    [[[MUBFileSearchCharactersManager alloc] initWithCharacters:@"* ? \\ \" < > | / :  "] modifyFileNames];
                 }
                     break;
                 case 3: {

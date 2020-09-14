@@ -20,6 +20,7 @@
 #import "YYCategories.h"
 #import <BlocksKit/BlocksKit.h>
 #import <Masonry.h>
+#import <YYModel.h>
 
 #import "MUBHeader.h"
 #import "MUBConstHeader.h"

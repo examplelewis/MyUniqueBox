@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		20C16586D5C82EE507AEB31B /* libPods-MyUniqueBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553C02ABF77D14E37F76373 /* libPods-MyUniqueBox.a */; };
+		AC988139250FC8EE00CC3372 /* MUBSettingWeiboAuthModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC988138250FC8EE00CC3372 /* MUBSettingWeiboAuthModel.m */; };
+		AC98813C250FC91300CC3372 /* MUBSettingDeviantartAuthModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC98813B250FC91300CC3372 /* MUBSettingDeviantartAuthModel.m */; };
 		ACA93E82250BFBC3008F65A8 /* MUBCookieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA93E81250BFBC3008F65A8 /* MUBCookieManager.m */; };
 		ACA93E85250BFC10008F65A8 /* MUBCookieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA93E84250BFC10008F65A8 /* MUBCookieModel.m */; };
 		ACA93E89250BFC71008F65A8 /* MUBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA93E88250BFC71008F65A8 /* MUBModel.m */; };
@@ -87,6 +89,11 @@
 /* Begin PBXFileReference section */
 		0CD11C90F80CD22493D9C250 /* Pods-MyUniqueBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUniqueBox.release.xcconfig"; path = "Target Support Files/Pods-MyUniqueBox/Pods-MyUniqueBox.release.xcconfig"; sourceTree = "<group>"; };
 		3553C02ABF77D14E37F76373 /* libPods-MyUniqueBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyUniqueBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC988135250FBC7B00CC3372 /* MUBFileHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBFileHeader.h; sourceTree = "<group>"; };
+		AC988137250FC8EE00CC3372 /* MUBSettingWeiboAuthModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBSettingWeiboAuthModel.h; sourceTree = "<group>"; };
+		AC988138250FC8EE00CC3372 /* MUBSettingWeiboAuthModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBSettingWeiboAuthModel.m; sourceTree = "<group>"; };
+		AC98813A250FC91300CC3372 /* MUBSettingDeviantartAuthModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBSettingDeviantartAuthModel.h; sourceTree = "<group>"; };
+		AC98813B250FC91300CC3372 /* MUBSettingDeviantartAuthModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBSettingDeviantartAuthModel.m; sourceTree = "<group>"; };
 		ACA93E76250BE4CE008F65A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ACA93E80250BFBC3008F65A8 /* MUBCookieManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBCookieManager.h; sourceTree = "<group>"; };
 		ACA93E81250BFBC3008F65A8 /* MUBCookieManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBCookieManager.m; sourceTree = "<group>"; };
@@ -264,6 +271,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AC04518E250FD202000DA710 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AC988137250FC8EE00CC3372 /* MUBSettingWeiboAuthModel.h */,
+				AC988138250FC8EE00CC3372 /* MUBSettingWeiboAuthModel.m */,
+				AC98813A250FC91300CC3372 /* MUBSettingDeviantartAuthModel.h */,
+				AC98813B250FC91300CC3372 /* MUBSettingDeviantartAuthModel.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AC988136250FC8CB00CC3372 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				ACF363B4250D536600C1DC47 /* MUBSettingManager.h */,
+				ACF363B5250D536600C1DC47 /* MUBSettingManager.m */,
+				AC04518E250FD202000DA710 /* Models */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		ACA93E78250BFB0C008F65A8 /* Universal */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +326,7 @@
 		ACA93E7B250BFB41008F65A8 /* File */ = {
 			isa = PBXGroup;
 			children = (
+				AC988135250FBC7B00CC3372 /* MUBFileHeader.h */,
 				ACF22774250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.h */,
 				ACF22775250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.m */,
 			);
@@ -350,8 +379,6 @@
 				ACF3C415250D3B2200070C8E /* MUBLogManager.m */,
 				ACF2277A250E72AE00A2E3F6 /* MUBOpenPanelManager.h */,
 				ACF2277B250E72AE00A2E3F6 /* MUBOpenPanelManager.m */,
-				ACF363B4250D536600C1DC47 /* MUBSettingManager.h */,
-				ACF363B5250D536600C1DC47 /* MUBSettingManager.m */,
 				ACF3C40E250D36E900070C8E /* MUBUIManager.h */,
 				ACF3C40F250D36E900070C8E /* MUBUIManager.m */,
 				ACF363AF250D4C4A00C1DC47 /* MUBUtilityManager.h */,
@@ -360,6 +387,7 @@
 				ACA93E8E250BFE1F008F65A8 /* Download */,
 				ACA93E91250BFE7C008F65A8 /* HTTP */,
 				ACA93E8F250BFE36008F65A8 /* MenuItem */,
+				AC988136250FC8CB00CC3372 /* Setting */,
 				ACA93E93250BFEDB008F65A8 /* SQL */,
 			);
 			path = Managers;
@@ -784,11 +812,13 @@
 				ACF2277C250E72AE00A2E3F6 /* MUBOpenPanelManager.m in Sources */,
 				ACF22761250E39BC00A2E3F6 /* MUBMenuItemManager.m in Sources */,
 				ACC9EBFC250BBC8400B0311D /* NSBundle+YYAdd.m in Sources */,
+				AC98813C250FC91300CC3372 /* MUBSettingDeviantartAuthModel.m in Sources */,
 				ACC9EBFB250BBC8400B0311D /* NSNumber+YYAdd.m in Sources */,
 				ACDCE28A250BAC100014BE47 /* main.m in Sources */,
 				ACF22772250E670B00A2E3F6 /* MUBMenuItemFileManager.m in Sources */,
 				ACC9EC05250BBC8400B0311D /* NSNotificationCenter+YYAdd.m in Sources */,
 				ACC9EC27250BC30100B0311D /* PAPIIllust.m in Sources */,
+				AC988139250FC8EE00CC3372 /* MUBSettingWeiboAuthModel.m in Sources */,
 				ACC9EC2A250BC30100B0311D /* PixivAPI.m in Sources */,
 				ACF3C410250D36E900070C8E /* MUBUIManager.m in Sources */,
 				ACA93E85250BFC10008F65A8 /* MUBCookieModel.m in Sources */,
