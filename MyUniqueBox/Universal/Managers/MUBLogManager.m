@@ -165,12 +165,13 @@
     
     // 本地日志
     if (behavior & MUBLogBehaviorOnDDLog) {
+        // 本地文件不记录时间，因为CocoaLumberJack会自动添加时间
         if (behavior & MUBLogBehaviorLevelDefault) {
-            [self saveDefaultLocalLog:logs];
+            [self saveDefaultLocalLog:log];
         } else if (behavior & MUBLogBehaviorLevelWarning) {
-            [self saveWarningLocalLog:logs];
+            [self saveWarningLocalLog:log];
         } else if (behavior & MUBLogBehaviorLevelError) {
-            [self saveErrorLocalLog:logs];
+            [self saveErrorLocalLog:log];
         }
     }
     
@@ -188,6 +189,11 @@
         // 显示日志
         if ((behavior & MUBLogBehaviorAppend) || !self.newestLog) {
             dispatch_main_sync_safe(^{
+                // 如果不是第一行的话，那么添加一个空行
+                if ([MUBUIManager defaultManager].viewController.logTextView.textStorage.length != 0) {
+                    NSAttributedString *newLineLog = [[NSAttributedString alloc] initWithString:@"\n" attributes:@{NSForegroundColorAttributeName: textColor}];
+                    [[MUBUIManager defaultManager].viewController.logTextView.textStorage appendAttributedString:newLineLog];
+                }
                 [[MUBUIManager defaultManager].viewController.logTextView.textStorage appendAttributedString:attributedLog];
             });
             

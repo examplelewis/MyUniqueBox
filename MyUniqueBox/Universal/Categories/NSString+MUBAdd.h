@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)exportToPath:(NSString *)path;
 
+- (NSString *)md5Middle;
+
 @end
 
 NS_ASSUME_NONNULL_END

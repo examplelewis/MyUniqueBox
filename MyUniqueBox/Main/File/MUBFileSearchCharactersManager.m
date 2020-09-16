@@ -46,7 +46,7 @@
     [MUBOpenPanelManager showOpenPanelOnMainWindowWithBehavior:MUBOpenPanelBehaviorSingleDir message:@"请选择需要查找的根目录" handler:^(NSOpenPanel *openPanel, NSModalResponse result) {
         if (result == NSModalResponseOK) {
             dispatch_async(dispatch_get_main_queue(), ^{
-                NSString *filePath = [MUBFileManager filepathFromOpenPanelURL:openPanel.URLs.firstObject];
+                NSString *filePath = [MUBFileManager pathFromOpenPanelURL:openPanel.URLs.firstObject];
                 [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"已选择的根目录：%@", filePath];
                 [self searchWithRootFolder:filePath];
             });

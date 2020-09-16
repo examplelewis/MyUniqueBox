@@ -31,4 +31,12 @@
     }
 }
 
+- (NSString *)md5Middle {
+    if (self.length != 16) {
+        return self;
+    } else {
+        return [self substringWithRange:NSMakeRange(self.length / 4, self.length / 2)];
+    }
+}
+
 @end

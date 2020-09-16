@@ -7,6 +7,7 @@
 //
 
 #import "MUBMenuItemFileManager.h"
+#import "MUBFileRename32BitMD5Manager.h"
 #import "MUBFileSearchCharactersManager.h"
 
 static NSInteger const kDefaultTag = 3000000;
@@ -104,11 +105,11 @@ static NSInteger const kDefaultTag = 3000000;
         case 5: {
             switch (action) {
                 case 1: {
-                    
+                    [[MUBFileRename32BitMD5Manager new] showOpenPanelWithByType:MUBFileRename32BitMD5ByTypeByFolder];
                 }
                     break;
                 case 2: {
-                    
+                    [[MUBFileRename32BitMD5Manager new] showOpenPanelWithByType:MUBFileRename32BitMD5ByTypeByFile];
                 }
                     break;
                 default:

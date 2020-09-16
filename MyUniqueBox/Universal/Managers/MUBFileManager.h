@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)isEmptyFolderAtPath:(NSString *)folderPath;
 
 #pragma mark - Panel
-+ (NSString *)filepathFromOpenPanelURL:(NSURL *)URL;
++ (NSString *)pathFromOpenPanelURL:(NSURL *)URL;
 
 #pragma mark - Tool
 + (NSURL *)fileURLFromFilePath:(NSString *)filePath;

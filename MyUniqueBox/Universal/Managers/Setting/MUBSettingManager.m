@@ -45,7 +45,7 @@ static NSString * const MUBMainFolderPath = @"/Users/mercury/SynologyDrive/~同�
 - (void)setupPaths {
     NSArray *downloadDirs = [[NSFileManager defaultManager] URLsForDirectory:NSDownloadsDirectory inDomains:NSUserDomainMask];
     if (downloadDirs.count > 0) {
-        _downloadFolderPath = [MUBFileManager filepathFromOpenPanelURL:downloadDirs.firstObject];
+        _downloadFolderPath = [MUBFileManager pathFromOpenPanelURL:downloadDirs.firstObject];
     } else {
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"当前用户不存在下载文件夹"];
     }

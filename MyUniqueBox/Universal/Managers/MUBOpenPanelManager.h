@@ -19,8 +19,10 @@ typedef NS_ENUM(NSUInteger, MUBOpenPanelBehavior) {
     
     MUBOpenPanelBehaviorSingleDir       = MUBOpenPanelBehaviorChooseDir,
     MUBOpenPanelBehaviorSingleFile      = MUBOpenPanelBehaviorChooseFile,
+    MUBOpenPanelBehaviorSingleContent   = MUBOpenPanelBehaviorChooseDir | MUBOpenPanelBehaviorChooseFile,
     MUBOpenPanelBehaviorMultipleDir     = MUBOpenPanelBehaviorChooseDir | MUBOpenPanelBehaviorMultiple,
     MUBOpenPanelBehaviorMultipleFile    = MUBOpenPanelBehaviorChooseFile | MUBOpenPanelBehaviorMultiple,
+    MUBOpenPanelBehaviorMultipleContent = MUBOpenPanelBehaviorChooseDir | MUBOpenPanelBehaviorChooseFile | MUBOpenPanelBehaviorMultiple,
 };
 
 @interface MUBOpenPanelManager : NSObject

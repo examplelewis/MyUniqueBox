@@ -230,7 +230,7 @@
 }
 
 #pragma mark - Panel
-+ (NSString *)filepathFromOpenPanelURL:(NSURL *)URL {
++ (NSString *)pathFromOpenPanelURL:(NSURL *)URL {
     NSString *path = URL.absoluteString;
     path = [path stringByReplacingOccurrencesOfString:@"%20" withString:@" "];
     path = [path stringByReplacingOccurrencesOfString:@"file://" withString:@""];

@@ -13,6 +13,7 @@
 		ACA93E82250BFBC3008F65A8 /* MUBCookieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA93E81250BFBC3008F65A8 /* MUBCookieManager.m */; };
 		ACA93E85250BFC10008F65A8 /* MUBCookieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA93E84250BFC10008F65A8 /* MUBCookieModel.m */; };
 		ACA93E89250BFC71008F65A8 /* MUBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA93E88250BFC71008F65A8 /* MUBModel.m */; };
+		ACABB286251240A400FBE603 /* MUBFileRename32BitMD5Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACABB285251240A400FBE603 /* MUBFileRename32BitMD5Manager.m */; };
 		ACC9EBFA250BBC8400B0311D /* NSArray+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC9EBDD250BBC8400B0311D /* NSArray+YYAdd.m */; };
 		ACC9EBFB250BBC8400B0311D /* NSNumber+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC9EBDE250BBC8400B0311D /* NSNumber+YYAdd.m */; };
 		ACC9EBFC250BBC8400B0311D /* NSBundle+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC9EBE3250BBC8400B0311D /* NSBundle+YYAdd.m */; };
@@ -101,6 +102,8 @@
 		ACA93E84250BFC10008F65A8 /* MUBCookieModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBCookieModel.m; sourceTree = "<group>"; };
 		ACA93E87250BFC71008F65A8 /* MUBModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBModel.h; sourceTree = "<group>"; };
 		ACA93E88250BFC71008F65A8 /* MUBModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBModel.m; sourceTree = "<group>"; };
+		ACABB284251240A400FBE603 /* MUBFileRename32BitMD5Manager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBFileRename32BitMD5Manager.h; sourceTree = "<group>"; };
+		ACABB285251240A400FBE603 /* MUBFileRename32BitMD5Manager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBFileRename32BitMD5Manager.m; sourceTree = "<group>"; };
 		ACC9EBDB250BBC8400B0311D /* YYCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCategories.h; sourceTree = "<group>"; };
 		ACC9EBDD250BBC8400B0311D /* NSArray+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+YYAdd.m"; sourceTree = "<group>"; };
 		ACC9EBDE250BBC8400B0311D /* NSNumber+YYAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSNumber+YYAdd.m"; sourceTree = "<group>"; };
@@ -329,6 +332,8 @@
 				AC988135250FBC7B00CC3372 /* MUBFileHeader.h */,
 				ACF22774250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.h */,
 				ACF22775250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.m */,
+				ACABB284251240A400FBE603 /* MUBFileRename32BitMD5Manager.h */,
+				ACABB285251240A400FBE603 /* MUBFileRename32BitMD5Manager.m */,
 			);
 			path = File;
 			sourceTree = "<group>";
@@ -817,6 +822,7 @@
 				ACDCE28A250BAC100014BE47 /* main.m in Sources */,
 				ACF22772250E670B00A2E3F6 /* MUBMenuItemFileManager.m in Sources */,
 				ACC9EC05250BBC8400B0311D /* NSNotificationCenter+YYAdd.m in Sources */,
+				ACABB286251240A400FBE603 /* MUBFileRename32BitMD5Manager.m in Sources */,
 				ACC9EC27250BC30100B0311D /* PAPIIllust.m in Sources */,
 				AC988139250FC8EE00CC3372 /* MUBSettingWeiboAuthModel.m in Sources */,
 				ACC9EC2A250BC30100B0311D /* PixivAPI.m in Sources */,
