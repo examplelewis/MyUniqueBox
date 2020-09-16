@@ -19,17 +19,17 @@ YYSYNTH_DUMMY_CLASS(NSString_YYAdd)
 
 @implementation NSString (YYAdd)
 
-//- (NSString *)md2String {
-//    return [[self dataUsingEncoding:NSUTF8StringEncoding] md2String];
-//}
-//
-//- (NSString *)md4String {
-//    return [[self dataUsingEncoding:NSUTF8StringEncoding] md4String];
-//}
-//
-//- (NSString *)md5String {
-//    return [[self dataUsingEncoding:NSUTF8StringEncoding] md5String];
-//}
+- (NSString *)md2String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] md2String];
+}
+
+- (NSString *)md4String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] md4String];
+}
+
+- (NSString *)md5String {
+    return [[self dataUsingEncoding:NSUTF8StringEncoding] md5String];
+}
 
 - (NSString *)sha1String {
     return [[self dataUsingEncoding:NSUTF8StringEncoding] sha1String];
