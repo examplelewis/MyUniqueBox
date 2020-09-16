@@ -85,10 +85,6 @@
     contents = [MUBFileManager filterReturnedContents:contents];
     
     for (NSString *content in contents) {
-        if ([self fileShouldIgnore:content]) {
-            continue;
-        }
-        
         NSString *filePath = [folderPath stringByAppendingPathComponent:content];
         BOOL folderFlag = YES;
         [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&folderFlag];
@@ -152,10 +148,6 @@
     contents = [MUBFileManager filterReturnedContents:contents];
     
     for (NSString *content in contents) {
-        if ([self fileShouldIgnore:content]) {
-            continue;
-        }
-        
         NSString *filePath = [folderPath stringByAppendingPathComponent:content];
         BOOL folderFlag = YES;
         [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&folderFlag];
