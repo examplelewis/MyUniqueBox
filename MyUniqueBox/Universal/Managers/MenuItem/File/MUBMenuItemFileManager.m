@@ -9,6 +9,7 @@
 #import "MUBMenuItemFileManager.h"
 #import "MUBFileUniversalManager.h"
 #import "MUBFileSearchCharactersManager.h"
+#import "MUBFileExtractTypeFileManager.h"
 
 static NSInteger const kDefaultTag = 3000000;
 
@@ -86,15 +87,15 @@ static NSInteger const kDefaultTag = 3000000;
         case 4: {
             switch (action) {
                 case 1: {
-                    
+                    [[[MUBFileExtractTypeFileManager alloc] initWithTypes:@"GIF"] showOpenPanel];
                 }
                     break;
                 case 2: {
-                    
+                    [[[MUBFileExtractTypeFileManager alloc] initWithTypes:[MUBSettingManager defaultManager].mimeVideoTypes] showOpenPanel];
                 }
                     break;
                 case 3: {
-                    
+                    [[[MUBFileExtractTypeFileManager alloc] initWithTypes:nil] showOpenPanel];
                 }
                     break;
                 default:

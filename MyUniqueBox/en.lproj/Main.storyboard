@@ -732,14 +732,14 @@
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="kSH-1U-IPO"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="将文件夹中的文件(夹)移动到废纸篓 [选取根文件夹]" tag="3000302" id="3PW-mg-RmE">
+                                        <menuItem title="将文件夹中的文件(夹)移动到废纸篓 [选取根文件夹]【功能未测试】" tag="3000302" id="3PW-mg-RmE">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="xAY-Rh-9Aa"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hK8-uG-jHX"/>
-                                        <menuItem title="提取(剪切)文件夹内的 GIF [选取根文件夹]" tag="3000401" id="EeZ-6i-Ttb">
+                                        <menuItem title="提取(剪切)文件夹内的 GIF [选取根文件夹]【功能已测试通过】" tag="3000401" id="EeZ-6i-Ttb">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="xlT-KJ-9W8"/>
@@ -751,7 +751,7 @@
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="hsc-gp-nLV"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="提取(剪切)文件夹内的 特定格式 [选取根文件夹]" tag="3000403" id="IH1-S8-bNl">
+                                        <menuItem title="提取(剪切)文件夹内的 特定格式 [空格区分字符] [选取根文件夹]" tag="3000403" id="IH1-S8-bNl">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="nLN-Il-PTH"/>
@@ -771,7 +771,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hMK-X8-8j9"/>
-                                        <menuItem title="导出文件名中包含OneDrive禁止字符的路径 [选取根文件夹]" tag="3000601" id="ubW-lk-iGh">
+                                        <menuItem title="导出文件名中包含OneDrive禁止字符的路径 [选取根文件夹]【功能未测试】" tag="3000601" id="ubW-lk-iGh">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="cfv-VV-lOe"/>

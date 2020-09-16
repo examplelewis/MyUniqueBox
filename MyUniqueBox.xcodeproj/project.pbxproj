@@ -11,6 +11,7 @@
 		AC988139250FC8EE00CC3372 /* MUBSettingWeiboModels.m in Sources */ = {isa = PBXBuildFile; fileRef = AC988138250FC8EE00CC3372 /* MUBSettingWeiboModels.m */; };
 		AC98813C250FC91300CC3372 /* MUBSettingDeviantartModels.m in Sources */ = {isa = PBXBuildFile; fileRef = AC98813B250FC91300CC3372 /* MUBSettingDeviantartModels.m */; };
 		AC9EA55F25125BA000084B80 /* MUBFileUniversalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EA55E25125BA000084B80 /* MUBFileUniversalManager.m */; };
+		AC9EA562251265C200084B80 /* MUBFileExtractTypeFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EA561251265C200084B80 /* MUBFileExtractTypeFileManager.m */; };
 		ACA93E82250BFBC3008F65A8 /* MUBCookieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA93E81250BFBC3008F65A8 /* MUBCookieManager.m */; };
 		ACA93E85250BFC10008F65A8 /* MUBCookieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA93E84250BFC10008F65A8 /* MUBCookieModel.m */; };
 		ACA93E89250BFC71008F65A8 /* MUBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA93E88250BFC71008F65A8 /* MUBModel.m */; };
@@ -98,6 +99,8 @@
 		AC98813B250FC91300CC3372 /* MUBSettingDeviantartModels.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBSettingDeviantartModels.m; sourceTree = "<group>"; };
 		AC9EA55D25125BA000084B80 /* MUBFileUniversalManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBFileUniversalManager.h; sourceTree = "<group>"; };
 		AC9EA55E25125BA000084B80 /* MUBFileUniversalManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBFileUniversalManager.m; sourceTree = "<group>"; };
+		AC9EA560251265C200084B80 /* MUBFileExtractTypeFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBFileExtractTypeFileManager.h; sourceTree = "<group>"; };
+		AC9EA561251265C200084B80 /* MUBFileExtractTypeFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBFileExtractTypeFileManager.m; sourceTree = "<group>"; };
 		ACA93E76250BE4CE008F65A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ACA93E80250BFBC3008F65A8 /* MUBCookieManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBCookieManager.h; sourceTree = "<group>"; };
 		ACA93E81250BFBC3008F65A8 /* MUBCookieManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBCookieManager.m; sourceTree = "<group>"; };
@@ -339,6 +342,8 @@
 				AC9EA55E25125BA000084B80 /* MUBFileUniversalManager.m */,
 				ACF22774250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.h */,
 				ACF22775250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.m */,
+				AC9EA560251265C200084B80 /* MUBFileExtractTypeFileManager.h */,
+				AC9EA561251265C200084B80 /* MUBFileExtractTypeFileManager.m */,
 			);
 			path = File;
 			sourceTree = "<group>";
@@ -833,6 +838,7 @@
 				AC988139250FC8EE00CC3372 /* MUBSettingWeiboModels.m in Sources */,
 				ACC9EC2A250BC30100B0311D /* PixivAPI.m in Sources */,
 				ACF3C410250D36E900070C8E /* MUBUIManager.m in Sources */,
+				AC9EA562251265C200084B80 /* MUBFileExtractTypeFileManager.m in Sources */,
 				ACA93E85250BFC10008F65A8 /* MUBCookieModel.m in Sources */,
 				ACF363B6250D536600C1DC47 /* MUBSettingManager.m in Sources */,
 				ACDCE27F250BAC0E0014BE47 /* AppDelegate.m in Sources */,
