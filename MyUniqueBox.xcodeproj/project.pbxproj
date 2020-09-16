@@ -10,10 +10,10 @@
 		20C16586D5C82EE507AEB31B /* libPods-MyUniqueBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553C02ABF77D14E37F76373 /* libPods-MyUniqueBox.a */; };
 		AC988139250FC8EE00CC3372 /* MUBSettingWeiboModels.m in Sources */ = {isa = PBXBuildFile; fileRef = AC988138250FC8EE00CC3372 /* MUBSettingWeiboModels.m */; };
 		AC98813C250FC91300CC3372 /* MUBSettingDeviantartModels.m in Sources */ = {isa = PBXBuildFile; fileRef = AC98813B250FC91300CC3372 /* MUBSettingDeviantartModels.m */; };
+		AC9EA55F25125BA000084B80 /* MUBFileUniversalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EA55E25125BA000084B80 /* MUBFileUniversalManager.m */; };
 		ACA93E82250BFBC3008F65A8 /* MUBCookieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA93E81250BFBC3008F65A8 /* MUBCookieManager.m */; };
 		ACA93E85250BFC10008F65A8 /* MUBCookieModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA93E84250BFC10008F65A8 /* MUBCookieModel.m */; };
 		ACA93E89250BFC71008F65A8 /* MUBModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACA93E88250BFC71008F65A8 /* MUBModel.m */; };
-		ACABB286251240A400FBE603 /* MUBFileRename32BitMD5Manager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACABB285251240A400FBE603 /* MUBFileRename32BitMD5Manager.m */; };
 		ACABB28F2512575F00FBE603 /* MUBSettingFileModels.m in Sources */ = {isa = PBXBuildFile; fileRef = ACABB28E2512575F00FBE603 /* MUBSettingFileModels.m */; };
 		ACC9EBFA250BBC8400B0311D /* NSArray+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC9EBDD250BBC8400B0311D /* NSArray+YYAdd.m */; };
 		ACC9EBFB250BBC8400B0311D /* NSNumber+YYAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC9EBDE250BBC8400B0311D /* NSNumber+YYAdd.m */; };
@@ -96,6 +96,8 @@
 		AC988138250FC8EE00CC3372 /* MUBSettingWeiboModels.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBSettingWeiboModels.m; sourceTree = "<group>"; };
 		AC98813A250FC91300CC3372 /* MUBSettingDeviantartModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBSettingDeviantartModels.h; sourceTree = "<group>"; };
 		AC98813B250FC91300CC3372 /* MUBSettingDeviantartModels.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBSettingDeviantartModels.m; sourceTree = "<group>"; };
+		AC9EA55D25125BA000084B80 /* MUBFileUniversalManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBFileUniversalManager.h; sourceTree = "<group>"; };
+		AC9EA55E25125BA000084B80 /* MUBFileUniversalManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBFileUniversalManager.m; sourceTree = "<group>"; };
 		ACA93E76250BE4CE008F65A8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ACA93E80250BFBC3008F65A8 /* MUBCookieManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBCookieManager.h; sourceTree = "<group>"; };
 		ACA93E81250BFBC3008F65A8 /* MUBCookieManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBCookieManager.m; sourceTree = "<group>"; };
@@ -103,8 +105,6 @@
 		ACA93E84250BFC10008F65A8 /* MUBCookieModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBCookieModel.m; sourceTree = "<group>"; };
 		ACA93E87250BFC71008F65A8 /* MUBModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBModel.h; sourceTree = "<group>"; };
 		ACA93E88250BFC71008F65A8 /* MUBModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBModel.m; sourceTree = "<group>"; };
-		ACABB284251240A400FBE603 /* MUBFileRename32BitMD5Manager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBFileRename32BitMD5Manager.h; sourceTree = "<group>"; };
-		ACABB285251240A400FBE603 /* MUBFileRename32BitMD5Manager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBFileRename32BitMD5Manager.m; sourceTree = "<group>"; };
 		ACABB28D2512575F00FBE603 /* MUBSettingFileModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBSettingFileModels.h; sourceTree = "<group>"; };
 		ACABB28E2512575F00FBE603 /* MUBSettingFileModels.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBSettingFileModels.m; sourceTree = "<group>"; };
 		ACC9EBDB250BBC8400B0311D /* YYCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCategories.h; sourceTree = "<group>"; };
@@ -335,10 +335,10 @@
 			isa = PBXGroup;
 			children = (
 				AC988135250FBC7B00CC3372 /* MUBFileHeader.h */,
+				AC9EA55D25125BA000084B80 /* MUBFileUniversalManager.h */,
+				AC9EA55E25125BA000084B80 /* MUBFileUniversalManager.m */,
 				ACF22774250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.h */,
 				ACF22775250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.m */,
-				ACABB284251240A400FBE603 /* MUBFileRename32BitMD5Manager.h */,
-				ACABB285251240A400FBE603 /* MUBFileRename32BitMD5Manager.m */,
 			);
 			path = File;
 			sourceTree = "<group>";
@@ -805,6 +805,7 @@
 				ACF3C416250D3B2200070C8E /* MUBLogManager.m in Sources */,
 				ACF2275E250E378000A2E3F6 /* MUBModalWindowController.m in Sources */,
 				ACF3C413250D387500070C8E /* WindowController.m in Sources */,
+				AC9EA55F25125BA000084B80 /* MUBFileUniversalManager.m in Sources */,
 				ACF22779250E705D00A2E3F6 /* NSObject+MUBAdd.m in Sources */,
 				ACC9EBFD250BBC8400B0311D /* NSObject+YYAdd.m in Sources */,
 				ACC9EC07250BBC8400B0311D /* NSObject+YYAddForKVO.m in Sources */,
@@ -828,7 +829,6 @@
 				ACF22772250E670B00A2E3F6 /* MUBMenuItemFileManager.m in Sources */,
 				ACABB28F2512575F00FBE603 /* MUBSettingFileModels.m in Sources */,
 				ACC9EC05250BBC8400B0311D /* NSNotificationCenter+YYAdd.m in Sources */,
-				ACABB286251240A400FBE603 /* MUBFileRename32BitMD5Manager.m in Sources */,
 				ACC9EC27250BC30100B0311D /* PAPIIllust.m in Sources */,
 				AC988139250FC8EE00CC3372 /* MUBSettingWeiboModels.m in Sources */,
 				ACC9EC2A250BC30100B0311D /* PixivAPI.m in Sources */,

@@ -58,6 +58,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSArray<NSURL *> *)fileURLsFromFilePaths:(NSArray<NSString *> *)filePaths;
 + (NSArray<NSString *> *)filePathsFromFileURLs:(NSArray<NSURL *> *)fileURLs;
 + (BOOL)fileShouldIgnore:(NSString *)fileName;
++ (NSArray<NSString *> *)filterReturnedContents:(NSArray<NSString *> *)contents;
 
 @end
 

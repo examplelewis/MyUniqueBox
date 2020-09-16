@@ -732,7 +732,7 @@
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="kSH-1U-IPO"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="导出文件夹中的隐藏文件路径 [选取根文件夹]" tag="3000302" id="3PW-mg-RmE">
+                                        <menuItem title="将文件夹中的文件(夹)移动到废纸篓 [选取根文件夹]" tag="3000302" id="3PW-mg-RmE">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="xAY-Rh-9Aa"/>

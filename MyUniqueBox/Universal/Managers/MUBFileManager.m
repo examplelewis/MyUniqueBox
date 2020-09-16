@@ -82,6 +82,7 @@
 + (NSArray<NSString *> *)filePathsInFolder:(NSString *)folderPath {
     NSMutableArray<NSString *> *results = [NSMutableArray array];
     NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:nil];
+    contents = [MUBFileManager filterReturnedContents:contents];
     
     for (NSString *content in contents) {
         if ([self fileShouldIgnore:content]) {
@@ -102,6 +103,7 @@
 + (NSArray<NSString *> *)filePathsInFolder:(NSString *)folderPath extensions:(NSArray<NSString *> *)extensions {
     NSMutableArray<NSString *> *results = [NSMutableArray array];
     NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:nil];
+    contents = [MUBFileManager filterReturnedContents:contents];
     
     for (NSString *extension in extensions) {
         NSArray *filteredContents = [contents filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString * _Nonnull content, NSDictionary<NSString *,id> * _Nullable bindings) {
@@ -123,6 +125,7 @@
 + (NSArray<NSString *> *)folderPathsInFolder:(NSString *)folderPath {
     NSMutableArray<NSString *> *results = [NSMutableArray array];
     NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:nil];
+    contents = [MUBFileManager filterReturnedContents:contents];
     
     for (NSString *content in contents) {
         NSString *folder = [folderPath stringByAppendingPathComponent:content];
@@ -138,6 +141,7 @@
 }
 + (NSArray<NSString *> *)contentPathsInFolder:(NSString *)folderPath {
     NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:nil];
+    contents = [MUBFileManager filterReturnedContents:contents];
     return [contents bk_map:^id(NSString *obj) {
         return [folderPath stringByAppendingPathComponent:obj];
     }];
@@ -145,6 +149,7 @@
 + (NSArray<NSString *> *)allFilePathsInFolder:(NSString *)folderPath {
     NSMutableArray<NSString *> *results = [NSMutableArray array];
     NSArray *contents = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:folderPath error:nil];
+    contents = [MUBFileManager filterReturnedContents:contents];
     
     for (NSString *content in contents) {
         if ([self fileShouldIgnore:content]) {
@@ -165,6 +170,7 @@
 + (NSArray<NSString *> *)allFilePathsInFolder:(NSString *)folderPath extensions:(NSArray<NSString *> *)extensions {
     NSMutableArray<NSString *> *results = [NSMutableArray array];
     NSArray *contents = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:folderPath error:nil];
+    contents = [MUBFileManager filterReturnedContents:contents];
     
     for (NSString *extension in extensions) {
         NSArray *filteredContents = [contents filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString * _Nonnull content, NSDictionary<NSString *,id> * _Nullable bindings) {
@@ -186,6 +192,7 @@
 + (NSArray<NSString *> *)allFolderPathInFolder:(NSString *)folderPath {
     NSMutableArray<NSString *> *results = [NSMutableArray array];
     NSArray *contents = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:folderPath error:nil];
+    contents = [MUBFileManager filterReturnedContents:contents];
     
     for (NSString *content in contents) {
         NSString *folder = [folderPath stringByAppendingPathComponent:content];
@@ -201,6 +208,7 @@
 }
 + (NSArray<NSString *> *)allContentPathsInFolder:(NSString *)folderPath {
     NSArray *contents = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:folderPath error:nil];
+    contents = [MUBFileManager filterReturnedContents:contents];
     return [contents bk_map:^id(NSString *obj) {
         return [folderPath stringByAppendingPathComponent:obj];
     }];
@@ -261,7 +269,12 @@
         return YES;
     }
     
-    return NO;;
+    return NO;
+}
++ (NSArray<NSString *> *)filterReturnedContents:(NSArray<NSString *> *)contents {
+    return [contents bk_select:^BOOL(NSString *content) {
+        return ![MUBFileManager fileShouldIgnore:content];
+    }];
 }
 
 @end

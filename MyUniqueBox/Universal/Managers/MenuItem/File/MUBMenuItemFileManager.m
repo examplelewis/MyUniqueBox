@@ -7,7 +7,7 @@
 //
 
 #import "MUBMenuItemFileManager.h"
-#import "MUBFileRename32BitMD5Manager.h"
+#import "MUBFileUniversalManager.h"
 #import "MUBFileSearchCharactersManager.h"
 
 static NSInteger const kDefaultTag = 3000000;
@@ -75,7 +75,7 @@ static NSInteger const kDefaultTag = 3000000;
                 }
                     break;
                 case 2: {
-                    
+                    [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeSearchHiddenFile];
                 }
                     break;
                 default:
@@ -105,11 +105,11 @@ static NSInteger const kDefaultTag = 3000000;
         case 5: {
             switch (action) {
                 case 1: {
-                    [[MUBFileRename32BitMD5Manager new] showOpenPanelWithByType:MUBFileRename32BitMD5ByTypeByFolder];
+                    [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeRename32BitMD5ByFolder];
                 }
                     break;
                 case 2: {
-                    [[MUBFileRename32BitMD5Manager new] showOpenPanelWithByType:MUBFileRename32BitMD5ByTypeByFile];
+                    [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeRename32BitMD5ByFile];
                 }
                     break;
                 default:
