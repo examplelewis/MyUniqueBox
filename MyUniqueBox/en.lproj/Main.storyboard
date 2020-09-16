@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -757,7 +758,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="yts-6j-8la"/>
-                                        <menuItem title="为文件生成32位的随机名称(文件夹区分) [选取根文件夹]" tag="3000501" id="qhE-z4-Yz8">
+                                        <menuItem title="为文件生成32位的随机名称(文件夹区分) [选取根文件夹]【功能已测试通过】" tag="3000501" id="qhE-z4-Yz8">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="fhX-kP-r0f"/>

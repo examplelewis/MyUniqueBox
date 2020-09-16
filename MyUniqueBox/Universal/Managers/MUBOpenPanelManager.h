@@ -16,6 +16,7 @@ typedef NS_ENUM(NSUInteger, MUBOpenPanelBehavior) {
     MUBOpenPanelBehaviorChooseFile      = 1 << 1,
     MUBOpenPanelBehaviorCreateDir       = 1 << 2,
     MUBOpenPanelBehaviorMultiple        = 1 << 3,
+    MUBOpenPanelBehaviorShowHidden      = 1 << 3,
     
     MUBOpenPanelBehaviorSingleDir       = MUBOpenPanelBehaviorChooseDir,
     MUBOpenPanelBehaviorSingleFile      = MUBOpenPanelBehaviorChooseFile,

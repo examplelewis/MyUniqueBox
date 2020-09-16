@@ -7,15 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MUBSettingWeiboAuthModel.h"
-#import "MUBSettingDeviantartAuthModel.h"
+#import "MUBSettingWeiboModels.h"
+#import "MUBSettingDeviantartModels.h"
+#import "MUBSettingFileModels.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MUBSettingManager : NSObject
 
 @property (strong, readonly) MUBSettingWeiboAuthModel *weiboAuthModel;
+@property (strong, readonly) MUBSettingWeiboBoundaryModel *weiboBoundaryModel;
 @property (strong, readonly) MUBSettingDeviantartAuthModel *deviantartAuthModel;
+@property (strong, readonly) MUBSettingDeviantartBoundaryModel *deviantartBoundaryModel;
+@property (strong, readonly) MUBSettingFileSearchCharactersModel *fileSearchCharactersModel;
+
+@property (strong, readonly) NSArray *mimeImageTypes;
+@property (strong, readonly) NSArray *mimeVideoTypes;
 
 @property (strong, readonly) NSString *mainFolderPath;
 @property (strong, readonly) NSString *downloadFolderPath;

@@ -1,5 +1,5 @@
 //
-//  MUBSettingDeviantartAuthModel.h
+//  MUBSettingDeviantartModels.h
 //  MyUniqueBox
 //
 //  Created by 龚宇 on 20/09/14.
@@ -13,13 +13,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MUBSettingDeviantartAuthModel : MUBModel
 
 @property (strong) NSString *accessToken;
-@property (strong) NSString *expiresAt;
-@property (strong) NSString *expiresIn;
-@property (strong) NSString *refreshTime;
+@property (assign) NSTimeInterval expiresAt;
+@property (assign) NSTimeInterval expiresIn;
+@property (assign) NSTimeInterval refreshTime;
 @property (strong) NSString *refreshToken;
 @property (strong) NSString *scope;
 @property (strong) NSString *status;
 @property (strong) NSString *tokenType;
+
+@end
+
+//------------------------------
+
+@interface MUBSettingDeviantartBoundaryModel : MUBModel
+
+@property (assign) NSTimeInterval publishedTime;
 
 @end
 

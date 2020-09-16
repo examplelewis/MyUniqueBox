@@ -24,12 +24,13 @@
 }
 + (void)showOpenPanelOnWindow:(NSWindow *)window behavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message prompt:(NSString *)prompt handler:(void (^)(NSOpenPanel *openPanel, NSModalResponse result))handler {
     NSOpenPanel *panel = [NSOpenPanel openPanel];
-    [panel setMessage:message];
+    panel.message = message;
     panel.prompt = prompt;
     panel.canChooseDirectories = behavior & MUBOpenPanelBehaviorChooseDir;
     panel.canChooseFiles = behavior & MUBOpenPanelBehaviorChooseFile;
-    panel.canCreateDirectories = NO;
+    panel.canCreateDirectories = behavior & MUBOpenPanelBehaviorCreateDir;
     panel.allowsMultipleSelection = behavior & MUBOpenPanelBehaviorMultiple;
+    panel.showsHiddenFiles = behavior & MUBOpenPanelBehaviorShowHidden;
     
     [panel beginSheetModalForWindow:window completionHandler:^(NSModalResponse result) {
         if (handler) {

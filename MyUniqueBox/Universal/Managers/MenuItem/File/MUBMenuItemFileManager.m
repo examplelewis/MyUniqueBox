@@ -120,11 +120,11 @@ static NSInteger const kDefaultTag = 3000000;
         case 6: {
             switch (action) {
                 case 1: {
-                    [[[MUBFileSearchCharactersManager alloc] initWithCharacters:@"* ? \\ \" < > | / :  "] showOpenPanel];
+                    [[[MUBFileSearchCharactersManager alloc] initWithCharacters:[MUBSettingManager defaultManager].fileSearchCharactersModel.OneDrive] showOpenPanel];
                 }
                     break;
                 case 2: {
-                    [[[MUBFileSearchCharactersManager alloc] initWithCharacters:@"* ? \\ \" < > | / :  "] modifyFileNames];
+                    [[[MUBFileSearchCharactersManager alloc] initWithCharacters:[MUBSettingManager defaultManager].fileSearchCharactersModel.OneDrive] modifyFileNames];
                 }
                     break;
                 case 3: {

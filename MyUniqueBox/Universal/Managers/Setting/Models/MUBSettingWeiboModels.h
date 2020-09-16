@@ -1,5 +1,5 @@
 //
-//  MUBSettingWeiboAuthModel.h
+//  MUBSettingWeiboModels.h
 //  MyUniqueBox
 //
 //  Created by 龚宇 on 20/09/14.
@@ -18,6 +18,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong) NSString *getAccessTokenUrl;
 @property (strong) NSString *token;
 @property (strong) NSString *url;
+
+@end
+
+//------------------------------
+
+@interface MUBSettingWeiboBoundaryModel : MUBModel
+
+@property (strong) NSString *author;
+@property (strong) NSString *_id;
+@property (strong) NSString *text;
 
 @end
 
