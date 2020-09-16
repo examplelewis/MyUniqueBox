@@ -32,7 +32,7 @@
 }
 
 - (NSString *)md5Middle {
-    if (self.length != 16) {
+    if (self.length != 32) { // MD5都是32位的
         return self;
     } else {
         return [self substringWithRange:NSMakeRange(self.length / 4, self.length / 2)];
