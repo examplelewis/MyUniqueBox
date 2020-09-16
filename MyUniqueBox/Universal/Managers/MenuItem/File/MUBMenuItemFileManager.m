@@ -127,11 +127,11 @@ static NSInteger const kDefaultTag = 3000000;
                 }
                     break;
                 case 3: {
-                    
+                    [[[MUBFileSearchCharactersManager alloc] initWithCharacters:nil] showOpenPanel];
                 }
                     break;
                 case 4: {
-                    
+                    [[[MUBFileSearchCharactersManager alloc] initWithCharacters:nil] modifyFileNames];
                 }
                     break;
                 default:
