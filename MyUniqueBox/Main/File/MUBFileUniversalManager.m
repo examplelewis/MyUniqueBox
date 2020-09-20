@@ -128,7 +128,8 @@
         filePaths = [MUBFileManager filePathsInFolder:rootFolderPath];
     }
     if (filePaths.count == 0) {
-        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"为文件生成32位的随机名称, 流程失败: 选择的文件夹中没有文件"];
+        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"为文件生成32位的随机名称, 流程结束: 选择的文件夹中没有项目"];
+        return;
     }
     
     for (NSInteger i = 0; i < filePaths.count; i++) {
@@ -190,6 +191,7 @@
             itemPath = contentPaths.firstObject;
         }
         if (itemPath.length == 0) {
+            [[MUBLogManager defaultManager] addWarningLogWithFormat:@"%@ 内没有项目, 跳过", folderPath];
             continue;
         }
         
@@ -230,6 +232,7 @@
         itemPaths = [MUBFileManager contentPathsInFolder:superFolderPath];
     }
     if (itemPaths.count == 0) {
+        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"%@ 内没有项目, 跳过", superFolderPath];
         return;
     }
     
@@ -287,6 +290,7 @@
             itemPaths = [MUBFileManager filePathsInFolder:folderPath];
         }
         if (itemPaths.count == 0) {
+            [[MUBLogManager defaultManager] addWarningLogWithFormat:@"%@ 内没有项目, 跳过", folderPath];
             continue;
         }
         
