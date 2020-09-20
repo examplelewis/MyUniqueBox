@@ -39,8 +39,15 @@
             break;
         case MUBFileUniversalTypeCopyFolderHierarchy: {
             behavior = MUBOpenPanelBehaviorSingleDir;
-            message = @"需要需要复制层级的根目录";
+            message = @"需要复制层级的根目录";
         }
+            break;
+        case MUBFileUniversalTypeExtractSingleFolder:
+        case MUBFileUniversalTypeExtractSingleFile: {
+            behavior = MUBOpenPanelBehaviorSingleDir;
+            message = @"需要提取的根目录";
+        }
+            break;
         default:
             break;
     }
@@ -94,6 +101,11 @@
                             break;
                         case MUBFileUniversalTypeCopyFolderHierarchy: {
                             [MUBFileUniversalManager _copyFolderHierarchyWithRootFolderPath:path];
+                        }
+                            break;
+                        case MUBFileUniversalTypeExtractSingleFolder:
+                        case MUBFileUniversalTypeExtractSingleFile: {
+                            [MUBFileUniversalManager _extractSingleItemWithRootFolderPath:path byType:type];
                         }
                             break;
                         default:
@@ -254,6 +266,39 @@
     }
     
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"复制文件夹的层级, 流程结束"];
+}
+
+#pragma mark - MUBFileUniversalTypeExtractSingleItem
++ (void)_extractSingleItemWithRootFolderPath:(NSString *)rootFolderPath byType:(MUBFileUniversalType)byType {
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"提取文件夹的单个项目, 流程开始, 选择的根目录: %@", rootFolderPath];
+    
+    NSString *extractRootFolderName = [NSString stringWithFormat:@"%@ Extract", rootFolderPath.lastPathComponent];
+    NSString *extractRootFolderPath = [rootFolderPath.stringByDeletingLastPathComponent stringByAppendingPathComponent:extractRootFolderName];
+    [MUBFileManager createFolderAtPath:extractRootFolderPath];
+    
+    NSArray *folderPaths = [MUBFileManager folderPathsInFolder:rootFolderPath];
+    for (NSInteger i = 0; i < folderPaths.count; i++) {
+        NSString *folderPath = folderPaths[i];
+        
+        NSArray *itemPaths = @[];
+        if (byType == MUBFileUniversalTypeExtractSingleFolder) {
+            itemPaths = [MUBFileManager folderPathsInFolder:folderPath];
+        } else if (byType == MUBFileUniversalTypeExtractSingleFile) {
+            itemPaths = [MUBFileManager filePathsInFolder:folderPath];
+        }
+        if (itemPaths.count == 0) {
+            continue;
+        }
+        
+        NSString *itemPath = itemPaths.firstObject;
+        NSString *destItemPath = [extractRootFolderPath stringByAppendingPathComponent:itemPath.lastPathComponent];
+        [MUBFileManager moveItemFromPath:itemPath toPath:destItemPath];
+        
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"提取: %@", itemPath];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"至: %@", destItemPath];
+    }
+    
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"提取文件夹的单个项目, 流程结束"];
 }
 
 @end

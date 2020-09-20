@@ -21,6 +21,8 @@ typedef NS_ENUM(NSUInteger, MUBFileUniversalType) {
     MUBFileUniversalTypeRenameAddSuperFolderNameOnAllFiles,
     MUBFileUniversalTypeRenameAddSuperFolderNameOnAllContents,
     MUBFileUniversalTypeCopyFolderHierarchy,
+    MUBFileUniversalTypeExtractSingleFolder,
+    MUBFileUniversalTypeExtractSingleFile,
 };
 
 @interface MUBFileUniversalManager : NSObject

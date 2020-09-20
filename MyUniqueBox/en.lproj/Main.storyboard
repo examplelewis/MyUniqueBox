@@ -700,7 +700,13 @@
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="SxM-fK-hr0"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="提取单个子文件(夹)(针对用种子下载好的压缩包或者解压缩后的文件夹) [不递归] [选取根文件夹]" tag="3000102" id="J9H-Er-fGo">
+                                        <menuItem title="提取单个子文件夹(针对解压缩后的文件夹) [不递归] [选取根文件夹]【功能已测试通过】" tag="3000102" id="B0g-0n-zvq">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="P0u-s3-jVN"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="提取单个子文件(针对用种子下载好的压缩包) [不递归] [选取根文件夹]" tag="3000103" id="J9H-Er-fGo">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="liF-H2-gmX"/>
@@ -721,6 +727,9 @@
                                         </menuItem>
                                         <menuItem title="将只有一个的文件(夹)命名为父文件夹的名称 [不递归] [选取根文件夹]" tag="3000203" id="MpH-VC-XBi">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="Kqp-QC-BMg"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="将所有子文件夹的名称前加上根文件夹的名称 [不递归] [选取根文件夹]【功能未测试】" tag="3000204" id="CCr-wB-vcp">
                                             <modifierMask key="keyEquivalentModifierMask"/>

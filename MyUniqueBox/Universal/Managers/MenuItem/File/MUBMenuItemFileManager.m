@@ -42,7 +42,11 @@ static NSInteger const kDefaultTag = 3000000;
                 }
                     break;
                 case 2: {
-                    
+                    [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeExtractSingleFolder];
+                }
+                    break;
+                case 3: {
+                    [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeExtractSingleFile];
                 }
                     break;
                 default:
