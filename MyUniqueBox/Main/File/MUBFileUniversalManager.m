@@ -25,9 +25,9 @@
             message = @"需要查找隐藏文件的根目录";
         }
             break;
-        case MUBFileUniversalTypeRenameSingleFolder:
-        case MUBFileUniversalTypeRenameSingleFile:
-        case MUBFileUniversalTypeRenameSingleContent: {
+        case MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleFolder:
+        case MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleFile:
+        case MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleContent: {
             behavior = MUBOpenPanelBehaviorSingleDir;
             message = @"需要重新命名的根目录";
         }
@@ -56,9 +56,9 @@
                         [MUBFileUniversalManager _searchAndTrashHiddenContentsWithRootFolderPath:path];
                     }
                         break;
-                    case MUBFileUniversalTypeRenameSingleFolder:
-                    case MUBFileUniversalTypeRenameSingleFile:
-                    case MUBFileUniversalTypeRenameSingleContent: {
+                    case MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleFolder:
+                    case MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleFile:
+                    case MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleContent: {
                         [MUBFileUniversalManager _renameSingleItemWithRootFolderPath:path byType:type];
                     }
                         break;
@@ -121,7 +121,7 @@
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"将文件夹中的文件(夹)移动到废纸篓, 流程结束"];
 }
 
-#pragma mark - MUBFileUniversalTypeRenameSingleItem
+#pragma mark - MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleItem
 + (void)_renameSingleItemWithRootFolderPath:(NSString *)rootFolderPath byType:(MUBFileUniversalType)byType {
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"将只有一个子项目命名为父文件夹的名称, 流程开始, 选择的根目录: %@", rootFolderPath];
     
@@ -133,13 +133,13 @@
         NSArray *allContentPaths = [MUBFileManager allContentPathsInFolder:folderPath];
         
         NSString *itemPath = @"";
-        if (byType == MUBFileUniversalTypeRenameSingleFolder && allFolderPaths.count == 1) {
+        if (byType == MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleFolder && allFolderPaths.count == 1) {
             itemPath = allFolderPaths.firstObject;
         }
-        if (byType == MUBFileUniversalTypeRenameSingleFile && allFilePaths.count == 1) {
+        if (byType == MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleFile && allFilePaths.count == 1) {
             itemPath = allFilePaths.firstObject;
         }
-        if (byType == MUBFileUniversalTypeRenameSingleContent && allContentPaths.count == 1) {
+        if (byType == MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleContent && allContentPaths.count == 1) {
             itemPath = allContentPaths.firstObject;
         }
         if (itemPath.length == 0) {

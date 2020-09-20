@@ -14,9 +14,10 @@ typedef NS_ENUM(NSUInteger, MUBFileUniversalType) {
     MUBFileUniversalTypeRename32BitMD5ByFolder,
     MUBFileUniversalTypeRename32BitMD5ByFile,
     MUBFileUniversalTypeSearchHiddenFile,
-    MUBFileUniversalTypeRenameSingleFolder,
-    MUBFileUniversalTypeRenameSingleFile,
-    MUBFileUniversalTypeRenameSingleContent,
+    MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleFolder,
+    MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleFile,
+    MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleContent,
+    MUBFileUniversalTypeRenameAddSuperFolderNameOnAllFolders,
 };
 
 @interface MUBFileUniversalManager : NSObject

@@ -707,7 +707,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="sDA-v5-mwk"/>
-                                        <menuItem title="将只有一个的文件夹命名为父文件夹的名称 [不递归] [选取根文件夹]" tag="3000201" id="6JO-SJ-p00">
+                                        <menuItem title="将只有一个的文件夹命名为父文件夹的名称 [不递归] [选取根文件夹]【功能未测试】" tag="3000201" id="6JO-SJ-p00">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="KdN-Rq-Z0h"/>
