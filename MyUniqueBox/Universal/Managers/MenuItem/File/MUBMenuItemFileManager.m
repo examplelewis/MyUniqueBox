@@ -38,7 +38,7 @@ static NSInteger const kDefaultTag = 3000000;
         case 1: {
             switch (action) {
                 case 1: {
-                    
+                    [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeCopyFolderHierarchy];
                 }
                     break;
                 case 2: {
@@ -65,7 +65,11 @@ static NSInteger const kDefaultTag = 3000000;
                 }
                     break;
                 case 4: {
-                    
+                    [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeRenameAddSuperFolderNameOnAllFolders];
+                }
+                    break;
+                case 5: {
+                    [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeRenameAddSuperFolderNameOnAllContents];
                 }
                     break;
                 default:

@@ -722,10 +722,16 @@
                                         <menuItem title="将只有一个的文件(夹)命名为父文件夹的名称 [不递归] [选取根文件夹]" tag="3000203" id="MpH-VC-XBi">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
-                                        <menuItem title="将所有子文件夹的名称前加上根文件夹的名称 [不递归] [选取根文件夹]" tag="3000204" id="CCr-wB-vcp">
+                                        <menuItem title="将所有子文件夹的名称前加上根文件夹的名称 [不递归] [选取根文件夹]【功能未测试】" tag="3000204" id="CCr-wB-vcp">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="9qE-2w-nfd"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="将所有子文件(夹)的名称前加上根文件夹的名称 [不递归] [选取根文件夹]" tag="3000205" id="psn-AS-hiI">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="Ydf-G0-MzX"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="CaB-O2-0FU"/>
