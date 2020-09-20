@@ -293,6 +293,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		AC2CA4F92515138D00274309 /* Archive */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Archive;
+			sourceTree = "<group>";
+		};
 		AC988136250FC8CB00CC3372 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,7 +329,7 @@
 				ACA93E7B250BFB41008F65A8 /* File */,
 				ACA93E7C250BFB4B008F65A8 /* Download */,
 				ACA93E7D250BFB52008F65A8 /* Tool */,
-				ACA93E7E250BFB63008F65A8 /* Archived */,
+				AC2CA4F92515138D00274309 /* Archive */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -360,13 +367,6 @@
 			children = (
 			);
 			path = Tool;
-			sourceTree = "<group>";
-		};
-		ACA93E7E250BFB63008F65A8 /* Archived */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Archived;
 			sourceTree = "<group>";
 		};
 		ACA93E7F250BFBA9008F65A8 /* Cookie */ = {

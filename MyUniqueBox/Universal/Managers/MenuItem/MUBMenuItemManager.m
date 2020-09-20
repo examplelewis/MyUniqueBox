@@ -12,9 +12,7 @@
 @implementation MUBMenuItemManager
 
 + (void)customMenuItemDidPress:(NSMenuItem *)sender {
-    NSInteger type = sender.tag / 1000000;
-    
-    switch (type) {
+    switch (sender.tag / 1000000) {
         case 1: {
             
         }

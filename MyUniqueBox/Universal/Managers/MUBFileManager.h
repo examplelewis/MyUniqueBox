@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSArray<NSString *> *)allFilePathsInFolder:(NSString *)folderPath;
 + (NSArray<NSString *> *)allFilePathsInFolder:(NSString *)folderPath extensions:(NSArray<NSString *> *)extensions;
-+ (NSArray<NSString *> *)allFolderPathInFolder:(NSString *)folderPath;
++ (NSArray<NSString *> *)allFolderPathsInFolder:(NSString *)folderPath;
 + (NSArray<NSString *> *)allContentPathsInFolder:(NSString *)folderPath;
 
 #pragma mark - Attributes

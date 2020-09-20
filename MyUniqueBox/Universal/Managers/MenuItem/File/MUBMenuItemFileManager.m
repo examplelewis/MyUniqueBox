@@ -53,14 +53,18 @@ static NSInteger const kDefaultTag = 3000000;
         case 2: {
             switch (action) {
                 case 1: {
-                    
+                    [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeRenameSingleFolder];
                 }
                     break;
                 case 2: {
-                    
+                    [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeRenameSingleFile];
                 }
                     break;
                 case 3: {
+                    [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeRenameSingleContent];
+                }
+                    break;
+                case 4: {
                     
                 }
                     break;

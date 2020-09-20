@@ -25,6 +25,13 @@
             message = @"需要查找隐藏文件的根目录";
         }
             break;
+        case MUBFileUniversalTypeRenameSingleFolder:
+        case MUBFileUniversalTypeRenameSingleFile:
+        case MUBFileUniversalTypeRenameSingleContent: {
+            behavior = MUBOpenPanelBehaviorSingleDir;
+            message = @"需要重新命名的根目录";
+        }
+            break;
         default:
             break;
     }
@@ -33,7 +40,7 @@
         return;
     }
     
-    [MUBOpenPanelManager showOpenPanelOnMainWindowWithBehavior:MUBOpenPanelBehaviorSingleDir message:[NSString stringWithFormat:@"请选择%@", message] handler:^(NSOpenPanel * _Nonnull openPanel, NSModalResponse result) {
+    [MUBOpenPanelManager showOpenPanelOnMainWindowWithBehavior:behavior message:[NSString stringWithFormat:@"请选择%@", message] handler:^(NSOpenPanel * _Nonnull openPanel, NSModalResponse result) {
         if (result == NSModalResponseOK) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 NSString *path = [MUBFileManager pathFromOpenPanelURL:openPanel.URLs.firstObject];
@@ -49,6 +56,12 @@
                         [MUBFileUniversalManager _searchAndTrashHiddenContentsWithRootFolderPath:path];
                     }
                         break;
+                    case MUBFileUniversalTypeRenameSingleFolder:
+                    case MUBFileUniversalTypeRenameSingleFile:
+                    case MUBFileUniversalTypeRenameSingleContent: {
+                        [MUBFileUniversalManager _renameSingleItemWithRootFolderPath:path byType:type];
+                    }
+                        break;
                     default:
                         break;
                 }
@@ -57,7 +70,7 @@
     }];
 }
 
-#pragma mark - MUBFileUniversalTypeRename32BitMD5ByFolder | MUBFileUniversalTypeRename32BitMD5ByFile
+#pragma mark - MUBFileUniversalTypeRename32BitMD5
 + (void)_rename32BitMD5WithRootFolderPath:(NSString *)rootFolderPath byType:(MUBFileUniversalType)byType {
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"为文件生成32位的随机名称, 流程开始, 选择的根目录: %@", rootFolderPath];
     
@@ -75,8 +88,8 @@
         NSString *filePath = filePaths[i];
         NSString *folderPath = filePath.stringByDeletingLastPathComponent;
         
-        NSString *folderMD5 = [self md5MiddleStringFromPath:folderPath];
-        NSString *fileMD5 = [self md5MiddleStringFromPath:filePath];
+        NSString *folderMD5 = [self _md5MiddleStringFromPath:folderPath];
+        NSString *fileMD5 = [self _md5MiddleStringFromPath:filePath];
         NSString *newFilePath = [folderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@.%@", folderMD5, fileMD5, filePath.pathExtension]];
         
         [MUBFileManager moveItemFromPath:filePath toPath:newFilePath];
@@ -85,7 +98,7 @@
     
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"为文件生成32位的随机名称, 流程结束"];
 }
-+ (NSString *)md5MiddleStringFromPath:(NSString *)path {
++ (NSString *)_md5MiddleStringFromPath:(NSString *)path {
     NSDate *creationDate = [MUBFileManager attribute:NSFileCreationDate ofItemAtPath:path];
     NSString *desc = [NSString stringWithFormat:@"%@%@", path.lastPathComponent, creationDate];
     return desc.md5String.md5Middle;
@@ -106,6 +119,53 @@
     }
     
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"将文件夹中的文件(夹)移动到废纸篓, 流程结束"];
+}
+
+#pragma mark - MUBFileUniversalTypeRenameSingleItem
++ (void)_renameSingleItemWithRootFolderPath:(NSString *)rootFolderPath byType:(MUBFileUniversalType)byType {
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"将只有一个子项目命名为父文件夹的名称, 流程开始, 选择的根目录: %@", rootFolderPath];
+    
+    NSArray *folderPaths = [MUBFileManager folderPathsInFolder:rootFolderPath];
+    for (NSInteger i = 0; i < folderPaths.count; i++) {
+        NSString *folderPath = folderPaths[i];
+        NSArray *allFolderPaths = [MUBFileManager allFolderPathsInFolder:folderPath];
+        NSArray *allFilePaths = [MUBFileManager allFilePathsInFolder:folderPath];
+        NSArray *allContentPaths = [MUBFileManager allContentPathsInFolder:folderPath];
+        
+        NSString *itemPath = @"";
+        if (byType == MUBFileUniversalTypeRenameSingleFolder && allFolderPaths.count == 1) {
+            itemPath = allFolderPaths.firstObject;
+        }
+        if (byType == MUBFileUniversalTypeRenameSingleFile && allFilePaths.count == 1) {
+            itemPath = allFilePaths.firstObject;
+        }
+        if (byType == MUBFileUniversalTypeRenameSingleContent && allContentPaths.count == 1) {
+            itemPath = allContentPaths.firstObject;
+        }
+        if (itemPath.length == 0) {
+            continue;
+        }
+        
+        NSString *folderName = folderPath.lastPathComponent;
+        NSString *destItemPath = @"";
+        if ([MUBFileManager contentIsFolderAtPath:itemPath]) {
+            destItemPath = [itemPath.stringByDeletingLastPathComponent stringByAppendingPathComponent:folderName];
+        } else if ([folderName.pathExtension isEqualToString:itemPath.pathExtension]) {
+            destItemPath = [itemPath.stringByDeletingLastPathComponent stringByAppendingPathComponent:folderName];
+        } else {
+            destItemPath = [itemPath.stringByDeletingLastPathComponent stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@", folderName, itemPath.pathExtension]];
+        }
+        if (destItemPath.length == 0) {
+            continue;
+        }
+        
+        [MUBFileManager moveItemFromPath:itemPath toPath:destItemPath];
+        
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"将: %@", itemPath];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"重命名为: %@", destItemPath];
+    }
+    
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"将只有一个子项目命名为父文件夹的名称, 流程结束"];
 }
 
 @end

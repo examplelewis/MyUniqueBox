@@ -181,7 +181,7 @@
     
     return [results copy];
 }
-+ (NSArray<NSString *> *)allFolderPathInFolder:(NSString *)folderPath {
++ (NSArray<NSString *> *)allFolderPathsInFolder:(NSString *)folderPath {
     NSMutableArray<NSString *> *results = [NSMutableArray array];
     NSArray *contents = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:folderPath error:nil];
     contents = [MUBFileManager filterReturnedContents:contents];

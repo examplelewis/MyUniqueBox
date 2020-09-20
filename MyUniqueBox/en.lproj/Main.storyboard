@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -700,26 +700,29 @@
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="SxM-fK-hr0"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="提取解压后的文件夹层级 [选取根文件夹]" tag="3000102" id="e8p-cz-Qoi">
+                                        <menuItem title="提取单个子文件(夹)(针对用种子下载好的压缩包或者解压缩后的文件夹) [不递归] [选取根文件夹]" tag="3000102" id="J9H-Er-fGo">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="4HB-LZ-KKF"/>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="liF-H2-gmX"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="sDA-v5-mwk"/>
-                                        <menuItem title="将每个子文件夹命名为根文件夹的名称 [选取根文件夹]" tag="3000201" id="6JO-SJ-p00">
+                                        <menuItem title="将只有一个的文件夹命名为父文件夹的名称 [不递归] [选取根文件夹]" tag="3000201" id="6JO-SJ-p00">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="KdN-Rq-Z0h"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="将每个子文件命名为根文件夹的名称 [选取根文件夹]" tag="3000202" id="Dz9-UW-gCb">
+                                        <menuItem title="将只有一个的文件命名为父文件夹的名称 [不递归] [选取根文件夹]" tag="3000202" id="Dz9-UW-gCb">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="ger-JV-vj3"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="将所有子文件夹的名称前加上根文件夹的名称 [选取根文件夹]" tag="3000203" id="CCr-wB-vcp">
+                                        <menuItem title="将只有一个的文件(夹)命名为父文件夹的名称 [不递归] [选取根文件夹]" tag="3000203" id="MpH-VC-XBi">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="将所有子文件夹的名称前加上根文件夹的名称 [不递归] [选取根文件夹]" tag="3000204" id="CCr-wB-vcp">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="9qE-2w-nfd"/>
@@ -732,7 +735,7 @@
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="kSH-1U-IPO"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="将文件夹中的文件(夹)移动到废纸篓 [选取根文件夹]【功能未测试】" tag="3000302" id="3PW-mg-RmE">
+                                        <menuItem title="将文件夹中的隐藏文件(夹)移动到废纸篓 [选取根文件夹]【功能未测试】" tag="3000302" id="3PW-mg-RmE">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="xAY-Rh-9Aa"/>
