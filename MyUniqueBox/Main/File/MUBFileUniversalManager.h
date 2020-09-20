@@ -23,6 +23,7 @@ typedef NS_ENUM(NSUInteger, MUBFileUniversalType) {
     MUBFileUniversalTypeCopyFolderHierarchy,
     MUBFileUniversalTypeExtractSingleFolder,
     MUBFileUniversalTypeExtractSingleFile,
+    MUBFileUniversalTypeTrashNoItemsFolder,
 };
 
 @interface MUBFileUniversalManager : NSObject

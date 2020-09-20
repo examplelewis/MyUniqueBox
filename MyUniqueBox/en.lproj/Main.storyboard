@@ -694,7 +694,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="L05-6W-X9S"/>
-                                        <menuItem title="复制文件夹的层级 [选取根文件夹]" tag="3000101" id="bOb-YX-Yqe">
+                                        <menuItem title="复制文件夹的层级 [选取根文件夹]【功能已测试通过】" tag="3000101" id="bOb-YX-Yqe">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="SxM-fK-hr0"/>
@@ -744,7 +744,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="CaB-O2-0FU"/>
-                                        <menuItem title="清空没有项目的子文件夹 [选取根文件夹]" tag="3000301" id="gnm-0o-QSc">
+                                        <menuItem title="清空没有项目的子文件夹 [不递归] [选取根文件夹]【功能未测试】" tag="3000301" id="gnm-0o-QSc">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="kSH-1U-IPO"/>

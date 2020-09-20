@@ -48,15 +48,19 @@
             message = @"需要提取的根目录";
         }
             break;
+        case MUBFileUniversalTypeTrashNoItemsFolder: {
+            behavior = MUBOpenPanelBehaviorSingleDir;
+            message = @"需要清空没有项目的根目录";
+        }
+            break;
         default:
             break;
     }
     if (behavior == MUBOpenPanelBehaviorNone) {
         [[MUBLogManager defaultManager] addWarningLogWithFormat:@"MUBFileUniversalManager showOpenPanelWithType behavior == MUBOpenPanelBehaviorNone"];
-        return;
+    } else {
+        [MUBFileUniversalManager _showOpenPanelWithType:type behavior:behavior message:message];
     }
-    
-    [MUBFileUniversalManager _showOpenPanelWithType:type behavior:behavior message:message];
 }
 + (void)_showOpenPanelWithType:(MUBFileUniversalType)type behavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message {
     [MUBOpenPanelManager showOpenPanelOnMainWindowWithBehavior:behavior message:[NSString stringWithFormat:@"请选择%@", message] handler:^(NSOpenPanel * _Nonnull openPanel, NSModalResponse result) {
@@ -106,6 +110,10 @@
                         case MUBFileUniversalTypeExtractSingleFolder:
                         case MUBFileUniversalTypeExtractSingleFile: {
                             [MUBFileUniversalManager _extractSingleItemWithRootFolderPath:path byType:type];
+                        }
+                            break;
+                        case MUBFileUniversalTypeTrashNoItemsFolder: {
+                            [MUBFileUniversalManager _trashNoItemsFolderWithRootFolderPath:path];
                         }
                             break;
                         default:
@@ -303,6 +311,26 @@
     }
     
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"提取文件夹的单个项目, 流程结束"];
+}
+
+#pragma mark - MUBFileUniversalTypeTrashNoItemsFolder
++ (void)_trashNoItemsFolderWithRootFolderPath:(NSString *)rootFolderPath {
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"清空没有项目的文件夹, 流程开始, 选择的根目录: %@", rootFolderPath];
+    
+    NSArray *folderPaths = [MUBFileManager folderPathsInFolder:rootFolderPath];
+    for (NSInteger i = 0; i < folderPaths.count; i++) {
+        NSString *folderPath = folderPaths[i];
+        NSArray *contentPaths = [MUBFileManager contentPathsInFolder:folderPath];
+        if (contentPaths.count != 0) {
+            continue;
+        }
+        
+        [MUBFileManager trashFilePath:folderPath];
+        
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"将 %@ 移动到废纸篓", folderPath];
+    }
+    
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"清空没有项目的文件夹, 流程结束"];
 }
 
 @end
