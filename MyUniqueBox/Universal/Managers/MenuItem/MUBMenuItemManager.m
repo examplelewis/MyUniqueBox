@@ -7,7 +7,9 @@
 //
 
 #import "MUBMenuItemManager.h"
-#import "MUBMenuItemHeader.h"
+
+#import "MUBMenuItemFileManager.h"
+#import "MUBMenuItemToolManager.h"
 
 @implementation MUBMenuItemManager
 
@@ -30,7 +32,7 @@
         }
             break;
         case 5: {
-            
+            [MUBMenuItemToolManager customMenuItemDidPress:sender];
         }
             break;
         default:

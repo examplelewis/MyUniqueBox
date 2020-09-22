@@ -77,10 +77,10 @@ static NSString * const MUBMainFolderPath = @"/Users/mercury/SynologyDrive/~ÂêåÊ
 
 
 - (void)migrateMyResourceBoxPreferences {
-    NSMutableDictionary *Authorization = [NSMutableDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"Authorization.plist"]];
-    NSMutableDictionary *DeviantartLoginInfo = [NSMutableDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"DeviantartLoginInfo.plist"]];
-    NSMutableDictionary *DeviantartPres = [NSMutableDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"DeviantartPres.plist"]];
-    NSMutableDictionary *Preference = [NSMutableDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"Preference.plist"]];
+    NSMutableDictionary *Authorization = [NSMutableDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"MRBResourceBox/Authorization.plist"]];
+    NSMutableDictionary *DeviantartLoginInfo = [NSMutableDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"MRBResourceBox/DeviantartLoginInfo.plist"]];
+    NSMutableDictionary *DeviantartPres = [NSMutableDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"MRBResourceBox/DeviantartPres.plist"]];
+    NSMutableDictionary *Preference = [NSMutableDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"MRBResourceBox/Preference.plist"]];
     
     NSMutableDictionary *mubPrefs = [NSMutableDictionary dictionary];
     mubPrefs[@"Weibo"] = @{

@@ -9,6 +9,6 @@
 #ifndef MUBMenuItemHeader_h
 #define MUBMenuItemHeader_h
 
-#import "MUBMenuItemFileManager.h"
+
 
 #endif /* MUBMenuItemHeader_h */
