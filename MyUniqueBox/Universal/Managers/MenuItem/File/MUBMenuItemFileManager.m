@@ -84,7 +84,7 @@ static NSInteger const kDefaultTag = 3000000;
         case 3: {
             switch (action) {
                 case 1: {
-                    
+                    [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeTrashNoItemsFolder];
                 }
                     break;
                 case 2: {

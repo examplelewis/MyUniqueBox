@@ -681,7 +681,7 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="文件" id="e7n-Pk-1kt">
                                     <items>
-                                        <menuItem title="将筛选整理好的图片移动到网络图片文件夹中" tag="3000001" id="LDg-2w-Sfx">
+                                        <menuItem title="将筛选整理好的图片移动到网络图片文件夹中【需要数据库，暂时不做】" tag="3000001" id="LDg-2w-Sfx">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="zaX-NC-hFI"/>
@@ -744,7 +744,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="CaB-O2-0FU"/>
-                                        <menuItem title="清空没有项目的子文件夹 [不递归] [选取根文件夹]【功能未测试】" tag="3000301" id="gnm-0o-QSc">
+                                        <menuItem title="清空没有项目的子文件夹 [不递归] [选取根文件夹]【功能已测试通过】" tag="3000301" id="gnm-0o-QSc">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="kSH-1U-IPO"/>
