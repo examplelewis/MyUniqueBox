@@ -30,10 +30,9 @@ typedef NS_ENUM(NSUInteger, MUBOpenPanelBehavior) {
 
 + (void)showOpenPanelOnMainWindowWithBehavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message handler:(void (^)(NSOpenPanel *openPanel, NSModalResponse result))handler;
 + (void)showOpenPanelOnKeyWindowWithBehavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message handler:(void (^)(NSOpenPanel *openPanel, NSModalResponse result))handler;
-+ (void)showOpenPanelOnMainWindowWithBehavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message prompt:(NSString *)prompt handler:(void (^)(NSOpenPanel *openPanel, NSModalResponse result))handler;
-+ (void)showOpenPanelOnKeyWindowWithBehavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message prompt:(NSString *)prompt handler:(void (^)(NSOpenPanel *openPanel, NSModalResponse result))handler;
-
-+ (void)showOpenPanelOnWindow:(NSWindow *)window behavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message prompt:(NSString *)prompt handler:(void (^)(NSOpenPanel *openPanel, NSModalResponse result))handler;
++ (void)showOpenPanelOnMainWindowWithBehavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message prompt:(NSString *)prompt fileTypes:(NSArray * _Nullable)fileTypes handler:(void (^)(NSOpenPanel *openPanel, NSModalResponse result))handler;
++ (void)showOpenPanelOnKeyWindowWithBehavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message prompt:(NSString *)prompt fileTypes:(NSArray * _Nullable)fileTypes handler:(void (^)(NSOpenPanel *openPanel, NSModalResponse result))handler;
++ (void)showOpenPanelOnWindow:(NSWindow *)window behavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message prompt:(NSString *)prompt fileTypes:(NSArray * _Nullable)fileTypes handler:(void (^)(NSOpenPanel *openPanel, NSModalResponse result))handler;
 
 @end
 

@@ -11,18 +11,18 @@
 @implementation MUBOpenPanelManager
 
 + (void)showOpenPanelOnMainWindowWithBehavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message handler:(void (^)(NSOpenPanel *openPanel, NSModalResponse result))handler {
-    [self showOpenPanelOnWindow:[NSApplication sharedApplication].mainWindow behavior:behavior message:message prompt:@"确定" handler:handler];
+    [self showOpenPanelOnWindow:[NSApplication sharedApplication].mainWindow behavior:behavior message:message prompt:@"确定" fileTypes:nil handler:handler];
 }
 + (void)showOpenPanelOnKeyWindowWithBehavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message handler:(void (^)(NSOpenPanel *openPanel, NSModalResponse result))handler {
-    [self showOpenPanelOnWindow:[NSApplication sharedApplication].keyWindow behavior:behavior message:message prompt:@"确定" handler:handler];
+    [self showOpenPanelOnWindow:[NSApplication sharedApplication].keyWindow behavior:behavior message:message prompt:@"确定" fileTypes:nil handler:handler];
 }
-+ (void)showOpenPanelOnMainWindowWithBehavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message prompt:(NSString *)prompt handler:(void (^)(NSOpenPanel *openPanel, NSModalResponse result))handler {
-    [self showOpenPanelOnWindow:[NSApplication sharedApplication].mainWindow behavior:behavior message:message prompt:prompt handler:handler];
++ (void)showOpenPanelOnMainWindowWithBehavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message prompt:(NSString *)prompt fileTypes:(NSArray * _Nullable)fileTypes handler:(void (^)(NSOpenPanel *openPanel, NSModalResponse result))handler {
+    [self showOpenPanelOnWindow:[NSApplication sharedApplication].mainWindow behavior:behavior message:message prompt:prompt fileTypes:fileTypes handler:handler];
 }
-+ (void)showOpenPanelOnKeyWindowWithBehavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message prompt:(NSString *)prompt handler:(void (^)(NSOpenPanel *openPanel, NSModalResponse result))handler {
-    [self showOpenPanelOnWindow:[NSApplication sharedApplication].keyWindow behavior:behavior message:message prompt:prompt handler:handler];
++ (void)showOpenPanelOnKeyWindowWithBehavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message prompt:(NSString *)prompt fileTypes:(NSArray * _Nullable)fileTypes handler:(void (^)(NSOpenPanel *openPanel, NSModalResponse result))handler {
+    [self showOpenPanelOnWindow:[NSApplication sharedApplication].keyWindow behavior:behavior message:message prompt:prompt fileTypes:fileTypes handler:handler];
 }
-+ (void)showOpenPanelOnWindow:(NSWindow *)window behavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message prompt:(NSString *)prompt handler:(void (^)(NSOpenPanel *openPanel, NSModalResponse result))handler {
++ (void)showOpenPanelOnWindow:(NSWindow *)window behavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message prompt:(NSString *)prompt fileTypes:(NSArray * _Nullable)fileTypes handler:(void (^)(NSOpenPanel *openPanel, NSModalResponse result))handler {
     NSOpenPanel *panel = [NSOpenPanel openPanel];
     panel.message = message;
     panel.prompt = prompt;
@@ -31,6 +31,9 @@
     panel.canCreateDirectories = behavior & MUBOpenPanelBehaviorCreateDir;
     panel.allowsMultipleSelection = behavior & MUBOpenPanelBehaviorMultiple;
     panel.showsHiddenFiles = behavior & MUBOpenPanelBehaviorShowHidden;
+    if (fileTypes) {
+        panel.allowedFileTypes = fileTypes;
+    }
     
     [panel beginSheetModalForWindow:window completionHandler:^(NSModalResponse result) {
         if (handler) {

@@ -875,13 +875,6 @@
                                                     <menuItem title="还原视频的默认软件为IINA" tag="5010002" id="QEu-No-30F">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
-                                                    <menuItem isSeparatorItem="YES" id="4sg-3Z-AMx"/>
-                                                    <menuItem title="转换GoAgentX的规则" tag="5010101" enabled="NO" id="vfH-p8-J0N">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                    </menuItem>
-                                                    <menuItem title="合并 ShadowsocksX 规则" tag="5010102" id="zM5-Fh-h3p">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                    </menuItem>
                                                 </items>
                                             </menu>
                                         </menuItem>
@@ -905,17 +898,6 @@
                                             <menu key="submenu" title="数码" id="fgn-wU-E1U">
                                                 <items>
                                                     <menuItem title="屏幕尺寸 / 分辨率计算" tag="5030001" id="aNn-By-ese">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                    </menuItem>
-                                                </items>
-                                            </menu>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="hHa-I2-bay"/>
-                                        <menuItem title="多媒体" tag="5040000" id="Z1A-2x-aCj">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="多媒体" id="jJ4-ao-Yh7">
-                                                <items>
-                                                    <menuItem title="获取荔枝FM上播客的信息" tag="5040001" id="5QJ-FS-NlS">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
                                                 </items>
@@ -1117,8 +1099,38 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="工具" id="mlc-a0-fHj">
                                                 <items>
-                                                    <menuItem title="抓取翻新Mac mini 2018的配置价格【暂时不用】" tag="1" enabled="NO" id="1BG-GU-LcY">
+                                                    <menuItem title="系统" enabled="NO" id="1Gc-Zw-iR6">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" id="Mct-Uw-Wby">
+                                                            <items>
+                                                                <menuItem title="转换GoAgentX的规则" enabled="NO" id="qSz-Of-Tty">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem title="合并 ShadowsocksX 规则" enabled="NO" id="6o3-iy-7M1">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
+                                                    </menuItem>
+                                                    <menuItem title="临时" enabled="NO" id="Nqe-Qb-t2i">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" id="Djw-lq-tD4">
+                                                            <items>
+                                                                <menuItem title="抓取翻新Mac mini 2018的配置价格【暂时不用】" tag="1" enabled="NO" id="1BG-GU-LcY">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
+                                                    </menuItem>
+                                                    <menuItem title="多媒体" enabled="NO" id="96h-nh-3lI">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" id="WfF-Ae-OG0">
+                                                            <items>
+                                                                <menuItem title="获取荔枝FM上播客的信息" enabled="NO" id="IGS-7h-mhv">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
                                                     </menuItem>
                                                 </items>
                                             </menu>
