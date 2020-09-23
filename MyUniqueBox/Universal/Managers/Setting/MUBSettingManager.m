@@ -51,6 +51,20 @@ static NSString * const MUBMainFolderPath = @"/Users/mercury/SynologyDrive/~ÂêåÊ
     }
     
 }
+- (void)updatePreferences {
+    NSDictionary *prefs = [NSDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"MUBPreference.plist"]];
+    NSDictionary *newPrefs = [NSDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"MUBPreferenceNew.plist"]];
+    
+    _weiboAuthModel = [MUBSettingWeiboAuthModel yy_modelWithJSON:[prefs valueForKeyPath:@"Weibo.Auth"]];
+    _weiboBoundaryModel = [MUBSettingWeiboBoundaryModel yy_modelWithJSON:[prefs valueForKeyPath:@"Weibo.Boundary"]];
+    _deviantartAuthModel = [MUBSettingDeviantartAuthModel yy_modelWithJSON:[prefs valueForKeyPath:@"DeviantArt.Auth"]];
+    _deviantartBoundaryModel = [MUBSettingDeviantartBoundaryModel yy_modelWithJSON:[prefs valueForKeyPath:@"DeviantArt.Boundary"]];
+    
+    _mimeImageTypes = [[prefs valueForKeyPath:@"MIMEType.ImageTypes"] copy];
+    _mimeVideoTypes = [[prefs valueForKeyPath:@"MIMEType.VideoTypes"] copy];
+    
+    _fileSearchCharactersModel = [MUBSettingFileSearchCharactersModel yy_modelWithJSON:[newPrefs valueForKeyPath:@"File.SearchCharacters"]];
+}
 
 #pragma mark - Types
 - (BOOL)isImageAtFilePath:(NSString *)filePath {
@@ -76,21 +90,7 @@ static NSString * const MUBMainFolderPath = @"/Users/mercury/SynologyDrive/~ÂêåÊ
     return isVideo;
 }
 
-- (void)updatePreferences {
-    NSDictionary *prefs = [NSDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"MUBPreference.plist"]];
-    NSDictionary *newPrefs = [NSDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"MUBPreferenceNew.plist"]];
-    
-    _weiboAuthModel = [MUBSettingWeiboAuthModel yy_modelWithJSON:[prefs valueForKeyPath:@"Weibo.Auth"]];
-    _weiboBoundaryModel = [MUBSettingWeiboBoundaryModel yy_modelWithJSON:[prefs valueForKeyPath:@"Weibo.Boundary"]];
-    _deviantartAuthModel = [MUBSettingDeviantartAuthModel yy_modelWithJSON:[prefs valueForKeyPath:@"DeviantArt.Auth"]];
-    _deviantartBoundaryModel = [MUBSettingDeviantartBoundaryModel yy_modelWithJSON:[prefs valueForKeyPath:@"DeviantArt.Boundary"]];
-    
-    _mimeImageTypes = [[prefs valueForKeyPath:@"MIMEType.ImageTypes"] copy];
-    _mimeVideoTypes = [[prefs valueForKeyPath:@"MIMEType.VideoTypes"] copy];
-    
-    _fileSearchCharactersModel = [MUBSettingFileSearchCharactersModel yy_modelWithJSON:[newPrefs valueForKeyPath:@"File.SearchCharacters"]];
-}
-
+#pragma mark - Paths
 - (NSString *)pathOfContentInDownloadFolder:(NSString *)component {
     return [self.downloadFolderPath stringByAppendingPathComponent:component];
 }
@@ -98,7 +98,7 @@ static NSString * const MUBMainFolderPath = @"/Users/mercury/SynologyDrive/~ÂêåÊ
     return [self.mainFolderPath stringByAppendingPathComponent:component];
 }
 
-
+#pragma mark - Migrate
 - (void)migrateMyResourceBoxPreferences {
     NSMutableDictionary *Authorization = [NSMutableDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"MRBResourceBox/Authorization.plist"]];
     NSMutableDictionary *DeviantartLoginInfo = [NSMutableDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"MRBResourceBox/DeviantartLoginInfo.plist"]];
