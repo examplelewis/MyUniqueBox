@@ -889,13 +889,13 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="图片" id="aR6-PH-zso">
                                                 <items>
-                                                    <menuItem title="简单批量裁剪图片" tag="5020001" id="t08-lO-MYt">
+                                                    <menuItem title="简单批量裁剪图片" tag="5020001" enabled="NO" id="t08-lO-MYt">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="Pcn-D3-sCw"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="自定义批量裁剪图片" tag="5020002" id="89U-UR-SIs">
+                                                    <menuItem title="自定义批量裁剪图片" tag="5020002" enabled="NO" id="89U-UR-SIs">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="uAX-k2-XRt"/>
@@ -909,7 +909,7 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="数码" id="fgn-wU-E1U">
                                                 <items>
-                                                    <menuItem title="屏幕尺寸 / 分辨率计算" tag="5030001" id="aNn-By-ese">
+                                                    <menuItem title="屏幕尺寸 / 分辨率计算" tag="5030001" enabled="NO" id="aNn-By-ese">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="8uu-O7-2BV"/>
