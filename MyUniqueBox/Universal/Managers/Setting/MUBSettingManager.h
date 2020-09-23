@@ -33,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)pathOfContentInDownloadFolder:(NSString *)component;
 
+- (BOOL)isImageAtFilePath:(NSString *)filePath;
+- (BOOL)isVideoAtFilePath:(NSString *)filePath;
+
 @end
 
 NS_ASSUME_NONNULL_END

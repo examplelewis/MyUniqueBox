@@ -52,6 +52,29 @@ static NSString * const MUBMainFolderPath = @"/Users/mercury/SynologyDrive/~ÂêåÊ
     
 }
 
+#pragma mark - Types
+- (BOOL)isImageAtFilePath:(NSString *)filePath {
+    BOOL isImage = NO;
+    for (NSString *extension in self.mimeImageTypes) {
+        isImage = [filePath.pathExtension caseInsensitiveCompare:extension];
+        if (isImage) {
+            break;
+        }
+    }
+    
+    return isImage;
+}
+- (BOOL)isVideoAtFilePath:(NSString *)filePath {
+    BOOL isVideo = NO;
+    for (NSString *extension in self.mimeVideoTypes) {
+        isVideo = [filePath.pathExtension caseInsensitiveCompare:extension];
+        if (isVideo) {
+            break;
+        }
+    }
+    
+    return isVideo;
+}
 
 - (void)updatePreferences {
     NSDictionary *prefs = [NSDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"MUBPreference.plist"]];
