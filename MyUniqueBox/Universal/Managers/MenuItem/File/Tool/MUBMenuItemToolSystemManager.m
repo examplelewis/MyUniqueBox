@@ -10,6 +10,7 @@
 #import "MUBMenuItemToolHeader.h"
 
 #import "MUBToolSystemRestoreDefaultApplicationManager.h"
+#import "MUBToolSystemWebArchiveUnarchivingManager.h"
 
 @implementation MUBMenuItemToolSystemManager
 
@@ -22,7 +23,7 @@
         case 0: {
             switch (action) {
                 case 1: {
-                    
+                    [[MUBToolSystemWebArchiveUnarchivingManager new] showOpenPanel];
                 }
                     break;
                 case 2: {

@@ -65,6 +65,7 @@
 		ACF22776250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF22775250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.m */; };
 		ACF22779250E705D00A2E3F6 /* NSObject+MUBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF22778250E705D00A2E3F6 /* NSObject+MUBAdd.m */; };
 		ACF2277C250E72AE00A2E3F6 /* MUBOpenPanelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF2277B250E72AE00A2E3F6 /* MUBOpenPanelManager.m */; };
+		ACF28FEE251B8BC0003B35D0 /* MUBToolSystemWebArchiveUnarchivingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF28FED251B8BC0003B35D0 /* MUBToolSystemWebArchiveUnarchivingManager.m */; };
 		ACF363B1250D4C4A00C1DC47 /* MUBUtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF363B0250D4C4A00C1DC47 /* MUBUtilityManager.m */; };
 		ACF363B6250D536600C1DC47 /* MUBSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF363B5250D536600C1DC47 /* MUBSettingManager.m */; };
 		ACF363B9250D556300C1DC47 /* MUBFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF363B8250D556300C1DC47 /* MUBFileManager.m */; };
@@ -210,6 +211,8 @@
 		ACF22778250E705D00A2E3F6 /* NSObject+MUBAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MUBAdd.m"; sourceTree = "<group>"; };
 		ACF2277A250E72AE00A2E3F6 /* MUBOpenPanelManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBOpenPanelManager.h; sourceTree = "<group>"; };
 		ACF2277B250E72AE00A2E3F6 /* MUBOpenPanelManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBOpenPanelManager.m; sourceTree = "<group>"; };
+		ACF28FEC251B8BC0003B35D0 /* MUBToolSystemWebArchiveUnarchivingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBToolSystemWebArchiveUnarchivingManager.h; sourceTree = "<group>"; };
+		ACF28FED251B8BC0003B35D0 /* MUBToolSystemWebArchiveUnarchivingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBToolSystemWebArchiveUnarchivingManager.m; sourceTree = "<group>"; };
 		ACF363AD250D46B900C1DC47 /* MUBHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBHeader.h; sourceTree = "<group>"; };
 		ACF363AE250D47F600C1DC47 /* MUBCategoriesHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBCategoriesHeader.h; sourceTree = "<group>"; };
 		ACF363AF250D4C4A00C1DC47 /* MUBUtilityManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBUtilityManager.h; sourceTree = "<group>"; };
@@ -658,6 +661,8 @@
 			children = (
 				ACCA66C2251A49D0007FD7C2 /* MUBToolSystemRestoreDefaultApplicationManager.h */,
 				ACCA66C3251A49D0007FD7C2 /* MUBToolSystemRestoreDefaultApplicationManager.m */,
+				ACF28FEC251B8BC0003B35D0 /* MUBToolSystemWebArchiveUnarchivingManager.h */,
+				ACF28FED251B8BC0003B35D0 /* MUBToolSystemWebArchiveUnarchivingManager.m */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -904,6 +909,7 @@
 				ACF363B6250D536600C1DC47 /* MUBSettingManager.m in Sources */,
 				ACDCE27F250BAC0E0014BE47 /* AppDelegate.m in Sources */,
 				ACF523F5251A46E00073BFEE /* MUBMenuItemToolPictureManager.m in Sources */,
+				ACF28FEE251B8BC0003B35D0 /* MUBToolSystemWebArchiveUnarchivingManager.m in Sources */,
 				ACC9EC2F250BC30800B0311D /* XMLReader.m in Sources */,
 				ACCA66C4251A49D0007FD7C2 /* MUBToolSystemRestoreDefaultApplicationManager.m in Sources */,
 				ACC9EC02250BBC8400B0311D /* NSObject+YYAddForARC.m in Sources */,
