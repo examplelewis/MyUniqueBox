@@ -869,7 +869,7 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="系统" id="Ozx-8z-NSk">
                                                 <items>
-                                                    <menuItem title="解析WebArchive文件" tag="5010001" id="cVd-tA-leX">
+                                                    <menuItem title="解析WebArchive文件【功能已通过测试】" tag="5010001" id="cVd-tA-leX">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="tNb-sL-qbh"/>
