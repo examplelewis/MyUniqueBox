@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updatePreferences;
 
 - (NSString *)pathOfContentInDownloadFolder:(NSString *)component;
+- (NSString *)pathOfContentInMainFolder:(NSString *)component;
 
 - (BOOL)isImageAtFilePath:(NSString *)filePath;
 - (BOOL)isVideoAtFilePath:(NSString *)filePath;

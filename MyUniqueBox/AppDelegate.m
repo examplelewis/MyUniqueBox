@@ -8,8 +8,9 @@
 
 #import "AppDelegate.h"
 
-#import "MUBMenuItemManager.h"
+#import "MUBDownloadSettingManager.h"
 #import "MUBExceptionManager.h"
+#import "MUBMenuItemManager.h"
 
 @interface AppDelegate ()
 
@@ -19,6 +20,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
     NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    
+    [[MUBSettingManager defaultManager] updatePreferences];
+    [[MUBDownloadSettingManager defaultManager] updatePreferences];
     
     [self setupLogger];
     

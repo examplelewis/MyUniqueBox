@@ -858,6 +858,13 @@
                                         <menuItem title="适用于 Gelbooru [选择文件]" tag="4000204" alternate="YES" id="eRr-EY-g0k">
                                             <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="rfN-Vw-AQa"/>
+                                        <menuItem title="自定义下载 [输入]" tag="4000301" id="5fY-Xp-51V">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="自定义下载 [选择文件]" tag="4000302" alternate="YES" id="UZY-wD-a2s">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>

@@ -66,6 +66,10 @@
 		ACF22779250E705D00A2E3F6 /* NSObject+MUBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF22778250E705D00A2E3F6 /* NSObject+MUBAdd.m */; };
 		ACF2277C250E72AE00A2E3F6 /* MUBOpenPanelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF2277B250E72AE00A2E3F6 /* MUBOpenPanelManager.m */; };
 		ACF28FEE251B8BC0003B35D0 /* MUBToolSystemWebArchiveUnarchivingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF28FED251B8BC0003B35D0 /* MUBToolSystemWebArchiveUnarchivingManager.m */; };
+		ACF28FF4251B9E17003B35D0 /* MUBDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF28FF3251B9E17003B35D0 /* MUBDownloadManager.m */; };
+		ACF28FFA251B9E2F003B35D0 /* MUBDownloadOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF28FF9251B9E2F003B35D0 /* MUBDownloadOperation.m */; };
+		ACF29000251B9EA3003B35D0 /* MUBDownloadSettingModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF28FFF251B9EA3003B35D0 /* MUBDownloadSettingModel.m */; };
+		ACF29006251BA08B003B35D0 /* MUBDownloadSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF29005251BA08B003B35D0 /* MUBDownloadSettingManager.m */; };
 		ACF363B1250D4C4A00C1DC47 /* MUBUtilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF363B0250D4C4A00C1DC47 /* MUBUtilityManager.m */; };
 		ACF363B6250D536600C1DC47 /* MUBSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF363B5250D536600C1DC47 /* MUBSettingManager.m */; };
 		ACF363B9250D556300C1DC47 /* MUBFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF363B8250D556300C1DC47 /* MUBFileManager.m */; };
@@ -213,6 +217,14 @@
 		ACF2277B250E72AE00A2E3F6 /* MUBOpenPanelManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBOpenPanelManager.m; sourceTree = "<group>"; };
 		ACF28FEC251B8BC0003B35D0 /* MUBToolSystemWebArchiveUnarchivingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBToolSystemWebArchiveUnarchivingManager.h; sourceTree = "<group>"; };
 		ACF28FED251B8BC0003B35D0 /* MUBToolSystemWebArchiveUnarchivingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBToolSystemWebArchiveUnarchivingManager.m; sourceTree = "<group>"; };
+		ACF28FF2251B9E17003B35D0 /* MUBDownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBDownloadManager.h; sourceTree = "<group>"; };
+		ACF28FF3251B9E17003B35D0 /* MUBDownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBDownloadManager.m; sourceTree = "<group>"; };
+		ACF28FF8251B9E2F003B35D0 /* MUBDownloadOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBDownloadOperation.h; sourceTree = "<group>"; };
+		ACF28FF9251B9E2F003B35D0 /* MUBDownloadOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBDownloadOperation.m; sourceTree = "<group>"; };
+		ACF28FFE251B9EA3003B35D0 /* MUBDownloadSettingModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBDownloadSettingModel.h; sourceTree = "<group>"; };
+		ACF28FFF251B9EA3003B35D0 /* MUBDownloadSettingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBDownloadSettingModel.m; sourceTree = "<group>"; };
+		ACF29004251BA08B003B35D0 /* MUBDownloadSettingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBDownloadSettingManager.h; sourceTree = "<group>"; };
+		ACF29005251BA08B003B35D0 /* MUBDownloadSettingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBDownloadSettingManager.m; sourceTree = "<group>"; };
 		ACF363AD250D46B900C1DC47 /* MUBHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBHeader.h; sourceTree = "<group>"; };
 		ACF363AE250D47F600C1DC47 /* MUBCategoriesHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBCategoriesHeader.h; sourceTree = "<group>"; };
 		ACF363AF250D4C4A00C1DC47 /* MUBUtilityManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBUtilityManager.h; sourceTree = "<group>"; };
@@ -433,6 +445,14 @@
 		ACA93E8E250BFE1F008F65A8 /* Download */ = {
 			isa = PBXGroup;
 			children = (
+				ACF28FF2251B9E17003B35D0 /* MUBDownloadManager.h */,
+				ACF28FF3251B9E17003B35D0 /* MUBDownloadManager.m */,
+				ACF28FF8251B9E2F003B35D0 /* MUBDownloadOperation.h */,
+				ACF28FF9251B9E2F003B35D0 /* MUBDownloadOperation.m */,
+				ACF29004251BA08B003B35D0 /* MUBDownloadSettingManager.h */,
+				ACF29005251BA08B003B35D0 /* MUBDownloadSettingManager.m */,
+				ACF28FFE251B9EA3003B35D0 /* MUBDownloadSettingModel.h */,
+				ACF28FFF251B9EA3003B35D0 /* MUBDownloadSettingModel.m */,
 			);
 			path = Download;
 			sourceTree = "<group>";
@@ -889,6 +909,7 @@
 				ACF363B9250D556300C1DC47 /* MUBFileManager.m in Sources */,
 				ACDCE282250BAC0E0014BE47 /* ViewController.m in Sources */,
 				ACF22776250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.m in Sources */,
+				ACF28FF4251B9E17003B35D0 /* MUBDownloadManager.m in Sources */,
 				ACF22757250E100400A2E3F6 /* NSString+MUBAdd.m in Sources */,
 				ACF2277C250E72AE00A2E3F6 /* MUBOpenPanelManager.m in Sources */,
 				ACF22761250E39BC00A2E3F6 /* MUBMenuItemManager.m in Sources */,
@@ -897,9 +918,11 @@
 				AC98813C250FC91300CC3372 /* MUBSettingDeviantartModels.m in Sources */,
 				ACC9EBFB250BBC8400B0311D /* NSNumber+YYAdd.m in Sources */,
 				ACDCE28A250BAC100014BE47 /* main.m in Sources */,
+				ACF29000251B9EA3003B35D0 /* MUBDownloadSettingModel.m in Sources */,
 				ACF22772250E670B00A2E3F6 /* MUBMenuItemFileManager.m in Sources */,
 				ACABB28F2512575F00FBE603 /* MUBSettingFileModels.m in Sources */,
 				ACC9EC05250BBC8400B0311D /* NSNotificationCenter+YYAdd.m in Sources */,
+				ACF28FFA251B9E2F003B35D0 /* MUBDownloadOperation.m in Sources */,
 				ACC9EC27250BC30100B0311D /* PAPIIllust.m in Sources */,
 				AC988139250FC8EE00CC3372 /* MUBSettingWeiboModels.m in Sources */,
 				ACC9EC2A250BC30100B0311D /* PixivAPI.m in Sources */,
@@ -915,6 +938,7 @@
 				ACC9EC02250BBC8400B0311D /* NSObject+YYAddForARC.m in Sources */,
 				ACC9EC00250BBC8400B0311D /* NSKeyedUnarchiver+YYAdd.m in Sources */,
 				ACC9EC29250BC30100B0311D /* PAPIIllustList.m in Sources */,
+				ACF29006251BA08B003B35D0 /* MUBDownloadSettingManager.m in Sources */,
 				ACF2276E250E5CD400A2E3F6 /* NSColor+MUBAdd.m in Sources */,
 				ACF22764250E3A2900A2E3F6 /* MUBExceptionManager.m in Sources */,
 				ACC9EC03250BBC8400B0311D /* NSDate+YYAdd.m in Sources */,
