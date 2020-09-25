@@ -257,6 +257,9 @@
     }];
 }
 + (BOOL)fileShouldIgnore:(NSString *)fileName {
+    if ([fileName.lastPathComponent hasPrefix:@"."]) {
+        return YES;
+    }
     if ([fileName hasSuffix:@"DS_Store"]) {
         return YES;
     }
