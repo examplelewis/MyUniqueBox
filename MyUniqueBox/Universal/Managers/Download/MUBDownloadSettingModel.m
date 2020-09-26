@@ -10,4 +10,16 @@
 
 @implementation MUBDownloadSettingModel
 
+- (void)updatePrefTag {
+    if (self.prefTag % 100 >= 50) {
+        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"MUBDownloadSettingModel updatePrefTag: % 100 >= 50"];
+    }
+    
+    if (self.fileMode == MUBDownloadSettingFileModeInput) {
+        self.prefTag = self.prefTag / 100 * 100 + self.prefTag % 100 * 2 - 1;
+    } else if (self.fileMode == MUBDownloadSettingFileModeChooseFile) {
+        self.prefTag = self.prefTag / 100 * 100 + self.prefTag % 100 * 2;
+    }
+}
+
 @end

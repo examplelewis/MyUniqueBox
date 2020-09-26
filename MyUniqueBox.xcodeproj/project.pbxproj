@@ -89,6 +89,7 @@
 		ACF7E270251EDC1B0017D893 /* MUBWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF7E26F251EDC1B0017D893 /* MUBWindowController.m */; };
 		ACF7E276251EDC510017D893 /* MUBWindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF7E275251EDC510017D893 /* MUBWindowManager.m */; };
 		ACF7E280251EEBCC0017D893 /* MUBDownloadSettingPrefModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF7E27F251EEBCC0017D893 /* MUBDownloadSettingPrefModel.m */; };
+		ACFFFB3B251F4E50000786E1 /* Download Prefs custom 1.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACFFFB3A251F4E50000786E1 /* Download Prefs custom 1.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -273,6 +274,7 @@
 		ACF7E275251EDC510017D893 /* MUBWindowManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBWindowManager.m; sourceTree = "<group>"; };
 		ACF7E27E251EEBCC0017D893 /* MUBDownloadSettingPrefModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBDownloadSettingPrefModel.h; sourceTree = "<group>"; };
 		ACF7E27F251EEBCC0017D893 /* MUBDownloadSettingPrefModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBDownloadSettingPrefModel.m; sourceTree = "<group>"; };
+		ACFFFB3A251F4E50000786E1 /* Download Prefs custom 1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Download Prefs custom 1.plist"; sourceTree = "<group>"; };
 		D8D04F46203F206AAB2BFE55 /* Pods-MyUniqueBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUniqueBox.debug.xcconfig"; path = "Target Support Files/Pods-MyUniqueBox/Pods-MyUniqueBox.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -380,6 +382,7 @@
 				AC8B29E5251EF47E00F91EBF /* Download Prefs concurrent 1.plist */,
 				AC8B29E6251EF47E00F91EBF /* Download Prefs concurrent 5.plist */,
 				AC8B29E7251EF47E00F91EBF /* Download Prefs concurrent 10.plist */,
+				ACFFFB3A251F4E50000786E1 /* Download Prefs custom 1.plist */,
 				AC8B29EE251EF58700F91EBF /* Download Prefs suit for Gelbooru.plist */,
 				AC8B29EF251EF58700F91EBF /* Download Prefs suit for Video.plist */,
 			);
@@ -892,6 +895,7 @@
 				AC8B29DE251EEE9C00F91EBF /* Download Prefs default.plist in Resources */,
 				ACC9EC28250BC30100B0311D /* PixivAPI.js in Resources */,
 				AC8B29F1251EF58700F91EBF /* Download Prefs suit for Video.plist in Resources */,
+				ACFFFB3B251F4E50000786E1 /* Download Prefs custom 1.plist in Resources */,
 				AC8B29E8251EF47E00F91EBF /* Download Prefs concurrent 1.plist in Resources */,
 				AC8B29F0251EF58700F91EBF /* Download Prefs suit for Gelbooru.plist in Resources */,
 				AC8B29EA251EF47E00F91EBF /* Download Prefs concurrent 10.plist in Resources */,

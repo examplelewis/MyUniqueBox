@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, MUBDownloadSettingFileMode) {
+    MUBDownloadSettingFileModeNone = 0,
     MUBDownloadSettingFileModeInput,
     MUBDownloadSettingFileModeChooseFile,
 };
@@ -20,6 +21,8 @@ typedef NS_ENUM(NSUInteger, MUBDownloadSettingFileMode) {
 @property (strong) NSString *filePath;
 @property (strong) NSString *fileName;
 @property (assign) MUBDownloadSettingFileMode fileMode;
+
+- (void)updatePrefTag;
 
 @end
 

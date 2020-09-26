@@ -824,55 +824,6 @@
                             </menuItem>
                             <menuItem title="下载" tag="4000000" id="tm7-QG-Gqa">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="下载" id="jRH-hq-j5X">
-                                    <items>
-                                        <menuItem title="默认设置 [输入]" tag="4000001" id="guo-JW-uCB">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="默认设置 [选择文件]" tag="4000002" alternate="YES" id="8LF-bB-OAj">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="L7w-Ug-1wQ"/>
-                                        <menuItem title="同时下载一个 [输入]" tag="4000101" id="hBJ-CQ-pQO">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="同时下载一个 [选择文件]" tag="4000102" alternate="YES" id="uVQ-1o-NWU">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
-                                        </menuItem>
-                                        <menuItem title="同时下载五个 [输入]" tag="4000103" id="Xxy-Z1-Bga">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="同时下载五个 [选择文件]" tag="4000104" alternate="YES" id="8Sj-Oz-WaY">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
-                                        </menuItem>
-                                        <menuItem title="同时下载十个 [输入]" tag="4000105" id="JmD-CZ-Eit">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="同时下载十个 [选择文件]" tag="4000106" alternate="YES" id="rhW-sk-v1h">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="rNo-0c-jc6"/>
-                                        <menuItem title="适用于 视频 [输入]" tag="4000201" id="9Dg-rX-fyn">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="适用于 视频 [选择文件]" tag="4000202" alternate="YES" id="8h0-Js-mOk">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
-                                        </menuItem>
-                                        <menuItem title="适用于 Gelbooru [输入]" tag="4000203" id="P73-5N-HMO">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="适用于 Gelbooru [选择文件]" tag="4000204" alternate="YES" id="eRr-EY-g0k">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="rfN-Vw-AQa"/>
-                                        <menuItem title="自定义下载 [输入]" tag="4000301" id="5fY-Xp-51V">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="自定义下载 [选择文件]" tag="4000302" alternate="YES" id="UZY-wD-a2s">
-                                            <modifierMask key="keyEquivalentModifierMask" option="YES"/>
-                                        </menuItem>
-                                    </items>
-                                </menu>
                             </menuItem>
                             <menuItem title="工具" tag="5000000" id="Xva-rE-yYq">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -1201,7 +1152,11 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
+                    <connections>
+                        <outlet property="downloadRootMenuItem" destination="tm7-QG-Gqa" id="Zo6-hr-n0r"/>
+                    </connections>
+                </customObject>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

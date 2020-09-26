@@ -7,7 +7,9 @@
 //
 
 #import "MUBDownloadSettingManager.h"
+#import "MUBMenuItemManager.h"
 
+static NSInteger const kDefaultTag = 4000000;
 
 @interface MUBDownloadSettingManager ()
 
@@ -42,7 +44,6 @@
 - (void)updatePreferences {
     [MUBFileManager createFolderAtPath:self.prefsFolderPath]; // 新建文件夹
     [self copyDownloadPrefsFolder]; // 将项目中配置好的文件拷贝到文件夹
-    [self updateDefaultPreference]; // 获取默认配置
     [self updateAllPreferences]; // 获取所有配置
 }
 - (void)copyDownloadPrefsFolder {
@@ -58,16 +59,6 @@
         }
     }
 }
-- (void)updateDefaultPreference {
-    if ([MUBFileManager fileExistsAtPath:self.defaultPrefFilePath]) {
-        NSDictionary *defaultPrefDictionary = [NSDictionary dictionaryWithContentsOfFile:self.defaultPrefFilePath];
-        _defaultPrefModel = [MUBDownloadSettingModel yy_modelWithJSON:defaultPrefDictionary];
-        _defaultPrefModel.filePath = self.defaultPrefFilePath;
-        _defaultPrefModel.fileName = self.defaultPrefFilePath.lastPathComponent.stringByDeletingPathExtension;
-    } else {
-        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"%@ 文件夹内没有下载配置文件", self.defaultPrefFilePath];
-    }
-}
 - (void)updateAllPreferences {
     NSMutableArray *models = [NSMutableArray array];
     NSArray *filePaths = [MUBFileManager filePathsInFolder:self.prefsFolderPath extensions:@[@"plist"]];
@@ -80,14 +71,17 @@
         inputModel.filePath = self.defaultPrefFilePath;
         inputModel.fileName = self.defaultPrefFilePath.lastPathComponent.stringByDeletingPathExtension;
         inputModel.fileMode = MUBDownloadSettingFileModeInput;
+        [inputModel updatePrefTag];
         [models addObject:inputModel];
         
         MUBDownloadSettingModel *chooseFileModel = [MUBDownloadSettingModel yy_modelWithJSON:dictionary];
         chooseFileModel.filePath = self.defaultPrefFilePath;
         chooseFileModel.fileName = self.defaultPrefFilePath.lastPathComponent.stringByDeletingPathExtension;
         chooseFileModel.fileMode = MUBDownloadSettingFileModeChooseFile;
+        [chooseFileModel updatePrefTag];
         [models addObject:chooseFileModel];
     }
+    [models sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"prefTag" ascending:YES]]];
     
     _prefModels = [models copy];
 }
@@ -98,16 +92,43 @@
     // 先判断两个 model 是否相等
     // 先写到文件里
     
-    if ([name isEqualToString:@"default"]) {
-        [self updateDefaultPreference];
-    }
     [self updateAllPreferences];
 }
 
 #pragma mark - Menu Item
 - (void)updateMenuItems {
+    NSMenu *subMenu = [NSMenu new];
+    subMenu.title = @"下载";
     
+    NSInteger prefTag = 0;
+    for (NSInteger i = 0; i < self.prefModels.count; i++) {
+        MUBDownloadSettingModel *model = self.prefModels[i];
+        
+        if (i % 2 == 0) {
+            if (prefTag / 100 != (model.prefTag - kDefaultTag) / 100) {
+                prefTag = model.prefTag - kDefaultTag;
+                [subMenu addItem:[NSMenuItem separatorItem]];
+            }
+        }
+        
+        NSMenuItem *menuItem = [NSMenuItem new];
+        menuItem.title = [NSString stringWithFormat:@"%@ [%@]", model.prefName, model.fileMode == MUBDownloadSettingFileModeInput ? @"输入" : @"选择文件"];
+        menuItem.tag = model.prefTag;
+        if (model.fileMode == MUBDownloadSettingFileModeChooseFile) {
+            menuItem.alternate = YES;
+            menuItem.keyEquivalentModifierMask = NSEventModifierFlagOption;
+        }
+        menuItem.target = self;
+        menuItem.action = @selector(downloadMenuItemDidPress:);
+        
+        [subMenu addItem:menuItem];
+    }
+    
+    [MUBUIManager defaultManager].appDelegate.downloadRootMenuItem.submenu = subMenu;
 }
 
+- (void)downloadMenuItemDidPress:(NSMenuItem *)sender {
+    [MUBMenuItemManager customMenuItemDidPress:sender];
+}
 
 @end
