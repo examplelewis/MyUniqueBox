@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setup;
 
 - (void)scrollNewestLogVisible;
+- (void)resetProgressIndicator;
 
 @end
 

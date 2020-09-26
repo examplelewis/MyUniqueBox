@@ -28,7 +28,14 @@
 - (void)scrollNewestLogVisible {
     [self.viewController.logTextView scrollRangeToVisible:NSMakeRange(self.viewController.logTextView.string.length, 0)];
 }
-
+- (void)resetProgressIndicator {
+    self.viewController.progressIndicator.doubleValue = 0.0f;
+    self.viewController.progressIndicator.maxValue = 1.0f;
+    self.viewController.progressLabel.stringValue = @"0 / 0";
+}
+- (void)updateProgressIndicatorWithMaxValue:(double)maxValue {
+    self.viewController.progressIndicator.maxValue = maxValue;
+}
 
 
 @end
