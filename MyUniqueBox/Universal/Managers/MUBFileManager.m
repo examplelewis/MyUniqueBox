@@ -69,21 +69,18 @@
 #pragma mark - Move
 + (void)moveItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath {
     NSError *error;
-    if (![[NSFileManager defaultManager] moveItemAtPath:fromPath toPath:toPath error:&error]) {
+    if (![[NSFileManager defaultManager] moveItemAtPath:fromPath toPath:[MUBFileManager removeSeparatorInPathComponentsAtContentPath:toPath] error:&error]) {
         [[MUBLogManager defaultManager] addErrorLogWithFormat:@"移动文件 %@ 时发生错误: %@", fromPath, [error localizedDescription]];
     }
 }
 + (void)moveItemFromURL:(NSURL *)fromURL toDestURL:(NSURL *)toURL {
-    NSError *error;
-    if (![[NSFileManager defaultManager] moveItemAtURL:fromURL toURL:toURL error:&error]) {
-        [[MUBLogManager defaultManager] addErrorLogWithFormat:@"移动文件 %@ 时发生错误: %@", fromURL.path, [error localizedDescription]];
-    }
+    [MUBFileManager moveItemFromPath:[MUBFileManager filePathFromFileURL:fromURL] toPath:[MUBFileManager filePathFromFileURL:toURL]];
 }
 + (void)moveItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath error:(NSError **)error {
-    [[NSFileManager defaultManager] moveItemAtPath:fromPath toPath:toPath error:error];
+    [[NSFileManager defaultManager] moveItemAtPath:fromPath toPath:[MUBFileManager removeSeparatorInPathComponentsAtContentPath:toPath] error:error];
 }
 + (void)moveItemFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL error:(NSError **)error {
-    [[NSFileManager defaultManager] moveItemAtURL:fromURL toURL:toURL error:error];
+    [MUBFileManager moveItemFromPath:[MUBFileManager filePathFromFileURL:fromURL] toPath:[MUBFileManager filePathFromFileURL:toURL] error:error];
 }
 
 #pragma mark - File Path
@@ -335,6 +332,19 @@
     return [contents bk_select:^BOOL(NSString *content) {
         return ![MUBFileManager fileShouldIgnore:content];
     }];
+}
++ (NSString *)removeSeparatorInPathComponentsAtContentPath:(NSString *)contentPath {
+    NSString *contentPathCopy = [contentPath copy];
+    NSMutableArray *contentPathCopyComponents = [NSMutableArray arrayWithArray:contentPathCopy.pathComponents];
+    for (NSInteger i = 0; i < contentPathCopyComponents.count; i++) {
+        if ([contentPathCopyComponents[i] containsString:@"/"] && i != 0) {
+            contentPathCopyComponents[i] = [contentPathCopyComponents[i] stringByReplacingOccurrencesOfString:@"/" withString:@" "];
+        }
+    }
+    contentPathCopy = [contentPathCopyComponents componentsJoinedByString:@"/"];
+    contentPathCopy = [contentPathCopy substringFromIndex:1];
+    
+    return contentPathCopy;
 }
 
 @end

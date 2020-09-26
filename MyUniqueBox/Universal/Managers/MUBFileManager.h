@@ -65,6 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSArray<NSString *> *)filePathsFromFileURLs:(NSArray<NSURL *> *)fileURLs;
 + (BOOL)fileShouldIgnore:(NSString *)fileName;
 + (NSArray<NSString *> *)filterReturnedContents:(NSArray<NSString *> *)contents;
++ (NSString *)removeSeparatorInPathComponentsAtContentPath:(NSString *)contentPath;
 
 @end
 
