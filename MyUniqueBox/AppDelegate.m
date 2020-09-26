@@ -23,6 +23,7 @@
     
     [[MUBSettingManager defaultManager] updatePreferences];
     [[MUBDownloadSettingManager defaultManager] updatePreferences];
+    [[MUBDownloadSettingManager defaultManager] updateMenuItems];
     
     [self setupLogger];
     

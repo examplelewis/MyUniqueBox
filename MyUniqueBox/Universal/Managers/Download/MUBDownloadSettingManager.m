@@ -69,15 +69,27 @@
     }
 }
 - (void)updateAllPreferences {
+    NSMutableArray *models = [NSMutableArray array];
     NSArray *filePaths = [MUBFileManager filePathsInFolder:self.prefsFolderPath extensions:@[@"plist"]];
-    _prefModels = [filePaths bk_map:^MUBDownloadSettingModel *(NSString *filePath) {
+    
+    for (NSInteger i = 0; i < filePaths.count; i++) {
+        NSString *filePath = filePaths[i];
         NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:filePath];
-        MUBDownloadSettingModel *model = [MUBDownloadSettingModel yy_modelWithJSON:dictionary];
-        model.filePath = self.defaultPrefFilePath;
-        model.fileName = self.defaultPrefFilePath.lastPathComponent.stringByDeletingPathExtension;
         
-        return model;
-    }];
+        MUBDownloadSettingModel *inputModel = [MUBDownloadSettingModel yy_modelWithJSON:dictionary];
+        inputModel.filePath = self.defaultPrefFilePath;
+        inputModel.fileName = self.defaultPrefFilePath.lastPathComponent.stringByDeletingPathExtension;
+        inputModel.fileMode = MUBDownloadSettingFileModeInput;
+        [models addObject:inputModel];
+        
+        MUBDownloadSettingModel *chooseFileModel = [MUBDownloadSettingModel yy_modelWithJSON:dictionary];
+        chooseFileModel.filePath = self.defaultPrefFilePath;
+        chooseFileModel.fileName = self.defaultPrefFilePath.lastPathComponent.stringByDeletingPathExtension;
+        chooseFileModel.fileMode = MUBDownloadSettingFileModeChooseFile;
+        [models addObject:chooseFileModel];
+    }
+    
+    _prefModels = [models copy];
 }
 - (void)updateDefaultPrefrenceWithModel:(MUBDownloadSettingModel *)model {
     [self updatePreferenceWithName:@"default" model:model];
@@ -90,6 +102,11 @@
         [self updateDefaultPreference];
     }
     [self updateAllPreferences];
+}
+
+#pragma mark - Menu Item
+- (void)updateMenuItems {
+    
 }
 
 

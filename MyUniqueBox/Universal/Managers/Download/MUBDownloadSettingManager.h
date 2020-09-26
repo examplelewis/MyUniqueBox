@@ -22,6 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateDefaultPrefrenceWithModel:(MUBDownloadSettingModel *)model;
 - (void)updatePreferenceWithName:(NSString *)name model:(MUBDownloadSettingModel *)model;
 
+- (void)updateMenuItems;
+
 @end
 
 NS_ASSUME_NONNULL_END

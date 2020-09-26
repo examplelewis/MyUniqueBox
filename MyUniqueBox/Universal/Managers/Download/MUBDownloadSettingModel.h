@@ -10,10 +10,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, MUBDownloadSettingFileMode) {
+    MUBDownloadSettingFileModeInput,
+    MUBDownloadSettingFileModeChooseFile,
+};
+
 @interface MUBDownloadSettingModel : MUBDownloadSettingPrefModel
 
 @property (strong) NSString *filePath;
 @property (strong) NSString *fileName;
+@property (assign) MUBDownloadSettingFileMode fileMode;
 
 @end
 

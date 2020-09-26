@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		20C16586D5C82EE507AEB31B /* libPods-MyUniqueBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553C02ABF77D14E37F76373 /* libPods-MyUniqueBox.a */; };
 		AC8B29DE251EEE9C00F91EBF /* Download Prefs default.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC8B29DD251EEE9C00F91EBF /* Download Prefs default.plist */; };
+		AC8B29E8251EF47E00F91EBF /* Download Prefs concurrent 1.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC8B29E5251EF47E00F91EBF /* Download Prefs concurrent 1.plist */; };
+		AC8B29E9251EF47E00F91EBF /* Download Prefs concurrent 5.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC8B29E6251EF47E00F91EBF /* Download Prefs concurrent 5.plist */; };
+		AC8B29EA251EF47E00F91EBF /* Download Prefs concurrent 10.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC8B29E7251EF47E00F91EBF /* Download Prefs concurrent 10.plist */; };
+		AC8B29F0251EF58700F91EBF /* Download Prefs suit for Gelbooru.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC8B29EE251EF58700F91EBF /* Download Prefs suit for Gelbooru.plist */; };
+		AC8B29F1251EF58700F91EBF /* Download Prefs suit for Video.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC8B29EF251EF58700F91EBF /* Download Prefs suit for Video.plist */; };
 		AC988139250FC8EE00CC3372 /* MUBSettingWeiboModels.m in Sources */ = {isa = PBXBuildFile; fileRef = AC988138250FC8EE00CC3372 /* MUBSettingWeiboModels.m */; };
 		AC98813C250FC91300CC3372 /* MUBSettingDeviantartModels.m in Sources */ = {isa = PBXBuildFile; fileRef = AC98813B250FC91300CC3372 /* MUBSettingDeviantartModels.m */; };
 		AC9EA55F25125BA000084B80 /* MUBFileUniversalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9EA55E25125BA000084B80 /* MUBFileUniversalManager.m */; };
@@ -109,6 +114,11 @@
 		AC670CB8251ED77200698B74 /* RACEXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACEXTScope.h; sourceTree = "<group>"; };
 		AC670CB9251ED77200698B74 /* RACMetaMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACMetaMacros.h; sourceTree = "<group>"; };
 		AC8B29DD251EEE9C00F91EBF /* Download Prefs default.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Download Prefs default.plist"; sourceTree = "<group>"; };
+		AC8B29E5251EF47E00F91EBF /* Download Prefs concurrent 1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Download Prefs concurrent 1.plist"; sourceTree = "<group>"; };
+		AC8B29E6251EF47E00F91EBF /* Download Prefs concurrent 5.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Download Prefs concurrent 5.plist"; sourceTree = "<group>"; };
+		AC8B29E7251EF47E00F91EBF /* Download Prefs concurrent 10.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Download Prefs concurrent 10.plist"; sourceTree = "<group>"; };
+		AC8B29EE251EF58700F91EBF /* Download Prefs suit for Gelbooru.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Download Prefs suit for Gelbooru.plist"; sourceTree = "<group>"; };
+		AC8B29EF251EF58700F91EBF /* Download Prefs suit for Video.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Download Prefs suit for Video.plist"; sourceTree = "<group>"; };
 		AC988135250FBC7B00CC3372 /* MUBFileHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBFileHeader.h; sourceTree = "<group>"; };
 		AC988137250FC8EE00CC3372 /* MUBSettingWeiboModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBSettingWeiboModels.h; sourceTree = "<group>"; };
 		AC988138250FC8EE00CC3372 /* MUBSettingWeiboModels.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBSettingWeiboModels.m; sourceTree = "<group>"; };
@@ -367,6 +377,11 @@
 			isa = PBXGroup;
 			children = (
 				AC8B29DD251EEE9C00F91EBF /* Download Prefs default.plist */,
+				AC8B29E5251EF47E00F91EBF /* Download Prefs concurrent 1.plist */,
+				AC8B29E6251EF47E00F91EBF /* Download Prefs concurrent 5.plist */,
+				AC8B29E7251EF47E00F91EBF /* Download Prefs concurrent 10.plist */,
+				AC8B29EE251EF58700F91EBF /* Download Prefs suit for Gelbooru.plist */,
+				AC8B29EF251EF58700F91EBF /* Download Prefs suit for Video.plist */,
 			);
 			path = "Download Prefs";
 			sourceTree = "<group>";
@@ -876,6 +891,11 @@
 			files = (
 				AC8B29DE251EEE9C00F91EBF /* Download Prefs default.plist in Resources */,
 				ACC9EC28250BC30100B0311D /* PixivAPI.js in Resources */,
+				AC8B29F1251EF58700F91EBF /* Download Prefs suit for Video.plist in Resources */,
+				AC8B29E8251EF47E00F91EBF /* Download Prefs concurrent 1.plist in Resources */,
+				AC8B29F0251EF58700F91EBF /* Download Prefs suit for Gelbooru.plist in Resources */,
+				AC8B29EA251EF47E00F91EBF /* Download Prefs concurrent 10.plist in Resources */,
+				AC8B29E9251EF47E00F91EBF /* Download Prefs concurrent 5.plist in Resources */,
 				ACDCE284250BAC100014BE47 /* Assets.xcassets in Resources */,
 				ACDCE287250BAC100014BE47 /* Main.storyboard in Resources */,
 			);
