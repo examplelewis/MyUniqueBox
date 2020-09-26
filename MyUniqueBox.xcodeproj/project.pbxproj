@@ -206,7 +206,6 @@
 		ACF2276A250E5A5E00A2E3F6 /* NSDictionary+MUBAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+MUBAdd.m"; sourceTree = "<group>"; };
 		ACF2276C250E5CD400A2E3F6 /* NSColor+MUBAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSColor+MUBAdd.h"; sourceTree = "<group>"; };
 		ACF2276D250E5CD400A2E3F6 /* NSColor+MUBAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSColor+MUBAdd.m"; sourceTree = "<group>"; };
-		ACF2276F250E66AD00A2E3F6 /* MUBMenuItemHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBMenuItemHeader.h; sourceTree = "<group>"; };
 		ACF22770250E670B00A2E3F6 /* MUBMenuItemFileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBMenuItemFileManager.h; sourceTree = "<group>"; };
 		ACF22771250E670B00A2E3F6 /* MUBMenuItemFileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBMenuItemFileManager.m; sourceTree = "<group>"; };
 		ACF22774250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBFileSearchCharactersManager.h; sourceTree = "<group>"; };
@@ -225,7 +224,7 @@
 		ACF28FFF251B9EA3003B35D0 /* MUBDownloadSettingModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBDownloadSettingModel.m; sourceTree = "<group>"; };
 		ACF29004251BA08B003B35D0 /* MUBDownloadSettingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBDownloadSettingManager.h; sourceTree = "<group>"; };
 		ACF29005251BA08B003B35D0 /* MUBDownloadSettingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBDownloadSettingManager.m; sourceTree = "<group>"; };
-		ACF363AD250D46B900C1DC47 /* MUBHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBHeader.h; sourceTree = "<group>"; };
+		ACF363AD250D46B900C1DC47 /* MUBOCHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBOCHeader.h; sourceTree = "<group>"; };
 		ACF363AE250D47F600C1DC47 /* MUBCategoriesHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBCategoriesHeader.h; sourceTree = "<group>"; };
 		ACF363AF250D4C4A00C1DC47 /* MUBUtilityManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBUtilityManager.h; sourceTree = "<group>"; };
 		ACF363B0250D4C4A00C1DC47 /* MUBUtilityManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBUtilityManager.m; sourceTree = "<group>"; };
@@ -331,6 +330,17 @@
 			path = Archive;
 			sourceTree = "<group>";
 		};
+		AC670CB0251ED2B400698B74 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				ACF363AD250D46B900C1DC47 /* MUBOCHeader.h */,
+				ACF363B3250D4D2400C1DC47 /* MUBConstHeader.h */,
+				ACF363AE250D47F600C1DC47 /* MUBCategoriesHeader.h */,
+				ACF363B2250D4C6A00C1DC47 /* MUBManagersHeader.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
 		AC988136250FC8CB00CC3372 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,8 +354,7 @@
 		ACA93E78250BFB0C008F65A8 /* Universal */ = {
 			isa = PBXGroup;
 			children = (
-				ACF363AD250D46B900C1DC47 /* MUBHeader.h */,
-				ACF363B3250D4D2400C1DC47 /* MUBConstHeader.h */,
+				AC670CB0251ED2B400698B74 /* Headers */,
 				ACA93E94250BFF0C008F65A8 /* Categories */,
 				ACA93E95250BFF14008F65A8 /* Classes */,
 				ACA93E8A250BFDCD008F65A8 /* Managers */,
@@ -417,7 +426,6 @@
 		ACA93E8A250BFDCD008F65A8 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				ACF363B2250D4C6A00C1DC47 /* MUBManagersHeader.h */,
 				ACF22759250E1F3C00A2E3F6 /* MUBAlertManager.h */,
 				ACF2275A250E1F3C00A2E3F6 /* MUBAlertManager.m */,
 				ACF22762250E3A2900A2E3F6 /* MUBExceptionManager.h */,
@@ -460,7 +468,6 @@
 		ACA93E8F250BFE36008F65A8 /* MenuItem */ = {
 			isa = PBXGroup;
 			children = (
-				ACF2276F250E66AD00A2E3F6 /* MUBMenuItemHeader.h */,
 				ACF2275F250E39BC00A2E3F6 /* MUBMenuItemManager.h */,
 				ACF22760250E39BC00A2E3F6 /* MUBMenuItemManager.m */,
 				ACF22773250E67D300A2E3F6 /* File */,
@@ -485,7 +492,6 @@
 		ACA93E94250BFF0C008F65A8 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				ACF363AE250D47F600C1DC47 /* MUBCategoriesHeader.h */,
 				ACF22766250E55AB00A2E3F6 /* NSArray+MUBAdd.h */,
 				ACF22767250E55AB00A2E3F6 /* NSArray+MUBAdd.m */,
 				ACF2276C250E5CD400A2E3F6 /* NSColor+MUBAdd.h */,
