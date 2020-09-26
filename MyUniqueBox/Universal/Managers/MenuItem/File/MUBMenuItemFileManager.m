@@ -91,6 +91,10 @@ static NSInteger const kDefaultTag = 3000000;
                     [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeSearchHiddenFile];
                 }
                     break;
+                case 3: {
+                    [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeTrashAntiImageVideoFiles];
+                }
+                    break;
                 default:
                     break;
             }

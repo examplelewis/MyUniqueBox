@@ -756,6 +756,12 @@
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="xAY-Rh-9Aa"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="将图片视频之外的文件移动到废纸篓 [递归] [选取根文件夹] [针对解压好的图包文件夹]【功能已测试通过】" tag="3000303" id="SOx-zw-FcX">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="M50-Uf-mSL"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hK8-uG-jHX"/>
                                         <menuItem title="提取(剪切)文件夹内的 GIF [选取根文件夹]【功能已测试通过】" tag="3000401" id="EeZ-6i-Ttb">
                                             <modifierMask key="keyEquivalentModifierMask"/>

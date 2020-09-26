@@ -23,19 +23,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, readonly) NSArray *mimeImageTypes;
 @property (strong, readonly) NSArray *mimeVideoTypes;
+@property (strong, readonly) NSArray *mimeImageAndVideoTypes;
 
 @property (strong, readonly) NSString *mainFolderPath;
 @property (strong, readonly) NSString *downloadFolderPath;
 
+#pragma mark - Lifecycle
 + (instancetype)defaultManager;
 
+#pragma mark - Configure
 - (void)updatePreferences;
 
-- (NSString *)pathOfContentInDownloadFolder:(NSString *)component;
-- (NSString *)pathOfContentInMainFolder:(NSString *)component;
-
+#pragma mark - Types
 - (BOOL)isImageAtFilePath:(NSString *)filePath;
 - (BOOL)isVideoAtFilePath:(NSString *)filePath;
+
+#pragma mark - Paths
+- (NSString *)pathOfContentInDownloadFolder:(NSString *)component;
+- (NSString *)pathOfContentInMainFolder:(NSString *)component;
 
 @end
 

@@ -53,6 +53,11 @@
             message = @"需要清空没有项目的根目录";
         }
             break;
+        case MUBFileUniversalTypeTrashAntiImageVideoFiles: {
+            behavior = MUBOpenPanelBehaviorSingleDir;
+            message = @"需要清空图片视频之外文件的根目录";
+        }
+            break;
         default:
             break;
     }
@@ -90,30 +95,34 @@
                     switch (type) {
                         case MUBFileUniversalTypeRename32BitMD5ByFolder:
                         case MUBFileUniversalTypeRename32BitMD5ByFile: {
-                            [MUBFileUniversalManager _rename32BitMD5WithRootFolderPath:path byType:type];
+                            [MUBFileUniversalManager _rename32BitMD5AtRootFolderPath:path byType:type];
                         }
                             break;
                         case MUBFileUniversalTypeSearchHiddenFile: {
-                            [MUBFileUniversalManager _searchAndTrashHiddenContentsWithRootFolderPath:path];
+                            [MUBFileUniversalManager _searchAndTrashHiddenContentsAtRootFolderPath:path];
                         }
                             break;
                         case MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleFolder:
                         case MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleFile:
                         case MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleContent: {
-                            [MUBFileUniversalManager _renameSingleItemAsSuperFodlerNameWithRootFolderPath:path byType:type];
+                            [MUBFileUniversalManager _renameSingleItemAsSuperFodlerNameAtRootFolderPath:path byType:type];
                         }
                             break;
                         case MUBFileUniversalTypeCopyFolderHierarchy: {
-                            [MUBFileUniversalManager _copyFolderHierarchyWithRootFolderPath:path];
+                            [MUBFileUniversalManager _copyFolderHierarchyAtRootFolderPath:path];
                         }
                             break;
                         case MUBFileUniversalTypeExtractSingleFolder:
                         case MUBFileUniversalTypeExtractSingleFile: {
-                            [MUBFileUniversalManager _extractSingleItemWithRootFolderPath:path byType:type];
+                            [MUBFileUniversalManager _extractSingleItemAtRootFolderPath:path byType:type];
                         }
                             break;
                         case MUBFileUniversalTypeTrashNoItemsFolder: {
-                            [MUBFileUniversalManager _trashNoItemsFolderWithRootFolderPath:path];
+                            [MUBFileUniversalManager _trashNoItemsFolderAtRootFolderPath:path];
+                        }
+                            break;
+                        case MUBFileUniversalTypeTrashAntiImageVideoFiles: {
+                            [MUBFileUniversalManager _trashAntiImageVideoFilesAtRootFolderPath:path];
                         }
                             break;
                         default:
@@ -126,7 +135,7 @@
 }
 
 #pragma mark - MUBFileUniversalTypeRename32BitMD5
-+ (void)_rename32BitMD5WithRootFolderPath:(NSString *)rootFolderPath byType:(MUBFileUniversalType)byType {
++ (void)_rename32BitMD5AtRootFolderPath:(NSString *)rootFolderPath byType:(MUBFileUniversalType)byType {
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"为文件生成32位的随机名称, 流程开始, 选择的根目录: %@", rootFolderPath];
     
     NSArray *filePaths;
@@ -161,7 +170,7 @@
 }
 
 #pragma mark - MUBFileUniversalTypeSearchHiddenFile
-+ (void)_searchAndTrashHiddenContentsWithRootFolderPath:(NSString *)rootFolderPath {
++ (void)_searchAndTrashHiddenContentsAtRootFolderPath:(NSString *)rootFolderPath {
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"将文件夹中的文件(夹)移动到废纸篓, 流程开始, 选择的根目录: %@", rootFolderPath];
     
     NSArray<NSString *> *trashPaths = [[MUBFileManager allContentPathsInFolder:rootFolderPath] bk_select:^BOOL(NSString *contentPath) {
@@ -178,7 +187,7 @@
 }
 
 #pragma mark - MUBFileUniversalTypeRenameAsSuperFodlerName
-+ (void)_renameSingleItemAsSuperFodlerNameWithRootFolderPath:(NSString *)rootFolderPath byType:(MUBFileUniversalType)byType {
++ (void)_renameSingleItemAsSuperFodlerNameAtRootFolderPath:(NSString *)rootFolderPath byType:(MUBFileUniversalType)byType {
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"将只有一个子项目命名为父文件夹的名称, 流程开始, 选择的根目录: %@", rootFolderPath];
     
     NSArray *folderPaths = [MUBFileManager folderPathsInFolder:rootFolderPath];
@@ -259,7 +268,7 @@
 }
 
 #pragma mark - MUBFileUniversalTypeCopyFolderHierarchy
-+ (void)_copyFolderHierarchyWithRootFolderPath:(NSString *)rootFolderPath {
++ (void)_copyFolderHierarchyAtRootFolderPath:(NSString *)rootFolderPath {
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"复制文件夹的层级, 流程开始, 选择的根目录: %@", rootFolderPath];
     
     NSString *targetRootFolderPath = rootFolderPath.copy;
@@ -280,7 +289,7 @@
 }
 
 #pragma mark - MUBFileUniversalTypeExtractSingleItem
-+ (void)_extractSingleItemWithRootFolderPath:(NSString *)rootFolderPath byType:(MUBFileUniversalType)byType {
++ (void)_extractSingleItemAtRootFolderPath:(NSString *)rootFolderPath byType:(MUBFileUniversalType)byType {
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"提取文件夹的单个项目, 流程开始, 选择的根目录: %@", rootFolderPath];
     
     NSString *extractRootFolderName = [NSString stringWithFormat:@"%@ Extract", rootFolderPath.lastPathComponent];
@@ -314,7 +323,7 @@
 }
 
 #pragma mark - MUBFileUniversalTypeTrashNoItemsFolder
-+ (void)_trashNoItemsFolderWithRootFolderPath:(NSString *)rootFolderPath {
++ (void)_trashNoItemsFolderAtRootFolderPath:(NSString *)rootFolderPath {
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"清空没有项目的文件夹, 流程开始, 选择的根目录: %@", rootFolderPath];
     
     NSArray *folderPaths = [MUBFileManager folderPathsInFolder:rootFolderPath];
@@ -331,6 +340,16 @@
     }
     
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"清空没有项目的文件夹, 流程结束"];
+}
+
+#pragma mark - MUBFileUniversalTypeTrashAntiImageVideoFiles
++ (void)_trashAntiImageVideoFilesAtRootFolderPath:(NSString *)rootFolderPath {
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"清空清空图片视频之外的文件, 流程开始, 选择的根目录: %@", rootFolderPath];
+    
+    NSArray *trashFilePaths = [MUBFileManager allFilePathsInFolder:rootFolderPath withoutExtensions:[MUBSettingManager defaultManager].mimeImageAndVideoTypes];
+    [MUBFileManager trashFilePaths:trashFilePaths];
+    
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"清空清空图片视频之外的文件, 流程结束"];
 }
 
 @end

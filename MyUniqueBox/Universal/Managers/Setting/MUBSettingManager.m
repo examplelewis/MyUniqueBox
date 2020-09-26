@@ -62,6 +62,7 @@ static NSString * const MUBMainFolderPath = @"/Users/mercury/SynologyDrive/~ÂêåÊ
     
     _mimeImageTypes = [[prefs valueForKeyPath:@"MIMEType.ImageTypes"] copy];
     _mimeVideoTypes = [[prefs valueForKeyPath:@"MIMEType.VideoTypes"] copy];
+    _mimeImageAndVideoTypes = [self.mimeImageTypes arrayByAddingObjectsFromArray:self.mimeVideoTypes];
     
     _fileSearchCharactersModel = [MUBSettingFileSearchCharactersModel yy_modelWithJSON:[newPrefs valueForKeyPath:@"File.SearchCharacters"]];
 }
@@ -115,8 +116,8 @@ static NSString * const MUBMainFolderPath = @"/Users/mercury/SynologyDrive/~ÂêåÊ
         @"Boundary": @{@"published_time": DeviantartPres[@"publishedTime"]},
     };
     mubPrefs[@"MIMEType"] = @{
-        @"image_types": Preference[@"mime_image_types"],
-        @"video_types": Preference[@"mime_video_types"],
+        @"ImageTypes": Preference[@"mime_image_types"],
+        @"VideoTypes": Preference[@"mime_video_types"],
     };
     
     [mubPrefs writeToFile:[self pathOfContentInMainFolder:@"MUBPreference.plist"] atomically:YES];

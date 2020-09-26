@@ -126,6 +126,33 @@
     
     return [results copy];
 }
++ (NSArray<NSString *> *)filePathsInFolder:(NSString *)folderPath withoutExtensions:(NSArray<NSString *> *)extensions {
+    NSMutableArray<NSString *> *extensionsFiles = [NSMutableArray array];
+    NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:nil];
+    contents = [MUBFileManager filterReturnedContents:contents];
+    NSMutableArray<NSString *> *results = [NSMutableArray arrayWithArray:[contents bk_map:^id(NSString *obj) {
+        return [folderPath stringByAppendingPathComponent:obj];
+    }]];
+    
+    for (NSString *extension in extensions) {
+        NSArray *filteredContents = [contents filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString * _Nonnull content, NSDictionary<NSString *,id> * _Nullable bindings) {
+            return [content.pathExtension caseInsensitiveCompare:extension] == NSOrderedSame;
+        }]];
+        for (NSString *content in filteredContents) {
+            NSString *filePath = [folderPath stringByAppendingPathComponent:content];
+            BOOL folderFlag = YES;
+            [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&folderFlag];
+            
+            if (!folderFlag) {
+                [extensionsFiles addObject:filePath];
+            }
+        }
+    }
+    
+    [results removeObjectsInArray:extensionsFiles];
+    
+    return [results copy];
+}
 + (NSArray<NSString *> *)folderPathsInFolder:(NSString *)folderPath {
     NSMutableArray<NSString *> *results = [NSMutableArray array];
     NSArray *contents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:folderPath error:nil];
@@ -186,6 +213,33 @@
             }
         }
     }
+    
+    return [results copy];
+}
++ (NSArray<NSString *> *)allFilePathsInFolder:(NSString *)folderPath withoutExtensions:(NSArray<NSString *> *)extensions {
+    NSMutableArray<NSString *> *extensionsFiles = [NSMutableArray array];
+    NSArray *contents = [[NSFileManager defaultManager] subpathsOfDirectoryAtPath:folderPath error:nil];
+    contents = [MUBFileManager filterReturnedContents:contents];
+    NSMutableArray<NSString *> *results = [NSMutableArray arrayWithArray:[contents bk_map:^id(NSString *obj) {
+        return [folderPath stringByAppendingPathComponent:obj];
+    }]];
+    
+    for (NSString *extension in extensions) {
+        NSArray *filteredContents = [contents filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(NSString * _Nonnull content, NSDictionary<NSString *,id> * _Nullable bindings) {
+            return [content.pathExtension caseInsensitiveCompare:extension] == NSOrderedSame;
+        }]];
+        for (NSString *content in filteredContents) {
+            NSString *filePath = [folderPath stringByAppendingPathComponent:content];
+            BOOL folderFlag = YES;
+            [[NSFileManager defaultManager] fileExistsAtPath:filePath isDirectory:&folderFlag];
+            
+            if (!folderFlag) {
+                [extensionsFiles addObject:filePath];
+            }
+        }
+    }
+    
+    [results removeObjectsInArray:extensionsFiles];
     
     return [results copy];
 }
@@ -269,6 +323,9 @@
         return YES;
     }
     if ([fileName hasSuffix:@"DS_Store"]) {
+        return YES;
+    }
+    if ([fileName rangeOfString:@"RECYCLE.BIN" options:NSCaseInsensitiveSearch].location != NSNotFound) {
         return YES;
     }
     

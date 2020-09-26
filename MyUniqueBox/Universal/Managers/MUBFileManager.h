@@ -36,11 +36,13 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - File Path
 + (NSArray<NSString *> *)filePathsInFolder:(NSString *)folderPath;
 + (NSArray<NSString *> *)filePathsInFolder:(NSString *)folderPath extensions:(NSArray<NSString *> *)extensions;
++ (NSArray<NSString *> *)filePathsInFolder:(NSString *)folderPath withoutExtensions:(NSArray<NSString *> *)extensions;
 + (NSArray<NSString *> *)folderPathsInFolder:(NSString *)folderPath;
 + (NSArray<NSString *> *)contentPathsInFolder:(NSString *)folderPath;
 
 + (NSArray<NSString *> *)allFilePathsInFolder:(NSString *)folderPath;
 + (NSArray<NSString *> *)allFilePathsInFolder:(NSString *)folderPath extensions:(NSArray<NSString *> *)extensions;
++ (NSArray<NSString *> *)allFilePathsInFolder:(NSString *)folderPath withoutExtensions:(NSArray<NSString *> *)extensions;
 + (NSArray<NSString *> *)allFolderPathsInFolder:(NSString *)folderPath;
 + (NSArray<NSString *> *)allContentPathsInFolder:(NSString *)folderPath;
 

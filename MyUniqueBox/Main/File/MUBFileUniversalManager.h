@@ -24,6 +24,7 @@ typedef NS_ENUM(NSUInteger, MUBFileUniversalType) {
     MUBFileUniversalTypeExtractSingleFolder,
     MUBFileUniversalTypeExtractSingleFile,
     MUBFileUniversalTypeTrashNoItemsFolder,
+    MUBFileUniversalTypeTrashAntiImageVideoFiles,
 };
 
 @interface MUBFileUniversalManager : NSObject
