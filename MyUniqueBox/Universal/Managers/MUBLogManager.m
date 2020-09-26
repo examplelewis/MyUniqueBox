@@ -46,9 +46,9 @@
 //    [self.logs removeAllObjects];
     [self.lock unlock];
     
-    dispatch_main_sync_safe(^{
+    dispatch_main_async_safe((^{
         [MUBUIManager defaultManager].viewController.logTextView.string = @"";
-    });
+    }));
 }
 - (void)reset {
     [self.lock lock];
@@ -57,9 +57,9 @@
 //    [self.logs removeAllObjects];
     [self.lock unlock];
     
-    dispatch_main_sync_safe(^{
+    dispatch_main_async_safe((^{
         [MUBUIManager defaultManager].viewController.logTextView.string = @"";
-    });
+    }));
 }
 
 #pragma mark - Log 换行
@@ -188,14 +188,14 @@
         
         // 显示日志
         if ((behavior & MUBLogBehaviorAppend) || !self.newestLog) {
-            dispatch_main_sync_safe(^{
+            dispatch_main_async_safe((^{
                 // 如果不是第一行的话，那么添加一个空行
                 if ([MUBUIManager defaultManager].viewController.logTextView.textStorage.length != 0) {
                     NSAttributedString *newLineLog = [[NSAttributedString alloc] initWithString:@"\n" attributes:@{NSForegroundColorAttributeName: textColor}];
                     [[MUBUIManager defaultManager].viewController.logTextView.textStorage appendAttributedString:newLineLog];
                 }
                 [[MUBUIManager defaultManager].viewController.logTextView.textStorage appendAttributedString:attributedLog];
-            });
+            }));
             
             [self.lock lock];
             self.newestLog = attributedLog;
@@ -203,9 +203,9 @@
             [self.lock unlock];
         } else {
             NSRange newestLogRange = [[MUBUIManager defaultManager].viewController.logTextView.textStorage.string rangeOfString:self.newestLog.string];
-            dispatch_main_sync_safe(^{
+            dispatch_main_async_safe((^{
                 [[MUBUIManager defaultManager].viewController.logTextView.textStorage replaceCharactersInRange:newestLogRange withAttributedString:attributedLog];
-            });
+            }));
             
             [self.lock lock];
             self.newestLog = attributedLog;

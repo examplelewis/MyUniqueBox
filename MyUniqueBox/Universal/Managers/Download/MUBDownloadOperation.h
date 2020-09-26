@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MUBDownloadOperation : NSOperation
 
++ (instancetype)operationWithURLSessionTask:(NSURLSessionTask *)task;
+
 @end
 
 NS_ASSUME_NONNULL_END

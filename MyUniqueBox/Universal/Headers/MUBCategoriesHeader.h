@@ -12,6 +12,7 @@
 #import "NSArray+MUBAdd.h"
 #import "NSColor+MUBAdd.h"
 #import "NSDictionary+MUBAdd.h"
+#import "NSError+MUBAdd.h"
 #import "NSObject+MUBAdd.h"
 #import "NSString+MUBAdd.h"
 

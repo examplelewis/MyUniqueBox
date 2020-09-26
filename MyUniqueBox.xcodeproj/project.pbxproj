@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		20C16586D5C82EE507AEB31B /* libPods-MyUniqueBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553C02ABF77D14E37F76373 /* libPods-MyUniqueBox.a */; };
+		AC702F84251F689700C4431A /* MUBMenuItemDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC702F83251F689700C4431A /* MUBMenuItemDownloadManager.m */; };
+		AC702F90251F70DB00C4431A /* NSError+MUBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = AC702F8F251F70DB00C4431A /* NSError+MUBAdd.m */; };
 		AC8B29DE251EEE9C00F91EBF /* Download Prefs default.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC8B29DD251EEE9C00F91EBF /* Download Prefs default.plist */; };
 		AC8B29E8251EF47E00F91EBF /* Download Prefs concurrent 1.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC8B29E5251EF47E00F91EBF /* Download Prefs concurrent 1.plist */; };
 		AC8B29E9251EF47E00F91EBF /* Download Prefs concurrent 5.plist in Resources */ = {isa = PBXBuildFile; fileRef = AC8B29E6251EF47E00F91EBF /* Download Prefs concurrent 5.plist */; };
@@ -114,6 +116,10 @@
 		3553C02ABF77D14E37F76373 /* libPods-MyUniqueBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyUniqueBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC670CB8251ED77200698B74 /* RACEXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACEXTScope.h; sourceTree = "<group>"; };
 		AC670CB9251ED77200698B74 /* RACMetaMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACMetaMacros.h; sourceTree = "<group>"; };
+		AC702F82251F689700C4431A /* MUBMenuItemDownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBMenuItemDownloadManager.h; sourceTree = "<group>"; };
+		AC702F83251F689700C4431A /* MUBMenuItemDownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBMenuItemDownloadManager.m; sourceTree = "<group>"; };
+		AC702F8E251F70DB00C4431A /* NSError+MUBAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSError+MUBAdd.h"; sourceTree = "<group>"; };
+		AC702F8F251F70DB00C4431A /* NSError+MUBAdd.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSError+MUBAdd.m"; sourceTree = "<group>"; };
 		AC8B29DD251EEE9C00F91EBF /* Download Prefs default.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Download Prefs default.plist"; sourceTree = "<group>"; };
 		AC8B29E5251EF47E00F91EBF /* Download Prefs concurrent 1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Download Prefs concurrent 1.plist"; sourceTree = "<group>"; };
 		AC8B29E6251EF47E00F91EBF /* Download Prefs concurrent 5.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Download Prefs concurrent 5.plist"; sourceTree = "<group>"; };
@@ -522,7 +528,11 @@
 			children = (
 				ACF2275F250E39BC00A2E3F6 /* MUBMenuItemManager.h */,
 				ACF22760250E39BC00A2E3F6 /* MUBMenuItemManager.m */,
-				ACF22773250E67D300A2E3F6 /* File */,
+				AC702F82251F689700C4431A /* MUBMenuItemDownloadManager.h */,
+				AC702F83251F689700C4431A /* MUBMenuItemDownloadManager.m */,
+				ACF22770250E670B00A2E3F6 /* MUBMenuItemFileManager.h */,
+				ACF22771250E670B00A2E3F6 /* MUBMenuItemFileManager.m */,
+				ACF523E9251A46B60073BFEE /* Tool */,
 			);
 			path = MenuItem;
 			sourceTree = "<group>";
@@ -550,6 +560,8 @@
 				ACF2276D250E5CD400A2E3F6 /* NSColor+MUBAdd.m */,
 				ACF22769250E5A5E00A2E3F6 /* NSDictionary+MUBAdd.h */,
 				ACF2276A250E5A5E00A2E3F6 /* NSDictionary+MUBAdd.m */,
+				AC702F8E251F70DB00C4431A /* NSError+MUBAdd.h */,
+				AC702F8F251F70DB00C4431A /* NSError+MUBAdd.m */,
 				ACF22777250E705D00A2E3F6 /* NSObject+MUBAdd.h */,
 				ACF22778250E705D00A2E3F6 /* NSObject+MUBAdd.m */,
 				ACF22755250E100400A2E3F6 /* NSString+MUBAdd.h */,
@@ -726,16 +738,6 @@
 				ACDCE2A1250BAC100014BE47 /* Info.plist */,
 			);
 			path = MyUniqueBoxUITests;
-			sourceTree = "<group>";
-		};
-		ACF22773250E67D300A2E3F6 /* File */ = {
-			isa = PBXGroup;
-			children = (
-				ACF22770250E670B00A2E3F6 /* MUBMenuItemFileManager.h */,
-				ACF22771250E670B00A2E3F6 /* MUBMenuItemFileManager.m */,
-				ACF523E9251A46B60073BFEE /* Tool */,
-			);
-			path = File;
 			sourceTree = "<group>";
 		};
 		ACF523D4251A452E0073BFEE /* System */ = {
@@ -1017,7 +1019,9 @@
 				ACC9EC29250BC30100B0311D /* PAPIIllustList.m in Sources */,
 				ACF29006251BA08B003B35D0 /* MUBDownloadSettingManager.m in Sources */,
 				ACF2276E250E5CD400A2E3F6 /* NSColor+MUBAdd.m in Sources */,
+				AC702F90251F70DB00C4431A /* NSError+MUBAdd.m in Sources */,
 				ACF22764250E3A2900A2E3F6 /* MUBExceptionManager.m in Sources */,
+				AC702F84251F689700C4431A /* MUBMenuItemDownloadManager.m in Sources */,
 				ACF7E276251EDC510017D893 /* MUBWindowManager.m in Sources */,
 				ACC9EC03250BBC8400B0311D /* NSDate+YYAdd.m in Sources */,
 				ACC9EC06250BBC8400B0311D /* NSDictionary+YYAdd.m in Sources */,

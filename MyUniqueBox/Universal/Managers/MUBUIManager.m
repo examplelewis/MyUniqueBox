@@ -8,6 +8,12 @@
 
 #import "MUBUIManager.h"
 
+@interface MUBUIManager ()
+
+@property (assign) double progressIndicatorMaxValue;
+
+@end
+
 @implementation MUBUIManager
 
 + (instancetype)defaultManager {
@@ -26,15 +32,33 @@
 }
 
 - (void)scrollNewestLogVisible {
-    [self.viewController.logTextView scrollRangeToVisible:NSMakeRange(self.viewController.logTextView.string.length, 0)];
+    dispatch_main_async_safe((^{
+        [self.viewController.logTextView scrollRangeToVisible:NSMakeRange(self.viewController.logTextView.string.length, 0)];
+    }));
 }
 - (void)resetProgressIndicator {
-    self.viewController.progressIndicator.doubleValue = 0.0f;
-    self.viewController.progressIndicator.maxValue = 1.0f;
-    self.viewController.progressLabel.stringValue = @"0 / 0";
+    self.progressIndicatorMaxValue = 1.0f;
+    
+    dispatch_main_async_safe((^{
+        self.viewController.progressIndicator.doubleValue = 0.0f;
+        self.viewController.progressIndicator.maxValue = 1.0f;
+        self.viewController.progressLabel.stringValue = @"0 / 0";
+    }));
 }
-- (void)updateProgressIndicatorWithMaxValue:(double)maxValue {
-    self.viewController.progressIndicator.maxValue = maxValue;
+- (void)resetProgressIndicatorMaxValue:(double)maxValue {
+    self.progressIndicatorMaxValue = maxValue;
+    
+    dispatch_main_async_safe((^{
+        self.viewController.progressIndicator.doubleValue = 0.0f;
+        self.viewController.progressIndicator.maxValue = maxValue;
+        self.viewController.progressLabel.stringValue = [NSString stringWithFormat:@"0 / %.0f", maxValue];
+    }));
+}
+- (void)updateProgressIndicatorDoubleValue:(double)doubleValue {
+    dispatch_main_async_safe((^{
+        self.viewController.progressIndicator.doubleValue = doubleValue;
+        self.viewController.progressLabel.stringValue = [NSString stringWithFormat:@"%.0f / %.0f", doubleValue, self.progressIndicatorMaxValue];
+    }));
 }
 
 

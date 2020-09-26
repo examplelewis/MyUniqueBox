@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong) NSString *downloadFolderPath;
 @property (strong, nullable) NSDictionary *httpHeaders;
-//@property (strong, nullable) NSDictionary *renameInfo; // 格式: @{%url%: @"xxx.jpg"}
 
 @property (assign) BOOL showFinishAlert;
 @property (assign) NSInteger maxConcurrentCount;

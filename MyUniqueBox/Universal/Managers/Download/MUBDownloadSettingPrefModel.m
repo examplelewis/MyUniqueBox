@@ -17,7 +17,6 @@
         @"prefTag"                      : @"pref_tag",
         @"downloadFolderPath"           : @"download_folder_path",
         @"httpHeaders"                  : @"http_headers",
-        @"renameInfo"                   : @"rename_info",
         @"showFinishAlert"              : @"show_finish_alert",
         @"maxConcurrentCount"           : @"max_concurrent_count",
         @"maxRedownloadTimes"           : @"max_redownload_times",
@@ -39,9 +38,6 @@
     if (self.httpHeaders.isNotEmpty) {
         [toDictionary setObject:self.httpHeaders forKey:@"http_headers"];
     }
-//    if (self.renameInfo.isNotEmpty) {
-//        [toDictionary setObject:self.renameInfo forKey:@"rename_info"];
-//    }
     
     [toDictionary setObject:@(self.showFinishAlert) forKey:@"show_finish_alert"];
     [toDictionary setObject:@(self.maxConcurrentCount) forKey:@"max_concurrent_count"];

@@ -22,6 +22,8 @@ typedef NS_ENUM(NSUInteger, MUBDownloadSettingFileMode) {
 @property (strong) NSString *fileName;
 @property (assign) MUBDownloadSettingFileMode fileMode;
 
+@property (strong, nullable) NSDictionary *renameInfo; // 格式: @{%url%: @"xxx.jpg"}
+
 - (void)updatePrefTag;
 
 @end
