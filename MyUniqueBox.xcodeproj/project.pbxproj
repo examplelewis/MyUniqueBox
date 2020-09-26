@@ -102,6 +102,8 @@
 /* Begin PBXFileReference section */
 		0CD11C90F80CD22493D9C250 /* Pods-MyUniqueBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUniqueBox.release.xcconfig"; path = "Target Support Files/Pods-MyUniqueBox/Pods-MyUniqueBox.release.xcconfig"; sourceTree = "<group>"; };
 		3553C02ABF77D14E37F76373 /* libPods-MyUniqueBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyUniqueBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC670CB8251ED77200698B74 /* RACEXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACEXTScope.h; sourceTree = "<group>"; };
+		AC670CB9251ED77200698B74 /* RACMetaMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACMetaMacros.h; sourceTree = "<group>"; };
 		AC988135250FBC7B00CC3372 /* MUBFileHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBFileHeader.h; sourceTree = "<group>"; };
 		AC988137250FC8EE00CC3372 /* MUBSettingWeiboModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBSettingWeiboModels.h; sourceTree = "<group>"; };
 		AC988138250FC8EE00CC3372 /* MUBSettingWeiboModels.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBSettingWeiboModels.m; sourceTree = "<group>"; };
@@ -341,6 +343,15 @@
 			path = Headers;
 			sourceTree = "<group>";
 		};
+		AC670CB7251ED77200698B74 /* RAC */ = {
+			isa = PBXGroup;
+			children = (
+				AC670CB8251ED77200698B74 /* RACEXTScope.h */,
+				AC670CB9251ED77200698B74 /* RACMetaMacros.h */,
+			);
+			path = RAC;
+			sourceTree = "<group>";
+		};
 		AC988136250FC8CB00CC3372 /* Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -523,6 +534,7 @@
 			isa = PBXGroup;
 			children = (
 				ACC9EC19250BC30100B0311D /* PixivAPI */,
+				AC670CB7251ED77200698B74 /* RAC */,
 				ACC9EC2C250BC30800B0311D /* XMLReader */,
 				ACC9EBDA250BBC8400B0311D /* YYCategories */,
 			);
