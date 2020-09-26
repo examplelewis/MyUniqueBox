@@ -16,5 +16,6 @@
 #import "MUBSettingManager.h"
 #import "MUBUIManager.h"
 #import "MUBUtilityManager.h"
+#import "MUBWindowManager.h"
 
 #endif /* MUBManagersHeader_h */

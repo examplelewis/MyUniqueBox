@@ -15,6 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Create
 + (BOOL)createFolderAtPath:(NSString *)folderPath;
 
+#pragma mark - Open
++ (void)openContentAtPath:(NSString *)contentPath;
++ (void)openContentAtURL:(NSURL *)contentURL;
+
 #pragma mark - Trash
 + (BOOL)trashFilePath:(NSString *)filePath;
 + (BOOL)trashFileURL:(NSURL *)fileURL;

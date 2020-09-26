@@ -80,6 +80,8 @@
 		ACF523EC251A46CF0073BFEE /* MUBMenuItemToolSystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF523EB251A46CF0073BFEE /* MUBMenuItemToolSystemManager.m */; };
 		ACF523F5251A46E00073BFEE /* MUBMenuItemToolPictureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF523F4251A46E00073BFEE /* MUBMenuItemToolPictureManager.m */; };
 		ACF523FB251A46EE0073BFEE /* MUBMenuItemToolDigitalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF523FA251A46EE0073BFEE /* MUBMenuItemToolDigitalManager.m */; };
+		ACF7E270251EDC1B0017D893 /* MUBWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF7E26F251EDC1B0017D893 /* MUBWindowController.m */; };
+		ACF7E276251EDC510017D893 /* MUBWindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF7E275251EDC510017D893 /* MUBWindowManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -252,6 +254,10 @@
 		ACF523F9251A46EE0073BFEE /* MUBMenuItemToolDigitalManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBMenuItemToolDigitalManager.h; sourceTree = "<group>"; };
 		ACF523FA251A46EE0073BFEE /* MUBMenuItemToolDigitalManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBMenuItemToolDigitalManager.m; sourceTree = "<group>"; };
 		ACF523FF251A47290073BFEE /* MUBMenuItemToolHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBMenuItemToolHeader.h; sourceTree = "<group>"; };
+		ACF7E26E251EDC1B0017D893 /* MUBWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBWindowController.h; sourceTree = "<group>"; };
+		ACF7E26F251EDC1B0017D893 /* MUBWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBWindowController.m; sourceTree = "<group>"; };
+		ACF7E274251EDC510017D893 /* MUBWindowManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBWindowManager.h; sourceTree = "<group>"; };
+		ACF7E275251EDC510017D893 /* MUBWindowManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBWindowManager.m; sourceTree = "<group>"; };
 		D8D04F46203F206AAB2BFE55 /* Pods-MyUniqueBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUniqueBox.debug.xcconfig"; path = "Target Support Files/Pods-MyUniqueBox/Pods-MyUniqueBox.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -451,6 +457,8 @@
 				ACF3C40F250D36E900070C8E /* MUBUIManager.m */,
 				ACF363AF250D4C4A00C1DC47 /* MUBUtilityManager.h */,
 				ACF363B0250D4C4A00C1DC47 /* MUBUtilityManager.m */,
+				ACF7E274251EDC510017D893 /* MUBWindowManager.h */,
+				ACF7E275251EDC510017D893 /* MUBWindowManager.m */,
 				ACA93E7F250BFBA9008F65A8 /* Cookie */,
 				ACA93E8E250BFE1F008F65A8 /* Download */,
 				ACA93E91250BFE7C008F65A8 /* HTTP */,
@@ -526,6 +534,8 @@
 				ACA93E88250BFC71008F65A8 /* MUBModel.m */,
 				ACF2275C250E377F00A2E3F6 /* MUBModalWindowController.h */,
 				ACF2275D250E378000A2E3F6 /* MUBModalWindowController.m */,
+				ACF7E26E251EDC1B0017D893 /* MUBWindowController.h */,
+				ACF7E26F251EDC1B0017D893 /* MUBWindowController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -959,12 +969,14 @@
 				ACF29006251BA08B003B35D0 /* MUBDownloadSettingManager.m in Sources */,
 				ACF2276E250E5CD400A2E3F6 /* NSColor+MUBAdd.m in Sources */,
 				ACF22764250E3A2900A2E3F6 /* MUBExceptionManager.m in Sources */,
+				ACF7E276251EDC510017D893 /* MUBWindowManager.m in Sources */,
 				ACC9EC03250BBC8400B0311D /* NSDate+YYAdd.m in Sources */,
 				ACC9EC06250BBC8400B0311D /* NSDictionary+YYAdd.m in Sources */,
 				ACC9EBFF250BBC8400B0311D /* NSThread+YYAdd.m in Sources */,
 				ACC9EC01250BBC8400B0311D /* NSTimer+YYAdd.m in Sources */,
 				ACA93E89250BFC71008F65A8 /* MUBModel.m in Sources */,
 				ACF523EC251A46CF0073BFEE /* MUBMenuItemToolSystemManager.m in Sources */,
+				ACF7E270251EDC1B0017D893 /* MUBWindowController.m in Sources */,
 				ACC9EC04250BBC8400B0311D /* NSString+YYAdd.m in Sources */,
 				ACF22768250E55AB00A2E3F6 /* NSArray+MUBAdd.m in Sources */,
 				ACF523E5251A45B80073BFEE /* MUBMenuItemToolManager.m in Sources */,

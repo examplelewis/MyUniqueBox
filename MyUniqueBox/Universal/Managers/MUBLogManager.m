@@ -64,7 +64,7 @@
 
 #pragma mark - Log 换行
 - (void)addNewlineLog {
-    [self _addLogWithBehavior:MUBLogBehaviorLevelDefault | MUBLogBehaviorOnBothTimeAppend log:@"\n"];
+    [self _addLogWithBehavior:MUBLogBehaviorLevelDefault | MUBLogBehaviorOnBothTimeAppend log:@""];
 }
 
 #pragma mark - Log 页面和文件，显示时间，添加新的日志

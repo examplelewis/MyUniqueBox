@@ -25,6 +25,14 @@
     }
 }
 
+#pragma mark - Open
++ (void)openContentAtPath:(NSString *)contentPath {
+    [[NSWorkspace sharedWorkspace] openFile:contentPath];
+}
++ (void)openContentAtURL:(NSURL *)contentURL {
+    [MUBFileManager openContentAtPath:[MUBFileManager filePathFromFileURL:contentURL]];
+}
+
 #pragma mark - Trash
 + (BOOL)trashFilePath:(NSString *)filePath {
     return [self trashFileURL:[self fileURLFromFilePath:filePath] resultItemURL:nil];
