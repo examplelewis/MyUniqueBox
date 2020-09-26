@@ -29,9 +29,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Move
 + (void)moveItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath;
-+ (void)moveItemFromURL:(NSURL *)fromURL toDestURL:(NSURL *)toURL;
++ (void)moveItemFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL;
 + (void)moveItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath error:(NSError **)error;
 + (void)moveItemFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL error:(NSError **)error;
+
+#pragma mark - Copy
++ (void)copyItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath;
++ (void)copyItemFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL;
++ (void)copyItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath error:(NSError **)error;
++ (void)copyItemFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL error:(NSError **)error;
 
 #pragma mark - File Path
 + (NSArray<NSString *> *)filePathsInFolder:(NSString *)folderPath;

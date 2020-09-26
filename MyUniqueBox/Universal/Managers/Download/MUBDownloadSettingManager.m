@@ -41,25 +41,31 @@
 #pragma mark - Update
 - (void)updatePreferences {
     [MUBFileManager createFolderAtPath:self.prefsFolderPath]; // 新建文件夹
-    [self updateDefaultPreference]; // 添加/获取默认配置
+    [self copyDownloadPrefsFolder]; // 将项目中配置好的文件拷贝到文件夹
+    [self updateDefaultPreference]; // 获取默认配置
     [self updateAllPreferences]; // 获取所有配置
 }
+- (void)copyDownloadPrefsFolder {
+    NSArray *downloadPrefFilePaths = [MUBFileManager filePathsInFolder:[[NSBundle mainBundle] resourcePath] extensions:@[@"plist"]];
+    downloadPrefFilePaths = [downloadPrefFilePaths bk_select:^BOOL(NSString *filePath) {
+        return [filePath.lastPathComponent hasPrefix:@"Download Prefs"];
+    }];
+    
+    for (NSString *downloadPrefFilePath in downloadPrefFilePaths) {
+        NSString *destFilePath = [self.prefsFolderPath stringByAppendingPathComponent:[downloadPrefFilePath.lastPathComponent stringByReplacingOccurrencesOfString:@"Download Prefs " withString:@""]];
+        if (![MUBFileManager fileExistsAtPath:destFilePath]) {
+            [MUBFileManager copyItemFromPath:downloadPrefFilePath toPath:destFilePath];
+        }
+    }
+}
 - (void)updateDefaultPreference {
-    if (![MUBFileManager fileExistsAtPath:self.defaultPrefFilePath]) {
-        _defaultPrefModel = [MUBDownloadSettingModel new];
-        self.defaultPrefModel.prefName = @"default";
-        self.defaultPrefModel.downloadFolderPath = [MUBSettingManager defaultManager].downloadFolderPath;
-        self.defaultPrefModel.httpHeaders = nil;
-//        self.defaultModel.renameInfo = nil;
-        self.defaultPrefModel.showFinishAlert = YES;
-        self.defaultPrefModel.maxConcurrentOperationCount = 15;
-        self.defaultPrefModel.maxRedownloadTimes = 3;
-        self.defaultPrefModel.timeoutInterval = 30;
-        
-        [self.defaultPrefModel.toDictionary exportToPlistPath:self.defaultPrefFilePath];
-    } else {
+    if ([MUBFileManager fileExistsAtPath:self.defaultPrefFilePath]) {
         NSDictionary *defaultPrefDictionary = [NSDictionary dictionaryWithContentsOfFile:self.defaultPrefFilePath];
         _defaultPrefModel = [MUBDownloadSettingModel yy_modelWithJSON:defaultPrefDictionary];
+        _defaultPrefModel.filePath = self.defaultPrefFilePath;
+        _defaultPrefModel.fileName = self.defaultPrefFilePath.lastPathComponent.stringByDeletingPathExtension;
+    } else {
+        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"%@ 文件夹内没有下载配置文件", self.defaultPrefFilePath];
     }
 }
 - (void)updateAllPreferences {
@@ -67,7 +73,8 @@
     _prefModels = [filePaths bk_map:^MUBDownloadSettingModel *(NSString *filePath) {
         NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:filePath];
         MUBDownloadSettingModel *model = [MUBDownloadSettingModel yy_modelWithJSON:dictionary];
-        model.prefName = filePath.lastPathComponent.stringByDeletingPathExtension;
+        model.filePath = self.defaultPrefFilePath;
+        model.fileName = self.defaultPrefFilePath.lastPathComponent.stringByDeletingPathExtension;
         
         return model;
     }];

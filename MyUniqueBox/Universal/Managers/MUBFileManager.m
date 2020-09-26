@@ -73,7 +73,7 @@
         [[MUBLogManager defaultManager] addErrorLogWithFormat:@"移动文件 %@ 时发生错误: %@", fromPath, [error localizedDescription]];
     }
 }
-+ (void)moveItemFromURL:(NSURL *)fromURL toDestURL:(NSURL *)toURL {
++ (void)moveItemFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL {
     [MUBFileManager moveItemFromPath:[MUBFileManager filePathFromFileURL:fromURL] toPath:[MUBFileManager filePathFromFileURL:toURL]];
 }
 + (void)moveItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath error:(NSError **)error {
@@ -81,6 +81,23 @@
 }
 + (void)moveItemFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL error:(NSError **)error {
     [MUBFileManager moveItemFromPath:[MUBFileManager filePathFromFileURL:fromURL] toPath:[MUBFileManager filePathFromFileURL:toURL] error:error];
+}
+
+#pragma mark - Copy
++ (void)copyItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath {
+    NSError *error;
+    if (![[NSFileManager defaultManager] copyItemAtPath:fromPath toPath:[MUBFileManager removeSeparatorInPathComponentsAtContentPath:toPath] error:&error]) {
+        [[MUBLogManager defaultManager] addErrorLogWithFormat:@"拷贝文件 %@ 时发生错误: %@", fromPath, [error localizedDescription]];
+    }
+}
++ (void)copyItemFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL {
+    [MUBFileManager copyItemFromPath:[MUBFileManager filePathFromFileURL:fromURL] toPath:[MUBFileManager filePathFromFileURL:toURL]];
+}
++ (void)copyItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath error:(NSError *__autoreleasing  _Nullable *)error {
+    [[NSFileManager defaultManager] copyItemAtPath:fromPath toPath:[MUBFileManager removeSeparatorInPathComponentsAtContentPath:toPath] error:error];
+}
++ (void)copyItemFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL error:(NSError *__autoreleasing  _Nullable *)error {
+    [MUBFileManager copyItemFromPath:[MUBFileManager filePathFromFileURL:fromURL] toPath:[MUBFileManager filePathFromFileURL:toURL] error:error];
 }
 
 #pragma mark - File Path

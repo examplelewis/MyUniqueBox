@@ -6,24 +6,14 @@
 //  Copyright © 2020 龚宇. All rights reserved.
 //
 
-#import "MUBModel.h"
+#import "MUBDownloadSettingPrefModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MUBDownloadSettingModel : MUBModel
+@interface MUBDownloadSettingModel : MUBDownloadSettingPrefModel
 
-@property (strong) NSString *prefName;
-
-@property (strong) NSString *downloadFolderPath;
-@property (strong, nullable) NSDictionary *httpHeaders;
-//@property (strong, nullable) NSDictionary *renameInfo; // 格式: @{%url%: @"xxx.jpg"}
-
-@property (assign) BOOL showFinishAlert;
-@property (assign) NSInteger maxConcurrentOperationCount;
-@property (assign) NSInteger maxRedownloadTimes;
-@property (assign) NSTimeInterval timeoutInterval;
-
-- (NSDictionary *)toDictionary;
+@property (strong) NSString *filePath;
+@property (strong) NSString *fileName;
 
 @end
 
