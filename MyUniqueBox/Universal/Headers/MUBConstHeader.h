@@ -9,6 +9,12 @@
 #ifndef MUBConstHeader_h
 #define MUBConstHeader_h
 
+typedef NS_ENUM(NSUInteger, MUBFileOpertaionBehavior) {
+    MUBFileOpertaionBehaviorNone                    = 0,
+    MUBFileOpertaionBehaviorShowSuccessLog          = 1 << 0,
+    MUBFileOpertaionBehaviorExportNoneContent       = 1 << 1,
+};
+
 // Time Format
 static NSString * const MUBTimeFormatyMdHmsS = @"yyyy-MM-dd HH:mm:ss.SSS";
 

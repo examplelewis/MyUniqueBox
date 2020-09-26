@@ -47,28 +47,49 @@
     return str;
 }
 
+#pragma mark - Export
 - (void)exportToPath:(NSString *)path {
+    [self exportToPath:path behavior:MUBFileOpertaionBehaviorNone];
+}
+- (void)exportToPath:(NSString *)path behavior:(MUBFileOpertaionBehavior)behavior {
+    BOOL exportNoneContent = behavior & MUBFileOpertaionBehaviorExportNoneContent;
+    BOOL showSuccessLog = behavior & MUBFileOpertaionBehaviorShowSuccessLog;
+    
     if (self.isEmpty) {
-        [[MUBLogManager defaultManager] addWarningLogWithBehavior:MUBLogBehaviorOnBothTimeAppend format:@"输出到: %@ 的内容为空，已忽略", path];
-        return;
+        [[MUBLogManager defaultManager] addWarningLogWithBehavior:MUBLogBehaviorOnBothTimeAppend format:@"输出到: %@ 的内容为空%@", path, !exportNoneContent ? @"，已忽略" : @""];
+        if (!exportNoneContent) {
+            return;
+        }
     }
     
     NSError *error;
     if ([self.stringValue writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error]) {
-        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"结果文件导出成功，请查看：%@", path];
+        if (showSuccessLog) {
+            [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"结果文件导出成功，请查看：%@", path];
+        }
     } else {
         [[MUBLogManager defaultManager] addErrorLogWithFormat:@"导出结果文件出错：%@", error.localizedDescription];
     }
 }
 - (void)exportToPlistPath:(NSString *)plistPath {
+    [self exportToPlistPath:plistPath behavior:MUBFileOpertaionBehaviorNone];
+}
+- (void)exportToPlistPath:(NSString *)plistPath behavior:(MUBFileOpertaionBehavior)behavior {
+    BOOL exportNoneContent = behavior & MUBFileOpertaionBehaviorExportNoneContent;
+    BOOL showSuccessLog = behavior & MUBFileOpertaionBehaviorShowSuccessLog;
+    
     if (self.isEmpty) {
-        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"输出到: %@ 的内容为空，已忽略", plistPath];
-        return;
+        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"输出到: %@ 的内容为空%@", plistPath, !exportNoneContent ? @"，已忽略" : @""];
+        if (!exportNoneContent) {
+            return;
+        }
     }
     
     NSError *error;
     if ([self.plistData writeToFile:plistPath atomically:YES]) {
-        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"结果文件导出成功，请查看：%@", plistPath];
+        if (showSuccessLog) {
+            [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"结果文件导出成功，请查看：%@", plistPath];
+        }
     } else {
         [[MUBLogManager defaultManager] addErrorLogWithFormat:@"导出结果文件出错：%@", error.localizedDescription];
     }

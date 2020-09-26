@@ -7,15 +7,53 @@
 //
 
 #import "MUBMenuItemDownloadManager.h"
-
-static NSInteger const kDefaultTag = 4000000;
+#import "MUBDownloadManager.h"
+#import "MUBDownloadSettingManager.h"
 
 @implementation MUBMenuItemDownloadManager
 
 + (void)customMenuItemDidPress:(NSMenuItem *)sender {
-    NSInteger type = (sender.tag - kDefaultTag) / 100;
-    NSInteger action = (sender.tag - kDefaultTag) % 100;
+    MUBDownloadSettingModel *prefModel = [[MUBDownloadSettingManager defaultManager] prefModelFromMenuItemTag:sender.tag];
+    if (!prefModel) {
+        [[MUBLogManager defaultManager] addErrorLogWithFormat:@"未找到匹配的配置文件，下载流程结束"];
+        return;
+    }
     
+    if (prefModel.fileMode == MUBDownloadSettingFileModeInput) {
+        NSString *URLString = [MUBUIManager defaultManager].viewController.inputTextView.string;
+        [MUBMenuItemDownloadManager _createDownloadManagerFromPrefModel:prefModel URLString:URLString];
+    } else if (prefModel.fileMode == MUBDownloadSettingFileModeChooseFile) {
+        [MUBOpenPanelManager showOpenPanelOnMainWindowWithBehavior:MUBOpenPanelBehaviorSingleFile message:@"请选择包含下载链接的文件，目前只支持txt" prompt:@"确定" fileTypes:@[@"txt"] handler:^(NSOpenPanel * _Nonnull openPanel, NSModalResponse result) {
+            if (result == NSModalResponseOK) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSString *path = [MUBFileManager pathFromOpenPanelURL:openPanel.URLs.firstObject];
+                    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"已选择：%@", path];
+                    
+                    NSError *error;
+                    NSString *URLString = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+                    if (error) {
+                        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"读取TXT文件失败: %@, 下载流程结束", error.localizedDescription];
+                        return;
+                    }
+                    
+                    [MUBMenuItemDownloadManager _createDownloadManagerFromPrefModel:prefModel URLString:URLString];
+                });
+            }
+        }];
+    } else {
+        [[MUBLogManager defaultManager] addErrorLogWithFormat:@"未找到匹配的输入方式，下载流程结束"];
+    }
+}
+
++ (void)_createDownloadManagerFromPrefModel:(MUBDownloadSettingModel *)prefModel URLString:(NSString *)URLString {
+    if (URLString.length == 0) {
+        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"未读取到可用的下载链接, 下载流程结束"];
+        return;
+    }
+    
+    NSArray *URLs = [URLString componentsSeparatedByString:@"\n"];
+    MUBDownloadManager *manager = [[MUBDownloadManager alloc] initWithSettingModel:prefModel URLs:URLs];
+    [manager start];
 }
 
 @end

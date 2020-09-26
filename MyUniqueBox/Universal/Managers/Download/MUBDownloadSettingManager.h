@@ -13,15 +13,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MUBDownloadSettingManager : NSObject
 
-@property (strong, readonly) MUBDownloadSettingModel *defaultPrefModel;
-@property (copy, readonly) NSArray *prefModels;
-
 + (instancetype)defaultManager;
 
 - (void)updatePreferences;
 - (void)updateDefaultPrefrenceWithModel:(MUBDownloadSettingModel *)model;
 - (void)updatePreferenceWithName:(NSString *)name model:(MUBDownloadSettingModel *)model;
 
+#pragma mark - Pref Model
+// menuItemTag 和 prefTag 相同
+- (MUBDownloadSettingModel *)prefModelFromMenuItemTag:(NSInteger)tag;
+
+#pragma mark - Menu Item
 - (void)updateMenuItems;
 
 @end

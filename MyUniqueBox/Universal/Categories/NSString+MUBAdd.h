@@ -15,9 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (BOOL)isEmpty;
 - (BOOL)isNotEmpty;
 
-- (void)exportToPath:(NSString *)path;
-
 - (NSString *)md5Middle;
+
+#pragma mark - Export
+- (void)exportToPath:(NSString *)path;
+- (void)exportToPath:(NSString *)path behavior:(MUBFileOpertaionBehavior)behavior;
 
 @end
 

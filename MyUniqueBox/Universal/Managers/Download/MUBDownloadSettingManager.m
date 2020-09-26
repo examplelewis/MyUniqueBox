@@ -13,6 +13,7 @@ static NSInteger const kDefaultTag = 4000000;
 
 @interface MUBDownloadSettingManager ()
 
+@property (copy) NSArray *prefModels;
 @property (copy) NSString *prefsFolderPath;
 @property (copy) NSString *defaultPrefFilePath;
 
@@ -83,7 +84,7 @@ static NSInteger const kDefaultTag = 4000000;
     }
     [models sortUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"prefTag" ascending:YES]]];
     
-    _prefModels = [models copy];
+    self.prefModels = [models copy];
 }
 - (void)updateDefaultPrefrenceWithModel:(MUBDownloadSettingModel *)model {
     [self updatePreferenceWithName:@"default" model:model];
@@ -93,6 +94,20 @@ static NSInteger const kDefaultTag = 4000000;
     // 先写到文件里
     
     [self updateAllPreferences];
+}
+
+#pragma mark - Pref Model
+// menuItemTag 和 prefTag 相同
+- (MUBDownloadSettingModel *)prefModelFromMenuItemTag:(NSInteger)tag {
+    NSArray *prefModels = [self.prefModels bk_select:^BOOL(MUBDownloadSettingModel *model) {
+        return model.prefTag == tag;
+    }];
+    if (prefModels.count == 0) {
+        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"MUBDownloadSettingManager prefModelFromMenuItemTag prefModels.count == 0"];
+        return nil;
+    }
+    
+    return prefModels.firstObject;
 }
 
 #pragma mark - Menu Item
@@ -126,7 +141,6 @@ static NSInteger const kDefaultTag = 4000000;
     
     [MUBUIManager defaultManager].appDelegate.downloadRootMenuItem.submenu = subMenu;
 }
-
 - (void)downloadMenuItemDidPress:(NSMenuItem *)sender {
     [MUBMenuItemManager customMenuItemDidPress:sender];
 }

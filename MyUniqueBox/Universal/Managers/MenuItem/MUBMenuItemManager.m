@@ -8,6 +8,7 @@
 
 #import "MUBMenuItemManager.h"
 
+#import "MUBMenuItemDownloadManager.h"
 #import "MUBMenuItemFileManager.h"
 #import "MUBMenuItemToolManager.h"
 
@@ -28,7 +29,7 @@
         }
             break;
         case 4: {
-            
+            [MUBMenuItemDownloadManager customMenuItemDidPress:sender];
         }
             break;
         case 5: {

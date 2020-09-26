@@ -17,8 +17,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)stringValue;
 
+#pragma mark - Export
 - (void)exportToPath:(NSString *)path;
+- (void)exportToPath:(NSString *)path behavior:(MUBFileOpertaionBehavior)behavior;
+
 - (void)exportToPlistPath:(NSString *)plistPath;
+- (void)exportToPlistPath:(NSString *)plistPath behavior:(MUBFileOpertaionBehavior)behavior;
 
 @end
 
