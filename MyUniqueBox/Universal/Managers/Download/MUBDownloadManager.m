@@ -10,8 +10,6 @@
 #import <AFNetworking/AFNetworking.h>
 #import "MUBDownloadOperation.h"
 
-static NSString * kDownloadSuccessURLsExportFileName = @"MUBDownloadSuccessURLsExportFile.txt";
-static NSString * kDownloadFailedURLsExportFileName = @"MUBDownloadFailedURLsExportFile.txt";
 static NSString * kDownloadRemainURLsExportFileName = @"MUBDownloadRemainURLsExportFile.txt";
 
 @interface MUBDownloadManager ()
@@ -27,11 +25,9 @@ static NSString * kDownloadRemainURLsExportFileName = @"MUBDownloadRemainURLsExp
 
 @property (assign) NSInteger redownloadTimes;
 
-@property (copy) NSArray<NSString *> *downloadURLs; // 当前下载的所有链接
 @property (strong) NSMutableArray<NSString *> *successURLs; // 下载成功的链接
-@property (strong) NSMutableArray<NSString *> *failedURLs; // 下载失败的链接
 @property (strong) NSMutableArray<NSString *> *remainURLs; // 还未下载的链接
-// downlaodURLs.count = successURLs.count + failedURLs.count + remainURLs.count;
+// URLs.count = successURLs.count + remainURLs.count;
 
 @end
 
@@ -42,11 +38,11 @@ static NSString * kDownloadRemainURLsExportFileName = @"MUBDownloadRemainURLsExp
     self = [super init];
     if (self) {
         self.model = model;
-        self.URLs = URLs;
+        self.URLs = [URLs copy];
         self.redownloadTimes = 0;
         
-        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-        self.manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+        self.remainURLs = [URLs mutableCopy];
+        self.successURLs = [NSMutableArray array];
         
         if ([self.model.downloadFolderPath isEqualToString:[MUBSettingManager defaultManager].downloadFolderPath]) {
             self.failedURLsExportFilePath = [[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:@"MUBDownloadFailedURLsExportFile.txt"];
@@ -59,10 +55,11 @@ static NSString * kDownloadRemainURLsExportFileName = @"MUBDownloadRemainURLsExp
             self.remainURLsExportFilePath = [[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:[NSString stringWithFormat:@"MUBDownloadRemainURLsExportFile %@.txt", downloadFolderSuffix]];
         }
         
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+        self.manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+        
         self.opQueue = [NSOperationQueue new];
         self.opQueue.maxConcurrentOperationCount = self.model.maxConcurrentCount;
-        
-        self.downloadURLs = [URLs copy];
     }
     
     return self;
@@ -85,12 +82,8 @@ static NSString * kDownloadRemainURLsExportFileName = @"MUBDownloadRemainURLsExp
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"下载流程开始，共 %ld 个文件", self.URLs.count];
     } else {
         [[MUBLogManager defaultManager] addNewlineLog];
-        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"第%ld次下载失败链接，共 %ld 个文件", self.redownloadTimes, self.downloadURLs.count];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"第%ld次重新下载未成功的文件，共 %ld 个", self.redownloadTimes, self.URLs.count];
     }
-    
-    self.successURLs = [NSMutableArray array];
-    self.failedURLs = [NSMutableArray array];
-    self.remainURLs = [self.downloadURLs mutableCopy];
     
     NSBlockOperation *completionOperation = [NSBlockOperation blockOperationWithBlock:^{
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{ // 回到主线程执行，方便更新 UI 等
@@ -98,7 +91,7 @@ static NSString * kDownloadRemainURLsExportFileName = @"MUBDownloadRemainURLsExp
         }];
     }];
     
-    for (NSInteger i = 0; i < self.downloadURLs.count; i++) {
+    for (NSInteger i = 0; i < self.URLs.count; i++) {
         @weakify(self);
         NSURLSessionDownloadTask *downloadTask = [self _downloadTaskWithUrl:self.URLs[i] completion:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
             @strongify(self);
@@ -111,24 +104,16 @@ static NSString * kDownloadRemainURLsExportFileName = @"MUBDownloadRemainURLsExp
 //                    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"链接: %@, 下载失败: %@，无法重新下载", URL, error.localizedDescription];
 //                }
                 [[MUBLogManager defaultManager] addErrorLogWithFormat:@"链接: %@, 下载失败: %@，等待重新下载", URL, error.localizedDescription];
+            } else {
+                [[MUBLogManager defaultManager] addErrorLogWithFormat:@"链接: %@, 下载成功", URL];
                 
                 @synchronized (self) {
-                    [self.failedURLs addObject:URL];
-                    [self.remainURLs removeObject:URL];
-                    
-                    [self.failedURLs exportToPath:self.failedURLsExportFilePath];
-                    [self.remainURLs exportToPath:self.remainURLsExportFilePath behavior:MUBFileOpertaionBehaviorExportNoneContent];
-                    
-                    [[MUBUIManager defaultManager] updateProgressIndicatorDoubleValue:(double)(self.successURLs.count + self.failedURLs.count)];
-                }
-            } else {
-                @synchronized (self) {
                     [self.successURLs addObject:URL];
-                    [self.remainURLs removeObject:URL];
                     
+                    [self.remainURLs removeObject:URL];
                     [self.remainURLs exportToPath:self.remainURLsExportFilePath behavior:MUBFileOpertaionBehaviorExportNoneContent];
                     
-                    [[MUBUIManager defaultManager] updateProgressIndicatorDoubleValue:(double)(self.successURLs.count + self.failedURLs.count)];
+                    [[MUBUIManager defaultManager] updateProgressIndicatorDoubleValue:(double)self.successURLs.count];
                 }
             }
         }];
@@ -142,18 +127,18 @@ static NSString * kDownloadRemainURLsExportFileName = @"MUBDownloadRemainURLsExp
 }
 
 - (void)_finishAllDownloadingOperations {
-    if (self.failedURLs.count > 0 && self.redownloadTimes < self.model.maxRedownloadTimes) {
-        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"1秒后重新下载失败的图片"];
+    if (self.remainURLs.count > 0 && self.redownloadTimes < self.model.maxRedownloadTimes) {
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"1秒后重新下载未成功的文件"];
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             self.redownloadTimes += 1;
-            self.downloadURLs = [self.failedURLs copy];
+            self.URLs = [self.remainURLs copy];
             
             [self _startWhetherIsFirstTime:NO];
         });
     } else {
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"下载流程结束"];
-        if (self.failedURLs.count > 0) {
-            [[MUBLogManager defaultManager] addWarningLogWithFormat:@"有 %ld 个文件仍然无法下载，列表已导出到下载文件夹中的 %@ 文件中", self.failedURLs.count, self.failedURLsExportFilePath.lastPathComponent];
+        if (self.remainURLs.count > 0) {
+            [[MUBLogManager defaultManager] addWarningLogWithFormat:@"有 %ld 个文件仍然无法下载，列表已导出到下载文件夹中的 %@ 文件中", self.remainURLs.count, self.failedURLsExportFilePath.lastPathComponent];
         }
         
 //        if (self.remainURLs.count == 0 && [MUBFileManager fileExistsAtPath:self.remainURLsExportFilePath]) {
