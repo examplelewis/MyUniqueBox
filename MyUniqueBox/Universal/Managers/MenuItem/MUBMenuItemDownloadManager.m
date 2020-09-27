@@ -21,7 +21,7 @@
     
     if (prefModel.fileMode == MUBDownloadSettingFileModeInput) {
         NSString *URLString = [MUBUIManager defaultManager].viewController.inputTextView.string;
-        [MUBMenuItemDownloadManager _createDownloadManagerFromPrefModel:prefModel URLString:URLString];
+        [MUBMenuItemDownloadManager _createDownloadManagerFromPrefModel:prefModel URLString:URLString downloadFilePath:nil];
     } else if (prefModel.fileMode == MUBDownloadSettingFileModeChooseFile) {
         [MUBOpenPanelManager showOpenPanelOnMainWindowWithBehavior:MUBOpenPanelBehaviorSingleFile message:@"请选择包含下载链接的文件，目前只支持txt" prompt:@"确定" fileTypes:@[@"txt"] handler:^(NSOpenPanel * _Nonnull openPanel, NSModalResponse result) {
             if (result == NSModalResponseOK) {
@@ -36,7 +36,7 @@
                         return;
                     }
                     
-                    [MUBMenuItemDownloadManager _createDownloadManagerFromPrefModel:prefModel URLString:URLString];
+                    [MUBMenuItemDownloadManager _createDownloadManagerFromPrefModel:prefModel URLString:URLString downloadFilePath:path];
                 });
             }
         }];
@@ -45,14 +45,14 @@
     }
 }
 
-+ (void)_createDownloadManagerFromPrefModel:(MUBDownloadSettingModel *)prefModel URLString:(NSString *)URLString {
++ (void)_createDownloadManagerFromPrefModel:(MUBDownloadSettingModel *)prefModel URLString:(NSString *)URLString downloadFilePath:(NSString * _Nullable)downloadFilePath {
     if (URLString.length == 0) {
         [[MUBLogManager defaultManager] addWarningLogWithFormat:@"未读取到可用的下载链接, 下载流程结束"];
         return;
     }
     
     NSArray *URLs = [URLString componentsSeparatedByString:@"\n"];
-    MUBDownloadManager *manager = [[MUBDownloadManager alloc] initWithSettingModel:prefModel URLs:URLs];
+    MUBDownloadManager *manager = [MUBDownloadManager managerWithSettingModel:prefModel URLs:URLs downloadFilePath:downloadFilePath];
     [manager start];
 }
 

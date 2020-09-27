@@ -13,9 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MUBDownloadManager : NSObject
 
-- (instancetype)initWithSettingModel:(MUBDownloadSettingModel *)model URLs:(NSArray<NSString *> *)URLs;
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)new NS_UNAVAILABLE;
+@property (nonatomic, copy) void(^onFinish)(void);
+
++ (instancetype)managerWithSettingModel:(MUBDownloadSettingModel *)model URLs:(NSArray<NSString *> *)URLs downloadFilePath:(NSString * _Nullable)downloadFilePath;
 
 - (void)start;
 
