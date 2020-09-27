@@ -165,7 +165,7 @@ static NSString * kDownloadRemainURLsExportFileName = @"MUBDownloadRemainURLsExp
         }
     }
     
-    NSURLSessionDownloadTask *downloadTask = [self.manager downloadTaskWithRequest:request progress:nil destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+    NSURLSessionDownloadTask *downloadTask = [self.manager downloadTaskWithRequest:request progress:nil destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         NSString *fileName;
         if (self.model.renameInfo.isNotEmpty) {
             fileName = self.model.renameInfo[url];
@@ -175,8 +175,18 @@ static NSString * kDownloadRemainURLsExportFileName = @"MUBDownloadRemainURLsExp
         } else {
             fileName = response.suggestedFilename;
         }
-        
         NSString *filePath = [self.model.downloadFolderPath stringByAppendingPathComponent:fileName];
+        
+        // 如果文件存在的话，重命名
+        for (NSInteger i = 1; i <= 100; i++) {
+            if (![MUBFileManager fileExistsAtPath:filePath]) {
+                break;
+            }
+            
+            NSString *newFileName = [NSString stringWithFormat:@"%@ %ld.%@", fileName.stringByDeletingPathExtension, i, fileName.pathExtension];
+            filePath = [self.model.downloadFolderPath stringByAppendingPathComponent:newFileName];
+        }
+        
         return [NSURL fileURLWithPath:filePath];
     } completionHandler:completionBlock];
     
