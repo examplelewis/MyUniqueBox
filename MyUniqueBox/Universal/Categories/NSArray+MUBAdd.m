@@ -10,6 +10,12 @@
 
 @implementation NSArray (MUBAdd)
 
+- (BOOL)isArray {
+    return self && [self isKindOfClass:[NSArray class]];
+}
+- (BOOL)isNotArray {
+    return !self.isArray;
+}
 - (BOOL)isEmpty {
     return !self.isNotEmpty;
 }

@@ -16,7 +16,11 @@ typedef NS_ENUM(NSUInteger, MUBFileOpertaionBehavior) {
 };
 
 // Time Format
+static NSString * const MUBTimeFormatyMdHms = @"yyyy-MM-dd HH:mm:ss";
 static NSString * const MUBTimeFormatyMdHmsS = @"yyyy-MM-dd HH:mm:ss.SSS";
+static NSString * const MUBTimeFormatEMdHmsZy = @"EEE MMM dd HH:mm:ss Z yyyy";
+
+static NSString * const MUBTimeFormatyMdHmsCompact = @"yyyyMMddHHmmss";
 
 // Notification Key
 static NSString * const MUBDidGetWeiboTokenNotification = @"com.gongyu.MyUniqueBox.MUBDidGetWeiboTokenNotification";

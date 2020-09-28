@@ -69,15 +69,15 @@ static NSInteger const kDefaultTag = 4000000;
         NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:filePath];
         
         MUBDownloadSettingModel *inputModel = [MUBDownloadSettingModel yy_modelWithJSON:dictionary];
-        inputModel.filePath = self.defaultPrefFilePath;
-        inputModel.fileName = self.defaultPrefFilePath.lastPathComponent.stringByDeletingPathExtension;
+        inputModel.filePath = filePath;
+        inputModel.fileName = filePath.lastPathComponent.stringByDeletingPathExtension;
         inputModel.fileMode = MUBDownloadSettingFileModeInput;
         [inputModel updatePrefTag];
         [models addObject:inputModel];
         
         MUBDownloadSettingModel *chooseFileModel = [MUBDownloadSettingModel yy_modelWithJSON:dictionary];
-        chooseFileModel.filePath = self.defaultPrefFilePath;
-        chooseFileModel.fileName = self.defaultPrefFilePath.lastPathComponent.stringByDeletingPathExtension;
+        chooseFileModel.filePath = filePath;
+        chooseFileModel.fileName = filePath.lastPathComponent.stringByDeletingPathExtension;
         chooseFileModel.fileMode = MUBDownloadSettingFileModeChooseFile;
         [chooseFileModel updatePrefTag];
         [models addObject:chooseFileModel];
@@ -113,7 +113,7 @@ static NSInteger const kDefaultTag = 4000000;
 #pragma mark - Menu Item
 - (void)updateMenuItems {
     NSMenu *subMenu = [NSMenu new];
-    subMenu.title = @"下载";
+    subMenu.title = @"下载【功能已通过测试】";
     
     NSInteger prefTag = 0;
     for (NSInteger i = 0; i < self.prefModels.count; i++) {

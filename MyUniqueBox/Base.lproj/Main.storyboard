@@ -497,8 +497,16 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="资源" id="7BQ-fk-Rfb">
                                     <items>
-                                        <menuItem title="从输入框中解析" tag="1000001" keyEquivalent="1" id="wBM-Ge-Eyh"/>
-                                        <menuItem title="从文件中解析" tag="1000002" keyEquivalent="2" id="9Qd-6E-52w"/>
+                                        <menuItem title="从输入框中解析" tag="1000001" keyEquivalent="1" id="wBM-Ge-Eyh">
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="QEe-oL-xb1"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="从文件中解析" tag="1000002" keyEquivalent="2" id="9Qd-6E-52w">
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="256-XC-nbT"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="7pZ-bH-adM"/>
                                         <menuItem title="绝对领域" tag="1020000" id="iGk-fk-wBR">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -506,9 +514,15 @@
                                                 <items>
                                                     <menuItem title="下载多个页面的图片 [页面地址]" tag="1020001" id="Wvy-Mf-qwp">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="qhK-Si-Lb1"/>
+                                                        </connections>
                                                     </menuItem>
-                                                    <menuItem title="整理下载好的图片" tag="1020002" id="44E-1k-iwT">
+                                                    <menuItem title="整理下载好的图片" tag="1020099" id="44E-1k-iwT">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="90m-gG-lRr"/>
+                                                        </connections>
                                                     </menuItem>
                                                 </items>
                                             </menu>
@@ -519,44 +533,80 @@
                                                 <items>
                                                     <menuItem title="下载微博收藏的图片(全部)" tag="1030001" id="fsP-8Z-vL8">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="4Qs-Im-PrQ"/>
+                                                        </connections>
                                                     </menuItem>
-                                                    <menuItem title="下载微博收藏的图片(输入数量 &lt; 50)" tag="1030002" id="5Mh-S9-s9g">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <menuItem title="下载微博收藏的图片(输入数量 &lt; 50)" tag="1030002" alternate="YES" id="5Mh-S9-s9g">
+                                                        <modifierMask key="keyEquivalentModifierMask" option="YES"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="UCz-FE-72D"/>
+                                                        </connections>
                                                     </menuItem>
-                                                    <menuItem title="整理下载好的图片" tag="1030003" id="MZ5-Ax-Ous">
+                                                    <menuItem title="整理下载好的图片" tag="1030099" id="MZ5-Ax-Ous">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="fGt-kF-IDo"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="4Fi-Wb-4mN"/>
                                                     <menuItem title="获取重复收藏的微博ID" tag="1030101" id="76d-jK-3tR">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="tK9-4E-eWF"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem title="取消多个重复收藏的微博 [微博ID]" tag="1030102" id="Qk2-d8-6bK">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="zQO-sT-udH"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="aXK-9Z-8gc"/>
-                                                    <menuItem title="获取微博用户推荐的画师" tag="1030201" id="MiG-ia-mmz">
+                                                    <menuItem title="获取微博用户推荐的画师" tag="1030201" enabled="NO" id="MiG-ia-mmz">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="f28-zB-73d"/>
+                                                        </connections>
                                                     </menuItem>
-                                                    <menuItem title="手动存储多个推荐的画师 [格式化的字符串]" tag="1030202" id="V4v-AL-efE">
+                                                    <menuItem title="手动存储多个推荐的画师 [格式化的字符串]" tag="1030202" enabled="NO" id="V4v-AL-efE">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="s4r-gU-BHS"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="OM5-3W-AaQ"/>
                                                     <menuItem title="打开网页请求授权" tag="1030301" id="bOZ-Ny-m2m">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="ZN0-0L-xEq"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem title="显示授权详细信息" tag="1030302" id="Y4J-gP-1XE">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="jBT-DK-nm9"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="Ar3-Yw-HbS"/>
                                                     <menuItem title="通过内容获取边界" tag="1030401" id="zhB-qd-8L6">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="Wok-dT-Bex"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem title="把最新的收藏标记为边界" tag="1030402" id="wR8-dK-uyp">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="lFt-WG-XID"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="Hwy-YL-vRs"/>
                                                     <menuItem title="存储 未筛选 的用户" tag="1030501" enabled="NO" id="lg8-vK-saI">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="6fr-TT-tLe"/>
+                                                        </connections>
                                                     </menuItem>
                                                 </items>
                                             </menu>
@@ -656,19 +706,6 @@
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
                                                     <menuItem title="下载已获取到的图片" tag="3" enabled="NO" id="lGc-zI-kAI">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                    </menuItem>
-                                                </items>
-                                            </menu>
-                                        </menuItem>
-                                        <menuItem title="WorldCosplay" tag="1070000" id="Kl2-Sp-pGb">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="WorldCosplay" id="aoS-OD-ZfS">
-                                                <items>
-                                                    <menuItem title="下载单个用户的图片 [用户页面的HTML]" tag="1070001" id="pvx-g5-AMJ">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                    </menuItem>
-                                                    <menuItem title="下载多个图片 [图片页面的地址]" tag="1070002" id="8Ds-XB-2nW">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
                                                 </items>
@@ -885,15 +922,15 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="归档" enabled="NO" id="iQI-jx-Vsm">
+                            <menuItem title="归档" id="iQI-jx-Vsm">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="归档" id="Bvp-3c-RNo">
                                     <items>
-                                        <menuItem title="资源" enabled="NO" id="8lR-aG-IXq">
+                                        <menuItem title="资源" id="8lR-aG-IXq">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="资源" id="PRY-nN-Bac">
                                                 <items>
-                                                    <menuItem title="半次元" tag="1010000" enabled="NO" id="gRI-i9-Zlo">
+                                                    <menuItem title="半次元" tag="1010000" id="gRI-i9-Zlo">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <menu key="submenu" title="半次元" id="BZc-e5-qZ9">
                                                             <items>
@@ -915,14 +952,27 @@
                                                             </items>
                                                         </menu>
                                                     </menuItem>
+                                                    <menuItem title="WorldCosplay" tag="1070000" id="Kl2-Sp-pGb">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <menu key="submenu" title="WorldCosplay" id="aoS-OD-ZfS">
+                                                            <items>
+                                                                <menuItem title="下载单个用户的图片 [用户页面的HTML]" tag="1070001" enabled="NO" id="pvx-g5-AMJ">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                                <menuItem title="下载多个图片 [图片页面的地址]" tag="1070002" enabled="NO" id="8Ds-XB-2nW">
+                                                                    <modifierMask key="keyEquivalentModifierMask"/>
+                                                                </menuItem>
+                                                            </items>
+                                                        </menu>
+                                                    </menuItem>
                                                 </items>
                                             </menu>
                                         </menuItem>
-                                        <menuItem title="图站" tag="2000000" enabled="NO" id="Nnd-kC-Ltc">
+                                        <menuItem title="图站" tag="2000000" id="Nnd-kC-Ltc">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="图站" id="rpg-Ob-3MU">
                                                 <items>
-                                                    <menuItem title="Gelbooru" tag="2010000" enabled="NO" id="VLC-1D-uv2">
+                                                    <menuItem title="Gelbooru" tag="2010000" id="VLC-1D-uv2">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <menu key="submenu" title="Gelbooru" id="N1k-Cu-qTX">
                                                             <items>
@@ -979,7 +1029,7 @@
                                                             </items>
                                                         </menu>
                                                     </menuItem>
-                                                    <menuItem title="Rule34" tag="2020000" enabled="NO" id="dGw-Dv-R4D">
+                                                    <menuItem title="Rule34" tag="2020000" id="dGw-Dv-R4D">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <menu key="submenu" title="Rule34" id="i2j-tu-Zss">
                                                             <items>
@@ -1036,7 +1086,7 @@
                                                             </items>
                                                         </menu>
                                                     </menuItem>
-                                                    <menuItem title="通用" tag="2030000" enabled="NO" id="M5J-eh-oL0">
+                                                    <menuItem title="通用" tag="2030000" id="M5J-eh-oL0">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <menu key="submenu" title="通用" id="4x5-AP-cAL">
                                                             <items>
@@ -1052,7 +1102,7 @@
                                                             </items>
                                                         </menu>
                                                     </menuItem>
-                                                    <menuItem title="整理" tag="2040000" enabled="NO" id="XTc-vA-f3A">
+                                                    <menuItem title="整理" tag="2040000" id="XTc-vA-f3A">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <menu key="submenu" title="整理" id="bBx-gK-Rel">
                                                             <items>
@@ -1074,11 +1124,11 @@
                                                 </items>
                                             </menu>
                                         </menuItem>
-                                        <menuItem title="工具" enabled="NO" id="W02-uE-bpA">
+                                        <menuItem title="工具" id="W02-uE-bpA">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="工具" id="mlc-a0-fHj">
                                                 <items>
-                                                    <menuItem title="系统" enabled="NO" id="1Gc-Zw-iR6">
+                                                    <menuItem title="系统" id="1Gc-Zw-iR6">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <menu key="submenu" id="Mct-Uw-Wby">
                                                             <items>
@@ -1091,7 +1141,7 @@
                                                             </items>
                                                         </menu>
                                                     </menuItem>
-                                                    <menuItem title="临时" enabled="NO" id="Nqe-Qb-t2i">
+                                                    <menuItem title="临时" id="Nqe-Qb-t2i">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <menu key="submenu" id="Djw-lq-tD4">
                                                             <items>
@@ -1101,7 +1151,7 @@
                                                             </items>
                                                         </menu>
                                                     </menuItem>
-                                                    <menuItem title="多媒体" enabled="NO" id="96h-nh-3lI">
+                                                    <menuItem title="多媒体" id="96h-nh-3lI">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <menu key="submenu" id="WfF-Ae-OG0">
                                                             <items>

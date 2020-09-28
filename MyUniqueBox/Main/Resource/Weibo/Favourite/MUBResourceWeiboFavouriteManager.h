@@ -1,8 +1,8 @@
 //
-//  MUBModel.h
+//  MUBResourceWeiboFavouriteManager.h
 //  MyUniqueBox
 //
-//  Created by 龚宇 on 2020/9/12.
+//  Created by 龚宇 on 20/09/28.
 //  Copyright © 2020 龚宇. All rights reserved.
 //
 
@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MUBModel : NSObject
+@interface MUBResourceWeiboFavouriteManager : NSObject
 
-+ (NSArray * _Nullable)modelsFromJSONs:(NSArray *)jsons;
+- (void)start;
 
 @end
 

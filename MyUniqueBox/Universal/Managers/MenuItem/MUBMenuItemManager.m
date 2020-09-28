@@ -10,6 +10,7 @@
 
 #import "MUBMenuItemDownloadManager.h"
 #import "MUBMenuItemFileManager.h"
+#import "MUBMenuItemResourceManager.h"
 #import "MUBMenuItemToolManager.h"
 
 @implementation MUBMenuItemManager
@@ -17,7 +18,7 @@
 + (void)customMenuItemDidPress:(NSMenuItem *)sender {
     switch (sender.tag / 1000000) {
         case 1: {
-            
+            [MUBMenuItemResourceManager customMenuItemDidPress:sender];
         }
             break;
         case 2: {

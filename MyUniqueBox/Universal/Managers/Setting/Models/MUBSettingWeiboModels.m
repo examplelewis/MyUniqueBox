@@ -12,10 +12,18 @@
 
 // 返回一个 Dict，将 Model 属性名对映射到 JSON 的 Key。Key 为 Property，Value 为 JSON 的 Key
 + (NSDictionary *)modelCustomPropertyMapper {
+//    return @{
+//        @"accessURL"            : @"access_url",
+//        @"expiresAt"            : @"expires_at",
+//        @"getAccessTokenUrl"    : @"get_access_token_url",
+//    };
     return @{
-        @"accessURL"            : @"access_url",
-        @"expiresAt"            : @"expires_at",
-        @"getAccessTokenUrl"    : @"get_access_token_url",
+        @"accessURL"            : @"weibo_access_url",
+        @"expiresAt"            : @"weibo_expires_at",
+        @"getAccessTokenUrl"    : @"weibo_get_access_token_url",
+        @"code"            : @"weibo_code",
+        @"token"            : @"weibo_token",
+        @"url"    : @"weibo_url",
     };
 }
 
@@ -27,8 +35,13 @@
 
 // 返回一个 Dict，将 Model 属性名对映射到 JSON 的 Key。Key 为 Property，Value 为 JSON 的 Key
 + (NSDictionary *)modelCustomPropertyMapper {
+//    return @{
+//        @"_id" : @"id",
+//    };
     return @{
-        @"_id" : @"id",
+        @"author" : @"weibo_boundary_author",
+        @"_id" : @"weibo_boundary_id",
+        @"text" : @"weibo_boundary_text",
     };
 }
 

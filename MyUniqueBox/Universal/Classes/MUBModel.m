@@ -10,10 +10,20 @@
 
 @implementation MUBModel
 
-// 返回一个 Dict，将 Model 属性名对映射到 JSON 的 Key。
-// Key 为 Model 里的值，Value 为 JSON 里的值。
-+ (NSDictionary *)modelCustomPropertyMapper {
-    return @{@"_id": @"id"};
++ (NSArray * _Nullable)modelsFromJSONs:(NSArray *)jsons {
+    if (!jsons || jsons.isNotArray) {
+        return nil;
+    }
+    
+    NSMutableArray *models = [NSMutableArray array];
+    for (NSDictionary *json in jsons) {
+        id model = [[self class] yy_modelWithJSON:json];
+        if (model) {
+            [models addObject:model];
+        }
+    }
+    
+    return models;
 }
 
 @end

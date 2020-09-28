@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSArray (MUBAdd)
 
+- (BOOL)isArray;
+- (BOOL)isNotArray;
 - (BOOL)isEmpty;
 - (BOOL)isNotEmpty;
 
