@@ -145,4 +145,13 @@ static NSInteger const kDefaultTag = 4000000;
     [MUBMenuItemManager customMenuItemDidPress:sender];
 }
 
+#pragma mark - Getter
+- (MUBDownloadSettingModel *)defaultPrefModel {
+    if (!_defaultPrefModel) {
+        _defaultPrefModel = [self prefModelFromMenuItemTag:4000001];
+    }
+    
+    return _defaultPrefModel;
+}
+
 @end

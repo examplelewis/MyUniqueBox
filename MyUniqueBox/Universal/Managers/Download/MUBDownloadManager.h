@@ -11,9 +11,18 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class MUBDownloadManager;
+
+@protocol MUBDownloadDelegate <NSObject>
+
+@optional
+- (void)downloadManager:(MUBDownloadManager *)manager didFinishDownloading:(BOOL)success;
+
+@end
+
 @interface MUBDownloadManager : NSObject
 
-@property (nonatomic, copy) void(^onFinish)(void);
+@property (weak) id<MUBDownloadDelegate> delegate;
 
 + (instancetype)managerWithSettingModel:(MUBDownloadSettingModel *)model URLs:(NSArray<NSString *> *)URLs downloadFilePath:(NSString * _Nullable)downloadFilePath;
 

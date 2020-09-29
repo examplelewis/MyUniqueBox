@@ -211,6 +211,7 @@
 		ACC9EC2E250BC30800B0311D /* XMLReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLReader.m; sourceTree = "<group>"; };
 		ACCA66C2251A49D0007FD7C2 /* MUBToolSystemRestoreDefaultApplicationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBToolSystemRestoreDefaultApplicationManager.h; sourceTree = "<group>"; };
 		ACCA66C3251A49D0007FD7C2 /* MUBToolSystemRestoreDefaultApplicationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBToolSystemRestoreDefaultApplicationManager.m; sourceTree = "<group>"; };
+		ACD36FD8252373CD002319C8 /* MUBResourceWeiboHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBResourceWeiboHeader.h; sourceTree = "<group>"; };
 		ACDCE27A250BAC0E0014BE47 /* MyUniqueBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyUniqueBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDCE27D250BAC0E0014BE47 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ACDCE27E250BAC0E0014BE47 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -815,6 +816,7 @@
 		ACF35FFE25222E6800BD1DC6 /* Weibo */ = {
 			isa = PBXGroup;
 			children = (
+				ACD36FD8252373CD002319C8 /* MUBResourceWeiboHeader.h */,
 				ACF3600C25222FAE00BD1DC6 /* MUBResourceWeiboModels.h */,
 				ACF3600D25222FAE00BD1DC6 /* MUBResourceWeiboModels.m */,
 				ACF3600825222F9300BD1DC6 /* Favourite */,

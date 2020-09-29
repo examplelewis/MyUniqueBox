@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MUBDownloadSettingManager : NSObject
 
+@property (nonatomic, strong) MUBDownloadSettingModel *defaultPrefModel;
+
 + (instancetype)defaultManager;
 
 - (void)updatePreferences;

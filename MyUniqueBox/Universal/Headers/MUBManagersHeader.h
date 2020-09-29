@@ -10,6 +10,7 @@
 #define MUBManagersHeader_h
 
 #import "MUBAlertManager.h"
+#import "MUBDownloadManager.h"
 #import "MUBFileManager.h"
 #import "MUBLogManager.h"
 #import "MUBOpenPanelManager.h"

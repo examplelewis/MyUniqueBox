@@ -149,8 +149,8 @@ static NSString * kDownloadRemainURLsExportFileName = @"MUBDownloadRemainURLsExp
             });
         }
         
-        if (self.onFinish) {
-            self.onFinish();
+        if ([self.delegate respondsToSelector:@selector(downloadManager:didFinishDownloading:)]) {
+            [self.delegate downloadManager:self didFinishDownloading:YES];
         }
     }
 }
