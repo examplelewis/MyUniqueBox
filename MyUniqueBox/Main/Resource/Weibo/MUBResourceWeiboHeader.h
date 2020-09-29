@@ -11,4 +11,10 @@
 
 static NSInteger const MUBResourceWeiboFavoriteAPIFetchCount = 50;
 
+static NSString * const MUBResourceWeiboImageURLsFilePath = @"MUBResourceWeiboImageURLs.txt";
+static NSString * const MUBResourceWeiboStatusFilePath = @"MUBResourceWeiboStatus.plist";
+static NSString * const MUBResourceWeiboDuplicateIDsFilePath = @"MUBResourceWeiboDuplicateIDs.txt";
+static NSString * const MUBResourceWeiboRemoveFavouritesFilePath = @"MUBResourceWeiboRemoveFavourites.txt";
+static NSString * const MUBResourceWeiboRecommendArtisFilePath = @"MUBResourceWeiboRecommendArtis.txt";
+
 #endif /* MUBResourceWeiboHeader_h */

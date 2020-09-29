@@ -7,22 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MUBDownloadSettingModel.h"
+
+#import "MUBDownloadSettingManager.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class MUBDownloadManager;
-
-@protocol MUBDownloadDelegate <NSObject>
-
-@optional
-- (void)downloadManager:(MUBDownloadManager *)manager didFinishDownloading:(BOOL)success;
-
-@end
-
 @interface MUBDownloadManager : NSObject
 
-@property (weak) id<MUBDownloadDelegate> delegate;
+@property (nonatomic, copy) void(^onFinish)(void);
 
 + (instancetype)managerWithSettingModel:(MUBDownloadSettingModel *)model URLs:(NSArray<NSString *> *)URLs downloadFilePath:(NSString * _Nullable)downloadFilePath;
 

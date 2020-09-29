@@ -93,11 +93,11 @@
 + (void)copyItemFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL {
     [MUBFileManager copyItemFromPath:[MUBFileManager filePathFromFileURL:fromURL] toPath:[MUBFileManager filePathFromFileURL:toURL]];
 }
-+ (void)copyItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath error:(NSError *__autoreleasing  _Nullable *)error {
-    [[NSFileManager defaultManager] copyItemAtPath:fromPath toPath:[MUBFileManager removeSeparatorInPathComponentsAtContentPath:toPath] error:error];
++ (BOOL)copyItemFromPath:(NSString *)fromPath toPath:(NSString *)toPath error:(NSError *__autoreleasing  _Nullable *)error {
+    return [[NSFileManager defaultManager] copyItemAtPath:fromPath toPath:[MUBFileManager removeSeparatorInPathComponentsAtContentPath:toPath] error:error];
 }
-+ (void)copyItemFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL error:(NSError *__autoreleasing  _Nullable *)error {
-    [MUBFileManager copyItemFromPath:[MUBFileManager filePathFromFileURL:fromURL] toPath:[MUBFileManager filePathFromFileURL:toURL] error:error];
++ (BOOL)copyItemFromURL:(NSURL *)fromURL toURL:(NSURL *)toURL error:(NSError *__autoreleasing  _Nullable *)error {
+    return [MUBFileManager copyItemFromPath:[MUBFileManager filePathFromFileURL:fromURL] toPath:[MUBFileManager filePathFromFileURL:toURL] error:error];
 }
 
 #pragma mark - File Path

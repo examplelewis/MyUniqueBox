@@ -43,6 +43,9 @@
     _imgUrls = [_picUrls bk_map:^id(NSDictionary *obj) {
         return [obj[@"thumbnail_pic"] stringByReplacingOccurrencesOfString:@"thumbnail" withString:@"large"];
     }];
+    if (_imgUrls.isNotArray) {
+        _imgUrls = @[];
+    }
     _imgUrlsStr = [_imgUrls componentsJoinedByString:@";"];
 }
 

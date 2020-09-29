@@ -54,6 +54,8 @@
 		ACC9EC2B250BC30100B0311D /* SAPIIllust.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC9EC24250BC30100B0311D /* SAPIIllust.m */; };
 		ACC9EC2F250BC30800B0311D /* XMLReader.m in Sources */ = {isa = PBXBuildFile; fileRef = ACC9EC2E250BC30800B0311D /* XMLReader.m */; };
 		ACCA66C4251A49D0007FD7C2 /* MUBToolSystemRestoreDefaultApplicationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACCA66C3251A49D0007FD7C2 /* MUBToolSystemRestoreDefaultApplicationManager.m */; };
+		ACD36FE125237D69002319C8 /* MUBSQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD36FE025237D69002319C8 /* MUBSQLiteManager.m */; };
+		ACD36FE7252382F7002319C8 /* MUBSQLiteSettingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACD36FE6252382F7002319C8 /* MUBSQLiteSettingManager.m */; };
 		ACDCE27F250BAC0E0014BE47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCE27E250BAC0E0014BE47 /* AppDelegate.m */; };
 		ACDCE282250BAC0E0014BE47 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCE281250BAC0E0014BE47 /* ViewController.m */; };
 		ACDCE284250BAC100014BE47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDCE283250BAC100014BE47 /* Assets.xcassets */; };
@@ -212,6 +214,11 @@
 		ACCA66C2251A49D0007FD7C2 /* MUBToolSystemRestoreDefaultApplicationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBToolSystemRestoreDefaultApplicationManager.h; sourceTree = "<group>"; };
 		ACCA66C3251A49D0007FD7C2 /* MUBToolSystemRestoreDefaultApplicationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBToolSystemRestoreDefaultApplicationManager.m; sourceTree = "<group>"; };
 		ACD36FD8252373CD002319C8 /* MUBResourceWeiboHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBResourceWeiboHeader.h; sourceTree = "<group>"; };
+		ACD36FDF25237D69002319C8 /* MUBSQLiteManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBSQLiteManager.h; sourceTree = "<group>"; };
+		ACD36FE025237D69002319C8 /* MUBSQLiteManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBSQLiteManager.m; sourceTree = "<group>"; };
+		ACD36FE5252382F7002319C8 /* MUBSQLiteSettingManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBSQLiteSettingManager.h; sourceTree = "<group>"; };
+		ACD36FE6252382F7002319C8 /* MUBSQLiteSettingManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBSQLiteSettingManager.m; sourceTree = "<group>"; };
+		ACD36FEB252383AD002319C8 /* MUBSQLiteHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBSQLiteHeader.h; sourceTree = "<group>"; };
 		ACDCE27A250BAC0E0014BE47 /* MyUniqueBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyUniqueBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDCE27D250BAC0E0014BE47 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		ACDCE27E250BAC0E0014BE47 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -591,6 +598,11 @@
 		ACA93E93250BFEDB008F65A8 /* SQL */ = {
 			isa = PBXGroup;
 			children = (
+				ACD36FEB252383AD002319C8 /* MUBSQLiteHeader.h */,
+				ACD36FDF25237D69002319C8 /* MUBSQLiteManager.h */,
+				ACD36FE025237D69002319C8 /* MUBSQLiteManager.m */,
+				ACD36FE5252382F7002319C8 /* MUBSQLiteSettingManager.h */,
+				ACD36FE6252382F7002319C8 /* MUBSQLiteSettingManager.m */,
 			);
 			path = SQL;
 			sourceTree = "<group>";
@@ -1122,6 +1134,7 @@
 				ACF2276E250E5CD400A2E3F6 /* NSColor+MUBAdd.m in Sources */,
 				AC702F90251F70DB00C4431A /* NSError+MUBAdd.m in Sources */,
 				ACF22764250E3A2900A2E3F6 /* MUBExceptionManager.m in Sources */,
+				ACD36FE7252382F7002319C8 /* MUBSQLiteSettingManager.m in Sources */,
 				AC702F84251F689700C4431A /* MUBMenuItemDownloadManager.m in Sources */,
 				ACF7E276251EDC510017D893 /* MUBWindowManager.m in Sources */,
 				ACC9EC03250BBC8400B0311D /* NSDate+YYAdd.m in Sources */,
@@ -1131,6 +1144,7 @@
 				ACF360142522305600BD1DC6 /* MUBHTTPWeiboManager.m in Sources */,
 				ACC9EC01250BBC8400B0311D /* NSTimer+YYAdd.m in Sources */,
 				ACA93E89250BFC71008F65A8 /* MUBModel.m in Sources */,
+				ACD36FE125237D69002319C8 /* MUBSQLiteManager.m in Sources */,
 				ACF523EC251A46CF0073BFEE /* MUBMenuItemToolSystemManager.m in Sources */,
 				ACF7E270251EDC1B0017D893 /* MUBWindowController.m in Sources */,
 				ACC9EC04250BBC8400B0311D /* NSString+YYAdd.m in Sources */,

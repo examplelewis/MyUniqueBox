@@ -15,6 +15,7 @@
 #import "MUBLogManager.h"
 #import "MUBOpenPanelManager.h"
 #import "MUBSettingManager.h"
+#import "MUBSQLiteManager.h"
 #import "MUBUIManager.h"
 #import "MUBUtilityManager.h"
 #import "MUBWindowManager.h"
