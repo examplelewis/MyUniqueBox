@@ -10,6 +10,7 @@
 #import "MUBMenuItemResourceHeader.h"
 
 #import "MUBResourceWeiboFavouriteManager.h"
+#import "MUBResourceWeiboFaviouriteDuplicateManager.h"
 
 @implementation MUBMenuItemResourceWeiboManager
 
@@ -49,11 +50,11 @@
         case 1: {
             switch (action) {
                 case 1: {
-                    
+                    [[MUBResourceWeiboFaviouriteDuplicateManager new] start];
                 }
                     break;
                 case 2: {
-                    
+                    [MUBResourceWeiboFaviouriteDuplicateManager unfavouriteDuplicateWeibos];
                 }
                     break;
                 default:
