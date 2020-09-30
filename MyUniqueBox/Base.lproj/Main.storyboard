@@ -512,13 +512,13 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="绝对领域" id="7oS-Tp-sep">
                                                 <items>
-                                                    <menuItem title="下载多个页面的图片 [页面地址]" tag="1020001" id="Wvy-Mf-qwp">
+                                                    <menuItem title="下载多个页面的图片 [页面地址]" tag="1020001" hidden="YES" id="Wvy-Mf-qwp">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="qhK-Si-Lb1"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="整理下载好的图片" tag="1020099" id="44E-1k-iwT">
+                                                    <menuItem title="整理下载好的图片" tag="1020099" hidden="YES" id="44E-1k-iwT">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="90m-gG-lRr"/>
@@ -615,11 +615,11 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Deviantart" id="6eS-Sf-zJs">
                                                 <items>
-                                                    <menuItem title="获取时间线的图片" tag="1040001" id="oO9-8b-cur">
+                                                    <menuItem title="获取时间线的图片" tag="1040001" hidden="YES" id="oO9-8b-cur">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="K86-ZE-9l9"/>
-                                                    <menuItem title="获取单个用户的图片 [用户ID]" tag="1040101" enabled="NO" id="9h0-Vo-fZX">
+                                                    <menuItem title="获取单个用户的图片 [用户ID]" tag="1040101" hidden="YES" id="9h0-Vo-fZX">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
                                                 </items>
@@ -648,64 +648,97 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Pixiv" id="7Zy-5s-N4Y">
                                                 <items>
-                                                    <menuItem title="更新一页已关注的用户(和黑名单一样解析页面复制的文字，不走接口) [关注页面复制的文字]" tag="4" id="eWX-gi-rFS">
+                                                    <menuItem title="更新一页已关注的用户(和黑名单一样解析页面复制的文字，不走接口) [关注页面复制的文字]" tag="1060001" id="eWX-gi-rFS">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
-                                                    <menuItem title="更新一页已关注的用户 - 示例" alternate="YES" id="9s4-iZ-cef">
+                                                    <menuItem title="更新一页已关注的用户 - 示例" tag="1060002" alternate="YES" id="9s4-iZ-cef">
                                                         <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                                     </menuItem>
-                                                    <menuItem title="更新一页已拉黑的用户 [黑名单页面复制的文字]" tag="11" id="hEG-B7-oDk">
+                                                    <menuItem title="更新一页已拉黑的用户 [黑名单页面复制的文字]" tag="1060003" id="hEG-B7-oDk">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
-                                                    <menuItem title="更新一页已拉黑的用户 - 示例" alternate="YES" id="SEm-w1-3aq">
+                                                    <menuItem title="更新一页已拉黑的用户 - 示例" tag="1060004" alternate="YES" id="SEm-w1-3aq">
                                                         <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                                     </menuItem>
-                                                    <menuItem title="更新多个确定拉黑的用户 [用户ID / 用户页面地址]" tag="12" id="ESB-sl-XTO">
+                                                    <menuItem title="更新多个确定拉黑的用户 [用户ID / 用户页面地址]" tag="1060005" id="ESB-sl-XTO">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="SuI-2D-CHQ"/>
+                                                        </connections>
                                                     </menuItem>
-                                                    <menuItem title="更新多个不确定拉黑的用户 [用户ID / 用户页面地址]" tag="13" id="NcO-Ic-mO5">
+                                                    <menuItem title="更新多个不确定拉黑的用户 [用户ID / 用户页面地址]" tag="1060006" id="NcO-Ic-mO5">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="ZCR-6q-OKX"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="Ldc-9Z-7DJ"/>
-                                                    <menuItem title="查询是否关注了多个用户 [用户ID / 用户页面地址]" tag="21" id="qD6-Lg-4GR">
+                                                    <menuItem title="查询是否关注了多个用户 [用户ID / 用户页面地址]" tag="1060101" id="qD6-Lg-4GR">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="oIw-Hx-MPT"/>
+                                                        </connections>
                                                     </menuItem>
-                                                    <menuItem title="查询是否拉黑了多个用户 [用户ID / 用户页面地址]" tag="22" id="f5S-BE-jbk">
+                                                    <menuItem title="查询是否拉黑了多个用户 [用户ID / 用户页面地址]" tag="1060102" id="f5S-BE-jbk">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="Ttx-Yk-9vd"/>
+                                                        </connections>
                                                     </menuItem>
-                                                    <menuItem title="查询是否抓取了多个用户的图片 [用户ID / 用户页面地址]" tag="23" id="2OO-2W-OUZ">
+                                                    <menuItem title="查询是否抓取了多个用户的图片 [用户ID / 用户页面地址]" tag="1060103" id="2OO-2W-OUZ">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="5tx-37-MiO"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="Q35-l2-cmV"/>
-                                                    <menuItem title="查询多个用户的状态 [用户ID / 用户页面地址]" tag="24" id="k0U-Db-Fdh">
+                                                    <menuItem title="查询多个用户的状态 [用户ID / 用户页面地址]" tag="1060201" id="k0U-Db-Fdh">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="8FR-od-sJh"/>
+                                                        </connections>
                                                     </menuItem>
-                                                    <menuItem title="导出多个从ExHentai 导出用户的状态 [用户ID / 用户页面地址]" tag="31" id="R0y-Bw-gyK">
+                                                    <menuItem title="导出多个从ExHentai 导出用户的状态 [用户ID / 用户页面地址]" tag="1060202" id="R0y-Bw-gyK">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="SaB-fF-hEE"/>
+                                                        </connections>
                                                     </menuItem>
-                                                    <menuItem title="导出既关注又被拉黑的用户名单" tag="41" id="c8q-Tl-Nco">
+                                                    <menuItem title="导出既关注又被拉黑的用户名单" tag="1060203" id="c8q-Tl-Nco">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="bYt-54-hQb"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="LtL-TU-j1e"/>
-                                                    <menuItem title="根据多个图片的文件名称生成对应作品的地址 [选择图片]" tag="51" id="Amm-AX-L7N">
+                                                    <menuItem title="根据多个图片的文件名称生成对应作品的地址 [选择图片]" tag="1060301" id="Amm-AX-L7N">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="3qG-cQ-ZM8"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="Wql-Z1-mE6"/>
-                                                    <menuItem title="删除单个用户PixivUtil的下载记录" tag="61" id="ev1-Pr-3Qb">
+                                                    <menuItem title="删除单个用户PixivUtil的下载记录" tag="1060401" id="ev1-Pr-3Qb">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="FkZ-DT-9Qa"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="gZ6-9C-nXZ"/>
-                                                    <menuItem title="将相同Image ID的图片移动到同一个文件夹中 [包含Pixiv图片的根文件夹地址]" tag="91" id="V0X-EN-YYJ">
+                                                    <menuItem title="将相同Image ID的图片移动到同一个文件夹中 [包含Pixiv图片的根文件夹地址]" tag="1060501" id="V0X-EN-YYJ">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="YqM-4I-JDN"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="bzh-X9-YPG"/>
-                                                    <menuItem title="获取多个用户的图片地址" tag="1" enabled="NO" id="ynt-a3-sup">
+                                                    <menuItem title="获取多个用户的图片地址" tag="1060601" enabled="NO" id="ynt-a3-sup">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
-                                                    <menuItem title="获取图片页面上的图片地址" tag="2" enabled="NO" id="xkY-SX-6GJ">
+                                                    <menuItem title="获取图片页面上的图片地址" tag="1060602" enabled="NO" id="xkY-SX-6GJ">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
-                                                    <menuItem title="下载已获取到的图片" tag="3" enabled="NO" id="lGc-zI-kAI">
+                                                    <menuItem title="下载已获取到的图片" tag="1060603" enabled="NO" id="lGc-zI-kAI">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
                                                 </items>

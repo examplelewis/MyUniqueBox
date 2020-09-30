@@ -31,6 +31,124 @@
     return defaultManager;
 }
 
+#pragma mark - Pixiv Block
+// 获取拉黑的用户列表
+// blockLevel: 0. 未判断; 1. 确定拉黑; 2. 不确定拉黑
+- (NSArray *)getPixivUsersBlockStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs blockLevel:(NSInteger)blockLevel {
+    NSMutableArray *result = [NSMutableArray array];
+    for (NSString *memberID in memberIDs) {
+        __block NSInteger count = 0;
+        [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+            FMResultSet *rs = [db executeQuery:@"select count(member_id) from pixivBlockUser where member_id = ? and block_level = ?", @(memberID.integerValue), @(blockLevel)];
+            while ([rs next]) {
+                count = [rs intForColumnIndex:0];
+            }
+            [rs close];
+        }];
+        if (count != 0) {
+            [result addObject:memberID];
+        }
+    }
+    
+    return result.copy;
+}
+// 获取不在拉黑表中的用户列表
+- (NSArray *)getPixivUsersUnknownBlockStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs {
+    NSMutableArray *result = [NSMutableArray array];
+    for (NSString *memberID in memberIDs) {
+        __block NSInteger count = 0;
+        [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+            FMResultSet *rs = [db executeQuery:@"select count(member_id) from pixivBlockUser where member_id = ?", @(memberID.integerValue)];
+            while ([rs next]) {
+                count = [rs intForColumnIndex:0];
+            }
+            [rs close];
+        }];
+        if (count == 0) {
+            [result addObject:memberID];
+        }
+    }
+    
+    return result.copy;
+}
+// 更新确定拉黑的用户列表
+- (void)updatePixivUsersBlock1StatusWithMemberIDs:(NSArray<NSString *> *)memberIDs {
+    for (NSString *memberID in memberIDs) {
+        __block NSInteger blockLevel = -100; // -100 表示没有从数据库中查找到数据
+        [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+            FMResultSet *rs = [db executeQuery:@"select block_level from pixivBlockUser where member_id = ?", @(memberID.integerValue)];
+            while ([rs next]) {
+                blockLevel = [rs intForColumnIndex:0];
+            }
+            [rs close];
+        }];
+        
+        // 如果数据表中没有这个人的记录，那么添加一条记录；如果有记录，并且 block_level 不是 1，即便是 2，也修改成 1
+        if (blockLevel == -100) {
+            [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+                BOOL success = [db executeUpdate:@"INSERT INTO pixivBlockUser (id, member_id, user_name, block_level) values(?, ?, ?, ?)", NULL, @(memberID.integerValue), NULL, @(1)];
+                if (success) {
+                    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"Pixiv userId: %ld 已添加状态: 确定拉黑", memberID.integerValue];
+                } else {
+                    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"往数据表:pixivBlockUser中插入数据时发生错误：%@", [db lastErrorMessage]];
+                    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"数据：userId: %ld", memberID.integerValue];
+                }
+            }];
+        } else if (blockLevel != 1) {
+            [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+                BOOL success = [db executeUpdate:@"UPDATE pixivBlockUser SET block_level = 1 WHERE member_id = ?", @(memberID.integerValue)];
+                if (success) {
+                    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"Pixiv userId: %ld 已更新状态: 确定拉黑", memberID.integerValue];
+                } else {
+                    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"往数据表:pixivBlockUser中更新数据时发生错误：%@", [db lastErrorMessage]];
+                    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"数据：%@", @{@"userId": @(memberID.integerValue), @"blockLevel": @(blockLevel)}];
+                }
+            }];
+        } else {
+            [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"Pixiv userId: %ld 状态: 确定拉黑", memberID.integerValue];
+        }
+    }
+}
+// 更新不确定拉黑的用户列表
+- (void)updatePixivUsersBlock2StatusWithMemberIDs:(NSArray<NSString *> *)memberIDs {
+    for (NSString *memberID in memberIDs) {
+        __block NSInteger blockLevel = -100; // -100 表示没有从数据库中查找到数据
+        [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+            FMResultSet *rs = [db executeQuery:@"select block_level from pixivBlockUser where member_id = ?", @(memberID.integerValue)];
+            while ([rs next]) {
+                blockLevel = [rs intForColumnIndex:0];
+            }
+            [rs close];
+        }];
+        
+        // 如果数据表中没有这个人的记录，那么添加一条记录；如果有记录，并且 block_level 不是 2，即便是 1，也修改成 2
+        if (blockLevel == -100) {
+            [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+                BOOL success = [db executeUpdate:@"INSERT INTO pixivBlockUser (id, member_id, user_name, block_level) values(?, ?, ?, ?)", NULL, @(memberID.integerValue), NULL, @(2)];
+                if (success) {
+                    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"Pixiv userId: %ld 已添加状态: 不确定拉黑", memberID.integerValue];
+                } else {
+                    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"往数据表:pixivBlockUser中插入数据时发生错误：%@", [db lastErrorMessage]];
+                    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"数据：userId: %ld", memberID.integerValue];
+                }
+            }];
+        } else if (blockLevel != 2) {
+            [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+                BOOL success = [db executeUpdate:@"UPDATE pixivBlockUser SET block_level = 2 WHERE member_id = ?", @(memberID.integerValue)];
+                if (success) {
+                    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"Pixiv userId: %ld 已更新状态: 不确定拉黑", memberID.integerValue];
+                } else {
+                    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"往数据表:pixivBlockUser中更新数据时发生错误：%@", [db lastErrorMessage]];
+                    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"数据：%@", @{@"userId": @(memberID.integerValue), @"blockLevel": @(blockLevel)}];
+                }
+            }];
+        } else {
+            [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"Pixiv userId: %ld 状态: 不确定拉黑", memberID.integerValue];
+        }
+    }
+}
+
+
 #pragma mark - WeiboStatus
 - (BOOL)isWeiboStatusExistsWithStatusId:(NSString *)statusId {
     NSMutableArray *result = [NSMutableArray array];
