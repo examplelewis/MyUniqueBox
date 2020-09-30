@@ -26,19 +26,23 @@
 
 @implementation MUBResourceWeiboFavouriteManager
 
-- (void)dealloc {
-    NSLog(@"dealloc");
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.statuses = [NSMutableDictionary dictionary];
+        self.images = [NSMutableArray array];
+        self.models = [NSMutableArray array];
+        self.ids = [NSMutableArray array];
+        
+        self.fetchedPage = 1;
+        self.fetchedCount = 0;
+        
+        self.maxFetchCount = 99999;
+    }
+    return self;
 }
 
 - (void)start {
-    self.statuses = [NSMutableDictionary dictionary];
-    self.images = [NSMutableArray array];
-    self.models = [NSMutableArray array];
-    self.ids = [NSMutableArray array];
-    
-    self.fetchedPage = 1;
-    self.fetchedCount = 0;
-    
     [self _fetchAPI];
 }
 - (void)_fetchAPI {
@@ -58,6 +62,10 @@
             }
             
             self.fetchedCount += 1;
+            if (self.fetchedCount > self.maxFetchCount) {
+                break;
+            }
+            
             MUBResourceWeiboStatusModel *status = model.status.retweetedStatus ?: model.status;
             // 如果在当前抓取的流程中出现了重复的 id，那么跳过
             if ([self.ids containsObject:status.idstr]) {
@@ -76,7 +84,7 @@
         }
 
         // 如果找到了边界微博，或者一直没有找到，直到取到的微博数量小于50，代表着没有更多收藏微博了，即边界微博出错
-        if (found || models.count < MUBResourceWeiboFavoriteAPIFetchCount) {
+        if (found || models.count < MUBResourceWeiboFavoriteAPIFetchCount || self.fetchedCount > self.maxFetchCount) {
             [self _exportResult];
         } else {
             self.fetchedPage += 1; // 计数

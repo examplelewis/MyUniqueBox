@@ -26,10 +26,33 @@
                 }
                     break;
                 case 2: {
+                    NSInteger maxFetchCount = [[MUBUIManager defaultManager].viewController.inputTextView.string integerValue];
+                    if (maxFetchCount <= 0) {
+                        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"输入的数量必须大于0"];
+                        return;
+                    }
                     
+                    MUBResourceWeiboFavouriteManager *manager = [MUBResourceWeiboFavouriteManager new];
+                    manager.maxFetchCount = maxFetchCount;
+                    [manager start];
                 }
                     break;
                 case 3: {
+                    
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+            break;
+        case 1: {
+            switch (action) {
+                case 1: {
+                    
+                }
+                    break;
+                case 2: {
                     
                 }
                     break;
