@@ -10,11 +10,8 @@
 
 @implementation NSString (MUBAdd)
 
-- (BOOL)isEmpty {
-    return !self.isNotEmpty;
-}
 - (BOOL)isNotEmpty {
-    return self && [self isKindOfClass:[NSString class]] && self.length > 0;
+    return [self isKindOfClass:[NSString class]] && self.length > 0;
 }
 
 - (NSString *)md5Middle {
@@ -33,7 +30,7 @@
     BOOL exportNoneContent = behavior & MUBFileOpertaionBehaviorExportNoneContent;
     BOOL showSuccessLog = behavior & MUBFileOpertaionBehaviorShowSuccessLog;
     
-    if (self.isEmpty) {
+    if (!self.isNotEmpty) {
         [[MUBLogManager defaultManager] addWarningLogWithFormat:@"输出到: %@ 的内容为空%@", path, !exportNoneContent ? @"，已忽略" : @""];
         if (!exportNoneContent) {
             return;

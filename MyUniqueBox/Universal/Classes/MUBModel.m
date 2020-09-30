@@ -11,7 +11,7 @@
 @implementation MUBModel
 
 + (NSArray * _Nullable)modelsFromJSONs:(NSArray *)jsons {
-    if (!jsons || jsons.isNotArray) {
+    if (!jsons.isNotEmpty) {
         return nil;
     }
     

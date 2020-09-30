@@ -10,21 +10,12 @@
 
 @implementation NSArray (MUBAdd)
 
-- (BOOL)isArray {
-    return self && [self isKindOfClass:[NSArray class]];
-}
-- (BOOL)isNotArray {
-    return !self.isArray;
-}
-- (BOOL)isEmpty {
-    return !self.isNotEmpty;
-}
 - (BOOL)isNotEmpty {
-    return self && [self isKindOfClass:[NSArray class]] && self.count > 0;
+    return [self isKindOfClass:[NSArray class]] && self.count > 0;
 }
 
 - (NSString *)stringValue {
-    if (self.isEmpty) {
+    if (!self.isNotEmpty) {
         return nil;
     }
     
@@ -59,7 +50,7 @@
     BOOL exportNoneContent = behavior & MUBFileOpertaionBehaviorExportNoneContent;
     BOOL showSuccessLog = behavior & MUBFileOpertaionBehaviorShowSuccessLog;
     
-    if (self.isEmpty) {
+    if (!self.isNotEmpty) {
         [[MUBLogManager defaultManager] addWarningLogWithFormat:@"输出到: %@ 的内容为空%@", path, !exportNoneContent ? @"，已忽略" : @""];
         if (!exportNoneContent) {
             return;
@@ -88,7 +79,7 @@
     BOOL exportNoneContent = behavior & MUBFileOpertaionBehaviorExportNoneContent;
     BOOL showSuccessLog = behavior & MUBFileOpertaionBehaviorShowSuccessLog;
     
-    if (self.isEmpty) {
+    if (!self.isNotEmpty) {
         [[MUBLogManager defaultManager] addWarningLogWithFormat:@"输出到: %@ 的内容为空%@", plistPath, !exportNoneContent ? @"，已忽略" : @""];
         if (!exportNoneContent) {
             return;

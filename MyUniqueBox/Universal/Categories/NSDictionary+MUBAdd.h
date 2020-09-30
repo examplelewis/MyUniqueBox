@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSDictionary (MUBAdd)
 
-- (BOOL)isEmpty;
 - (BOOL)isNotEmpty;
 
 - (NSString *)stringValue;

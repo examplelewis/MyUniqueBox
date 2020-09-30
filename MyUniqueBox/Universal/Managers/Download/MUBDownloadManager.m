@@ -38,7 +38,7 @@ static NSString * kDownloadRemainURLsExportFileName = @"MUBDownloadRemainURLsExp
     
     manager.model = model;
     manager.URLs = URLs;
-    manager.downloadFilePath = downloadFilePath.isEmpty ? nil : downloadFilePath;
+    manager.downloadFilePath = downloadFilePath.isNotEmpty ? downloadFilePath : nil;
     manager.redownloadTimes = 0;
     
     manager.remainURLs = [URLs mutableCopy];
@@ -169,7 +169,7 @@ static NSString * kDownloadRemainURLsExportFileName = @"MUBDownloadRemainURLsExp
         NSString *fileName;
         if (self.model.renameInfo.isNotEmpty) {
             fileName = self.model.renameInfo[url];
-            if (fileName.isEmpty) {
+            if (!fileName.isNotEmpty) {
                 fileName = response.suggestedFilename;
             }
         } else {

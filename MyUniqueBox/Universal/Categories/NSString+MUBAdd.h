@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NSString (MUBAdd)
 
-- (BOOL)isEmpty;
 - (BOOL)isNotEmpty;
 
 - (NSString *)md5Middle;
