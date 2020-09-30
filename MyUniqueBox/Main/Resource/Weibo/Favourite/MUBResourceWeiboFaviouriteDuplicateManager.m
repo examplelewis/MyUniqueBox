@@ -9,7 +9,6 @@
 #import "MUBResourceWeiboFaviouriteDuplicateManager.h"
 #import "MUBHTTPWeiboManager.h"
 #import "MUBSQLiteManager.h"
-#import "MUBSQLiteSettingManager.h"
 #import "MUBResourceWeiboHeader.h"
 
 @interface MUBResourceWeiboFaviouriteDuplicateManager ()

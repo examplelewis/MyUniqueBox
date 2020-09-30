@@ -563,13 +563,13 @@
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="aXK-9Z-8gc"/>
-                                                    <menuItem title="获取微博用户推荐的画师" tag="1030201" enabled="NO" id="MiG-ia-mmz">
+                                                    <menuItem title="获取微博用户推荐的画师" tag="1030201" hidden="YES" id="MiG-ia-mmz">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="f28-zB-73d"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="手动存储多个推荐的画师 [格式化的字符串]" tag="1030202" enabled="NO" id="V4v-AL-efE">
+                                                    <menuItem title="手动存储多个推荐的画师 [格式化的字符串]" tag="1030202" hidden="YES" id="V4v-AL-efE">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="s4r-gU-BHS"/>
@@ -589,7 +589,7 @@
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="Ar3-Yw-HbS"/>
-                                                    <menuItem title="通过内容获取边界" tag="1030401" id="zhB-qd-8L6">
+                                                    <menuItem title="通过内容获取边界" tag="1030401" hidden="YES" id="zhB-qd-8L6">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="Wok-dT-Bex"/>
@@ -602,7 +602,7 @@
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="Hwy-YL-vRs"/>
-                                                    <menuItem title="存储 未筛选 的用户" tag="1030501" enabled="NO" id="lg8-vK-saI">
+                                                    <menuItem title="存储 未筛选 的用户" tag="1030501" hidden="YES" id="lg8-vK-saI">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="6fr-TT-tLe"/>

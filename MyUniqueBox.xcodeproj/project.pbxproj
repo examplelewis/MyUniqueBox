@@ -105,6 +105,7 @@
 		ACF7E276251EDC510017D893 /* MUBWindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF7E275251EDC510017D893 /* MUBWindowManager.m */; };
 		ACF7E280251EEBCC0017D893 /* MUBDownloadSettingPrefModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF7E27F251EEBCC0017D893 /* MUBDownloadSettingPrefModel.m */; };
 		ACF9619D2524A7C80091FC02 /* MUBResourceWeiboFaviouriteDuplicateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF9619C2524A7C80091FC02 /* MUBResourceWeiboFaviouriteDuplicateManager.m */; };
+		ACF961A32524C15D0091FC02 /* MUBResourceWeiboBoundaryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF961A22524C15D0091FC02 /* MUBResourceWeiboBoundaryManager.m */; };
 		ACFFFB3B251F4E50000786E1 /* Download Prefs custom 1.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACFFFB3A251F4E50000786E1 /* Download Prefs custom 1.plist */; };
 /* End PBXBuildFile section */
 
@@ -326,6 +327,8 @@
 		ACF7E27F251EEBCC0017D893 /* MUBDownloadSettingPrefModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBDownloadSettingPrefModel.m; sourceTree = "<group>"; };
 		ACF9619B2524A7C80091FC02 /* MUBResourceWeiboFaviouriteDuplicateManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBResourceWeiboFaviouriteDuplicateManager.h; sourceTree = "<group>"; };
 		ACF9619C2524A7C80091FC02 /* MUBResourceWeiboFaviouriteDuplicateManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBResourceWeiboFaviouriteDuplicateManager.m; sourceTree = "<group>"; };
+		ACF961A12524C15D0091FC02 /* MUBResourceWeiboBoundaryManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBResourceWeiboBoundaryManager.h; sourceTree = "<group>"; };
+		ACF961A22524C15D0091FC02 /* MUBResourceWeiboBoundaryManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBResourceWeiboBoundaryManager.m; sourceTree = "<group>"; };
 		ACFFFB3A251F4E50000786E1 /* Download Prefs custom 1.plist */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "Download Prefs custom 1.plist"; sourceTree = "<group>"; };
 		D8D04F46203F206AAB2BFE55 /* Pods-MyUniqueBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUniqueBox.debug.xcconfig"; path = "Target Support Files/Pods-MyUniqueBox/Pods-MyUniqueBox.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -846,6 +849,8 @@
 				ACF3600325222ED300BD1DC6 /* MUBResourceWeiboFavouriteManager.m */,
 				ACF9619B2524A7C80091FC02 /* MUBResourceWeiboFaviouriteDuplicateManager.h */,
 				ACF9619C2524A7C80091FC02 /* MUBResourceWeiboFaviouriteDuplicateManager.m */,
+				ACF961A12524C15D0091FC02 /* MUBResourceWeiboBoundaryManager.h */,
+				ACF961A22524C15D0091FC02 /* MUBResourceWeiboBoundaryManager.m */,
 			);
 			path = Favourite;
 			sourceTree = "<group>";
@@ -1103,6 +1108,7 @@
 				ACF22776250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.m in Sources */,
 				ACF35FE425222D1C00BD1DC6 /* MUBMenuItemResourceDeviantartManager.m in Sources */,
 				ACF28FF4251B9E17003B35D0 /* MUBDownloadManager.m in Sources */,
+				ACF961A32524C15D0091FC02 /* MUBResourceWeiboBoundaryManager.m in Sources */,
 				ACF22757250E100400A2E3F6 /* NSString+MUBAdd.m in Sources */,
 				ACF35FC12522295100BD1DC6 /* MUBMenuItemResourceManager.m in Sources */,
 				ACF2277C250E72AE00A2E3F6 /* MUBOpenPanelManager.m in Sources */,

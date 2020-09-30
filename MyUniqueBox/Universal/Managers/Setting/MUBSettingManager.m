@@ -66,6 +66,12 @@ static NSString * const MUBMainFolderPath = @"/Users/mercury/SynologyDrive/~ÂêåÊ
     
     _fileSearchCharactersModel = [MUBSettingFileSearchCharactersModel yy_modelWithJSON:[newPrefs valueForKeyPath:@"File.SearchCharacters"]];
 }
+- (void)updateWeiboBoundaryModel {
+    NSMutableDictionary *prefs = [NSMutableDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"MUBPreference.plist"]];
+    NSDictionary *dictionary = [_weiboBoundaryModel yy_modelToJSONObject];
+    [prefs setValue:dictionary forKeyPath:@"Weibo.Boundary"];
+    [prefs exportToPlistPath:[self pathOfContentInMainFolder:@"MUBPreference.plist"]];
+}
 
 #pragma mark - Types
 - (BOOL)isImageAtFilePath:(NSString *)filePath {

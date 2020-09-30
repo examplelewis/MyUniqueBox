@@ -11,6 +11,7 @@
 
 #import "MUBResourceWeiboFavouriteManager.h"
 #import "MUBResourceWeiboFaviouriteDuplicateManager.h"
+#import "MUBResourceWeiboBoundaryManager.h"
 
 @implementation MUBMenuItemResourceWeiboManager
 
@@ -62,6 +63,62 @@
             }
         }
             break;
+//        case 2: {
+//            switch (action) {
+//                case 1: {
+//
+//                }
+//                    break;
+//                case 2: {
+//
+//                }
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }
+//            break;
+        case 3: {
+            switch (action) {
+                case 1: {
+                    
+                }
+                    break;
+                case 2: {
+                    
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+            break;
+        case 4: {
+            switch (action) {
+//                case 1: {
+//
+//                }
+//                    break;
+                case 2: {
+                    [MUBResourceWeiboBoundaryManager markNewestFavorAsBoundary];
+                }
+                    break;
+                default:
+                    break;
+            }
+        }
+            break;
+//        case 5: {
+//            switch (action) {
+//                case 1: {
+//
+//                }
+//                    break;
+//                default:
+//                    break;
+//            }
+//        }
+//            break;
         default:
             break;
     }

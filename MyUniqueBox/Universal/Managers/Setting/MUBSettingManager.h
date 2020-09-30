@@ -33,6 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Configure
 - (void)updatePreferences;
+- (void)updateWeiboBoundaryModel;
 
 #pragma mark - Types
 - (BOOL)isImageAtFilePath:(NSString *)filePath;
