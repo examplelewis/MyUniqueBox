@@ -117,7 +117,7 @@
         @"page": @(page),
     };
     
-    [self POST:url parameters:parameters completionHandler:^(NSURLResponse * _Nonnull response, NSDictionary * _Nullable object, NSError * _Nullable error) {
+    [self GET:url parameters:parameters completionHandler:^(NSURLResponse * _Nonnull response, NSDictionary * _Nullable object, NSError * _Nullable error) {
         if (error) {
             completionHandler(response, nil, error);
             return;
@@ -132,20 +132,15 @@
         completionHandler(response, models, nil);
     }];
 }
-- (void)deleteWeiboFavoriteWithStatusId:(NSString *)statusId  completionHandler:(void (^)(NSURLResponse * _Nonnull, NSDictionary * _Nullable, NSError * _Nullable))completionHandler {
+- (void)unfavoriteWeiboWithStatusId:(NSString *)statusId completionHandler:(void (^)(NSURLResponse * _Nonnull, NSDictionary * _Nullable, NSError * _Nullable))completionHandler {
     NSString *url = @"https://api.weibo.com/2/favorites/destroy.json";
     NSDictionary *parameters = @{
         @"access_token": [MUBSettingManager defaultManager].weiboAuthModel.token,
         @"id": @(statusId.integerValue),
     };
     
-    [self POST:url parameters:parameters completionHandler:^(NSURLResponse * _Nonnull response, NSDictionary * _Nullable object, NSError * _Nullable error) {
-        if (error) {
-            completionHandler(response, nil, error);
-            return;
-        }
-        
-        completionHandler(response, object, nil);
+    [self POSTWeibo:url parameters:parameters completionHandler:^(NSURLResponse * _Nonnull response, NSDictionary * _Nullable object, NSError * _Nullable error) {
+        completionHandler(response, object, error);
     }];
 }
 

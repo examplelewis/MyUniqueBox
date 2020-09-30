@@ -21,8 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getWeiboTokenInfoWithSuccess:(void(^)(NSDictionary *dic))success failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed;
 - (void)getWeiboLimitInfoWithSuccess:(void(^)(NSDictionary *dic))success failed:(void(^)(NSString *errorTitle, NSString *errorMsg))failed;
 
-- (void)getWeiboFavoritesWithPage:(NSInteger)page completionHandler:(nonnull void (^)(NSURLResponse *response, NSArray<MUBResourceWeiboFavouriteModel *> * _Nullable models, NSError * _Nullable error))completionHandler;
-- (void)deleteWeiboFavoriteWithStatusId:(NSString *)statusId  completionHandler:(void (^)(NSURLResponse * _Nonnull, NSDictionary * _Nullable, NSError * _Nullable))completionHandler;
+- (void)getWeiboFavoritesWithPage:(NSInteger)page completionHandler:(nonnull void (^)(NSURLResponse * _Nonnull response, NSArray<MUBResourceWeiboFavouriteModel *> * _Nullable models, NSError * _Nullable error))completionHandler;
+- (void)unfavoriteWeiboWithStatusId:(NSString *)statusId completionHandler:(nonnull void (^)(NSURLResponse * _Nonnull response, NSDictionary * _Nullable object, NSError * _Nullable error))completionHandler;
 
 @end
 
