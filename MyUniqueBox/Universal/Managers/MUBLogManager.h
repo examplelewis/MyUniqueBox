@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger, MUBLogBehavior) {
+typedef NS_OPTIONS(NSUInteger, MUBLogBehavior) {
     MUBLogBehaviorNone              = 0,
     MUBLogBehaviorLevelDefault      = 1 << 0,
     MUBLogBehaviorLevelWarning      = 1 << 1,

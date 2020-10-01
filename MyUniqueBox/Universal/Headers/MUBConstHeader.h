@@ -9,7 +9,7 @@
 #ifndef MUBConstHeader_h
 #define MUBConstHeader_h
 
-typedef NS_ENUM(NSUInteger, MUBFileOpertaionBehavior) {
+typedef NS_OPTIONS(NSUInteger, MUBFileOpertaionBehavior) {
     MUBFileOpertaionBehaviorNone                    = 0,
     MUBFileOpertaionBehaviorShowSuccessLog          = 1 << 0,
     MUBFileOpertaionBehaviorExportNoneContent       = 1 << 1,

@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSUInteger, MUBOpenPanelBehavior) {
+typedef NS_OPTIONS(NSUInteger, MUBOpenPanelBehavior) {
     MUBOpenPanelBehaviorNone            = 0,
     MUBOpenPanelBehaviorChooseDir       = 1 << 0,
     MUBOpenPanelBehaviorChooseFile      = 1 << 1,
