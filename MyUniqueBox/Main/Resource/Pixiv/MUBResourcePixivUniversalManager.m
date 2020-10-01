@@ -66,6 +66,71 @@
     }
 }
 
+#pragma mark - Status
++ (void)_checkFollowStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs {
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的关注状态, 流程开始"];
+    
+    NSArray *follows = [[MUBSQLiteManager defaultManager] getPixivUsersFollowStatusWithMemberIDs:memberIDs isFollow:YES];
+    follows = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:follows];
+    [follows exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFollowUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个关注的用户", follows.count];
+    
+    NSArray *notFollows = [[MUBSQLiteManager defaultManager] getPixivUsersFollowStatusWithMemberIDs:memberIDs isFollow:NO];
+    notFollows = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:notFollows];
+    [notFollows exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFollowNotUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个未关注的用户", notFollows.count];
+    
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的关注状态, 流程开始"];
+}
++ (void)_checkBlockStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs {
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的拉黑状态, 流程开始"];
+    
+    NSArray *block1s = [[MUBSQLiteManager defaultManager] getPixivUsersBlockStatusWithMemberIDs:memberIDs blockLevel:1 isEqual:YES];
+    block1s = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:block1s];
+    [block1s exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivBlock1UserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个确定拉黑的用户", block1s.count];
+    
+    NSArray *blockNot1s = [[MUBSQLiteManager defaultManager] getPixivUsersBlockStatusWithMemberIDs:memberIDs blockLevel:1 isEqual:NO];
+    blockNot1s = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:blockNot1s];
+    [blockNot1s exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivBlockNot1UserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个未确定拉黑的用户", blockNot1s.count];
+    
+    NSArray *blockUnknowns = [[MUBSQLiteManager defaultManager] getPixivUsersUnknownBlockStatusWithMemberIDs:memberIDs];
+    blockUnknowns = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:blockUnknowns];
+    [blockUnknowns exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivBlockUnknownUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个未拉黑的用户", blockUnknowns.count];
+    
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的拉黑状态, 流程结束"];
+}
++ (void)_checkFetchStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs {
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的抓取状态, 流程开始"];
+    
+    NSArray *fetches = [[MUBSQLiteManager defaultManager] getPixivUsersFetchStatusWithMemberIDs:memberIDs isFetch:YES];
+    fetches = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:fetches];
+    [fetches exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFetchUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个抓取的用户", fetches.count];
+    
+    NSArray *notFetches = [[MUBSQLiteManager defaultManager] getPixivUsersFetchStatusWithMemberIDs:memberIDs isFetch:NO];
+    notFetches = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:notFetches];
+    [notFetches exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFetchNotUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个未抓取的用户", notFetches.count];
+    
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的抓取状态, 流程结束"];
+}
+
+#pragma mark - Follow & Export
++ (void)_exportFollowAndBlockUsersWithMemberIDs:(NSArray<NSString *> *)memberIDs {
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"导出既关注又被拉黑的用户名单, 流程开始"];
+    
+    NSArray *duplicates = [[MUBSQLiteManager defaultManager] getFollowAndBlockUsers];
+    if (duplicates.count == 0) {
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"导出既关注又被拉黑的用户名单，未发现重复用户，流程结束"];
+    } else {
+        [duplicates exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFollowAndBlockUsersExportFileName]];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"导出既关注又被拉黑的用户名单，发现 %ld 个重复用户，流程结束", duplicates.count];
+    }
+}
+
 #pragma mark - showOpenPanel
 + (void)showOpenPanelWithType:(MUBResourcePixivUniversalType)type {
     [[MUBLogManager defaultManager] reset];
@@ -204,73 +269,6 @@
     
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"将相同Image ID的图片移动到同一个文件夹中, 流程结束"];
 }
-
-#pragma mark - Status
-+ (void)_checkFollowStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs {
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的关注状态, 流程开始"];
-    
-    NSArray *follows = [[MUBSQLiteManager defaultManager] getPixivUsersFollowStatusWithMemberIDs:memberIDs isFollow:YES];
-    follows = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:follows];
-    [follows exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFollowUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个关注的用户", follows.count];
-    
-    NSArray *notFollows = [[MUBSQLiteManager defaultManager] getPixivUsersFollowStatusWithMemberIDs:memberIDs isFollow:NO];
-    notFollows = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:notFollows];
-    [notFollows exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFollowNotUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个未关注的用户", notFollows.count];
-    
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的关注状态, 流程开始"];
-}
-+ (void)_checkBlockStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs {
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的拉黑状态, 流程开始"];
-    
-    NSArray *block1s = [[MUBSQLiteManager defaultManager] getPixivUsersBlockStatusWithMemberIDs:memberIDs blockLevel:1 isEqual:YES];
-    block1s = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:block1s];
-    [block1s exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivBlock1UserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个确定拉黑的用户", block1s.count];
-    
-    NSArray *blockNot1s = [[MUBSQLiteManager defaultManager] getPixivUsersBlockStatusWithMemberIDs:memberIDs blockLevel:1 isEqual:NO];
-    blockNot1s = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:blockNot1s];
-    [blockNot1s exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivBlockNot1UserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个未确定拉黑的用户", blockNot1s.count];
-    
-    NSArray *blockUnknowns = [[MUBSQLiteManager defaultManager] getPixivUsersUnknownBlockStatusWithMemberIDs:memberIDs];
-    blockUnknowns = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:blockUnknowns];
-    [blockUnknowns exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivBlockUnknownUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个未拉黑的用户", blockUnknowns.count];
-    
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的拉黑状态, 流程结束"];
-}
-+ (void)_checkFetchStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs {
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的抓取状态, 流程开始"];
-    
-    NSArray *fetches = [[MUBSQLiteManager defaultManager] getPixivUsersFetchStatusWithMemberIDs:memberIDs isFetch:YES];
-    fetches = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:fetches];
-    [fetches exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFetchUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个抓取的用户", fetches.count];
-    
-    NSArray *notFetches = [[MUBSQLiteManager defaultManager] getPixivUsersFetchStatusWithMemberIDs:memberIDs isFetch:NO];
-    notFetches = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:notFetches];
-    [notFetches exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFetchNotUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个未抓取的用户", notFetches.count];
-    
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的抓取状态, 流程结束"];
-}
-
-#pragma mark - Follow & Export
-+ (void)_exportFollowAndBlockUsersWithMemberIDs:(NSArray<NSString *> *)memberIDs {
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"导出既关注又被拉黑的用户名单, 流程开始"];
-    
-    NSArray *duplicates = [[MUBSQLiteManager defaultManager] getFollowAndBlockUsers];
-    if (duplicates.count == 0) {
-        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"导出既关注又被拉黑的用户名单，未发现重复用户，流程结束"];
-    } else {
-        [duplicates exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFollowAndBlockUsersExportFileName]];
-        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"导出既关注又被拉黑的用户名单，发现 %ld 个重复用户，流程结束", duplicates.count];
-    }
-}
-
-    
 
 #pragma mark - Tools
 + (NSString *)numberStringInInput:(NSString *)input {
