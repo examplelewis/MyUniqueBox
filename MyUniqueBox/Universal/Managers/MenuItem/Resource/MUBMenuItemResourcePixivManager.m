@@ -90,7 +90,7 @@
         case 3: {
             switch (action) {
                 case 1: {
-                    
+                    [MUBResourcePixivUniversalManager showOpenPanelWithType:MUBResourcePixivUniversalTypeGenerateIllustURLsFromImageFiles];
                 }
                     break;
                 default:
@@ -112,7 +112,7 @@
         case 5: {
             switch (action) {
                 case 1: {
-                    
+                    [MUBResourcePixivUniversalManager showOpenPanelWithType:MUBResourcePixivUniversalTypeOrganizeSameIllustIDImageFiles];
                 }
                     break;
                 default:

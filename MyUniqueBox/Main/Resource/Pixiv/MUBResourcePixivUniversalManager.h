@@ -16,11 +16,14 @@ typedef NS_ENUM(NSUInteger, MUBResourcePixivUniversalType) {
     MUBResourcePixivUniversalTypeFollowStatus,
     MUBResourcePixivUniversalTypeBlockStatus,
     MUBResourcePixivUniversalTypeFetchStatus,
+    MUBResourcePixivUniversalTypeGenerateIllustURLsFromImageFiles,
+    MUBResourcePixivUniversalTypeOrganizeSameIllustIDImageFiles,
 };
 
 @interface MUBResourcePixivUniversalManager : NSObject
 
 + (void)getMemberIDsWithType:(MUBResourcePixivUniversalType)type;
++ (void)showOpenPanelWithType:(MUBResourcePixivUniversalType)type;
 
 #pragma mark - Tools
 + (NSArray<NSString *> *)filterNonePixivMemberIDs:(NSArray<NSString *> *)memberIDs;

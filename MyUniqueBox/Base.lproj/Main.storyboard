@@ -576,13 +576,13 @@
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="OM5-3W-AaQ"/>
-                                                    <menuItem title="打开网页请求授权" tag="1030301" id="bOZ-Ny-m2m">
+                                                    <menuItem title="打开网页请求授权" tag="1030301" hidden="YES" id="bOZ-Ny-m2m">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="ZN0-0L-xEq"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="显示授权详细信息" tag="1030302" id="Y4J-gP-1XE">
+                                                    <menuItem title="显示授权详细信息" tag="1030302" hidden="YES" id="Y4J-gP-1XE">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="jBT-DK-nm9"/>
@@ -648,16 +648,16 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Pixiv" id="7Zy-5s-N4Y">
                                                 <items>
-                                                    <menuItem title="更新一页已关注的用户(和黑名单一样解析页面复制的文字，不走接口) [关注页面复制的文字]" tag="1060001" id="eWX-gi-rFS">
+                                                    <menuItem title="更新一页已关注的用户(和黑名单一样解析页面复制的文字，不走接口) [关注页面复制的文字]" tag="1060001" hidden="YES" id="eWX-gi-rFS">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
-                                                    <menuItem title="更新一页已关注的用户 - 示例" tag="1060002" alternate="YES" id="9s4-iZ-cef">
+                                                    <menuItem title="更新一页已关注的用户 - 示例" tag="1060002" hidden="YES" alternate="YES" id="9s4-iZ-cef">
                                                         <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                                     </menuItem>
-                                                    <menuItem title="更新一页已拉黑的用户 [黑名单页面复制的文字]" tag="1060003" id="hEG-B7-oDk">
+                                                    <menuItem title="更新一页已拉黑的用户 [黑名单页面复制的文字]" tag="1060003" hidden="YES" id="hEG-B7-oDk">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
-                                                    <menuItem title="更新一页已拉黑的用户 - 示例" tag="1060004" alternate="YES" id="SEm-w1-3aq">
+                                                    <menuItem title="更新一页已拉黑的用户 - 示例" tag="1060004" hidden="YES" alternate="YES" id="SEm-w1-3aq">
                                                         <modifierMask key="keyEquivalentModifierMask" option="YES"/>
                                                     </menuItem>
                                                     <menuItem title="更新多个确定拉黑的用户 [用户ID / 用户页面地址]" tag="1060005" id="ESB-sl-XTO">
@@ -725,7 +725,7 @@
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="gZ6-9C-nXZ"/>
-                                                    <menuItem title="将相同Image ID的图片移动到同一个文件夹中 [包含Pixiv图片的根文件夹地址]" tag="1060501" id="V0X-EN-YYJ">
+                                                    <menuItem title="将相同Image ID的图片移动到同一个文件夹中 [递归] [包含Pixiv图片的根文件夹地址]" tag="1060501" id="V0X-EN-YYJ">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="YqM-4I-JDN"/>

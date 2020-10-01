@@ -12,6 +12,7 @@
 
 @implementation MUBResourcePixivUniversalManager
 
+#pragma mark - getMemberIDs
 + (void)getMemberIDsWithType:(MUBResourcePixivUniversalType)type {
     NSString *memberIDStr = [MUBUIManager defaultManager].viewController.inputTextView.string;
     if (!memberIDStr.isNotEmpty) {
@@ -49,6 +50,140 @@
         default:
             break;
     }
+}
+
+#pragma mark - showOpenPanel
++ (void)showOpenPanelWithType:(MUBResourcePixivUniversalType)type {
+    MUBOpenPanelBehavior behavior = MUBOpenPanelBehaviorNone;
+    NSString *message = @"";
+    switch (type) {
+        case MUBResourcePixivUniversalTypeGenerateIllustURLsFromImageFiles: {
+            behavior = MUBOpenPanelBehaviorMultipleFile;
+            message = @"需要生成链接的图片文件";
+        }
+            break;
+        case MUBResourcePixivUniversalTypeOrganizeSameIllustIDImageFiles: {
+            behavior = MUBOpenPanelBehaviorSingleDir;
+            message = @"包含Pixiv图片的根目录";
+        }
+            break;
+        default:
+            break;
+    }
+    if (behavior == MUBOpenPanelBehaviorNone) {
+        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"MUBResourcePixivUniversalManager showOpenPanelWithType behavior == MUBOpenPanelBehaviorNone"];
+    } else {
+        [MUBResourcePixivUniversalManager _showOpenPanelWithType:type behavior:behavior message:message];
+    }
+}
++ (void)_showOpenPanelWithType:(MUBResourcePixivUniversalType)type behavior:(MUBOpenPanelBehavior)behavior message:(NSString *)message {
+    [MUBOpenPanelManager showOpenPanelOnMainWindowWithBehavior:behavior message:[NSString stringWithFormat:@"请选择%@", message] handler:^(NSOpenPanel * _Nonnull openPanel, NSModalResponse result) {
+        if (result == NSModalResponseOK) {
+            if (behavior & MUBOpenPanelBehaviorMultiple) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                switch (type) {
+                    case MUBResourcePixivUniversalTypeGenerateIllustURLsFromImageFiles: {
+                        NSArray *imageFilePaths = [openPanel.URLs bk_map:^id(NSURL *obj) {
+                            return [MUBFileManager pathFromOpenPanelURL:obj];
+                        }];
+                        
+                        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"已选择%@:\n%@", message, imageFilePaths.stringValue];
+                        
+                        [MUBResourcePixivUniversalManager _generateIllustURLsFromImageFilePaths:imageFilePaths];
+                    }
+                        break;
+                    default:
+                        break;
+                }
+                    
+                });
+            } else {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    NSString *path = [MUBFileManager pathFromOpenPanelURL:openPanel.URLs.firstObject];
+                    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"已选择%@：%@", message, path];
+                    
+                    switch (type) {
+                        case MUBResourcePixivUniversalTypeOrganizeSameIllustIDImageFiles: {
+                            [MUBResourcePixivUniversalManager _organizeSameIllustIDImageFilesWithRootFolderPath:path];
+                        }
+                            break;
+                        default:
+                            break;
+                    }
+                });
+            }
+        }
+    }];
+}
+
+#pragma mark - Generate
++ (void)_generateIllustURLsFromImageFilePaths:(NSArray<NSString *> *)imageFilePaths {
+    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"根据多个图片的文件名称生成对应作品的地址, 流程开始"];
+    
+    NSMutableArray *result = [NSMutableArray array];
+    NSMutableArray *useless = [NSMutableArray array];
+    
+    for (NSInteger i = 0; i < imageFilePaths.count; i++) {
+        NSString *imageFilePath = imageFilePaths[i];
+        NSString *imageFileName = imageFilePath.lastPathComponent;
+        NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:@"\\d+" options:0 error:nil];
+        NSArray *matches = [regex matchesInString:imageFileName options:0 range:NSMakeRange(0, imageFileName.length)];
+        
+        for (NSTextCheckingResult *match in matches) {
+            NSString *strNumber = [imageFileName substringWithRange:match.range];
+            if (strNumber.length == 8 || strNumber.length == 9) {
+                [result addObject:[NSString stringWithFormat:@"https://www.pixiv.net/artworks/%@", strNumber]];
+            } else {
+                [useless addObject:imageFilePath];
+            }
+        }
+    }
+    
+    if (result.count > 0) {
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"获取到的图片地址如下:\n%@", result.stringValue];
+    }
+    if (useless.count > 0) {
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"无法以下文件生成链接:\n%@", useless.stringValue];
+    }
+    
+    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"根据多个图片的文件名称生成对应作品的地址, 流程结束"];
+}
+
+#pragma mark - Organize
++ (void)_organizeSameIllustIDImageFilesWithRootFolderPath:(NSString *)rootFolderPath {
+    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"将相同Image ID的图片移动到同一个文件夹中, 流程开始"];
+    
+    NSArray *allImageFilePaths = [MUBFileManager allFilePathsInFolder:rootFolderPath extensions:[MUBSettingManager defaultManager].mimeImageTypes];
+    NSMutableArray *pixivFileIDs = [NSMutableArray array];
+    for (NSString *imageFilePath in allImageFilePaths) {
+        NSString *imageFileName = imageFilePath.lastPathComponent.stringByDeletingPathExtension; // 83124178_p0 - R-18 3DCG
+        NSArray *imageFileNameComps = [imageFileName componentsSeparatedByString:@" - "];
+        NSString *pixivIllust = imageFileNameComps.firstObject; // 83124178_p0
+        NSArray *pixivIllstComps = [pixivIllust componentsSeparatedByString:@"_"];
+        [pixivFileIDs addObject:pixivIllstComps.firstObject]; // 83124178
+    }
+    NSArray *pixivIDs = [NSOrderedSet orderedSetWithArray:pixivFileIDs].array;
+    
+    for (NSInteger i = 0; i < pixivIDs.count; i++) {
+        NSString *pixivID = pixivIDs[i];
+        NSArray *imageFilePaths = [allImageFilePaths bk_select:^BOOL(NSString *filePath) {
+            return [filePath.lastPathComponent hasPrefix:pixivID];
+        }];
+        NSString *firstImageFilePath = imageFilePaths.firstObject;
+        
+        NSString *pixivIDFolderPath = [firstImageFilePath.stringByDeletingLastPathComponent stringByAppendingPathComponent:pixivID];
+        [MUBFileManager createFolderAtPath:pixivIDFolderPath];
+        
+        [imageFilePaths bk_each:^(NSString *imageFilePath) {
+            NSString *destFilePath = [pixivIDFolderPath stringByAppendingPathComponent:imageFilePath.lastPathComponent];
+            [MUBFileManager moveItemFromPath:imageFilePath toPath:destFilePath];
+            
+            [[MUBLogManager defaultManager] addErrorLogWithFormat:@"移动前: %@", imageFilePath];
+            [[MUBLogManager defaultManager] addErrorLogWithFormat:@"移动后: %@", destFilePath];
+        }];
+    }
+    
+    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"将相同Image ID的图片移动到同一个文件夹中, 流程结束"];
 }
 
 #pragma mark - Status
