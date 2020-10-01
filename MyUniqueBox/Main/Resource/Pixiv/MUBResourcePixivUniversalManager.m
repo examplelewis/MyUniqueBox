@@ -81,21 +81,20 @@
         if (result == NSModalResponseOK) {
             if (behavior & MUBOpenPanelBehaviorMultiple) {
                 dispatch_async(dispatch_get_main_queue(), ^{
-                switch (type) {
-                    case MUBResourcePixivUniversalTypeGenerateIllustURLsFromImageFiles: {
-                        NSArray *imageFilePaths = [openPanel.URLs bk_map:^id(NSURL *obj) {
-                            return [MUBFileManager pathFromOpenPanelURL:obj];
-                        }];
-                        
-                        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"已选择%@:\n%@", message, imageFilePaths.stringValue];
-                        
-                        [MUBResourcePixivUniversalManager _generateIllustURLsFromImageFilePaths:imageFilePaths];
+                    NSArray *filePaths = [openPanel.URLs bk_map:^id(NSURL *obj) {
+                        return [MUBFileManager pathFromOpenPanelURL:obj];
+                    }];
+                    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"已选择%@: %ld 个项目", message, filePaths.count];
+                    [[MUBLogManager defaultManager] saveDefaultLocalLog:[NSString stringWithFormat:@"已选择%@:\n%@", message, filePaths.stringValue]];
+                
+                    switch (type) {
+                        case MUBResourcePixivUniversalTypeGenerateIllustURLsFromImageFiles: {
+                            [MUBResourcePixivUniversalManager _generateIllustURLsFromImageFilePaths:filePaths];
+                        }
+                            break;
+                        default:
+                            break;
                     }
-                        break;
-                    default:
-                        break;
-                }
-                    
                 });
             } else {
                 dispatch_async(dispatch_get_main_queue(), ^{
@@ -118,7 +117,7 @@
 
 #pragma mark - Generate
 + (void)_generateIllustURLsFromImageFilePaths:(NSArray<NSString *> *)imageFilePaths {
-    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"根据多个图片的文件名称生成对应作品的地址, 流程开始"];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"根据多个图片的文件名称生成对应作品的地址, 流程开始"];
     
     NSMutableArray *result = [NSMutableArray array];
     NSMutableArray *useless = [NSMutableArray array];
@@ -129,13 +128,17 @@
         NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:@"\\d+" options:0 error:nil];
         NSArray *matches = [regex matchesInString:imageFileName options:0 range:NSMakeRange(0, imageFileName.length)];
         
+        BOOL found = NO;
         for (NSTextCheckingResult *match in matches) {
             NSString *strNumber = [imageFileName substringWithRange:match.range];
             if (strNumber.length == 8 || strNumber.length == 9) {
+                found = YES;
                 [result addObject:[NSString stringWithFormat:@"https://www.pixiv.net/artworks/%@", strNumber]];
-            } else {
-                [useless addObject:imageFilePath];
+                break;
             }
+        }
+        if (!found) {
+            [useless addObject:imageFilePath];
         }
     }
     
@@ -146,12 +149,12 @@
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"无法以下文件生成链接:\n%@", useless.stringValue];
     }
     
-    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"根据多个图片的文件名称生成对应作品的地址, 流程结束"];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"根据多个图片的文件名称生成对应作品的地址, 流程结束"];
 }
 
 #pragma mark - Organize
 + (void)_organizeSameIllustIDImageFilesWithRootFolderPath:(NSString *)rootFolderPath {
-    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"将相同Image ID的图片移动到同一个文件夹中, 流程开始"];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"将相同Image ID的图片移动到同一个文件夹中, 流程开始"];
     
     NSArray *allImageFilePaths = [MUBFileManager allFilePathsInFolder:rootFolderPath extensions:[MUBSettingManager defaultManager].mimeImageTypes];
     NSMutableArray *pixivFileIDs = [NSMutableArray array];
@@ -178,12 +181,12 @@
             NSString *destFilePath = [pixivIDFolderPath stringByAppendingPathComponent:imageFilePath.lastPathComponent];
             [MUBFileManager moveItemFromPath:imageFilePath toPath:destFilePath];
             
-            [[MUBLogManager defaultManager] addErrorLogWithFormat:@"移动前: %@", imageFilePath];
-            [[MUBLogManager defaultManager] addErrorLogWithFormat:@"移动后: %@", destFilePath];
+            [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"移动前: %@", imageFilePath];
+            [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"移动后: %@", destFilePath];
         }];
     }
     
-    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"将相同Image ID的图片移动到同一个文件夹中, 流程结束"];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"将相同Image ID的图片移动到同一个文件夹中, 流程结束"];
 }
 
 #pragma mark - Status
