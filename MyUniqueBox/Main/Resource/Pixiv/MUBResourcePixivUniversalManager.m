@@ -131,6 +131,7 @@
     }
 }
 
+//----------------------------------------------------------------------------------------
 #pragma mark - showOpenPanel
 + (void)showOpenPanelWithType:(MUBResourcePixivUniversalType)type {
     [[MUBLogManager defaultManager] reset];
@@ -270,6 +271,7 @@
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"将相同Image ID的图片移动到同一个文件夹中, 流程结束"];
 }
 
+//----------------------------------------------------------------------------------------
 #pragma mark - Tools
 + (NSString *)numberStringInInput:(NSString *)input {
     NSCharacterSet *numberSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789"];
