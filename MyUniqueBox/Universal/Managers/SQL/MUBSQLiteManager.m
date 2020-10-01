@@ -14,6 +14,7 @@
 @interface MUBSQLiteManager ()
 
 @property (strong) FMDatabaseQueue *queue;
+@property (strong) FMDatabaseQueue *pixivUtilQueue;
 
 @end
 
@@ -26,20 +27,46 @@
     dispatch_once(&onceToken, ^{
         defaultManager = [[self alloc] init];
         defaultManager.queue = [FMDatabaseQueue databaseQueueWithPath:[[MUBSettingManager defaultManager] pathOfContentInMainFolder:MUBSQLiteFileName]];
+        defaultManager.pixivUtilQueue = [FMDatabaseQueue databaseQueueWithPath:[MUBSettingManager defaultManager].pixivUtilDBFilePath];
     });
     
     return defaultManager;
 }
 
-#pragma mark - Pixiv Block
-// 获取拉黑的用户列表
-// blockLevel: 0. 未判断; 1. 确定拉黑; 2. 不确定拉黑
-- (NSArray *)getPixivUsersBlockStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs blockLevel:(NSInteger)blockLevel {
+#pragma mark - Pixiv Follow
+// 获取关注的用户列表
+- (NSArray *)getPixivUsersFollowStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs isFollow:(BOOL)isFollow {
     NSMutableArray *result = [NSMutableArray array];
     for (NSString *memberID in memberIDs) {
         __block NSInteger count = 0;
         [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
-            FMResultSet *rs = [db executeQuery:@"select count(member_id) from pixivBlockUser where member_id = ? and block_level = ?", @(memberID.integerValue), @(blockLevel)];
+            FMResultSet *rs = [db executeQuery:@"select count(member_id) from pixivFollowingUser where member_id = ?", @(memberID.integerValue)];
+            while ([rs next]) {
+                count = [rs intForColumnIndex:0];
+            }
+            [rs close];
+        }];
+        if (isFollow && count != 0) {
+            [result addObject:memberID];
+        }
+        if (!isFollow && count == 0) {
+            [result addObject:memberID];
+        }
+    }
+    
+    return result.copy;
+}
+
+#pragma mark - Pixiv Block
+// 获取拉黑的用户列表
+// blockLevel: 0. 未判断; 1. 确定拉黑; 2. 不确定拉黑
+- (NSArray *)getPixivUsersBlockStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs blockLevel:(NSInteger)blockLevel isEqual:(BOOL)isEqual {
+    NSMutableArray *result = [NSMutableArray array];
+    for (NSString *memberID in memberIDs) {
+        __block NSInteger count = 0;
+        [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+            NSString *query = [NSString stringWithFormat:@"select count(member_id) from pixivBlockUser where member_id = %@ and block_level %@ %ld", memberID, isEqual ? @"=" : @"!=", blockLevel];
+            FMResultSet *rs = [db executeQuery:query];
             while ([rs next]) {
                 count = [rs intForColumnIndex:0];
             }
@@ -148,6 +175,29 @@
     }
 }
 
+#pragma mark - Pixiv Fetch
+// 获取抓取的用户列表
+- (NSArray *)getPixivUsersFetchStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs isFetch:(BOOL)isFetch {
+    NSMutableArray *result = [NSMutableArray array];
+    for (NSString *memberID in memberIDs) {
+        __block NSInteger count = 0;
+        [self.pixivUtilQueue inDatabase:^(FMDatabase * _Nonnull db) {
+            FMResultSet *rs = [db executeQuery:@"select count(image_id) from pixiv_master_image where member_id = ?", @(memberID.integerValue)];
+            while ([rs next]) {
+                count = [rs intForColumnIndex:0];
+            }
+            [rs close];
+        }];
+        if (isFetch && count != 0) {
+            [result addObject:[NSString stringWithFormat:@"%@\t\t%ld", memberID, count]];
+        }
+        if (!isFetch && count == 0) {
+            [result addObject:memberID];
+        }
+    }
+    
+    return result.copy;
+}
 
 #pragma mark - WeiboStatus
 - (BOOL)isWeiboStatusExistsWithStatusId:(NSString *)statusId {

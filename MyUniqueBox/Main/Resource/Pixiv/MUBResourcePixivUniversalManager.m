@@ -53,13 +53,54 @@
 
 #pragma mark - Status
 + (void)_checkFollowStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs {
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的关注状态, 流程开始"];
     
+    NSArray *follows = [[MUBSQLiteManager defaultManager] getPixivUsersFollowStatusWithMemberIDs:memberIDs isFollow:YES];
+    follows = [MUBResourcePixivUniversalManager fullPixivURLsWithMemberIDs:follows];
+    [follows exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFollowUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个关注的用户", follows.count];
+    
+    NSArray *notFollows = [[MUBSQLiteManager defaultManager] getPixivUsersFollowStatusWithMemberIDs:memberIDs isFollow:NO];
+    notFollows = [MUBResourcePixivUniversalManager fullPixivURLsWithMemberIDs:notFollows];
+    [notFollows exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFollowNotUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个未关注的用户", notFollows.count];
+    
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的关注状态, 流程开始"];
 }
 + (void)_checkBlockStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs {
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的拉黑状态, 流程开始"];
     
+    NSArray *block1s = [[MUBSQLiteManager defaultManager] getPixivUsersBlockStatusWithMemberIDs:memberIDs blockLevel:1 isEqual:YES];
+    block1s = [MUBResourcePixivUniversalManager fullPixivURLsWithMemberIDs:block1s];
+    [block1s exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivBlock1UserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个确定拉黑的用户", block1s.count];
+    
+    NSArray *blockNot1s = [[MUBSQLiteManager defaultManager] getPixivUsersBlockStatusWithMemberIDs:memberIDs blockLevel:1 isEqual:NO];
+    blockNot1s = [MUBResourcePixivUniversalManager fullPixivURLsWithMemberIDs:blockNot1s];
+    [blockNot1s exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivBlockNot1UserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个未确定拉黑的用户", blockNot1s.count];
+    
+    NSArray *blockUnknowns = [[MUBSQLiteManager defaultManager] getPixivUsersUnknownBlockStatusWithMemberIDs:memberIDs];
+    blockUnknowns = [MUBResourcePixivUniversalManager fullPixivURLsWithMemberIDs:blockUnknowns];
+    [blockUnknowns exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivBlockUnknownUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个未拉黑的用户", blockUnknowns.count];
+    
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的拉黑状态, 流程结束"];
 }
 + (void)_checkFetchStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs {
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的抓取状态, 流程开始"];
     
+    NSArray *fetches = [[MUBSQLiteManager defaultManager] getPixivUsersFetchStatusWithMemberIDs:memberIDs isFetch:YES];
+    fetches = [MUBResourcePixivUniversalManager fullPixivURLsWithMemberIDs:fetches];
+    [fetches exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFetchUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个抓取的用户", fetches.count];
+    
+    NSArray *notFetches = [[MUBSQLiteManager defaultManager] getPixivUsersFetchStatusWithMemberIDs:memberIDs isFetch:NO];
+    notFetches = [MUBResourcePixivUniversalManager fullPixivURLsWithMemberIDs:notFetches];
+    [notFetches exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFetchNotUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个未抓取的用户", notFetches.count];
+    
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的抓取状态, 流程开始"];
 }
 
 #pragma mark - Tools
@@ -77,16 +118,24 @@
         if ([numberString integerValue] == 0) {
             [none addObject:memberID];
         } else {
-            [result addObject:memberID];
+            [result addObject:numberString];
         }
     }
     
     if (none.count > 0) {
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"有 %@ 条输入非Pixiv地址，跳过", none.count];
-        [none exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivNonePixivMemberIDsExportFileName]];
+        [none exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivNonePixivMemberIDsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
     }
     
     return result.copy;
+}
++ (NSArray *)fullPixivURLsWithMemberIDs:(NSArray *)memberIDs {
+    return [memberIDs bk_map:^id(NSString *obj) {
+        return [MUBResourcePixivUniversalManager fullPixivURLWithMemberID:obj];
+    }];
+}
++ (NSString *)fullPixivURLWithMemberID:(NSString *)memberID {
+    return [NSString stringWithFormat:@"https://www.pixiv.net/member_illust.php?id=%@", memberID];
 }
 
 @end

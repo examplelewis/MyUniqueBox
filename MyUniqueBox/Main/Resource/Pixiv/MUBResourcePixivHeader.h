@@ -11,4 +11,14 @@
 
 static NSString * const MUBResourcePixivNonePixivMemberIDsExportFileName = @"MUBResourcePixivNonePixivMemberIDs.txt";
 
+static NSString * const MUBResourcePixivBlock1UserURLsExportFileName = @"MUBResourcePixivBlock1UserURLs.txt";
+static NSString * const MUBResourcePixivBlockNot1UserURLsExportFileName = @"MUBResourcePixivBlockNot1UserURLs.txt";
+static NSString * const MUBResourcePixivBlockUnknownUserURLsExportFileName = @"MUBResourcePixivBlockUnknownUserURLs.txt";
+
+static NSString * const MUBResourcePixivFollowUserURLsExportFileName = @"MUBResourcePixivFollowUserURLs.txt";
+static NSString * const MUBResourcePixivFollowNotUserURLsExportFileName = @"MUBResourcePixivFollowNotUserURLs.txt";
+
+static NSString * const MUBResourcePixivFetchUserURLsExportFileName = @"MUBResourcePixivFetchUserURLs.txt";
+static NSString * const MUBResourcePixivFetchNotUserURLsExportFileName = @"MUBResourcePixivFetchNotUserURLs.txt";
+
 #endif /* MUBResourcePixivHeader_h */

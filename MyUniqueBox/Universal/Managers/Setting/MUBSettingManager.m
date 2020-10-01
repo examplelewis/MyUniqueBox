@@ -9,6 +9,7 @@
 #import "MUBSettingManager.h"
 
 static NSString * const MUBMainFolderPath = @"/Users/mercury/SynologyDrive/~同步文件夹/同步文档/MyUniqueBox";
+static NSString * const MUBPixivUtilDBFilePath = @"/Users/Mercury/SynologyDrive/~同步文件夹/Tool/pixivutil/db.sqlite";
 
 @implementation MUBSettingManager
 
@@ -28,7 +29,13 @@ static NSString * const MUBMainFolderPath = @"/Users/mercury/SynologyDrive/~同�
         if ([MUBFileManager fileExistsAtPath:MUBMainFolderPath]) {
             _mainFolderPath = MUBMainFolderPath;
         } else {
-            [MUBAlertManager showCriticalAlertOnMainWindowWithMessage:@"主文件夹不存在" info:[NSString stringWithFormat:@"需要检查:\n%@", MUBMainFolderPath] runModal:NO handler:nil];
+            [MUBAlertManager showCriticalAlertOnMainWindowWithMessage:@"主文件夹不存在" info:[NSString stringWithFormat:@"需要检查:\n%@", MUBMainFolderPath] runModal:YES handler:nil];
+        }
+        
+        if ([MUBFileManager fileExistsAtPath:MUBPixivUtilDBFilePath]) {
+            _pixivUtilDBFilePath = MUBPixivUtilDBFilePath;
+        } else {
+            [MUBAlertManager showCriticalAlertOnMainWindowWithMessage:@"PixivUtil 数据库文件不存在" info:[NSString stringWithFormat:@"需要检查:\n%@", MUBPixivUtilDBFilePath] runModal:YES handler:nil];
         }
         
         [self setupPaths];

@@ -8,6 +8,7 @@
 
 #import "MUBMenuItemResourcePixivManager.h"
 #import "MUBMenuItemResourceHeader.h"
+#import "MUBResourcePixivUniversalManager.h"
 
 @implementation MUBMenuItemResourcePixivManager
 
@@ -36,11 +37,11 @@
 //                }
 //                    break;
                 case 5: {
-                    
+                    [MUBResourcePixivUniversalManager getMemberIDsWithType:MUBResourcePixivUniversalTypeUpdateBlock1];
                 }
                     break;
                 case 6: {
-                    
+                    [MUBResourcePixivUniversalManager getMemberIDsWithType:MUBResourcePixivUniversalTypeUpdateBlock2];
                 }
                     break;
                 default:
@@ -51,15 +52,15 @@
         case 1: {
             switch (action) {
                 case 1: {
-                    
+                    [MUBResourcePixivUniversalManager getMemberIDsWithType:MUBResourcePixivUniversalTypeFollowStatus];
                 }
                     break;
                 case 2: {
-                    
+                    [MUBResourcePixivUniversalManager getMemberIDsWithType:MUBResourcePixivUniversalTypeBlockStatus];
                 }
                     break;
                 case 3: {
-                    
+                    [MUBResourcePixivUniversalManager getMemberIDsWithType:MUBResourcePixivUniversalTypeFetchStatus];
                 }
                     break;
                 default:
