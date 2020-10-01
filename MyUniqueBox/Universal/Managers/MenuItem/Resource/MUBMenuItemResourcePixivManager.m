@@ -79,7 +79,7 @@
                 }
                     break;
                 case 3: {
-                    
+                    [MUBResourcePixivUniversalManager getMemberIDsWithType:MUBResourcePixivUniversalTypeExportFollowAndBlockUsers];
                 }
                     break;
                 default:

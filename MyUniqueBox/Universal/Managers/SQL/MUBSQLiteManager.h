@@ -39,6 +39,10 @@ NS_ASSUME_NONNULL_BEGIN
 // 删除PixivUtil数据库中的下载记录
 - (void)removePixivUntilUsersDownloadRecordsWithMemberIDs:(NSArray<NSString *> *)memberIDs;
 
+#pragma mark - Pixiv Follow & Block
+// 获取关注和拉黑用户列表
+- (NSArray *)getFollowAndBlockUsers;
+
 #pragma mark - WeiboStatus
 - (BOOL)isWeiboStatusExistsWithStatusId:(NSString *)statusId;
 - (void)insertWeiboStatuses:(NSArray<MUBResourceWeiboStatusModel *> *)models;

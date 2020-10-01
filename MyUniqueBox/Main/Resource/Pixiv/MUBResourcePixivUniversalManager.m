@@ -51,6 +51,10 @@
             [MUBResourcePixivUniversalManager _removeUsersDownloadRecordsWithMemberIDs:memberIDs];
         }
             break;
+        case MUBResourcePixivUniversalTypeExportFollowAndBlockUsers: {
+            [MUBResourcePixivUniversalManager _exportFollowAndBlockUsersWithMemberIDs:memberIDs];
+        }
+            break;
         default:
             break;
     }
@@ -252,6 +256,19 @@
     [[MUBSQLiteManager defaultManager] removePixivUntilUsersDownloadRecordsWithMemberIDs:memberIDs];
     
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"删除多个用户PixivUtil的下载记录, 流程结束"];
+}
+
+#pragma mark - Follow & Export
++ (void)_exportFollowAndBlockUsersWithMemberIDs:(NSArray<NSString *> *)memberIDs {
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"导出既关注又被拉黑的用户名单, 流程开始"];
+    
+    NSArray *duplicates = [[MUBSQLiteManager defaultManager] getFollowAndBlockUsers];
+    if (duplicates.count == 0) {
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"导出既关注又被拉黑的用户名单，未发现重复用户，流程结束"];
+    } else {
+        [duplicates exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFollowAndBlockUsersExportFileName]];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"导出既关注又被拉黑的用户名单，发现 %ld 个重复用户，流程结束", duplicates.count];
+    }
 }
 
 #pragma mark - Tools

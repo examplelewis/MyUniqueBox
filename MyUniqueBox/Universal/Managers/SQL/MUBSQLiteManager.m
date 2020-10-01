@@ -257,6 +257,32 @@
     }
 }
 
+#pragma mark - Pixiv Follow & Block
+// 获取关注和拉黑用户列表
+- (NSArray *)getFollowAndBlockUsers {
+    NSMutableArray *follows = [NSMutableArray array];
+    NSMutableArray *blocks = [NSMutableArray array];
+    [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+        FMResultSet *rs = [db executeQuery:@"select member_id from pixivFollowingUser"];
+        while ([rs next]) {
+            [follows addObject:@([rs intForColumnIndex:0])];
+        }
+        [rs close];
+    }];
+    [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+        FMResultSet *rs = [db executeQuery:@"select member_id from pixivBlockUser"];
+        while ([rs next]) {
+            [blocks addObject:@([rs intForColumnIndex:0])];
+        }
+        [rs close];
+    }];
+    
+    NSMutableOrderedSet *resultSet = [NSMutableOrderedSet orderedSetWithArray:follows];
+    [resultSet intersectSet:[NSSet setWithArray:blocks]]; // 俩数组取交集
+    
+    return resultSet.array;
+}
+
 #pragma mark - WeiboStatus
 - (BOOL)isWeiboStatusExistsWithStatusId:(NSString *)statusId {
     NSMutableArray *result = [NSMutableArray array];
