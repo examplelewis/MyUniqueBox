@@ -71,11 +71,11 @@
         case 2: {
             switch (action) {
                 case 1: {
-                    
+                    [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeShowUserState];
                 }
                     break;
                 case 2: {
-                    
+                    [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeExportUserState];
                 }
                     break;
                 case 3: {

@@ -698,7 +698,7 @@
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="8FR-od-sJh"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="导出多个从ExHentai 导出用户的状态 [用户ID / 用户页面地址]" tag="1060202" id="R0y-Bw-gyK">
+                                                    <menuItem title="导出多个用户的状态 [用户ID / 用户页面地址]" tag="1060202" id="R0y-Bw-gyK">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="SaB-fF-hEE"/>
