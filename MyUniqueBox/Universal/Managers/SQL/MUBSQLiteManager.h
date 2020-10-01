@@ -35,6 +35,10 @@ NS_ASSUME_NONNULL_BEGIN
 // 获取抓取的用户列表
 - (NSArray *)getPixivUsersFetchStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs isFetch:(BOOL)isFetch;
 
+#pragma mark - Pixiv Remove
+// 删除PixivUtil数据库中的下载记录
+- (void)removePixivUntilUsersDownloadRecordsWithMemberIDs:(NSArray<NSString *> *)memberIDs;
+
 #pragma mark - WeiboStatus
 - (BOOL)isWeiboStatusExistsWithStatusId:(NSString *)statusId;
 - (void)insertWeiboStatuses:(NSArray<MUBResourceWeiboStatusModel *> *)models;

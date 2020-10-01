@@ -47,6 +47,10 @@
             [MUBResourcePixivUniversalManager _checkFetchStatusWithMemberIDs:memberIDs];
         }
             break;
+        case MUBResourcePixivUniversalTypeRemoveUsersDownloadRecords: {
+            [MUBResourcePixivUniversalManager _removeUsersDownloadRecordsWithMemberIDs:memberIDs];
+        }
+            break;
         default:
             break;
     }
@@ -231,14 +235,23 @@
     NSArray *fetches = [[MUBSQLiteManager defaultManager] getPixivUsersFetchStatusWithMemberIDs:memberIDs isFetch:YES];
     fetches = [MUBResourcePixivUniversalManager fullPixivURLsWithMemberIDs:fetches];
     [fetches exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFetchUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个抓取的用户", fetches.count];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个抓取的用户", fetches.count];
     
     NSArray *notFetches = [[MUBSQLiteManager defaultManager] getPixivUsersFetchStatusWithMemberIDs:memberIDs isFetch:NO];
     notFetches = [MUBResourcePixivUniversalManager fullPixivURLsWithMemberIDs:notFetches];
     [notFetches exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFetchNotUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个未抓取的用户", notFetches.count];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个未抓取的用户", notFetches.count];
     
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的抓取状态, 流程开始"];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的抓取状态, 流程结束"];
+}
+
+#pragma mark - Remove
++ (void)_removeUsersDownloadRecordsWithMemberIDs:(NSArray<NSString *> *)memberIDs {
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"删除多个用户PixivUtil的下载记录, 流程开始"];
+    
+    [[MUBSQLiteManager defaultManager] removePixivUntilUsersDownloadRecordsWithMemberIDs:memberIDs];
+    
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"删除多个用户PixivUtil的下载记录, 流程结束"];
 }
 
 #pragma mark - Tools

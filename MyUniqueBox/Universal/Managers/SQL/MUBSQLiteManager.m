@@ -199,6 +199,64 @@
     return result.copy;
 }
 
+#pragma mark - Pixiv Remove
+// 删除PixivUtil数据库中的下载记录
+- (void)removePixivUntilUsersDownloadRecordsWithMemberIDs:(NSArray<NSString *> *)memberIDs {
+    for (NSString *memberID in memberIDs) {
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"当前删除用户: %@", memberID];
+        
+        // 查询 pixiv_master_image
+        NSMutableArray *imageIDs = [NSMutableArray array];
+        [self.pixivUtilQueue inDatabase:^(FMDatabase * _Nonnull db) {
+            FMResultSet *rs = [db executeQuery:@"select image_id from pixiv_master_image where member_id = ?", @(memberID.integerValue)];
+            while ([rs next]) {
+                [imageIDs addObject:@([rs intForColumnIndex:0])];
+            }
+            [rs close];
+        }];
+        
+        if (imageIDs.count == 0) {
+            [[MUBLogManager defaultManager] addWarningLogWithFormat:@"pixiv_master_image 表中未包含 %ld 的图片, 跳过", memberID.integerValue];
+            continue;
+        } else {
+            [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"pixiv_master_image 表中包含 %ld 的图片共有 %ld 个", memberID.integerValue, imageIDs.count];
+        }
+        
+        // 删除 pixiv_manga_image
+        for (NSInteger i = 0; i < imageIDs.count; i++) {
+            NSInteger imageID = [imageIDs[i] integerValue];
+            [self.pixivUtilQueue inDatabase:^(FMDatabase * _Nonnull db) {
+                BOOL success = [db executeUpdate:@"DELETE FROM pixiv_manga_image WHERE image_id = ?", @(imageID)];
+                if (success) {
+                    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"删除 pixiv_manga_image 表中包含 %ld 的记录成功", imageID];
+                } else {
+                    [[MUBLogManager defaultManager] addErrorLogWithFormat:@"删除 pixiv_manga_image 表中包含 %ld 的记录时发生错误：%@", imageID, [db lastErrorMessage]];
+                }
+            }];
+        }
+        
+        // 删除 pixiv_master_image
+        [self.pixivUtilQueue inDatabase:^(FMDatabase * _Nonnull db) {
+            BOOL success = [db executeUpdate:@"DELETE FROM pixiv_master_image WHERE member_id = ?", @(memberID.integerValue)];
+            if (success) {
+                [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"删除 pixiv_master_image 表中包含 %ld 的记录成功", memberID.integerValue];
+            } else {
+                [[MUBLogManager defaultManager] addErrorLogWithFormat:@"删除 pixiv_master_image 表中包含 %ld 的记录时发生错误：%@", memberID.integerValue, [db lastErrorMessage]];
+            }
+        }];
+        
+        // 删除 pixiv_master_member
+        [self.pixivUtilQueue inDatabase:^(FMDatabase * _Nonnull db) {
+            BOOL success = [db executeUpdate:@"DELETE FROM pixiv_master_member WHERE member_id = ?", @(memberID.integerValue)];
+            if (success) {
+                [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"删除 pixiv_master_member 表中包含 %ld 的记录成功", memberID.integerValue];
+            } else {
+                [[MUBLogManager defaultManager] addErrorLogWithFormat:@"删除 pixiv_master_member 表中包含 %ld 的记录时发生错误：%@", memberID.integerValue, [db lastErrorMessage]];
+            }
+        }];
+    }
+}
+
 #pragma mark - WeiboStatus
 - (BOOL)isWeiboStatusExistsWithStatusId:(NSString *)statusId {
     NSMutableArray *result = [NSMutableArray array];

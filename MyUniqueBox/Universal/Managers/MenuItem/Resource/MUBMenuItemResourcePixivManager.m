@@ -101,7 +101,7 @@
         case 4: {
             switch (action) {
                 case 1: {
-                    
+                    [MUBResourcePixivUniversalManager getMemberIDsWithType:MUBResourcePixivUniversalTypeRemoveUsersDownloadRecords];
                 }
                     break;
                 default:

@@ -718,7 +718,7 @@
                                                         </connections>
                                                     </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="Wql-Z1-mE6"/>
-                                                    <menuItem title="删除单个用户PixivUtil的下载记录" tag="1060401" id="ev1-Pr-3Qb">
+                                                    <menuItem title="删除多个用户PixivUtil的下载记录" tag="1060401" id="ev1-Pr-3Qb">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="FkZ-DT-9Qa"/>

@@ -18,6 +18,7 @@ typedef NS_ENUM(NSUInteger, MUBResourcePixivUniversalType) {
     MUBResourcePixivUniversalTypeFetchStatus,
     MUBResourcePixivUniversalTypeGenerateIllustURLsFromImageFiles,
     MUBResourcePixivUniversalTypeOrganizeSameIllustIDImageFiles,
+    MUBResourcePixivUniversalTypeRemoveUsersDownloadRecords,
 };
 
 @interface MUBResourcePixivUniversalManager : NSObject
