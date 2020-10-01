@@ -24,10 +24,13 @@
         case 0: {
             switch (action) {
                 case 1: {
+                    [[MUBLogManager defaultManager] reset];
                     [[MUBResourceWeiboFavouriteManager new] start];
                 }
                     break;
                 case 2: {
+                    [[MUBLogManager defaultManager] reset];
+                    
                     NSInteger maxFetchCount = [[MUBUIManager defaultManager].viewController.inputTextView.string integerValue];
                     if (maxFetchCount <= 0) {
                         [[MUBLogManager defaultManager] addWarningLogWithFormat:@"输入的数量必须大于0"];
@@ -51,10 +54,12 @@
         case 1: {
             switch (action) {
                 case 1: {
+                    [[MUBLogManager defaultManager] reset];
                     [[MUBResourceWeiboFaviouriteDuplicateManager new] start];
                 }
                     break;
                 case 2: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBResourceWeiboFaviouriteDuplicateManager unfavouriteDuplicateWeibos];
                 }
                     break;
@@ -100,6 +105,7 @@
 //                }
 //                    break;
                 case 2: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBResourceWeiboBoundaryManager markNewestFavorAsBoundary];
                 }
                     break;

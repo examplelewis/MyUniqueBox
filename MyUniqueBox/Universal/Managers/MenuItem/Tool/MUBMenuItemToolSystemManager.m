@@ -23,10 +23,12 @@
         case 0: {
             switch (action) {
                 case 1: {
+                    [[MUBLogManager defaultManager] reset];
                     [[MUBToolSystemWebArchiveUnarchivingManager new] showOpenPanel];
                 }
                     break;
                 case 2: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBToolSystemRestoreDefaultApplicationManager restoreWithType:MUBToolSystemRestoreDefaultApplicationTypeVideo applicationName:@"IINA" applicationBundleID:@"com.colliderli.iina"];
                 }
                     break;

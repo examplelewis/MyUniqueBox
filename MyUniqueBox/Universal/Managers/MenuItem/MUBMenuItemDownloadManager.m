@@ -13,6 +13,8 @@
 @implementation MUBMenuItemDownloadManager
 
 + (void)customMenuItemDidPress:(NSMenuItem *)sender {
+    [[MUBLogManager defaultManager] reset];
+    
     MUBDownloadSettingModel *prefModel = [[MUBDownloadSettingManager defaultManager] prefModelFromMenuItemTag:sender.tag];
     if (!prefModel) {
         [[MUBLogManager defaultManager] addErrorLogWithFormat:@"未找到匹配的配置文件，下载流程结束"];

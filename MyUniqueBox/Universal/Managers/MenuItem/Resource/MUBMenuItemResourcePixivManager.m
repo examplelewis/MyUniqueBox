@@ -37,10 +37,12 @@
 //                }
 //                    break;
                 case 5: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeUpdateBlock1];
                 }
                     break;
                 case 6: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeUpdateBlock2];
                 }
                     break;
@@ -52,14 +54,17 @@
         case 1: {
             switch (action) {
                 case 1: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeFollowStatus];
                 }
                     break;
                 case 2: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeBlockStatus];
                 }
                     break;
                 case 3: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeFetchStatus];
                 }
                     break;
@@ -71,14 +76,17 @@
         case 2: {
             switch (action) {
                 case 1: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeShowUserState];
                 }
                     break;
                 case 2: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeExportUserState];
                 }
                     break;
                 case 3: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeExportFollowAndBlockUsers];
                 }
                     break;
@@ -90,6 +98,7 @@
         case 3: {
             switch (action) {
                 case 1: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBResourcePixivUniversalManager showOpenPanelWithType:MUBResourcePixivUniversalTypeGenerateIllustURLsFromImageFiles];
                 }
                     break;
@@ -101,6 +110,7 @@
         case 4: {
             switch (action) {
                 case 1: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeRemoveUsersDownloadRecords];
                 }
                     break;
@@ -112,6 +122,7 @@
         case 5: {
             switch (action) {
                 case 1: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBResourcePixivUniversalManager showOpenPanelWithType:MUBResourcePixivUniversalTypeOrganizeSameIllustIDImageFiles];
                 }
                     break;

@@ -38,14 +38,17 @@ static NSInteger const kDefaultTag = 3000000;
         case 1: {
             switch (action) {
                 case 1: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeCopyFolderHierarchy];
                 }
                     break;
                 case 2: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeExtractSingleFolder];
                 }
                     break;
                 case 3: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeExtractSingleFile];
                 }
                     break;
@@ -57,22 +60,27 @@ static NSInteger const kDefaultTag = 3000000;
         case 2: {
             switch (action) {
                 case 1: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleFolder];
                 }
                     break;
                 case 2: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleFile];
                 }
                     break;
                 case 3: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleContent];
                 }
                     break;
                 case 4: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeRenameAddSuperFolderNameOnAllFolders];
                 }
                     break;
                 case 5: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeRenameAddSuperFolderNameOnAllContents];
                 }
                     break;
@@ -84,14 +92,17 @@ static NSInteger const kDefaultTag = 3000000;
         case 3: {
             switch (action) {
                 case 1: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeTrashNoItemsFolder];
                 }
                     break;
                 case 2: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeSearchHiddenFile];
                 }
                     break;
                 case 3: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeTrashAntiImageVideoFiles];
                 }
                     break;
@@ -103,14 +114,17 @@ static NSInteger const kDefaultTag = 3000000;
         case 4: {
             switch (action) {
                 case 1: {
+                    [[MUBLogManager defaultManager] reset];
                     [[[MUBFileExtractTypeFileManager alloc] initWithTypes:@"GIF"] showOpenPanel];
                 }
                     break;
                 case 2: {
+                    [[MUBLogManager defaultManager] reset];
                     [[[MUBFileExtractTypeFileManager alloc] initWithTypes:[MUBSettingManager defaultManager].mimeVideoTypes] showOpenPanel];
                 }
                     break;
                 case 3: {
+                    [[MUBLogManager defaultManager] reset];
                     [[[MUBFileExtractTypeFileManager alloc] initWithTypes:nil] showOpenPanel];
                 }
                     break;
@@ -122,10 +136,12 @@ static NSInteger const kDefaultTag = 3000000;
         case 5: {
             switch (action) {
                 case 1: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeRename32BitMD5ByFolder];
                 }
                     break;
                 case 2: {
+                    [[MUBLogManager defaultManager] reset];
                     [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeRename32BitMD5ByFile];
                 }
                     break;
@@ -137,18 +153,22 @@ static NSInteger const kDefaultTag = 3000000;
         case 6: {
             switch (action) {
                 case 1: {
+                    [[MUBLogManager defaultManager] reset];
                     [[[MUBFileSearchCharactersManager alloc] initWithCharacters:[MUBSettingManager defaultManager].fileSearchCharactersModel.OneDrive] showOpenPanel];
                 }
                     break;
                 case 2: {
+                    [[MUBLogManager defaultManager] reset];
                     [[[MUBFileSearchCharactersManager alloc] initWithCharacters:[MUBSettingManager defaultManager].fileSearchCharactersModel.OneDrive] modifyFileNames];
                 }
                     break;
                 case 3: {
+                    [[MUBLogManager defaultManager] reset];
                     [[[MUBFileSearchCharactersManager alloc] initWithCharacters:nil] showOpenPanel];
                 }
                     break;
                 case 4: {
+                    [[MUBLogManager defaultManager] reset];
                     [[[MUBFileSearchCharactersManager alloc] initWithCharacters:nil] modifyFileNames];
                 }
                     break;
