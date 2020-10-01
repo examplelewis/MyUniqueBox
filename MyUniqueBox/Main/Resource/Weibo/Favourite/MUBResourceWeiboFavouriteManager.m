@@ -152,7 +152,7 @@
         return;
     }
     
-    [[MUBLogManager defaultManager] saveDefaultLocalLog:self.images.stringValue];
+    [[MUBLogManager defaultManager] saveDefaultLocalLog:[NSString stringWithFormat:@"\n%@", self.images.stringValue]];
 
     // 使用NSOrderedSet进行一次去重的操作
     NSOrderedSet *set = [NSOrderedSet orderedSetWithArray:self.images];

@@ -73,7 +73,6 @@ static NSString * kDownloadRemainURLsExportFileName = @"MUBDownloadRemainURLsExp
 
 - (void)_startWhetherIsFirstTime:(BOOL)isFirstTime {
     if (isFirstTime) {
-        [[MUBLogManager defaultManager] reset];
         [[MUBUIManager defaultManager] resetProgressIndicatorMaxValue: (double)self.URLs.count];
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"下载流程开始，共 %ld 个文件", self.URLs.count];
     } else {

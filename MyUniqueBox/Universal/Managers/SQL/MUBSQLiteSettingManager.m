@@ -98,7 +98,6 @@
 }
 // 去除数据库中重复的内容
 + (void)removeDuplicates {
-    [[MUBLogManager defaultManager] reset];
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"去除数据库中重复的内容：已经准备就绪"];
     
 //    [[MRBSQLiteFMDBManager defaultDBManager] removeDuplicateLinksFromDatabase];
