@@ -23,4 +23,6 @@ static NSString * const MUBResourcePixivFetchNotUserURLsExportFileName = @"MUBRe
 
 static NSString * const MUBResourcePixivFollowAndBlockUsersExportFileName = @"MUBResourcePixivFetchNotUserURLs.txt";
 
+static NSString * const MUBResourcePixivIllustURLsExportFileName = @"MUBResourcePixivIllustURLs.txt";
+
 #endif /* MUBResourcePixivHeader_h */

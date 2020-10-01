@@ -24,11 +24,8 @@ typedef NS_ENUM(NSUInteger, MUBResourcePixivUniversalType) {
 
 @interface MUBResourcePixivUniversalManager : NSObject
 
-+ (void)getMemberIDsWithType:(MUBResourcePixivUniversalType)type;
++ (void)getInputsWithType:(MUBResourcePixivUniversalType)type;
 + (void)showOpenPanelWithType:(MUBResourcePixivUniversalType)type;
-
-#pragma mark - Tools
-+ (NSArray<NSString *> *)filterNonePixivMemberIDs:(NSArray<NSString *> *)memberIDs;
 
 @end
 

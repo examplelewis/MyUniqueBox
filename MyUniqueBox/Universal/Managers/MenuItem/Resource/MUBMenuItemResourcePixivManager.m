@@ -37,11 +37,11 @@
 //                }
 //                    break;
                 case 5: {
-                    [MUBResourcePixivUniversalManager getMemberIDsWithType:MUBResourcePixivUniversalTypeUpdateBlock1];
+                    [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeUpdateBlock1];
                 }
                     break;
                 case 6: {
-                    [MUBResourcePixivUniversalManager getMemberIDsWithType:MUBResourcePixivUniversalTypeUpdateBlock2];
+                    [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeUpdateBlock2];
                 }
                     break;
                 default:
@@ -52,15 +52,15 @@
         case 1: {
             switch (action) {
                 case 1: {
-                    [MUBResourcePixivUniversalManager getMemberIDsWithType:MUBResourcePixivUniversalTypeFollowStatus];
+                    [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeFollowStatus];
                 }
                     break;
                 case 2: {
-                    [MUBResourcePixivUniversalManager getMemberIDsWithType:MUBResourcePixivUniversalTypeBlockStatus];
+                    [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeBlockStatus];
                 }
                     break;
                 case 3: {
-                    [MUBResourcePixivUniversalManager getMemberIDsWithType:MUBResourcePixivUniversalTypeFetchStatus];
+                    [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeFetchStatus];
                 }
                     break;
                 default:
@@ -79,7 +79,7 @@
                 }
                     break;
                 case 3: {
-                    [MUBResourcePixivUniversalManager getMemberIDsWithType:MUBResourcePixivUniversalTypeExportFollowAndBlockUsers];
+                    [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeExportFollowAndBlockUsers];
                 }
                     break;
                 default:
@@ -101,7 +101,7 @@
         case 4: {
             switch (action) {
                 case 1: {
-                    [MUBResourcePixivUniversalManager getMemberIDsWithType:MUBResourcePixivUniversalTypeRemoveUsersDownloadRecords];
+                    [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeRemoveUsersDownloadRecords];
                 }
                     break;
                 default:
