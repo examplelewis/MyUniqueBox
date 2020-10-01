@@ -12,6 +12,7 @@
 #import "MUBResourceWeiboFavouriteManager.h"
 #import "MUBResourceWeiboFaviouriteDuplicateManager.h"
 #import "MUBResourceWeiboBoundaryManager.h"
+#import "MUBResourceOrganizeManager.h"
 
 @implementation MUBMenuItemResourceWeiboManager
 
@@ -42,8 +43,8 @@
                     [manager start];
                 }
                     break;
-                case 3: {
-                    
+                case 99: {
+                    [[MUBResourceOrganizeManager managerWithType:MUBResourceOrganizeTypeWeibo plistPath:nil] start];
                 }
                     break;
                 default:

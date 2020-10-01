@@ -10,6 +10,7 @@
 #import "MUBHTTPWeiboManager.h"
 #import "MUBSQLiteManager.h"
 #import "MUBSQLiteSettingManager.h"
+#import "MUBResourceOrganizeManager.h"
 #import "MUBResourceWeiboHeader.h"
 
 @interface MUBResourceWeiboFavouriteManager ()
@@ -180,8 +181,8 @@
     MUBDownloadManager *manager = [MUBDownloadManager managerWithSettingModel:model URLs:self.images downloadFilePath:nil];
     manager.onFinish = ^{
         [MUBFileManager trashFilePath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourceWeiboImageURLsFilePath]];
-//        OrganizeManager *manager = [[OrganizeManager alloc] initWithPlistPath:weiboStatusPlistFilePath];
-//        [manager startOrganizing];
+        
+        [[MUBResourceOrganizeManager managerWithType:MUBResourceOrganizeTypeWeibo plistPath:nil] start];
     };
     [manager start];
 }

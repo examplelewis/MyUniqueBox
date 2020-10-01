@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		20C16586D5C82EE507AEB31B /* libPods-MyUniqueBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553C02ABF77D14E37F76373 /* libPods-MyUniqueBox.a */; };
+		AC2032A12526279700C90ABD /* MUBResourceOrganizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2032A02526279700C90ABD /* MUBResourceOrganizeManager.m */; };
 		AC68A1732522419000DC46DD /* MUBHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC68A1722522419000DC46DD /* MUBHTTPManager.m */; };
 		AC702F84251F689700C4431A /* MUBMenuItemDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC702F83251F689700C4431A /* MUBMenuItemDownloadManager.m */; };
 		AC702F90251F70DB00C4431A /* NSError+MUBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = AC702F8F251F70DB00C4431A /* NSError+MUBAdd.m */; };
@@ -130,6 +131,8 @@
 /* Begin PBXFileReference section */
 		0CD11C90F80CD22493D9C250 /* Pods-MyUniqueBox.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyUniqueBox.release.xcconfig"; path = "Target Support Files/Pods-MyUniqueBox/Pods-MyUniqueBox.release.xcconfig"; sourceTree = "<group>"; };
 		3553C02ABF77D14E37F76373 /* libPods-MyUniqueBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyUniqueBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC20329F2526279700C90ABD /* MUBResourceOrganizeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBResourceOrganizeManager.h; sourceTree = "<group>"; };
+		AC2032A02526279700C90ABD /* MUBResourceOrganizeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBResourceOrganizeManager.m; sourceTree = "<group>"; };
 		AC670CB8251ED77200698B74 /* RACEXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACEXTScope.h; sourceTree = "<group>"; };
 		AC670CB9251ED77200698B74 /* RACMetaMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACMetaMacros.h; sourceTree = "<group>"; };
 		AC68A16D2522403900DC46DD /* MUBHTTPHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBHTTPHeader.h; sourceTree = "<group>"; };
@@ -484,6 +487,8 @@
 		ACA93E7A250BFB3A008F65A8 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				AC20329F2526279700C90ABD /* MUBResourceOrganizeManager.h */,
+				AC2032A02526279700C90ABD /* MUBResourceOrganizeManager.m */,
 				ACF35FFD25222E6200BD1DC6 /* Default */,
 				ACF961A725250EA60091FC02 /* Pixiv */,
 				ACF35FFE25222E6800BD1DC6 /* Weibo */,
@@ -1101,6 +1106,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACC9EBFA250BBC8400B0311D /* NSArray+YYAdd.m in Sources */,
+				AC2032A12526279700C90ABD /* MUBResourceOrganizeManager.m in Sources */,
 				ACF3C416250D3B2200070C8E /* MUBLogManager.m in Sources */,
 				ACF2275E250E378000A2E3F6 /* MUBModalWindowController.m in Sources */,
 				ACF3C413250D387500070C8E /* WindowController.m in Sources */,
