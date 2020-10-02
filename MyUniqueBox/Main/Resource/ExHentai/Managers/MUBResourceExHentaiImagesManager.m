@@ -40,6 +40,9 @@
 }
 
 - (void)start {
+    [[MUBUIManager defaultManager] resetProgressIndicatorMaxValue: (double)self.URLs.count];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"开始获取网页中的图片链接"];
+    
     for (NSInteger i = 0; i < self.URLs.count; i++) {
         NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:self.URLs[i]]
                                                  cachePolicy:NSURLRequestUseProtocolCachePolicy
@@ -88,12 +91,8 @@
 
 // 完成下载图片地址的方法
 - (void)didFinishDownloadingOnePicture {
-    // 这条空行是为了获取图片链接时，第一条日志会替换之前的日志
-    if (self.download == 0) {
-        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@""];
-    }
     self.download += 1;
-    [[MUBLogManager defaultManager] addDefaultLogWithBehavior:MUBLogBehaviorLevelDefault | MUBLogBehaviorOnBothTime format:@"已获取到第%lu条记录 | 共%lu条记录", self.download, self.URLs.count];
+    [[MUBUIManager defaultManager] updateProgressIndicatorDoubleValue:(double)self.download];
     if (self.download != self.URLs.count) {
         return;
     }
