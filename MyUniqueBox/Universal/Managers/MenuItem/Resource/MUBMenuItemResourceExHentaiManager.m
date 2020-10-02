@@ -9,6 +9,8 @@
 #import "MUBMenuItemResourceExHentaiManager.h"
 #import "MUBMenuItemResourceHeader.h"
 
+#import "MUBResourceExHentaiManager.h"
+
 @implementation MUBMenuItemResourceExHentaiManager
 
 + (void)customMenuItemDidPress:(NSMenuItem *)sender {
@@ -20,7 +22,23 @@
         case 0: {
             switch (action) {
                 case 1: {
-                    
+                    [[MUBLogManager defaultManager] reset];
+                    [[MUBResourceExHentaiManager defaultManager] startWithType:MUBResourceExHentaiTypePages];
+                }
+                    break;
+                case 2: {
+                    [[MUBLogManager defaultManager] reset];
+                    [[MUBResourceExHentaiManager defaultManager] startWithType:MUBResourceExHentaiTypeImages];
+                }
+                    break;
+                case 3: {
+                    [[MUBLogManager defaultManager] reset];
+                    [[MUBResourceExHentaiManager defaultManager] startWithType:MUBResourceExHentaiTypeTorrents];
+                }
+                    break;
+                case 4: {
+                    [[MUBLogManager defaultManager] reset];
+                    [[MUBResourceExHentaiManager defaultManager] startWithType:MUBResourceExHentaiTypePixivURLs];
                 }
                     break;
                 default:

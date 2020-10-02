@@ -187,32 +187,27 @@
         NSAttributedString *attributedLog = [[NSAttributedString alloc] initWithString:logs attributes:@{NSForegroundColorAttributeName: textColor}];
         
         // 显示日志
-        if ((behavior & MUBLogBehaviorAppend) || !self.newestLog) {
-            dispatch_main_async_safe((^{
+        dispatch_main_async_safe((^{
+            if ((behavior & MUBLogBehaviorAppend) || !self.newestLog) {
                 // 如果不是第一行的话，那么添加一个空行
                 if ([MUBUIManager defaultManager].viewController.logTextView.textStorage.length != 0) {
                     NSAttributedString *newLineLog = [[NSAttributedString alloc] initWithString:@"\n" attributes:@{NSForegroundColorAttributeName: textColor}];
                     [[MUBUIManager defaultManager].viewController.logTextView.textStorage appendAttributedString:newLineLog];
                 }
                 [[MUBUIManager defaultManager].viewController.logTextView.textStorage appendAttributedString:attributedLog];
-            }));
-            
-            [self.lock lock];
-            self.newestLog = attributedLog;
-//            [self.logs addObject:attributedLog];
-            [self.lock unlock];
-        } else {
-            NSRange newestLogRange = [[MUBUIManager defaultManager].viewController.logTextView.textStorage.string rangeOfString:self.newestLog.string];
-            dispatch_main_async_safe((^{
+            } else {
+                NSRange newestLogRange = [[MUBUIManager defaultManager].viewController.logTextView.textStorage.string rangeOfString:self.newestLog.string];
                 [[MUBUIManager defaultManager].viewController.logTextView.textStorage replaceCharactersInRange:newestLogRange withAttributedString:attributedLog];
-            }));
+            }
             
             [self.lock lock];
             self.newestLog = attributedLog;
-//            [self.logs removeLastObject];
+            if (!(behavior & MUBLogBehaviorAppend) && self.newestLog) {
+//                [self.logs removeLastObject];
+            }
 //            [self.logs addObject:attributedLog];
             [self.lock unlock];
-        }
+        }));
     }
 }
 

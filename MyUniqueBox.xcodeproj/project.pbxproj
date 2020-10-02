@@ -98,6 +98,12 @@
 		ACF3C410250D36E900070C8E /* MUBUIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C40F250D36E900070C8E /* MUBUIManager.m */; };
 		ACF3C413250D387500070C8E /* WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C412250D387500070C8E /* WindowController.m */; };
 		ACF3C416250D3B2200070C8E /* MUBLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF3C415250D3B2200070C8E /* MUBLogManager.m */; };
+		ACF4209825271B73004176D9 /* MUBHTTPExHentaiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF4209725271B73004176D9 /* MUBHTTPExHentaiManager.m */; };
+		ACF420A125271D00004176D9 /* MUBResourceExHentaiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF420A025271D00004176D9 /* MUBResourceExHentaiManager.m */; };
+		ACF420A725271DAE004176D9 /* MUBResourceExHentaiPagesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF420A625271DAE004176D9 /* MUBResourceExHentaiPagesManager.m */; };
+		ACF420B625271DE5004176D9 /* MUBResourceExHentaiImagesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF420B525271DE5004176D9 /* MUBResourceExHentaiImagesManager.m */; };
+		ACF420BC25271DF7004176D9 /* MUBResourceExHentaiTorrentsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF420BB25271DF7004176D9 /* MUBResourceExHentaiTorrentsManager.m */; };
+		ACF420D825273FFC004176D9 /* MUBResourceExHentaiModels.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF420D725273FFC004176D9 /* MUBResourceExHentaiModels.m */; };
 		ACF523E5251A45B80073BFEE /* MUBMenuItemToolManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF523E4251A45B80073BFEE /* MUBMenuItemToolManager.m */; };
 		ACF523EC251A46CF0073BFEE /* MUBMenuItemToolSystemManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF523EB251A46CF0073BFEE /* MUBMenuItemToolSystemManager.m */; };
 		ACF523F5251A46E00073BFEE /* MUBMenuItemToolPictureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF523F4251A46E00073BFEE /* MUBMenuItemToolPictureManager.m */; };
@@ -313,6 +319,19 @@
 		ACF3C412250D387500070C8E /* WindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WindowController.m; sourceTree = "<group>"; };
 		ACF3C414250D3B2200070C8E /* MUBLogManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBLogManager.h; sourceTree = "<group>"; };
 		ACF3C415250D3B2200070C8E /* MUBLogManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBLogManager.m; sourceTree = "<group>"; };
+		ACF4209625271B73004176D9 /* MUBHTTPExHentaiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBHTTPExHentaiManager.h; sourceTree = "<group>"; };
+		ACF4209725271B73004176D9 /* MUBHTTPExHentaiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBHTTPExHentaiManager.m; sourceTree = "<group>"; };
+		ACF4209F25271D00004176D9 /* MUBResourceExHentaiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBResourceExHentaiManager.h; sourceTree = "<group>"; };
+		ACF420A025271D00004176D9 /* MUBResourceExHentaiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBResourceExHentaiManager.m; sourceTree = "<group>"; };
+		ACF420A525271DAE004176D9 /* MUBResourceExHentaiPagesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBResourceExHentaiPagesManager.h; sourceTree = "<group>"; };
+		ACF420A625271DAE004176D9 /* MUBResourceExHentaiPagesManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBResourceExHentaiPagesManager.m; sourceTree = "<group>"; };
+		ACF420B425271DE5004176D9 /* MUBResourceExHentaiImagesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBResourceExHentaiImagesManager.h; sourceTree = "<group>"; };
+		ACF420B525271DE5004176D9 /* MUBResourceExHentaiImagesManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBResourceExHentaiImagesManager.m; sourceTree = "<group>"; };
+		ACF420BA25271DF7004176D9 /* MUBResourceExHentaiTorrentsManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBResourceExHentaiTorrentsManager.h; sourceTree = "<group>"; };
+		ACF420BB25271DF7004176D9 /* MUBResourceExHentaiTorrentsManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBResourceExHentaiTorrentsManager.m; sourceTree = "<group>"; };
+		ACF420D625273FFC004176D9 /* MUBResourceExHentaiModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBResourceExHentaiModels.h; sourceTree = "<group>"; };
+		ACF420D725273FFC004176D9 /* MUBResourceExHentaiModels.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBResourceExHentaiModels.m; sourceTree = "<group>"; };
+		ACF420DC252749C2004176D9 /* MUBResourceExHentaiHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBResourceExHentaiHeader.h; sourceTree = "<group>"; };
 		ACF523CA251A43840073BFEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ACF523E3251A45B80073BFEE /* MUBMenuItemToolManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBMenuItemToolManager.h; sourceTree = "<group>"; };
 		ACF523E4251A45B80073BFEE /* MUBMenuItemToolManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBMenuItemToolManager.m; sourceTree = "<group>"; };
@@ -490,6 +509,7 @@
 				AC20329F2526279700C90ABD /* MUBResourceOrganizeManager.h */,
 				AC2032A02526279700C90ABD /* MUBResourceOrganizeManager.m */,
 				ACF35FFD25222E6200BD1DC6 /* Default */,
+				ACF42095252719A9004176D9 /* ExHentai */,
 				ACF961A725250EA60091FC02 /* Pixiv */,
 				ACF35FFE25222E6800BD1DC6 /* Weibo */,
 			);
@@ -607,6 +627,8 @@
 				AC68A1722522419000DC46DD /* MUBHTTPManager.m */,
 				ACF360122522305600BD1DC6 /* MUBHTTPWeiboManager.h */,
 				ACF360132522305600BD1DC6 /* MUBHTTPWeiboManager.m */,
+				ACF4209625271B73004176D9 /* MUBHTTPExHentaiManager.h */,
+				ACF4209725271B73004176D9 /* MUBHTTPExHentaiManager.m */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -847,12 +869,12 @@
 				ACD36FD8252373CD002319C8 /* MUBResourceWeiboHeader.h */,
 				ACF3600C25222FAE00BD1DC6 /* MUBResourceWeiboModels.h */,
 				ACF3600D25222FAE00BD1DC6 /* MUBResourceWeiboModels.m */,
-				ACF3600825222F9300BD1DC6 /* Favourite */,
+				ACF3600825222F9300BD1DC6 /* Managers */,
 			);
 			path = Weibo;
 			sourceTree = "<group>";
 		};
-		ACF3600825222F9300BD1DC6 /* Favourite */ = {
+		ACF3600825222F9300BD1DC6 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				ACF3600225222ED300BD1DC6 /* MUBResourceWeiboFavouriteManager.h */,
@@ -862,7 +884,33 @@
 				ACF961A12524C15D0091FC02 /* MUBResourceWeiboBoundaryManager.h */,
 				ACF961A22524C15D0091FC02 /* MUBResourceWeiboBoundaryManager.m */,
 			);
-			path = Favourite;
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		ACF42095252719A9004176D9 /* ExHentai */ = {
+			isa = PBXGroup;
+			children = (
+				ACF420DC252749C2004176D9 /* MUBResourceExHentaiHeader.h */,
+				ACF420D625273FFC004176D9 /* MUBResourceExHentaiModels.h */,
+				ACF420D725273FFC004176D9 /* MUBResourceExHentaiModels.m */,
+				ACF420E0252752FB004176D9 /* Managers */,
+			);
+			path = ExHentai;
+			sourceTree = "<group>";
+		};
+		ACF420E0252752FB004176D9 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				ACF4209F25271D00004176D9 /* MUBResourceExHentaiManager.h */,
+				ACF420A025271D00004176D9 /* MUBResourceExHentaiManager.m */,
+				ACF420B425271DE5004176D9 /* MUBResourceExHentaiImagesManager.h */,
+				ACF420B525271DE5004176D9 /* MUBResourceExHentaiImagesManager.m */,
+				ACF420A525271DAE004176D9 /* MUBResourceExHentaiPagesManager.h */,
+				ACF420A625271DAE004176D9 /* MUBResourceExHentaiPagesManager.m */,
+				ACF420BA25271DF7004176D9 /* MUBResourceExHentaiTorrentsManager.h */,
+				ACF420BB25271DF7004176D9 /* MUBResourceExHentaiTorrentsManager.m */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		ACF523D4251A452E0073BFEE /* System */ = {
@@ -1125,10 +1173,12 @@
 				ACA93E82250BFBC3008F65A8 /* MUBCookieManager.m in Sources */,
 				ACF2275B250E1F3C00A2E3F6 /* MUBAlertManager.m in Sources */,
 				ACF363B9250D556300C1DC47 /* MUBFileManager.m in Sources */,
+				ACF420B625271DE5004176D9 /* MUBResourceExHentaiImagesManager.m in Sources */,
 				ACDCE282250BAC0E0014BE47 /* ViewController.m in Sources */,
 				ACF22776250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.m in Sources */,
 				ACF35FE425222D1C00BD1DC6 /* MUBMenuItemResourceDeviantartManager.m in Sources */,
 				ACF28FF4251B9E17003B35D0 /* MUBDownloadManager.m in Sources */,
+				ACF420A125271D00004176D9 /* MUBResourceExHentaiManager.m in Sources */,
 				ACF961A32524C15D0091FC02 /* MUBResourceWeiboBoundaryManager.m in Sources */,
 				ACF22757250E100400A2E3F6 /* NSString+MUBAdd.m in Sources */,
 				ACF35FC12522295100BD1DC6 /* MUBMenuItemResourceManager.m in Sources */,
@@ -1148,6 +1198,7 @@
 				ACC9EC27250BC30100B0311D /* PAPIIllust.m in Sources */,
 				AC988139250FC8EE00CC3372 /* MUBSettingWeiboModels.m in Sources */,
 				ACC9EC2A250BC30100B0311D /* PixivAPI.m in Sources */,
+				ACF420A725271DAE004176D9 /* MUBResourceExHentaiPagesManager.m in Sources */,
 				ACF3C410250D36E900070C8E /* MUBUIManager.m in Sources */,
 				AC9EA562251265C200084B80 /* MUBFileExtractTypeFileManager.m in Sources */,
 				ACA93E85250BFC10008F65A8 /* MUBCookieModel.m in Sources */,
@@ -1166,6 +1217,8 @@
 				ACF29006251BA08B003B35D0 /* MUBDownloadSettingManager.m in Sources */,
 				ACF35FD225222A6C00BD1DC6 /* MUBMenuItemResourceDefaultManager.m in Sources */,
 				ACF2276E250E5CD400A2E3F6 /* NSColor+MUBAdd.m in Sources */,
+				ACF420BC25271DF7004176D9 /* MUBResourceExHentaiTorrentsManager.m in Sources */,
+				ACF4209825271B73004176D9 /* MUBHTTPExHentaiManager.m in Sources */,
 				AC702F90251F70DB00C4431A /* NSError+MUBAdd.m in Sources */,
 				ACF22764250E3A2900A2E3F6 /* MUBExceptionManager.m in Sources */,
 				ACD36FE7252382F7002319C8 /* MUBSQLiteSettingManager.m in Sources */,
@@ -1184,6 +1237,7 @@
 				ACC9EC04250BBC8400B0311D /* NSString+YYAdd.m in Sources */,
 				ACF7E280251EEBCC0017D893 /* MUBDownloadSettingPrefModel.m in Sources */,
 				ACF3600425222ED300BD1DC6 /* MUBResourceWeiboFavouriteManager.m in Sources */,
+				ACF420D825273FFC004176D9 /* MUBResourceExHentaiModels.m in Sources */,
 				ACF22768250E55AB00A2E3F6 /* NSArray+MUBAdd.m in Sources */,
 				ACF523E5251A45B80073BFEE /* MUBMenuItemToolManager.m in Sources */,
 				ACF22754250E0D7300A2E3F6 /* MUBAlert.m in Sources */,

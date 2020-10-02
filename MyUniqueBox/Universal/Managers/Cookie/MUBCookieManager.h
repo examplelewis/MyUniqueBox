@@ -10,7 +10,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, MUBCookieType) {
+    MUBCookieTypeExHentai,
+    MUBCookieTypeBCY,
+    MUBCookieTypeWorldCosplay,
+};
+
 @interface MUBCookieManager : NSObject
+
+#pragma mark - Lifecycle
++ (instancetype)managerWithType:(MUBCookieType)type;
+
+- (void)writeCookies;
+- (void)deleteCookieByName:(NSString *)name;
+- (void)outputCookies;
 
 @end
 

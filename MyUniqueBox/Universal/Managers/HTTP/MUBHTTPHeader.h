@@ -12,6 +12,7 @@
 #pragma mark - Domain
 static NSString * const MUBErrorDomainHTTP = @"com.gongyu.MyUniqueBox.HTTP";
 static NSString * const MUBErrorDomainHTTPWeiboAPI = @"com.gongyu.MyUniqueBox.HTTP.weiboApi";
+static NSString * const MUBErrorDomainHTTPExHentaiAPI = @"com.gongyu.MyUniqueBox.HTTP.exHentaiApi";
 
 
 #pragma mark - Code

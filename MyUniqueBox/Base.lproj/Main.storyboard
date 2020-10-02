@@ -631,15 +631,27 @@
                                                 <items>
                                                     <menuItem title="下载单个图包的图片 [图包页面地址]" tag="1050001" id="puK-57-Pxf">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="Mrx-Oe-pCh"/>
+                                                        </connections>
                                                     </menuItem>
                                                     <menuItem title="下载多个图片 [图片页面地址]" tag="1050002" id="lKE-Lz-0Zi">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="2cA-lS-7tR"/>
+                                                        </connections>
                                                     </menuItem>
-                                                    <menuItem title="获取多个图包的种子文件 [图包页面地址]" tag="1050003" id="uL0-DS-g3N">
+                                                    <menuItem title="获取多个图包的种子文件 [图包页面地址]【未完成】" tag="1050003" id="uL0-DS-g3N">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="WIO-Fb-Te2"/>
+                                                        </connections>
                                                     </menuItem>
-                                                    <menuItem title="解析多个图包评论中的来源地址 [图包页面地址]" tag="1050004" id="4uH-lA-MTg">
+                                                    <menuItem title="解析多个图包评论中的来源地址 [图包页面地址]【未完成】" tag="1050004" id="4uH-lA-MTg">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="DBR-oj-njE"/>
+                                                        </connections>
                                                     </menuItem>
                                                 </items>
                                             </menu>
@@ -764,13 +776,13 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="L05-6W-X9S"/>
-                                        <menuItem title="复制文件夹的层级 [选取根文件夹]【功能已测试通过】" tag="3000101" id="bOb-YX-Yqe">
+                                        <menuItem title="复制文件夹的层级 [选取根文件夹]" tag="3000101" id="bOb-YX-Yqe">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="SxM-fK-hr0"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="提取单个子文件夹(针对解压缩后的文件夹) [不递归] [选取根文件夹]【功能已测试通过】" tag="3000102" id="B0g-0n-zvq">
+                                        <menuItem title="提取单个子文件夹(针对解压缩后的文件夹) [不递归] [选取根文件夹]" tag="3000102" id="B0g-0n-zvq">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="P0u-s3-jVN"/>
@@ -814,7 +826,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="CaB-O2-0FU"/>
-                                        <menuItem title="清空没有项目的子文件夹 [不递归] [选取根文件夹]【功能已测试通过】" tag="3000301" id="gnm-0o-QSc">
+                                        <menuItem title="清空没有项目的子文件夹 [不递归] [选取根文件夹]" tag="3000301" id="gnm-0o-QSc">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="kSH-1U-IPO"/>
@@ -826,14 +838,14 @@
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="xAY-Rh-9Aa"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="将图片视频之外的文件移动到废纸篓 [递归] [选取根文件夹] [针对解压好的图包文件夹]【功能已测试通过】" tag="3000303" id="SOx-zw-FcX">
+                                        <menuItem title="将图片视频之外的文件移动到废纸篓 [递归] [选取根文件夹] [针对解压好的图包文件夹]" tag="3000303" id="SOx-zw-FcX">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="M50-Uf-mSL"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hK8-uG-jHX"/>
-                                        <menuItem title="提取(剪切)文件夹内的 GIF [选取根文件夹]【功能已测试通过】" tag="3000401" id="EeZ-6i-Ttb">
+                                        <menuItem title="提取(剪切)文件夹内的 GIF [选取根文件夹]" tag="3000401" id="EeZ-6i-Ttb">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="xlT-KJ-9W8"/>
@@ -852,7 +864,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="yts-6j-8la"/>
-                                        <menuItem title="为文件生成32位的随机名称(文件夹区分) [选取根文件夹]【功能已测试通过】" tag="3000501" id="qhE-z4-Yz8">
+                                        <menuItem title="为文件生成32位的随机名称(文件夹区分) [选取根文件夹]" tag="3000501" id="qhE-z4-Yz8">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="fhX-kP-r0f"/>
@@ -903,7 +915,7 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="系统" id="Ozx-8z-NSk">
                                                 <items>
-                                                    <menuItem title="解析WebArchive文件【功能已通过测试】" tag="5010001" id="cVd-tA-leX">
+                                                    <menuItem title="解析WebArchive文件" tag="5010001" id="cVd-tA-leX">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="tNb-sL-qbh"/>

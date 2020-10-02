@@ -45,6 +45,43 @@
     [dataTask resume];
 }
 
+- (void)POST:(NSString *)url parameters:(id)parameters completionHandler:(nonnull void (^)(NSURLResponse *response, id _Nullable responseObject, NSError * _Nullable error))completionHandler {
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    
+    AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];
+    responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
+    AFJSONRequestSerializer *requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    manager.responseSerializer = responseSerializer;
+    
+    NSMutableURLRequest *request = [requestSerializer requestWithMethod:@"POST" URLString:url parameters:parameters error:nil];
+    request.timeoutInterval = 15.0f;
+
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request uploadProgress:nil downloadProgress:nil completionHandler:^(NSURLResponse * _Nonnull response, id _Nullable responseObject, NSError * _Nullable error) {
+        if (error) {
+            completionHandler(response, responseObject, error);
+            return;
+        }
+        
+        if (!((NSString *)responseObject).isNotEmpty) {
+            completionHandler(response, responseObject, [NSError errorWithDomain:MUBErrorDomainHTTP code:MUBErrorCodeAPIReturnEmptyObject userInfo:@{NSLocalizedDescriptionKey: MUBErrorLocalizedDescriptionAPIReturnEmptyObject}]);
+            return;
+        }
+        if (!((NSArray *)responseObject).isNotEmpty) {
+            completionHandler(response, responseObject, [NSError errorWithDomain:MUBErrorDomainHTTP code:MUBErrorCodeAPIReturnEmptyObject userInfo:@{NSLocalizedDescriptionKey: MUBErrorLocalizedDescriptionAPIReturnEmptyObject}]);
+            return;
+        }
+        if (!((NSDictionary *)responseObject).isNotEmpty) {
+            completionHandler(response, responseObject, [NSError errorWithDomain:MUBErrorDomainHTTP code:MUBErrorCodeAPIReturnEmptyObject userInfo:@{NSLocalizedDescriptionKey: MUBErrorLocalizedDescriptionAPIReturnEmptyObject}]);
+            return;
+        }
+        
+        completionHandler(response, responseObject, nil);
+    }];
+    [dataTask resume];
+}
+
 - (void)POSTWeibo:(NSString *)url parameters:(id)parameters completionHandler:(nonnull void (^)(NSURLResponse *response, id _Nullable responseObject, NSError * _Nullable error))completionHandler {
     NSMutableArray *paras = [NSMutableArray array];
     for (NSInteger i = 0; i < [parameters allKeys].count; i++) {
