@@ -9,12 +9,13 @@
 #import "MUBResourceExHentaiManager.h"
 #import "MUBResourceExHentaiHeader.h"
 #import "MUBResourceExHentaiModels.h"
+
 #import "MUBCookieManager.h"
 #import "MUBResourceExHentaiImagesManager.h"
 #import "MUBResourceExHentaiPagesManager.h"
 #import "MUBResourceExHentaiTorrentsManager.h"
 
-@interface MUBResourceExHentaiManager () <MUBResourceExHentaiPagesDelegate, MUBResourceExHentaiImagesDelegate>
+@interface MUBResourceExHentaiManager () <MUBResourceExHentaiPagesDelegate, MUBResourceExHentaiImagesDelegate, MUBResourceExHentaiTorrentsDelegate>
 
 @end
 
@@ -52,7 +53,7 @@
         }
             break;
         case MUBResourceExHentaiTypeTorrents: {
-            
+            [self _startFetchingTorrentsWithInputs:[inputStr componentsSeparatedByString:@"\n"]];
         }
             break;
         case MUBResourceExHentaiTypePixivURLs: {
@@ -79,8 +80,10 @@
     [manager start];
 }
 
-- (void)_startFetchingTorrents {
-    
+- (void)_startFetchingTorrentsWithInputs:(NSArray *)inputs {
+    MUBResourceExHentaiTorrentsManager *manager = [MUBResourceExHentaiTorrentsManager managerWithURLs:inputs];
+    manager.delegate = self;
+    [manager start];
 }
 
 - (void)_startFetchingPixivURLs {
@@ -105,12 +108,30 @@
     MUBDownloadManager *downloadManager = [MUBDownloadManager managerWithSettingModel:downloadSettingModel URLs:imageURLs downloadFilePath:nil];
     downloadManager.onFinish = ^{
         [MUBFileManager trashFilePath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourceExHentaiSuccessPagesFilePath]];
-//        [MUBFileManager trashFilePath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourceExHentaiSuccessImagesFilePath]];
+        [MUBFileManager trashFilePath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourceExHentaiSuccessImagesFilePath]];
     };
     [downloadManager start];
 }
 - (void)manager:(MUBResourceExHentaiImagesManager *)manager model:(MUBResourceExHentaiPageModel *)model didGetOneImageURL:(NSString *)imageURL error:(NSError *)error {
     
+}
+
+#pragma mark - MUBResourceExHentaiTorrentsDelegate
+- (void)manager:(MUBResourceExHentaiTorrentsManager *)manager didGetAllTorrentURLs:(NSArray<NSString *> *)URLs renameInfo:(NSDictionary *)renameInfo error:(NSError *)error {
+    if (URLs.count == 0) {
+        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"没有获取到可用的种子地址，流程结束"];
+        return;
+    }
+    
+    MUBDownloadSettingModel *downloadSettingModel = [MUBDownloadSettingManager defaultManager].defaultPrefModel;
+    downloadSettingModel.downloadFolderPath = [[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:@"ExHentai Torrents"];
+    downloadSettingModel.renameInfo = renameInfo.copy;
+    
+    MUBDownloadManager *downloadManager = [MUBDownloadManager managerWithSettingModel:downloadSettingModel URLs:URLs downloadFilePath:nil];
+    downloadManager.onFinish = ^{
+        [MUBFileManager trashFilePath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourceExHentaiSuccessTorrentsFilePath]];
+    };
+    [downloadManager start];
 }
 
 @end

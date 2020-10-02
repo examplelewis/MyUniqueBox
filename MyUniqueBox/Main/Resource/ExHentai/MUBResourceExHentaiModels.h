@@ -10,6 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class MUBResourceExHentaiTorrentModel;
+
 @interface MUBResourceExHentaiPageModel : MUBModel
 
 @property (copy) NSString *archiverKey;
@@ -26,8 +28,20 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy) NSString *titleJpn;
 @property (copy) NSString *token;
 @property (assign) NSInteger torrentcount;
-@property (copy) NSArray *torrents;
+@property (copy) NSArray<MUBResourceExHentaiTorrentModel *> *torrents;
 @property (copy) NSString *uploader;
+@property (copy) NSString *trackerID;
+
+@end
+
+@interface MUBResourceExHentaiTorrentModel : MUBModel
+
+@property (copy) NSString *tHash;
+@property (assign) NSTimeInterval added;
+@property (copy) NSString *name;
+@property (assign) double tsize;
+@property (assign) double fsize;
+@property (copy) NSString *URL;
 
 @end
 

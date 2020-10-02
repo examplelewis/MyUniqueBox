@@ -641,7 +641,7 @@
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="2cA-lS-7tR"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="获取多个图包的种子文件 [图包页面地址]【未完成】" tag="1050003" id="uL0-DS-g3N">
+                                                    <menuItem title="获取多个图包的种子文件 [图包页面地址]" tag="1050003" id="uL0-DS-g3N">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="WIO-Fb-Te2"/>

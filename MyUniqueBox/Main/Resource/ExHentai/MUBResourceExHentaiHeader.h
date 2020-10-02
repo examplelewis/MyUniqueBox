@@ -15,4 +15,7 @@ static NSString * const MUBResourceExHentaiSuccessPagesFilePath = @"MUBResourceE
 static NSString * const MUBResourceExHentaiFailureImagesFilePath = @"MUBResourceExHentaiFailureImages.txt";
 static NSString * const MUBResourceExHentaiSuccessImagesFilePath = @"MUBResourceExHentaiSuccessImages.txt";
 
+static NSString * const MUBResourceExHentaiFailureTorrentsFilePath = @"MUBResourceExHentaiFailureTorrents.txt";
+static NSString * const MUBResourceExHentaiSuccessTorrentsFilePath = @"MUBResourceExHentaiSuccessTorrents.txt";
+
 #endif /* MUBResourceExHentaiHeader_h */
