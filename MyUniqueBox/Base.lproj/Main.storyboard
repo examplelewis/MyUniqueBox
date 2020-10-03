@@ -1218,24 +1218,24 @@
                                     <items>
                                         <menuItem title="MyUniqueBox Help" enabled="NO" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
-                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
+                                                <action selector="helpMenuItemDidPress:" target="Voe-Tx-rLC" id="1MQ-Dm-6T1"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="YaY-I3-JlS"/>
                                         <menuItem title="查看最新的日志文件" id="zws-lX-xzj">
                                             <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="打开授权配置文件" id="Agh-0j-TXY">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="openLogMenuItemDidPress:" target="Voe-Tx-rLC" id="dBm-os-ZlJ"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem title="打开参数配置文件" id="2Ie-Di-bxX">
                                             <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="openPrefsMenuItemDidPress:" target="Voe-Tx-rLC" id="c4q-9q-RpF"/>
+                                            </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="CCK-Vz-8bl"/>
                                         <menuItem title="最近编译：" id="hIq-EG-i1R">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="版本号：" id="QqU-fc-Ppb">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                         </menuItem>
                                     </items>
@@ -1249,6 +1249,7 @@
                 </application>
                 <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
                     <connections>
+                        <outlet property="buildTimeMenuItem" destination="hIq-EG-i1R" id="6rS-GU-BeD"/>
                         <outlet property="downloadRootMenuItem" destination="tm7-QG-Gqa" id="Zo6-hr-n0r"/>
                     </connections>
                 </customObject>

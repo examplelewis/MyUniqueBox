@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, readonly) NSString *mainFolderPath;
 @property (strong, readonly) NSString *downloadFolderPath;
 @property (strong, readonly) NSString *pixivUtilDBFilePath;
+@property (strong, readonly) NSString *preferenceFilePath;
 
 #pragma mark - Lifecycle
 + (instancetype)defaultManager;

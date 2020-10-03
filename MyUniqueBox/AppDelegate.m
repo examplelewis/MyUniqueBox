@@ -14,6 +14,8 @@
 
 @interface AppDelegate ()
 
+@property (weak) IBOutlet NSMenuItem *buildTimeMenuItem;
+
 @end
 
 @implementation AppDelegate
@@ -26,6 +28,7 @@
     [[MUBDownloadSettingManager defaultManager] updateMenuItems];
     
     [self setupLogger];
+    [self setupBuild];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didGetWeiboToken:) name:MUBDidGetWeiboTokenNotification object:nil];
 }
@@ -39,6 +42,21 @@
 #pragma mark - MenuItem Action
 - (IBAction)customMenuItemDidPress:(NSMenuItem *)sender {
     [MUBMenuItemManager customMenuItemDidPress:sender];
+}
+
+- (IBAction)helpMenuItemDidPress:(NSMenuItem *)sender {
+    
+}
+- (IBAction)openLogMenuItemDidPress:(NSMenuItem *)sender {
+    NSArray *logFilePaths = [MUBFileManager filePathsInFolder:[MUBSettingManager defaultManager].mainFolderPath extensions:@[@"log"]];
+    logFilePaths = [logFilePaths sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"self" ascending:NO]]];
+    
+    if (![[NSWorkspace sharedWorkspace] openFile:logFilePaths.firstObject]) {
+        [MUBAlertManager showCriticalAlertOnMainWindowWithMessage:@"打开日志文件时发生错误，打开失败" info:nil runModal:YES handler:nil];
+    }
+}
+- (IBAction)openPrefsMenuItemDidPress:(NSMenuItem *)sender {
+    [MUBFileManager openContentAtPath:[MUBSettingManager defaultManager].preferenceFilePath];
 }
 
 #pragma mark - Setup
@@ -55,6 +73,14 @@
 #ifdef DEBUG
     [DDLog addLogger:[DDOSLogger sharedInstance]]; // console 日志
 #endif
+}
+- (void)setupBuild {
+    NSString *dateStr = [NSString stringWithUTF8String:__DATE__];
+    NSString *timeStr = [NSString stringWithUTF8String:__TIME__];
+    NSString *str = [NSString stringWithFormat:@"%@ %@", dateStr, timeStr];
+    
+    NSDate *date = [NSDate dateWithString:str formatString:@"MMM dd yyyy HH:mm:ss"];
+    self.buildTimeMenuItem.title = [NSString stringWithFormat:@"最近编译：%@", [date formattedDateWithFormat:@"yyyy/MM/dd HH:mm:ss"]];
 }
 
 #pragma mark - Notification

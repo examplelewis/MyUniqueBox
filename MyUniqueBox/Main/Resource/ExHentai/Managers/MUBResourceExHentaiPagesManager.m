@@ -156,7 +156,7 @@
     if (pageURLComps.count >= 2) {
         _startPage = [pageURLComps[1] integerValue] - 1;
     } else {
-        _startPage = 1;
+        _startPage = 0;
     }
     if (pageURLComps.count >= 3) {
         _endPage = [pageURLComps[2] integerValue];

@@ -57,6 +57,7 @@ static NSString * const MUBPixivUtilDBFilePath = @"/Users/Mercury/SynologyDrive/
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"当前用户不存在下载文件夹"];
     }
     
+    _preferenceFilePath = [self pathOfContentInMainFolder:@"MUBPreference.plist"];
 }
 - (void)updatePreferences {
     NSDictionary *prefs = [NSDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"MUBPreference.plist"]];
