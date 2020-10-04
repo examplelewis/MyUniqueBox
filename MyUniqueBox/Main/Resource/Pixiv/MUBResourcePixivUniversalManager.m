@@ -143,24 +143,24 @@
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"%@多个用户的状态, 流程开始", export ? @"导出" : @"查询"];
     
     NSArray *follows = [[MUBSQLiteManager defaultManager] getPixivUsersFollowStatusWithMemberIDs:memberIDs isFollow:YES];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个关注的用户", follows.count];
     if (export) {
         NSArray *exportFollows = follows.copy;
         exportFollows = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:exportFollows];
         [exportFollows exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFollowUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
     }
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个关注的用户", follows.count];
     if (follows.count == memberIDs.count) {
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"%@多个用户的状态, 流程结束", export ? @"导出" : @"查询"];
         return;
     }
     
     NSArray *block1s = [[MUBSQLiteManager defaultManager] getPixivUsersBlockStatusWithMemberIDs:memberIDs blockLevel:1 isEqual:YES];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个确定拉黑的用户", block1s.count];
     if (export) {
         NSArray *exportBlock1s = block1s.copy;
         exportBlock1s = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:exportBlock1s];
         [exportBlock1s exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivBlock1UserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
     }
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个确定拉黑的用户", block1s.count];
     if (follows.count + block1s.count == memberIDs.count) {
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"%@多个用户的状态, 流程结束", export ? @"导出" : @"查询"];
         return;
@@ -170,8 +170,8 @@
     if (export) {
         NSArray *exportBlockNot1s = blockNot1s.copy;
         exportBlockNot1s = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:exportBlockNot1s];
-        [exportBlockNot1s exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivBlockNot1UserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个未确定拉黑的用户", exportBlockNot1s.count];
+        [exportBlockNot1s exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivBlockNot1UserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
     } else {
         NSArray *exportBlockNot1s = blockNot1s.copy;
         exportBlockNot1s = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:exportBlockNot1s];
@@ -186,8 +186,8 @@
     if (export) {
         NSArray *exportFetches = fetches.copy;
         exportFetches = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:exportFetches];
-        [exportFetches exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFetchUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个抓取的用户", exportFetches.count];
+        [exportFetches exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFetchUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
     } else {
         NSArray *exportFetches = fetches.copy;
         exportFetches = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:exportFetches];
@@ -206,8 +206,8 @@
     if (export) {
         NSArray *expotedNews = news.copy;
         expotedNews = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:expotedNews];
-        [expotedNews exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivNewUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个新用户", expotedNews.count];
+        [expotedNews exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivNewUserURLsExportFileName] behavior:MUBFileOpertaionBehaviorShowSuccessLog];
     } else {
         NSArray *expotedNews = news.copy;
         expotedNews = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:expotedNews];
