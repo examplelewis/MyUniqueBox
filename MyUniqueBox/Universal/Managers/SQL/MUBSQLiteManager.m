@@ -27,8 +27,8 @@
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         defaultManager = [[self alloc] init];
-        defaultManager.queue = [FMDatabaseQueue databaseQueueWithPath:[[MUBSettingManager defaultManager] pathOfContentInMainFolder:MUBSQLiteFileName]];
-        defaultManager.exhentaiQueue = [FMDatabaseQueue databaseQueueWithPath:[[MUBSettingManager defaultManager] pathOfContentInMainFolder:MUBSQLiteExHentaiFileName]];
+        defaultManager.queue = [FMDatabaseQueue databaseQueueWithPath:[[MUBSettingManager defaultManager] pathOfContentInMainDatabasesFolder:MUBSQLiteFileName]];
+        defaultManager.exhentaiQueue = [FMDatabaseQueue databaseQueueWithPath:[[MUBSettingManager defaultManager] pathOfContentInMainDatabasesFolder:MUBSQLiteExHentaiFileName]];
         defaultManager.pixivUtilQueue = [FMDatabaseQueue databaseQueueWithPath:[MUBSettingManager defaultManager].pixivUtilDBFilePath];
     });
     

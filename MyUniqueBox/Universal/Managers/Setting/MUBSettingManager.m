@@ -28,6 +28,7 @@ static NSString * const MUBPixivUtilDBFilePath = @"/Users/Mercury/SynologyDrive/
     if (self) {
         if ([MUBFileManager fileExistsAtPath:MUBMainFolderPath]) {
             _mainFolderPath = MUBMainFolderPath;
+            _mainDatabasesFolderPath = [MUBMainFolderPath stringByAppendingPathComponent:@"Databases"];
         } else {
             [MUBAlertManager showCriticalAlertOnMainWindowWithMessage:@"主文件夹不存在" info:[NSString stringWithFormat:@"需要检查:\n%@", MUBMainFolderPath] runModal:YES handler:nil];
         }
@@ -111,6 +112,9 @@ static NSString * const MUBPixivUtilDBFilePath = @"/Users/Mercury/SynologyDrive/
 }
 - (NSString *)pathOfContentInMainFolder:(NSString *)component {
     return [self.mainFolderPath stringByAppendingPathComponent:component];
+}
+- (NSString *)pathOfContentInMainDatabasesFolder:(NSString *)component {
+    return [self.mainDatabasesFolderPath stringByAppendingPathComponent:component];
 }
 
 #pragma mark - Migrate

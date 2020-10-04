@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, readonly) NSArray *mimeImageAndVideoTypes;
 
 @property (strong, readonly) NSString *mainFolderPath;
+@property (strong, readonly) NSString *mainDatabasesFolderPath;
 @property (strong, readonly) NSString *downloadFolderPath;
 @property (strong, readonly) NSString *pixivUtilDBFilePath;
 @property (strong, readonly) NSString *preferenceFilePath;
@@ -44,6 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Paths
 - (NSString *)pathOfContentInDownloadFolder:(NSString *)component;
 - (NSString *)pathOfContentInMainFolder:(NSString *)component;
+- (NSString *)pathOfContentInMainDatabasesFolder:(NSString *)component;
 
 @end
 
