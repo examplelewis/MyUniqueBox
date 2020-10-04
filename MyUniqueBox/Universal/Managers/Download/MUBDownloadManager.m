@@ -104,7 +104,7 @@ static NSString * kDownloadRemainURLsExportFileName = @"MUBDownloadRemainURLsExp
                     [self.successURLs addObject:URL];
                     
                     [self.remainURLs removeObject:URL];
-                    [self.remainURLs exportToPath:self.remainURLsExportFilePath behavior:MUBFileOpertaionBehaviorExportNoneContent];
+                    [self.remainURLs exportToPath:self.remainURLsExportFilePath behavior:MUBFileOpertaionBehaviorExportNoneLog];
                     
                     [[MUBUIManager defaultManager] updateProgressIndicatorDoubleValue:(double)self.successURLs.count];
                 }

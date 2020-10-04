@@ -49,12 +49,15 @@
     [self exportToPath:path behavior:MUBFileOpertaionBehaviorNone];
 }
 - (void)exportToPath:(NSString *)path behavior:(MUBFileOpertaionBehavior)behavior {
-    BOOL exportNoneContent = behavior & MUBFileOpertaionBehaviorExportNoneContent;
+    BOOL showNoneLog = behavior & MUBFileOpertaionBehaviorShowNoneLog;
     BOOL showSuccessLog = behavior & MUBFileOpertaionBehaviorShowSuccessLog;
+    BOOL exportNoneLog = behavior & MUBFileOpertaionBehaviorExportNoneLog;
     
     if (!self.isNotEmpty) {
-        [[MUBLogManager defaultManager] addWarningLogWithBehavior:MUBLogBehaviorOnBothTimeAppend format:@"输出到: %@ 的内容为空%@", path, !exportNoneContent ? @"，已忽略" : @""];
-        if (!exportNoneContent) {
+        if (showNoneLog) {
+            [[MUBLogManager defaultManager] addWarningLogWithFormat:@"输出到: %@ 的内容为空%@，已忽略", path];
+        }
+        if (!exportNoneLog) {
             return;
         }
     }
@@ -72,12 +75,15 @@
     [self exportToPlistPath:plistPath behavior:MUBFileOpertaionBehaviorNone];
 }
 - (void)exportToPlistPath:(NSString *)plistPath behavior:(MUBFileOpertaionBehavior)behavior {
-    BOOL exportNoneContent = behavior & MUBFileOpertaionBehaviorExportNoneContent;
+    BOOL showNoneLog = behavior & MUBFileOpertaionBehaviorShowNoneLog;
     BOOL showSuccessLog = behavior & MUBFileOpertaionBehaviorShowSuccessLog;
+    BOOL exportNoneLog = behavior & MUBFileOpertaionBehaviorExportNoneLog;
     
     if (!self.isNotEmpty) {
-        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"输出到: %@ 的内容为空%@", plistPath, !exportNoneContent ? @"，已忽略" : @""];
-        if (!exportNoneContent) {
+        if (showNoneLog) {
+            [[MUBLogManager defaultManager] addWarningLogWithFormat:@"输出到: %@ 的内容为空%@，已忽略", plistPath];
+        }
+        if (!exportNoneLog) {
             return;
         }
     }

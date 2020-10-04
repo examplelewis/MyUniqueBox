@@ -10,9 +10,10 @@
 #define MUBConstHeader_h
 
 typedef NS_OPTIONS(NSUInteger, MUBFileOpertaionBehavior) {
-    MUBFileOpertaionBehaviorNone                    = 0,
-    MUBFileOpertaionBehaviorShowSuccessLog          = 1 << 0,
-    MUBFileOpertaionBehaviorExportNoneContent       = 1 << 1,
+    MUBFileOpertaionBehaviorNone            = 0,
+    MUBFileOpertaionBehaviorShowSuccessLog  = 1 << 0,
+    MUBFileOpertaionBehaviorShowNoneLog     = 1 << 1,
+    MUBFileOpertaionBehaviorExportNoneLog     = 1 << 2,
 };
 
 // Time Format
