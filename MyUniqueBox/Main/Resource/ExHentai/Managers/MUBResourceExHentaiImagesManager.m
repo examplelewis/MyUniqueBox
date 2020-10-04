@@ -77,8 +77,8 @@
                         NSString *href = element.attributes[@"src"];
                         if ([element.attributes[@"id"] isEqualToString:@"img"]) {
                             MUBResourceExHentaiImageModel *imageModel = [MUBResourceExHentaiImageModel new];
-                            imageModel.downloadURL = element.attributes[@"href"];
-                            imageModel.pageURL = href;
+                            imageModel.downloadURL = href;
+                            imageModel.pageURL = self.URLs[i];
                             
                             [self.imageModels addObject:imageModel];
                         }
