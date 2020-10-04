@@ -18,27 +18,27 @@
     
     switch (action) {
         case 1: {
-            NSURL *URL = [NSURL URLWithString:[MUBUIManager defaultManager].viewController.inputTextView.string];
-            if (!URL) {
+            NSString *URL = [MUBUIManager defaultManager].viewController.inputTextView.string;
+            if (!URL.isNotEmpty) {
                 [[MUBLogManager defaultManager] addWarningLogWithFormat:@"没有解析到有用的地址，请检查输入框的内容"];
                 return;
             }
             
-            if ([URL.host caseInsensitiveCompare:@"bcy.net"] == NSOrderedSame) {
+            if ([URL containsString:@"bcy.net"]) {
                 
-            } else if ([URL.host caseInsensitiveCompare:@"exhentai.org"] == NSOrderedSame || [URL.host caseInsensitiveCompare:@"e-hentai.org"] == NSOrderedSame) {
+            } else if ([URL containsString:@"exhentai.org"] || [URL containsString:@"e-hentai.org"]) {
                 [[MUBUIManager defaultManager].appDelegate proceedMenuItemPressingWithTag:1050001];
-            } else if ([URL.host caseInsensitiveCompare:@"www.jdlingyu.com"] == NSOrderedSame) {
+            } else if ([URL containsString:@"www.jdlingyu.com"]) {
                 
-            } else if ([URL.host caseInsensitiveCompare:@"www.pixiv.net"] == NSOrderedSame) {
-                if ([URL.path hasPrefix:@"users"]) {
+            } else if ([URL containsString:@"www.pixiv.net"]) {
+                if ([URL containsString:@"users"]) {
 //                    [PixivMethod configMethod:1];
-                } else if ([URL.path hasPrefix:@"artworks"]) {
+                } else if ([URL containsString:@"artworks"]) {
 //                    [PixivMethod configMethod:2];
                 } else {
 //                    [PixivMethod configMethod:3];
                 }
-            } else if ([URL.host caseInsensitiveCompare:@"worldcosplay.net"] == NSOrderedSame) {
+            } else if ([URL containsString:@"worldcosplay.net"]) {
                 
             } else {
                 [[MUBLogManager defaultManager] addWarningLogWithFormat:@"没有解析到有用的地址，请检查输入框的内容"];
