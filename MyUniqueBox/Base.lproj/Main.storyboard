@@ -1234,6 +1234,13 @@
                                                 <action selector="openPrefsMenuItemDidPress:" target="Voe-Tx-rLC" id="c4q-9q-RpF"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="f50-Mq-7ev"/>
+                                        <menuItem title="备份所有数据库" id="FX4-rX-w8Q">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="backupDatabasesMenuItemDidPress:" target="Voe-Tx-rLC" id="dQo-OD-ZXF"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="CCK-Vz-8bl"/>
                                         <menuItem title="最近编译：" id="hIq-EG-i1R">
                                             <modifierMask key="keyEquivalentModifierMask"/>

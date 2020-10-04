@@ -11,6 +11,7 @@
 #import "MUBDownloadSettingManager.h"
 #import "MUBExceptionManager.h"
 #import "MUBMenuItemManager.h"
+#import "MUBSQLiteSettingManager.h"
 
 @interface AppDelegate ()
 
@@ -57,6 +58,9 @@
 }
 - (IBAction)openPrefsMenuItemDidPress:(NSMenuItem *)sender {
     [MUBFileManager openContentAtPath:[MUBSettingManager defaultManager].preferenceFilePath];
+}
+- (IBAction)backupDatabasesMenuItemDidPress:(NSMenuItem *)sender {
+    [MUBSQLiteSettingManager backupDatabase];
 }
 
 #pragma mark - Setup
