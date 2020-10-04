@@ -41,6 +41,11 @@
 }
 
 #pragma mark - MenuItem Action
+- (void)proceedMenuItemPressingWithTag:(NSInteger)tag {
+    NSMenuItem *sender = [NSMenuItem new];
+    sender.tag = tag;
+    [self customMenuItemDidPress:sender];
+}
 - (IBAction)customMenuItemDidPress:(NSMenuItem *)sender {
     [MUBMenuItemManager customMenuItemDidPress:sender];
 }

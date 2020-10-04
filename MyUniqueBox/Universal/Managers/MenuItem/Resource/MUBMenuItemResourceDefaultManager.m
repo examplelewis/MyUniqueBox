@@ -18,7 +18,31 @@
     
     switch (action) {
         case 1: {
-//            [MUBMenuItemToolSystemManager customMenuItemDidPress:sender];
+            NSURL *URL = [NSURL URLWithString:[MUBUIManager defaultManager].viewController.inputTextView.string];
+            if (!URL) {
+                [[MUBLogManager defaultManager] addWarningLogWithFormat:@"没有解析到有用的地址，请检查输入框的内容"];
+                return;
+            }
+            
+            if ([URL.host caseInsensitiveCompare:@"bcy.net"] == NSOrderedSame) {
+                
+            } else if ([URL.host caseInsensitiveCompare:@"exhentai.org"] == NSOrderedSame || [URL.host caseInsensitiveCompare:@"e-hentai.org"] == NSOrderedSame) {
+                [[MUBUIManager defaultManager].appDelegate proceedMenuItemPressingWithTag:1050001];
+            } else if ([URL.host caseInsensitiveCompare:@"www.jdlingyu.com"] == NSOrderedSame) {
+                
+            } else if ([URL.host caseInsensitiveCompare:@"www.pixiv.net"] == NSOrderedSame) {
+                if ([URL.path hasPrefix:@"users"]) {
+//                    [PixivMethod configMethod:1];
+                } else if ([URL.path hasPrefix:@"artworks"]) {
+//                    [PixivMethod configMethod:2];
+                } else {
+//                    [PixivMethod configMethod:3];
+                }
+            } else if ([URL.host caseInsensitiveCompare:@"worldcosplay.net"] == NSOrderedSame) {
+                
+            } else {
+                [[MUBLogManager defaultManager] addWarningLogWithFormat:@"没有解析到有用的地址，请检查输入框的内容"];
+            }
         }
             break;
         case 2: {

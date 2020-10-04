@@ -12,5 +12,7 @@
 
 @property (weak) IBOutlet NSMenuItem *downloadRootMenuItem;
 
+- (void)proceedMenuItemPressingWithTag:(NSInteger)tag;
+
 @end
 
