@@ -24,6 +24,19 @@
     }
 }
 
+#pragma mark - Follow & Export
++ (void)_exportFollowAndBlockUsers {
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"导出既关注又被拉黑的用户名单, 流程开始"];
+    
+    NSArray *duplicates = [[MUBSQLiteManager defaultManager] getFollowAndBlockUsers];
+    if (duplicates.count == 0) {
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"导出既关注又被拉黑的用户名单，未发现重复用户，流程结束"];
+    } else {
+        [duplicates exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFollowAndBlockUsersExportFileName]];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"导出既关注又被拉黑的用户名单，发现 %ld 个重复用户，流程结束", duplicates.count];
+    }
+}
+
 //----------------------------------------------------------------------------------------
 #pragma mark - getInputs
 + (void)getInputsWithType:(MUBResourcePixivUniversalType)type {
@@ -132,19 +145,6 @@
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个未抓取的用户", notFetches.count];
     
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"查询多个用户的抓取状态, 流程结束"];
-}
-
-#pragma mark - Follow & Export
-+ (void)_exportFollowAndBlockUsers {
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"导出既关注又被拉黑的用户名单, 流程开始"];
-    
-    NSArray *duplicates = [[MUBSQLiteManager defaultManager] getFollowAndBlockUsers];
-    if (duplicates.count == 0) {
-        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"导出既关注又被拉黑的用户名单，未发现重复用户，流程结束"];
-    } else {
-        [duplicates exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFollowAndBlockUsersExportFileName]];
-        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"导出既关注又被拉黑的用户名单，发现 %ld 个重复用户，流程结束", duplicates.count];
-    }
 }
 
 #pragma mark - User State
