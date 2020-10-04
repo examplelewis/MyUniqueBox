@@ -11,6 +11,7 @@
 #import "MUBResourceExHentaiModels.h"
 
 #import "MUBCookieManager.h"
+#import "MUBSQLiteExHentaiManager.h"
 #import "MUBResourceExHentaiImagesManager.h"
 #import "MUBResourceExHentaiPagesManager.h"
 #import "MUBResourceExHentaiTorrentsManager.h"
@@ -105,14 +106,19 @@
     NSString *downloadFolderPath = [[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:[NSString stringWithFormat:@"ExHentai/%@", model.title]];
     
     // 从接口获取到的信息没有dgid，根据uploader和title获取dgid，没有的话在总数上加1
-    model.dgid = [[MUBSQLiteManager defaultManager] getDGIDWithExHentaiPageModel:model];
-    NSArray<MUBResourceExHentaiImageModel *> *filteredImageModels = [[MUBSQLiteManager defaultManager] filteredExHentaiImageModelsFrom:imageModels model:model];
+    NSInteger dgid = [[MUBSQLiteExHentaiManager defaultManager] getDGIDWithExHentaiPageModel:model];
+    if (dgid == MUBErrorCodeSQLiteExHentaiHentaiFoundaryExceptionFound) {
+        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"当前获取的标题: %@, 包含 HentaiFoundary 关注的画师，跳过", model.title];
+        return;
+    }
+    model.dgid = dgid;
+    NSArray<MUBResourceExHentaiImageModel *> *filteredImageModels = [[MUBSQLiteExHentaiManager defaultManager] filteredExHentaiImageModelsFrom:imageModels model:model];
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"本次流程一共抓取到 %ld 条图片信息, 数据库中共有 %ld 条重复, 去重后还剩 %ld 条记录", imageModels.count, imageModels.count - filteredImageModels.count, filteredImageModels.count];
     if (filteredImageModels.count == 0) {
         [[MUBLogManager defaultManager] addWarningLogWithFormat:@"本次流程抓取到图片信息均在数据库中有记录, 流程结束"];
         return;
     }
-    [[MUBSQLiteManager defaultManager] insertExHentaiImageModels:filteredImageModels model:model downloadFolderPath:downloadFolderPath];
+    [[MUBSQLiteExHentaiManager defaultManager] insertExHentaiImageModels:filteredImageModels model:model downloadFolderPath:downloadFolderPath];
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"已向数据库中添加 1 条页面记录和 %ld 条图片信息", filteredImageModels.count];
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"即将开始下载"];
     

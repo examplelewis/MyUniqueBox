@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		20C16586D5C82EE507AEB31B /* libPods-MyUniqueBox.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3553C02ABF77D14E37F76373 /* libPods-MyUniqueBox.a */; };
 		AC2032A12526279700C90ABD /* MUBResourceOrganizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2032A02526279700C90ABD /* MUBResourceOrganizeManager.m */; };
+		AC20449525297C8800337F25 /* MUBSQLiteExHentaiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC20449425297C8800337F25 /* MUBSQLiteExHentaiManager.m */; };
 		AC68A1732522419000DC46DD /* MUBHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC68A1722522419000DC46DD /* MUBHTTPManager.m */; };
 		AC702F84251F689700C4431A /* MUBMenuItemDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC702F83251F689700C4431A /* MUBMenuItemDownloadManager.m */; };
 		AC702F90251F70DB00C4431A /* NSError+MUBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = AC702F8F251F70DB00C4431A /* NSError+MUBAdd.m */; };
@@ -139,6 +140,8 @@
 		3553C02ABF77D14E37F76373 /* libPods-MyUniqueBox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyUniqueBox.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC20329F2526279700C90ABD /* MUBResourceOrganizeManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBResourceOrganizeManager.h; sourceTree = "<group>"; };
 		AC2032A02526279700C90ABD /* MUBResourceOrganizeManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBResourceOrganizeManager.m; sourceTree = "<group>"; };
+		AC20449325297C8800337F25 /* MUBSQLiteExHentaiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBSQLiteExHentaiManager.h; sourceTree = "<group>"; };
+		AC20449425297C8800337F25 /* MUBSQLiteExHentaiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBSQLiteExHentaiManager.m; sourceTree = "<group>"; };
 		AC670CB8251ED77200698B74 /* RACEXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACEXTScope.h; sourceTree = "<group>"; };
 		AC670CB9251ED77200698B74 /* RACMetaMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACMetaMacros.h; sourceTree = "<group>"; };
 		AC68A16D2522403900DC46DD /* MUBHTTPHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBHTTPHeader.h; sourceTree = "<group>"; };
@@ -639,6 +642,8 @@
 				ACD36FEB252383AD002319C8 /* MUBSQLiteHeader.h */,
 				ACD36FDF25237D69002319C8 /* MUBSQLiteManager.h */,
 				ACD36FE025237D69002319C8 /* MUBSQLiteManager.m */,
+				AC20449325297C8800337F25 /* MUBSQLiteExHentaiManager.h */,
+				AC20449425297C8800337F25 /* MUBSQLiteExHentaiManager.m */,
 				ACD36FE5252382F7002319C8 /* MUBSQLiteSettingManager.h */,
 				ACD36FE6252382F7002319C8 /* MUBSQLiteSettingManager.m */,
 			);
@@ -1187,6 +1192,7 @@
 				ACF523FB251A46EE0073BFEE /* MUBMenuItemToolDigitalManager.m in Sources */,
 				ACC9EBFC250BBC8400B0311D /* NSBundle+YYAdd.m in Sources */,
 				AC98813C250FC91300CC3372 /* MUBSettingDeviantartModels.m in Sources */,
+				AC20449525297C8800337F25 /* MUBSQLiteExHentaiManager.m in Sources */,
 				ACC9EBFB250BBC8400B0311D /* NSNumber+YYAdd.m in Sources */,
 				ACDCE28A250BAC100014BE47 /* main.m in Sources */,
 				ACF29000251B9EA3003B35D0 /* MUBDownloadSettingModel.m in Sources */,

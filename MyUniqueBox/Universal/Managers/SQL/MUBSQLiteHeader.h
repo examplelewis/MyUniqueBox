@@ -12,4 +12,6 @@
 static NSString * const MUBSQLiteFileName = @"data.sqlite";
 static NSString * const MUBSQLiteExHentaiFileName = @"exhentai.sqlite";
 
+static NSInteger const MUBErrorCodeSQLiteExHentaiHentaiFoundaryExceptionFound = -20001;
+
 #endif /* MUBSQLiteHeader_h */
