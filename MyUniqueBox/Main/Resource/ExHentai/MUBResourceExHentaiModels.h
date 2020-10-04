@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign) NSInteger filecount;
 @property (assign) NSInteger filesize;
 @property (assign) NSInteger gid;
-@property (assign) NSInteger posted;
+@property (assign) NSTimeInterval posted;
 @property (copy) NSString *rating;
 @property (copy) NSArray *tags;
 @property (copy) NSString *thumb;

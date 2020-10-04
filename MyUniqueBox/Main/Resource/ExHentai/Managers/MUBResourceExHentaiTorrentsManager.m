@@ -107,6 +107,12 @@
                     } else {
                         NSArray<MUBResourceExHentaiTorrentModel *> *torrentModels = [model.torrents sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"added" ascending:YES]]];
                         MUBResourceExHentaiTorrentModel *torrentModel = torrentModels.lastObject;
+                        // 如果种子的添加时间比当前Gallery的创建时间早，那就说明该种子对应的是之前版本的Gallery，就忽略掉
+                        if (torrentModel.added < model.posted) {
+                            [[MUBLogManager defaultManager] addWarningLogWithFormat:@"% 没有适用于当前版本Gallery的种子信息，跳过", self.URLs[i]];
+                            return;
+                        }
+                        
                         NSURL *pageURL = [NSURL URLWithString:self.URLs[i]];
                         torrentModel.URL = [NSString stringWithFormat:@"%@://%@/torrent/%@/%@.torrent", pageURL.scheme, pageURL.host, trackerID, torrentModel.tHash];
                         [self.torrentModels addObject:torrentModel];
@@ -135,7 +141,7 @@
     }
     
     if (self.failures.count > 0) {
-        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"有%ld个页面无法解析，已导出到下载文件夹的 MUBResourceExHentaiSuccessPages.txt 文件中", self.failures.count];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"有%ld个页面无法解析，已导出到下载文件夹的 MUBResourceExHentaiFailureTorrents.txt 文件中", self.failures.count];
     }
     
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"已获取到%lu条种子信息", self.torrentModels.count];
