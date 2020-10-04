@@ -87,7 +87,7 @@
                     break;
                 case 3: {
                     [[MUBLogManager defaultManager] reset];
-                    [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeExportFollowAndBlockUsers];
+                    [MUBResourcePixivUniversalManager startWithType:MUBResourcePixivUniversalTypeExportFollowAndBlockUsers];
                 }
                     break;
                 default:

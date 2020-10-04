@@ -26,6 +26,7 @@ typedef NS_ENUM(NSUInteger, MUBResourcePixivUniversalType) {
 
 @interface MUBResourcePixivUniversalManager : NSObject
 
++ (void)startWithType:(MUBResourcePixivUniversalType)type;
 + (void)getInputsWithType:(MUBResourcePixivUniversalType)type;
 + (void)showOpenPanelWithType:(MUBResourcePixivUniversalType)type;
 

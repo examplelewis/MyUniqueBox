@@ -12,7 +12,20 @@
 
 @implementation MUBResourcePixivUniversalManager
 
-#pragma mark - getMemberIDs
+#pragma mark - Start
++ (void)startWithType:(MUBResourcePixivUniversalType)type {
+    switch (type) {
+        case MUBResourcePixivUniversalTypeExportFollowAndBlockUsers: {
+            [MUBResourcePixivUniversalManager _exportFollowAndBlockUsers];
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+//----------------------------------------------------------------------------------------
+#pragma mark - getInputs
 + (void)getInputsWithType:(MUBResourcePixivUniversalType)type {
     NSString *inputStr = [MUBUIManager defaultManager].viewController.inputTextView.string;
     if (!inputStr.isNotEmpty) {
@@ -54,10 +67,6 @@
             break;
         case MUBResourcePixivUniversalTypeRemoveUsersDownloadRecords: {
             [[MUBSQLiteManager defaultManager] removePixivUntilUsersDownloadRecordsWithMemberIDs:memberIDs];
-        }
-            break;
-        case MUBResourcePixivUniversalTypeExportFollowAndBlockUsers: {
-            [MUBResourcePixivUniversalManager _exportFollowAndBlockUsersWithMemberIDs:memberIDs];
         }
             break;
         case MUBResourcePixivUniversalTypeShowUserState: {
@@ -126,7 +135,7 @@
 }
 
 #pragma mark - Follow & Export
-+ (void)_exportFollowAndBlockUsersWithMemberIDs:(NSArray<NSString *> *)memberIDs {
++ (void)_exportFollowAndBlockUsers {
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"导出既关注又被拉黑的用户名单, 流程开始"];
     
     NSArray *duplicates = [[MUBSQLiteManager defaultManager] getFollowAndBlockUsers];
