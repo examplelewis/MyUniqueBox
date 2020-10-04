@@ -36,7 +36,7 @@
 - (void)_readData {
     NSMutableArray *hentaiFoundryExceptions = [NSMutableArray array];
     [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
-        FMResultSet *rs = [db executeQuery:@"select value from MUBHentaiFoundryException"];
+        FMResultSet *rs = [db executeQuery:@"select value from MUBArtistsException"];
         while ([rs next]) {
             [hentaiFoundryExceptions addObject:[rs stringForColumnIndex:0]];
         }
