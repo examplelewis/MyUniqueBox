@@ -116,6 +116,13 @@
         [[MUBLogManager defaultManager] addWarningLogWithFormat:@"本次流程抓取到图片信息均在数据库中有记录, 流程结束"];
         return;
     }
+    
+    // 修改 model 的下载数量，如果下载数量和抓取数量不一致，添加备注
+    model.downloadCount = filteredImageModels.count;
+    if (imageModels.count != filteredImageModels.count) {
+        model.remark = [NSString stringWithFormat:@"数据库中共有 %ld 条重复", imageModels.count - filteredImageModels.count];
+    }
+    
     [[MUBSQLiteExHentaiManager defaultManager] insertExHentaiImageModels:filteredImageModels model:model downloadFolderPath:downloadFolderPath];
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"已向数据库中添加 1 条页面记录和 %ld 条图片信息", filteredImageModels.count];
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"即将开始下载"];

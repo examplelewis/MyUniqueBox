@@ -117,8 +117,8 @@
     NSString *nowReadable = [[NSDate date] formattedDateWithFormat:MUBTimeFormatyMdHms];
     
     [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
-        NSString *update = @"INSERT INTO MUBDownloadGallery (dgid, gid, category, filecount, filesize, posted, title, titleJpn, token, uploader, fetch_time, fetch_readable_time, fetch_gallery_url) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        NSArray *arguments = @[@(model.dgid), @(model.gid), model.category, @(model.filecount), @(model.filesize), @(model.posted), model.title, model.titleJpn, model.token, model.uploader, @(nowInterval), nowReadable, [NSString stringWithFormat:@"https://exhentai.org/g/%ld/%@/", model.gid, model.token]];
+        NSString *update = @"INSERT INTO MUBDownloadGallery (dgid, gid, start_page, end_page, fetch_count, download_count, remark, category, filecount, filesize, posted, title, titleJpn, token, uploader, fetch_time, fetch_readable_time, fetch_gallery_url) values(?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        NSArray *arguments = @[@(model.dgid), @(model.gid), @(model.startPage), @(model.endPage), @(model.fetchCount), @(model.downloadCount), model.remark, model.category, @(model.filecount), @(model.filesize), @(model.posted), model.title, model.titleJpn, model.token, model.uploader, @(nowInterval), nowReadable, [NSString stringWithFormat:@"https://exhentai.org/g/%ld/%@/", model.gid, model.token]];
         
         if (![db executeUpdate:update withArgumentsInArray:arguments]) {
             [[MUBLogManager defaultManager] addErrorLogWithFormat:@"往数据表:MUBDownloadGallery中插入数据时发生错误：%@", [db lastErrorMessage]];

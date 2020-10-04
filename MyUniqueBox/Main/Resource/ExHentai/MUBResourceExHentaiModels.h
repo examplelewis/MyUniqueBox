@@ -15,6 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MUBResourceExHentaiPageModel : MUBModel
 
 @property (assign) NSInteger dgid;
+@property (assign) NSInteger downloadCount;
+@property (assign) NSInteger fetchCount;
+@property (assign) NSInteger startPage;
+@property (assign) NSInteger endPage;
+@property (copy) NSString *remark;
 
 @property (copy) NSString *archiverKey;
 @property (copy) NSString *category;

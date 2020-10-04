@@ -10,6 +10,15 @@
 
 @implementation MUBResourceExHentaiPageModel
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self.remark = @"无";
+    }
+    
+    return self;
+}
+
 // 返回一个 Dict，将 Model 属性名对映射到 JSON 的 Key。Key 为 Property，Value 为 JSON 的 Key
 + (NSDictionary *)modelCustomPropertyMapper {
     return @{

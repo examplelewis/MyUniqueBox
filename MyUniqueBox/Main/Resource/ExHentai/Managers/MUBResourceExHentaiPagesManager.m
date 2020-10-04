@@ -80,6 +80,15 @@
         }
         self.title = self.model.title;
         
+        NSInteger startCount = self.startPage * 20;
+        NSInteger endCount = self.endPage * 20;
+        if (endCount > self.model.filecount) {
+            endCount = self.model.filecount;
+        }
+        self.model.fetchCount = endCount - startCount;
+        self.model.startPage = self.startPage + 1;
+        self.model.endPage = self.endPage;
+        
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"已获取到ExHentai图包信息:"];
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"title: %@", self.model.title];
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"titleJpn: %@", self.model.titleJpn];
