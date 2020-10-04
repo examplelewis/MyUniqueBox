@@ -155,11 +155,6 @@
     
     NSArray *follows = [[MUBSQLiteManager defaultManager] getPixivUsersFollowStatusWithMemberIDs:ids.copy isFollow:YES];
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个关注的用户", follows.count];
-    if (export) {
-        NSArray *exportFollows = follows.copy;
-        exportFollows = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:exportFollows];
-        [exportFollows exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivFollowUserURLsExportFileName]];
-    }
     if (follows.count == memberIDs.count) {
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"%@多个用户的状态, 流程结束", export ? @"导出" : @"查询"];
         return;
@@ -169,11 +164,6 @@
     
     NSArray *block1s = [[MUBSQLiteManager defaultManager] getPixivUsersBlockStatusWithMemberIDs:ids.copy blockLevel:1 isEqual:YES];
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个确定拉黑的用户", block1s.count];
-    if (export) {
-        NSArray *exportBlock1s = block1s.copy;
-        exportBlock1s = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:exportBlock1s];
-        [exportBlock1s exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivBlock1UserURLsExportFileName]];
-    }
     if (follows.count + block1s.count == memberIDs.count) {
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"%@多个用户的状态, 流程结束", export ? @"导出" : @"查询"];
         return;
@@ -190,7 +180,7 @@
     } else {
         NSArray *exportBlockNot1s = blockNot1s.copy;
         exportBlockNot1s = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:exportBlockNot1s];
-        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %@ 个未确定拉黑的用户:\n%@", exportBlockNot1s.count, exportBlockNot1s.stringValue];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个未确定拉黑的用户:\n%@", exportBlockNot1s.count, exportBlockNot1s.stringValue];
     }
     if (follows.count + block1s.count + blockNot1s.count == memberIDs.count) {
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"%@多个用户的状态, 流程结束", export ? @"导出" : @"查询"];
@@ -214,6 +204,10 @@
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"%@多个用户的状态, 流程结束", export ? @"导出" : @"查询"];
         return;
     }
+    // 导出的 fetches 里面包含每个ID抓取的个数，因此需要去重
+    fetches = [fetches bk_map:^id(NSString *obj) {
+        return [obj componentsSeparatedByString:@"\t\t"].firstObject;
+    }];
     
     [ids removeObjectsInArray:fetches];
     
