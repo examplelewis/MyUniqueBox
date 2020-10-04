@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MUBResourceExHentaiPageModel : MUBModel
 
+@property (assign) NSInteger dgid;
+
 @property (copy) NSString *archiverKey;
 @property (copy) NSString *category;
 @property (assign) float expunged;
@@ -42,6 +44,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign) double tsize;
 @property (assign) double fsize;
 @property (copy) NSString *URL;
+
+@end
+
+@interface MUBResourceExHentaiImageModel : MUBModel
+
+@property (copy) NSString *downloadURL;
+@property (nonatomic, copy) NSString *pageURL;
+@property (copy) NSString *pageToken;
 
 @end
 

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MUBResourceWeiboModels.h"
+#import "MUBResourceExHentaiModels.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +16,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - Lifecycle
 + (instancetype)defaultManager;
+
+#pragma mark - ExHentai
+- (NSInteger)getDGIDWithExHentaiPageModel:(MUBResourceExHentaiPageModel *)model;
+- (NSArray<MUBResourceExHentaiImageModel *> *)filteredExHentaiImageModelsFrom:(NSArray<MUBResourceExHentaiImageModel *> *)imageModels model:(MUBResourceExHentaiPageModel *)model;
+- (void)insertExHentaiImageModels:(NSArray<MUBResourceExHentaiImageModel *> *)imageModels model:(MUBResourceExHentaiPageModel *)model downloadFolderPath:(NSString *)downloadFolderPath;
 
 #pragma mark - Pixiv Follow
 // 获取关注的用户列表

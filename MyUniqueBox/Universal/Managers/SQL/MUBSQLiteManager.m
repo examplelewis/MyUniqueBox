@@ -33,6 +33,83 @@
     return defaultManager;
 }
 
+#pragma mark - ExHentai
+- (NSInteger)getDGIDWithExHentaiPageModel:(MUBResourceExHentaiPageModel *)model {
+    __block NSInteger dgid = -1;
+    [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+        NSString *query = [NSString stringWithFormat:@"select dgid from MUBExHentaiDownloadGallery where title = '%@' and uploader = '%@'", model.title, model.uploader];
+        FMResultSet *rs = [db executeQuery:query];
+        while ([rs next]) {
+            dgid = [rs intForColumnIndex:0];
+        }
+        [rs close];
+    }];
+    if (dgid != -1) {
+        return dgid;
+    }
+    
+    [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+        FMResultSet *rs = [db executeQuery:@"select value from SystemConst where type = 4"];
+        while ([rs next]) {
+            dgid = [rs intForColumnIndex:0];
+        }
+        [rs close];
+    }];
+    dgid += 1;
+    
+    [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+        BOOL success = [db executeUpdate:@"UPDATE SystemConst SET value = ? WHERE type = 4", @(dgid)];
+        if (success) {
+            [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"更新 SystemConst DGID: %ld 成功", dgid];
+        } else {
+            [[MUBLogManager defaultManager] addErrorLogWithFormat:@"更新 SystemConst DGID: %ld 时发生错误：%@", dgid, [db lastErrorMessage]];
+        }
+    }];
+    
+    return dgid;
+}
+- (NSArray<MUBResourceExHentaiImageModel *> *)filteredExHentaiImageModelsFrom:(NSArray<MUBResourceExHentaiImageModel *> *)imageModels model:(MUBResourceExHentaiPageModel *)model {
+    NSMutableArray *storedPageTokens = [NSMutableArray array];
+    [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+        NSString *query = [NSString stringWithFormat:@"select page_token from MUBExHentaiDownloadImage where dgid = %ld", model.dgid];
+        FMResultSet *rs = [db executeQuery:query];
+        while ([rs next]) {
+            [storedPageTokens addObject:[rs stringForColumnIndex:0]];
+        }
+        [rs close];
+    }];
+    
+    return [imageModels bk_select:^BOOL(MUBResourceExHentaiImageModel *obj) {
+        return ![storedPageTokens containsObject:obj.pageToken];
+    }];
+}
+- (void)insertExHentaiImageModels:(NSArray<MUBResourceExHentaiImageModel *> *)imageModels model:(MUBResourceExHentaiPageModel *)model downloadFolderPath:(NSString *)downloadFolderPath {
+    NSTimeInterval nowInterval = [[NSDate date] timeIntervalSince1970];
+    NSString *nowReadable = [[NSDate date] formattedDateWithFormat:MUBTimeFormatyMdHms];
+    
+    [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+        NSString *update = @"INSERT INTO MUBExHentaiDownloadGallery (dgid, gid, category, filecount, filesize, posted, title, titleJpn, token, uploader, fetch_time, fetch_readable_time, fetch_gallery_url) values(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        NSArray *arguments = @[@(model.dgid), @(model.gid), model.category, @(model.filecount), @(model.filesize), @(model.posted), model.title, model.titleJpn, model.token, model.uploader, @(nowInterval), nowReadable, [NSString stringWithFormat:@"https://exhentai.org/g/%ld/%@/", model.gid, model.token]];
+        
+        if (![db executeUpdate:update withArgumentsInArray:arguments]) {
+            [[MUBLogManager defaultManager] addErrorLogWithFormat:@"往数据表:MUBExHentaiDownloadGallery中插入数据时发生错误：%@", [db lastErrorMessage]];
+            [[MUBLogManager defaultManager] addErrorLogWithFormat:@"插入的数据：%@", model];
+        }
+    }];
+    
+    for (MUBResourceExHentaiImageModel *imageModel in imageModels) {
+        [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+            NSString *update = @"INSERT INTO MUBExHentaiDownloadImage (pid, dgid, gid, page_token, image_url, save_path, save_time, save_readable_time) values(?, ?, ?, ?, ?, ?, ?, ?)";
+            NSArray *arguments = @[[NSNull null], @(model.dgid), @(model.gid), imageModel.pageToken, imageModel.downloadURL, downloadFolderPath, @(nowInterval), nowReadable];
+            
+            if (![db executeUpdate:update withArgumentsInArray:arguments]) {
+                [[MUBLogManager defaultManager] addErrorLogWithFormat:@"往数据表:MUBExHentaiDownloadImage中插入数据时发生错误：%@", [db lastErrorMessage]];
+                [[MUBLogManager defaultManager] addErrorLogWithFormat:@"插入的数据：%@", imageModel];
+            }
+        }];
+    }
+}
+
 #pragma mark - Pixiv Follow
 // 获取关注的用户列表
 - (NSArray *)getPixivUsersFollowStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs isFollow:(BOOL)isFollow {

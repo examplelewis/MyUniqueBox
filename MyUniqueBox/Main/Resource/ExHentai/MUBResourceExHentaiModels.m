@@ -37,3 +37,12 @@
 }
 
 @end
+
+@implementation MUBResourceExHentaiImageModel
+
+- (void)setPageURL:(NSString *)pageURL {
+    _pageURL = [pageURL copy];
+    _pageToken = [pageURL componentsSeparatedByString:@"/"][4];
+}
+
+@end

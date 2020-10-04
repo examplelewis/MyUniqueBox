@@ -38,6 +38,7 @@
             return;
         }
         
+        NSLog(@"getPostDetailWithPageURL: %@", object[@"gmetadata"]);
         NSArray<MUBResourceExHentaiPageModel *> *models = [MUBResourceExHentaiPageModel modelsFromJSONs:object[@"gmetadata"]];
         if (!models) {
             completionHandler(response, nil, [NSError errorWithDomain:MUBErrorDomainHTTPExHentaiAPI code:MUBErrorCodeAPIReturnUselessObject userInfo:@{NSLocalizedDescriptionKey: MUBErrorLocalizedDescriptionAPIReturnUselessObject}]);

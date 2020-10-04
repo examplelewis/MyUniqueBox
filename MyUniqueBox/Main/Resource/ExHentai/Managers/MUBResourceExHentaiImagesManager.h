@@ -8,16 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+#import "MUBResourceExHentaiModels.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 @class MUBResourceExHentaiImagesManager;
-@class MUBResourceExHentaiPageModel;
 
 @protocol MUBResourceExHentaiImagesDelegate <NSObject>
 
 @optional
-- (void)manager:(MUBResourceExHentaiImagesManager *)manager model:(MUBResourceExHentaiPageModel * _Nullable)model didGetAllImageURLs:(NSArray<NSString *> *)imageURLs error:(NSError * _Nullable)error;
-- (void)manager:(MUBResourceExHentaiImagesManager *)manager model:(MUBResourceExHentaiPageModel * _Nullable)model didGetOneImageURL:(NSString *)imageURL error:(NSError * _Nullable)error;
+- (void)manager:(MUBResourceExHentaiImagesManager *)manager model:(MUBResourceExHentaiPageModel * _Nullable)model didGetAllImageModels:(NSArray<MUBResourceExHentaiImageModel *> *)imageModels error:(NSError * _Nullable)error;
+- (void)manager:(MUBResourceExHentaiImagesManager *)manager model:(MUBResourceExHentaiPageModel * _Nullable)model didGetOneImageModel:(MUBResourceExHentaiImageModel *)imageModel error:(NSError * _Nullable)error;
 
 @end
 

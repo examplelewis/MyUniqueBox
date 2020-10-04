@@ -15,7 +15,7 @@
 @property (copy) NSArray *URLs;
 
 @property (assign) NSInteger download;
-@property (strong) NSMutableArray *imageURLs;
+@property (strong) NSMutableArray<MUBResourceExHentaiImageModel *> *imageModels;
 @property (strong) NSMutableArray *failures;
 
 @end
@@ -32,7 +32,7 @@
     self = [super init];
     if (self) {
         self.download = 0;
-        self.imageURLs = [NSMutableArray array];
+        self.imageModels = [NSMutableArray array];
         self.failures = [NSMutableArray array];
     }
     
@@ -61,7 +61,12 @@
                 for (TFHppleElement *element in aArray) {
                     if ([element.raw containsString:@"Download original"]) {
                         foundOrigin = YES;
-                        [self.imageURLs addObject:element.attributes[@"href"]];
+                        
+                        MUBResourceExHentaiImageModel *imageModel = [MUBResourceExHentaiImageModel new];
+                        imageModel.downloadURL = element.attributes[@"href"];
+                        imageModel.pageURL = self.URLs[i];
+                        
+                        [self.imageModels addObject:imageModel];
                     }
                 }
                 
@@ -71,7 +76,11 @@
                     for (TFHppleElement *element in imgArray) {
                         NSString *href = element.attributes[@"src"];
                         if ([element.attributes[@"id"] isEqualToString:@"img"]) {
-                            [self.imageURLs addObject:href];
+                            MUBResourceExHentaiImageModel *imageModel = [MUBResourceExHentaiImageModel new];
+                            imageModel.downloadURL = element.attributes[@"href"];
+                            imageModel.pageURL = href;
+                            
+                            [self.imageModels addObject:imageModel];
                         }
                         
 //                        if ([href hasPrefix:@"http://1"] || [href hasPrefix:@"http://2"] || [href hasPrefix:@"http://3"] || [href hasPrefix:@"http://4"] || [href hasPrefix:@"http://5"] || [href hasPrefix:@"http://6"] || [href hasPrefix:@"http://7"] || [href hasPrefix:@"http://8"] || [href hasPrefix:@"http://9"]) {
@@ -80,7 +89,7 @@
                     }
                 }
                 
-                [self.imageURLs exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourceExHentaiSuccessImagesFilePath]];
+                [[self.imageModels valueForKey:@"downloadURL"] exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourceExHentaiSuccessImagesFilePath]];
             }
             
             [self didFinishDownloadingOnePicture];
@@ -101,10 +110,10 @@
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"有%ld个网页无法获取图片链接，已导出到下载文件夹的 MUBResourceExHentaiFailureImages.txt 文件中", self.failures.count];
     }
     
-    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"成功获取到%ld条数据", self.imageURLs.count];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"成功获取到%ld条数据", self.imageModels.count];
     
-    if ([self.delegate respondsToSelector:@selector(manager:model:didGetAllImageURLs:error:)]) {
-        [self.delegate manager:self model:self.model didGetAllImageURLs:self.imageURLs.copy error:nil];
+    if ([self.delegate respondsToSelector:@selector(manager:model:didGetAllImageModels:error:)]) {
+        [self.delegate manager:self model:self.model didGetAllImageModels:self.imageModels.copy error:nil];
     }
 }
 

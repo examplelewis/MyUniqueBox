@@ -96,23 +96,38 @@
 }
 
 #pragma mark - MUBResourceExHentaiImagesDelegate
-- (void)manager:(MUBResourceExHentaiImagesManager *)manager model:(MUBResourceExHentaiPageModel *)model didGetAllImageURLs:(NSArray<NSString *> *)imageURLs error:(NSError *)error {
-    if (imageURLs.count == 0) {
+- (void)manager:(MUBResourceExHentaiImagesManager *)manager model:(MUBResourceExHentaiPageModel *)model didGetAllImageModels:(NSArray<MUBResourceExHentaiImageModel *> *)imageModels error:(NSError *)error {
+    if (imageModels.count == 0) {
         [[MUBLogManager defaultManager] addWarningLogWithFormat:@"没有获取到可用的图片地址，流程结束"];
         return;
     }
     
-    MUBDownloadSettingModel *downloadSettingModel = [MUBDownloadSettingManager defaultManager].defaultPrefModel;
-    downloadSettingModel.downloadFolderPath = [[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:[NSString stringWithFormat:@"ExHentai/%@", model.title]];
+    NSString *downloadFolderPath = [[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:[NSString stringWithFormat:@"ExHentai/%@", model.title]];
     
-    MUBDownloadManager *downloadManager = [MUBDownloadManager managerWithSettingModel:downloadSettingModel URLs:imageURLs downloadFilePath:nil];
+    // 从接口获取到的信息没有dgid，根据uploader和title获取dgid，没有的话在总数上加1
+    model.dgid = [[MUBSQLiteManager defaultManager] getDGIDWithExHentaiPageModel:model];
+    NSArray<MUBResourceExHentaiImageModel *> *filteredImageModels = [[MUBSQLiteManager defaultManager] filteredExHentaiImageModelsFrom:imageModels model:model];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"本次流程一共抓取到 %ld 条图片信息, 数据库中共有 %ld 条重复, 去重后还剩 %ld 条记录", imageModels.count, imageModels.count - filteredImageModels.count, filteredImageModels.count];
+    if (filteredImageModels.count == 0) {
+        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"本次流程抓取到图片信息均在数据库中有记录, 流程结束"];
+        return;
+    }
+    [[MUBSQLiteManager defaultManager] insertExHentaiImageModels:filteredImageModels model:model downloadFolderPath:downloadFolderPath];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"已向数据库中添加 1 条页面记录和 %ld 条图片信息", filteredImageModels.count];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"即将开始下载"];
+    
+    // 下载
+    MUBDownloadSettingModel *downloadSettingModel = [MUBDownloadSettingManager defaultManager].defaultPrefModel;
+    downloadSettingModel.downloadFolderPath = downloadFolderPath;
+
+    MUBDownloadManager *downloadManager = [MUBDownloadManager managerWithSettingModel:downloadSettingModel URLs:[filteredImageModels valueForKey:@"downloadURL"] downloadFilePath:nil];
     downloadManager.onFinish = ^{
         [MUBFileManager trashFilePath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourceExHentaiSuccessPagesFilePath]];
         [MUBFileManager trashFilePath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourceExHentaiSuccessImagesFilePath]];
     };
     [downloadManager start];
 }
-- (void)manager:(MUBResourceExHentaiImagesManager *)manager model:(MUBResourceExHentaiPageModel *)model didGetOneImageURL:(NSString *)imageURL error:(NSError *)error {
+- (void)manager:(MUBResourceExHentaiImagesManager *)manager model:(MUBResourceExHentaiPageModel *)model didGetOneImageModel:(MUBResourceExHentaiImageModel *)imageModel error:(NSError *)error {
     
 }
 
