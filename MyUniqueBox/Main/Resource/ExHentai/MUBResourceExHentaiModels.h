@@ -19,7 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (assign) NSInteger fetchCount;
 @property (assign) NSInteger startPage;
 @property (assign) NSInteger endPage;
-@property (copy) NSString *remark;
+@property (copy) NSArray *remarks;
+@property (nonatomic, copy) NSString *remark;
 
 @property (copy) NSString *archiverKey;
 @property (copy) NSString *category;

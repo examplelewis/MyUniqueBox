@@ -13,7 +13,7 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.remark = @"无";
+        self.remarks = @[];
     }
     
     return self;
@@ -32,6 +32,18 @@
     return @{
         @"torrents": [MUBResourceExHentaiTorrentModel class],
     };
+}
+
+- (NSString *)remark {
+    if (!_remark) {
+        if (self.remarks.count == 0) {
+            _remark = @"无";
+        } else {
+            _remark = [self.remarks componentsJoinedByString:@", "];
+        }
+    }
+    
+    return _remark;
 }
 
 @end
