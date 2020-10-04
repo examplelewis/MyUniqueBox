@@ -26,6 +26,10 @@
 - (void)getPostDetailWithPageURL:(NSString *)pageURL completionHandler:(void (^)(NSURLResponse * _Nonnull, NSArray<MUBResourceExHentaiPageModel *> * _Nullable, NSError * _Nullable))completionHandler {
     NSString *url = @"https://api.e-hentai.org/api.php";
     NSArray *urlComps = [NSURL URLWithString:pageURL].pathComponents;
+    if (urlComps.count < 4) {
+        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"输入的地址有误，无法获取到链接的 gid 和 token，请检查输入的内容，应为1条ExHentai链接"];
+        return;
+    }
     NSDictionary *parameters = @{
         @"method": @"gdata",
         @"gidlist": @[@[urlComps[2], urlComps[3]]],
