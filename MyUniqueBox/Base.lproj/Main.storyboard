@@ -647,7 +647,7 @@
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="WIO-Fb-Te2"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="解析多个图包评论中的来源地址 [图包页面地址]【未完成】" tag="1050004" id="4uH-lA-MTg">
+                                                    <menuItem title="解析多个图包评论中的来源地址 [图包页面地址]" tag="1050004" id="4uH-lA-MTg">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="DBR-oj-njE"/>

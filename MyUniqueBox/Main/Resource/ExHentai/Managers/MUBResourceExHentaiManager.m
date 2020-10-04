@@ -15,6 +15,7 @@
 #import "MUBResourceExHentaiImagesManager.h"
 #import "MUBResourceExHentaiPagesManager.h"
 #import "MUBResourceExHentaiTorrentsManager.h"
+#import "MUBResourceExHentaiCommentManager.h"
 
 @interface MUBResourceExHentaiManager () <MUBResourceExHentaiPagesDelegate, MUBResourceExHentaiImagesDelegate, MUBResourceExHentaiTorrentsDelegate>
 
@@ -58,20 +59,18 @@
         }
             break;
         case MUBResourceExHentaiTypePixivURLs: {
-            
+            [self _startFetchingPixivURLsWithInputs:[inputStr componentsSeparatedByString:@"\n"]];
         }
             break;
         default:
             break;
     }
 }
-
 - (void)_startFetchingPagesWithInput:(NSString *)input {
     MUBResourceExHentaiPagesManager *manager = [MUBResourceExHentaiPagesManager managerFromPageURL:input];
     manager.delegate = self;
     [manager start];
 }
-
 - (void)_startFetchingImagesWithInputs:(NSArray *)inputs model:(MUBResourceExHentaiPageModel * _Nullable)model {
     MUBResourceExHentaiImagesManager *manager = [MUBResourceExHentaiImagesManager managerWithURLs:inputs];
     manager.delegate = self;
@@ -80,15 +79,14 @@
     }
     [manager start];
 }
-
 - (void)_startFetchingTorrentsWithInputs:(NSArray *)inputs {
     MUBResourceExHentaiTorrentsManager *manager = [MUBResourceExHentaiTorrentsManager managerWithURLs:inputs];
     manager.delegate = self;
     [manager start];
 }
-
-- (void)_startFetchingPixivURLs {
-    
+- (void)_startFetchingPixivURLsWithInputs:(NSArray *)inputs {
+    MUBResourceExHentaiCommentManager *manager = [MUBResourceExHentaiCommentManager managerWithURLs:inputs];
+    [manager start];
 }
 
 #pragma mark - MUBResourceExHentaiPagesDelegate

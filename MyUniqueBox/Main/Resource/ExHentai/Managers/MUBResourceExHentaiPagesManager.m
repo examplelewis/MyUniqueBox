@@ -136,7 +136,7 @@
     }
     
     if (self.failures.count > 0) {
-        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"有%ld个页面无法解析，已导出到下载文件夹的 MUBResourceExHentaiSuccessPages.txt 文件中", self.failures.count];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"有%ld个页面无法解析，已导出到下载文件夹的 MUBResourceExHentaiFailurePages.txt 文件中", self.failures.count];
     }
     
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"已获取到%lu条包含图片的网页地址", self.urls.count];
