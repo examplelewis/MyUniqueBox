@@ -187,24 +187,36 @@
         return;
     }
     
+    NSInteger beforePixivURLsCount = self.pixivURLs.count;
     NSOrderedSet *pixivURLsSet = [NSOrderedSet orderedSetWithArray:self.pixivURLs];
     self.pixivURLs = [NSMutableArray arrayWithArray:pixivURLsSet.array];
-    [self.pixivURLs exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourceExHentaiSuccessCommentPixivURLsFilePath]];
+    if (beforePixivURLsCount != self.pixivURLs.count) {
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"成功获取到的 Pixiv 数据有 %ld 条重复", beforePixivURLsCount - self.pixivURLs.count];
+    }
     if (self.pixivURLs.count > 0) {
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"本次流程成功获取到 %ld 条 Pixiv 数据，一共获取到 %ld 条", self.pixivURLs.count - [self.existCount[0] integerValue], self.pixivURLs.count];
     } else {
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"没有获取到评论中的Pixiv地址"];
     }
+    [self.pixivURLs exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourceExHentaiSuccessCommentPixivURLsFilePath]];
     
+    NSInteger beforeHasnotPixivURLsCount = self.hasnotPixivURLs.count;
     NSOrderedSet *hasnotPixivURLsSet = [NSOrderedSet orderedSetWithArray:self.hasnotPixivURLs];
     self.hasnotPixivURLs = [NSMutableArray arrayWithArray:hasnotPixivURLsSet.array];
+    if (beforeHasnotPixivURLsCount != self.hasnotPixivURLs.count) {
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"没有获取到 Pixiv 数据的 ExHentai 链接有 %ld 条重复", beforeHasnotPixivURLsCount - self.hasnotPixivURLs.count];
+    }
     if (self.hasnotPixivURLs.count > 0) {
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"本次流程有 %ld 条没有获取到数据，一共有 %ld 条", self.hasnotPixivURLs.count - [self.existCount[1] integerValue], self.hasnotPixivURLs.count];
     }
     [self.hasnotPixivURLs exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourceExHentaiSuccessCommentHasnotPixivURLsFilePath]];
     
+    NSInteger beforeFailuresCount = self.failures.count;
     NSOrderedSet *failuresSet = [NSOrderedSet orderedSetWithArray:self.failures];
     self.failures = [NSMutableArray arrayWithArray:failuresSet.array];
+    if (beforeFailuresCount != self.failures.count) {
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"无法解析的 ExHentai 链接有 %ld 条重复", beforeFailuresCount - self.failures.count];
+    }
     if (self.failures.count > 0) {
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"本次流程有%ld个页面无法解析，一共有 %ld 个", self.failures.count - [self.existCount[2] integerValue], self.failures.count];
     }
