@@ -199,6 +199,7 @@
                 NSRange newestLogRange = [[MUBUIManager defaultManager].viewController.logTextView.textStorage.string rangeOfString:self.newestLog.string];
                 [[MUBUIManager defaultManager].viewController.logTextView.textStorage replaceCharactersInRange:newestLogRange withAttributedString:attributedLog];
             }
+            [[MUBUIManager defaultManager] scrollNewestLogVisible];
             
             [self.lock lock];
             self.newestLog = attributedLog;
