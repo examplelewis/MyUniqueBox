@@ -142,7 +142,9 @@
 + (void)_showUserStateWithMemberIDs:(NSArray<NSString *> *)memberIDs export:(BOOL)export {
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"%@多个用户的状态, 流程开始", export ? @"导出" : @"查询"];
     
-    NSArray *follows = [[MUBSQLiteManager defaultManager] getPixivUsersFollowStatusWithMemberIDs:memberIDs isFollow:YES];
+    NSMutableArray *ids = [NSMutableArray arrayWithArray:memberIDs];
+    
+    NSArray *follows = [[MUBSQLiteManager defaultManager] getPixivUsersFollowStatusWithMemberIDs:ids.copy isFollow:YES];
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个关注的用户", follows.count];
     if (export) {
         NSArray *exportFollows = follows.copy;
@@ -154,7 +156,9 @@
         return;
     }
     
-    NSArray *block1s = [[MUBSQLiteManager defaultManager] getPixivUsersBlockStatusWithMemberIDs:memberIDs blockLevel:1 isEqual:YES];
+    [ids removeObjectsInArray:follows];
+    
+    NSArray *block1s = [[MUBSQLiteManager defaultManager] getPixivUsersBlockStatusWithMemberIDs:ids.copy blockLevel:1 isEqual:YES];
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个确定拉黑的用户", block1s.count];
     if (export) {
         NSArray *exportBlock1s = block1s.copy;
@@ -166,7 +170,9 @@
         return;
     }
     
-    NSArray *blockNot1s = [[MUBSQLiteManager defaultManager] getPixivUsersBlockStatusWithMemberIDs:memberIDs blockLevel:1 isEqual:NO];
+    [ids removeObjectsInArray:block1s];
+    
+    NSArray *blockNot1s = [[MUBSQLiteManager defaultManager] getPixivUsersBlockStatusWithMemberIDs:ids.copy blockLevel:1 isEqual:NO];
     if (export) {
         NSArray *exportBlockNot1s = blockNot1s.copy;
         exportBlockNot1s = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:exportBlockNot1s];
@@ -182,7 +188,9 @@
         return;
     }
     
-    NSArray *fetches = [[MUBSQLiteManager defaultManager] getPixivUsersFetchStatusWithMemberIDs:memberIDs isFetch:YES];
+    [ids removeObjectsInArray:blockNot1s];
+    
+    NSArray *fetches = [[MUBSQLiteManager defaultManager] getPixivUsersFetchStatusWithMemberIDs:ids.copy isFetch:YES];
     if (export) {
         NSArray *exportFetches = fetches.copy;
         exportFetches = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:exportFetches];
@@ -198,18 +206,15 @@
         return;
     }
     
-    NSMutableArray *news = [NSMutableArray arrayWithArray:memberIDs];
-    [news removeObjectsInArray:follows];
-    [news removeObjectsInArray:block1s];
-    [news removeObjectsInArray:blockNot1s];
-    [news removeObjectsInArray:fetches];
+    [ids removeObjectsInArray:fetches];
+    
     if (export) {
-        NSArray *expotedNews = news.copy;
+        NSArray *expotedNews = ids.copy;
         expotedNews = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:expotedNews];
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个新用户", expotedNews.count];
         [expotedNews exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourcePixivNewUserURLsExportFileName]];
     } else {
-        NSArray *expotedNews = news.copy;
+        NSArray *expotedNews = ids.copy;
         expotedNews = [MUBResourcePixivUniversalManager fullPixivMemberURLsWithMemberIDs:expotedNews];
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"共找到 %ld 个新用户:\n%@", expotedNews.count, expotedNews.stringValue];
     }
@@ -404,7 +409,11 @@
     }];
 }
 + (NSArray<NSString *> *)filterDuplicateURLsFromInputs:(NSArray<NSString *> *)inputs {
-    return [NSOrderedSet orderedSetWithArray:inputs].array;
+    NSArray *after = [NSOrderedSet orderedSetWithArray:inputs].array;
+    if (after.count != inputs.count) {
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"有 %ld 条重复链接，跳过", inputs.count - after.count];
+    }
+    return after;
 }
 
 + (NSArray *)fullPixivMemberURLsWithMemberIDs:(NSArray *)memberIDs {
