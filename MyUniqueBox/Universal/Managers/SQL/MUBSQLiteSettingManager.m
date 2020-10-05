@@ -41,7 +41,7 @@
         }
         
         // 复制数据库文件
-        NSString *dateString = [[NSDate date] formattedDateWithFormat:MUBTimeFormatCompactyMd];
+        NSString *dateString = [[NSDate date] stringWithFormat:MUBTimeFormatCompactyMd];
         NSString *destFilePath = [[MUBSettingManager defaultManager] pathOfContentInMainDatabasesFolder:[NSString stringWithFormat:@"%@_%@.sqlite", sqliteName, dateString]];
         
         NSError *error;

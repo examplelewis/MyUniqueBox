@@ -34,9 +34,9 @@
 
 - (void)setCreatedAt:(NSString *)createdAt {
     _createdAt = [createdAt copy];
-    _createdAtDate = [NSDate dateWithString:createdAt formatString:MUBTimeFormatEMdHmsZy];
-    _createdAtReadableStr = [_createdAtDate formattedDateWithFormat:MUBTimeFormatyMdHmsCompact];
-    _createdAtSqliteStr = [_createdAtDate formattedDateWithFormat:MUBTimeFormatyMdHms];
+    _createdAtDate = [NSDate dateWithString:createdAt format:MUBTimeFormatEMdHmsZy];
+    _createdAtReadableStr = [_createdAtDate stringWithFormat:MUBTimeFormatyMdHmsCompact];
+    _createdAtSqliteStr = [_createdAtDate stringWithFormat:MUBTimeFormatyMdHms];
 }
 - (void)setPicUrls:(NSArray *)picUrls {
     _picUrls = [picUrls copy];

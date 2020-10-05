@@ -88,8 +88,8 @@
     NSString *timeStr = [NSString stringWithUTF8String:__TIME__];
     NSString *str = [NSString stringWithFormat:@"%@ %@", dateStr, timeStr];
     
-    NSDate *date = [NSDate dateWithString:str formatString:@"MMM dd yyyy HH:mm:ss"];
-    self.buildTimeMenuItem.title = [NSString stringWithFormat:@"最近编译：%@", [date formattedDateWithFormat:@"yyyy/MM/dd HH:mm:ss"]];
+    NSDate *date = [NSDate dateWithString:str format:@"MMM dd yyyy HH:mm:ss"];
+    self.buildTimeMenuItem.title = [NSString stringWithFormat:@"最近编译：%@", [date stringWithFormat:@"yyyy/MM/dd HH:mm:ss"]];
 }
 
 #pragma mark - Notification

@@ -137,7 +137,7 @@ YYSYNTH_DUMMY_CLASS(NSDate_YYAdd)
 - (NSString *)stringWithFormat:(NSString *)format {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:format];
-    [formatter setLocale:[NSLocale currentLocale]];
+    [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_CN"]];
     return [formatter stringFromDate:self];
 }
 
@@ -163,6 +163,7 @@ YYSYNTH_DUMMY_CLASS(NSDate_YYAdd)
 + (NSDate *)dateWithString:(NSString *)dateString format:(NSString *)format {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:format];
+    [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_CN"]];
     return [formatter dateFromString:dateString];
 }
 
@@ -183,6 +184,35 @@ YYSYNTH_DUMMY_CLASS(NSDate_YYAdd)
         formatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZ";
     });
     return [formatter dateFromString:dateString];
+}
+
+
+- (BOOL)isEarlier:(NSDate *)date {
+    if (self.timeIntervalSince1970 < date.timeIntervalSince1970) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)isLater:(NSDate *)date {
+    if (self.timeIntervalSince1970 > date.timeIntervalSince1970) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)isEarlierOrEqualTo:(NSDate *)date {
+    if (self.timeIntervalSince1970 <= date.timeIntervalSince1970) {
+        return YES;
+    }
+    return NO;
+}
+
+- (BOOL)isLaterOrEqualTo:(NSDate *)date {
+    if (self.timeIntervalSince1970 >= date.timeIntervalSince1970) {
+        return YES;
+    }
+    return NO;
 }
 
 @end

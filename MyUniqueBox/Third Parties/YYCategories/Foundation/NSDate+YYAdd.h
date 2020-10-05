@@ -183,6 +183,42 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (nullable NSDate *)dateWithISOFormatString:(NSString *)dateString;
 
+/**
+ *  Returns a YES if receiver is earlier than provided comparison date, otherwise returns NO
+ *
+ *  @param date NSDate - Provided date for comparison
+ *
+ *  @return BOOL representing comparison result
+ */
+- (BOOL)isEarlier:(NSDate *)date;
+
+/**
+ *  Returns a YES if receiver is later than provided comparison date, otherwise returns NO
+ *
+ *  @param date NSDate - Provided date for comparison
+ *
+ *  @return BOOL representing comparison result
+ */
+- (BOOL)isLater:(NSDate *)date;
+
+/**
+ *  Returns a YES if receiver is earlier than or equal to the provided comparison date, otherwise returns NO
+ *
+ *  @param date NSDate - Provided date for comparison
+ *
+ *  @return BOOL representing comparison result
+ */
+- (BOOL)isEarlierOrEqualTo:(NSDate *)date;
+
+/**
+ *  Returns a YES if receiver is later than or equal to provided comparison date, otherwise returns NO
+ *
+ *  @param date NSDate - Provided date for comparison
+ *
+ *  @return BOOL representing comparison result
+ */
+- (BOOL)isLaterOrEqualTo:(NSDate *)date;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -156,9 +156,9 @@
     if (behavior & MUBLogBehaviorTime) {
         if (self.current) {
             NSTimeInterval interval = [[NSDate date] timeIntervalSinceDate:self.current];
-            logs = [logs stringByAppendingFormat:@"%@ | %@\t\t", [[NSDate date] formattedDateWithFormat:MUBTimeFormatyMdHmsS], [MUBUtilityManager humanReadableTimeFromInterval:interval]];
+            logs = [logs stringByAppendingFormat:@"%@ | %@\t\t", [[NSDate date] stringWithFormat:MUBTimeFormatyMdHmsS], [MUBUtilityManager humanReadableTimeFromInterval:interval]];
         } else {
-            logs = [logs stringByAppendingFormat:@"%@\t\t", [[NSDate date] formattedDateWithFormat:MUBTimeFormatyMdHmsS]];
+            logs = [logs stringByAppendingFormat:@"%@\t\t", [[NSDate date] stringWithFormat:MUBTimeFormatyMdHmsS]];
         }
     }
     logs = [logs stringByAppendingString:log];

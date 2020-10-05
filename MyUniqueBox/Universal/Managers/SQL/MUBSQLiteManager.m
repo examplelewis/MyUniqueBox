@@ -301,7 +301,7 @@
     for (MUBResourceWeiboStatusModel *model in models) {
         [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
             NSString *update = @"INSERT INTO MUBWeiboDownloadStatus (id, weibo_id, author_id, author_name, text, publish_time, fetch_time) values(?, ?, ?, ?, ?, ?, ?)";
-            NSArray *arguments = @[[NSNull null], model.idstr, model.user.idstr, model.user.screenName, model.text, model.createdAtSqliteStr, [[NSDate date] formattedDateWithFormat:MUBTimeFormatyMdHms]];
+            NSArray *arguments = @[[NSNull null], model.idstr, model.user.idstr, model.user.screenName, model.text, model.createdAtSqliteStr, [[NSDate date] stringWithFormat:MUBTimeFormatyMdHms]];
             
             BOOL success = [db executeUpdate:update withArgumentsInArray:arguments];
             if (!success) {

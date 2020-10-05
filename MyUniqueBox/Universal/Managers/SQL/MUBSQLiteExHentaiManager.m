@@ -114,7 +114,7 @@
 }
 - (void)insertExHentaiImageModels:(NSArray<MUBResourceExHentaiImageModel *> *)imageModels model:(MUBResourceExHentaiPageModel *)model downloadFolderPath:(NSString *)downloadFolderPath {
     NSTimeInterval nowInterval = [[NSDate date] timeIntervalSince1970];
-    NSString *nowReadable = [[NSDate date] formattedDateWithFormat:MUBTimeFormatyMdHms];
+    NSString *nowReadable = [[NSDate date] stringWithFormat:MUBTimeFormatyMdHms];
     
     [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
         NSString *update = @"INSERT INTO MUBDownloadGallery (dgid, gid, start_page, end_page, fetch_count, download_count, remark, category, filecount, filesize, posted, title, titleJpn, token, uploader, fetch_time, fetch_readable_time, fetch_gallery_url) values(?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
