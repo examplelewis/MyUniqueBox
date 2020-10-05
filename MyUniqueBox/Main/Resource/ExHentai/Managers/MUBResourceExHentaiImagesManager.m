@@ -107,7 +107,8 @@
     }
     
     if (self.failures.count > 0) {
-        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"有%ld个网页无法获取图片链接，已导出到下载文件夹的 MUBResourceExHentaiFailureImages.txt 文件中", self.failures.count];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"有 %ld 个网页无法获取图片链接，已导出到下载文件夹的 MUBResourceExHentaiFailureImages.txt 文件中", self.failures.count];
+        self.model.remarks = [self.model.remarks arrayByAddingObject:[NSString stringWithFormat:@"有 %ld 个网页无法获取图片链接", self.failures.count]];
     }
     
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"成功获取到%ld条数据", self.imageModels.count];

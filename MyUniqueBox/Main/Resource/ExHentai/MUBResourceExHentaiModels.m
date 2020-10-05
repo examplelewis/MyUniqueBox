@@ -36,7 +36,7 @@
 
 - (NSString *)remark {
     if (!_remark) {
-        if (self.remarks.count == 0) {
+        if (!self.remarks.isNotEmpty) {
             _remark = @"无";
         } else {
             _remark = [self.remarks componentsJoinedByString:@", "];
