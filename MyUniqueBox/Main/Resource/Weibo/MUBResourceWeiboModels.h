@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MUBResourceWeiboStatusModel : MUBModel
 
 @property (nonatomic, copy) NSString *createdAt;
+@property (assign) BOOL deleted;
 @property (assign) BOOL favorited;
 @property (assign) NSInteger _id;
 @property (copy) NSString *idstr;
@@ -33,8 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (copy) NSString *createdAtReadableStr;
 @property (copy) NSString *createdAtSqliteStr;
 
-@property (copy) NSArray *imgUrls;
-@property (copy) NSString *imgUrlsStr;
+@property (nonatomic, copy) NSArray *imgUrls;
+@property (nonatomic, copy) NSString *imgUrlsStr;
 
 @end
 

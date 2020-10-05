@@ -53,6 +53,14 @@
             return;
         }
         
+        NSInteger beforeCount = models.count;
+        models = [models bk_select:^BOOL(MUBResourceWeiboFavouriteModel *model) {
+            return !model.status.deleted;
+        }];
+        if (beforeCount != models.count) {
+            [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"有 %ld 条微博已被删除，忽略", beforeCount - models.count];
+        }
+        
         BOOL found = NO;
         for (NSInteger i = 0; i < models.count; i++) {
             MUBResourceWeiboFavouriteModel *model = models[i];
@@ -85,7 +93,7 @@
         }
 
         // 如果找到了边界微博，或者一直没有找到，直到取到的微博数量小于50，代表着没有更多收藏微博了，即边界微博出错
-        if (found || models.count < MUBResourceWeiboFavoriteAPIFetchCount || self.fetchedCount > self.maxFetchCount) {
+        if (found || beforeCount < MUBResourceWeiboFavoriteAPIFetchCount || self.fetchedCount > self.maxFetchCount) {
             [self _exportResult];
         } else {
             self.fetchedPage += 1; // 计数
