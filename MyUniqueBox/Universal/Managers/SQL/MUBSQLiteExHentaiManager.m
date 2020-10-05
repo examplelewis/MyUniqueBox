@@ -138,5 +138,18 @@
         }];
     }
 }
+- (NSString *)pageURLWithGalleryID:(NSInteger)gid {
+    __block NSString *pageURL = @"";
+    [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+        NSString *query = [NSString stringWithFormat:@"select fetch_gallery_url from MUBDownloadGallery where gid = %ld", gid];
+        FMResultSet *rs = [db executeQuery:query];
+        while ([rs next]) {
+            pageURL = [rs stringForColumnIndex:0];
+        }
+        [rs close];
+    }];
+    
+    return pageURL;
+}
 
 @end

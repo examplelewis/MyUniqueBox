@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)insertExHentaiImageModels:(NSArray<MUBResourceExHentaiImageModel *> *)imageModels model:(MUBResourceExHentaiPageModel *)model downloadFolderPath:(NSString *)downloadFolderPath;
 
+- (NSString *)pageURLWithGalleryID:(NSInteger)gid;
+
 @end
 
 NS_ASSUME_NONNULL_END

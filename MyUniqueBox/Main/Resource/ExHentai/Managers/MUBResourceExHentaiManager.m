@@ -9,6 +9,7 @@
 #import "MUBResourceExHentaiManager.h"
 #import "MUBResourceExHentaiHeader.h"
 #import "MUBResourceExHentaiModels.h"
+#import "MUBHTTPExHentaiManager.h"
 
 #import "MUBCookieManager.h"
 #import "MUBSQLiteExHentaiManager.h"
@@ -71,12 +72,50 @@
     manager.delegate = self;
     [manager start];
 }
-- (void)_startFetchingImagesWithInputs:(NSArray *)inputs model:(MUBResourceExHentaiPageModel * _Nullable)model {
+- (void)_startFetchingImagesWithInputs:(NSArray<NSString *> *)inputs model:(MUBResourceExHentaiPageModel * _Nullable)model {
+    if (model) {
+        [self __startFetchingImagesWithInputs:inputs model:model];
+        return;
+    }
+    
+    NSString *gid = [inputs.firstObject.lastPathComponent componentsSeparatedByString:@"-"].firstObject;
+    NSString *pageURL = [[MUBSQLiteExHentaiManager defaultManager] pageURLWithGalleryID:gid.integerValue];
+    if (!pageURL.isNotEmpty) {
+        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"未找到图片链接对应的Gallery页面，跳过"];
+        return;
+    }
+    
+    [[MUBHTTPExHentaiManager defaultManager] getPostDetailWithPageURL:pageURL completionHandler:^(NSURLResponse * _Nonnull response, NSArray<MUBResourceExHentaiPageModel *> * _Nullable models, NSError * _Nullable error) {
+        if (error) {
+            [MUBAlertManager showCriticalAlertOnMainWindowWithMessage:@"ExHentai 接口调用失败" info:error.localizedDescription runModal:NO handler:nil];
+            return;
+        }
+        
+        if (models.count == 0) {
+            [[MUBLogManager defaultManager] addWarningLogWithFormat:@"接口未返回图包的信息, 流程结束"];
+            return;
+        }
+        
+        MUBResourceExHentaiPageModel *pageModel = models.firstObject;
+        pageModel.fetchCount = inputs.count;
+        pageModel.startPage = -1;
+        pageModel.endPage = -1;
+        pageModel.remarks = [pageModel.remarks arrayByAddingObject:[NSString stringWithFormat:@"重新抓取之前失败的 %ld 条图片链接", inputs.count]];
+        
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"已获取到ExHentai图包信息:"];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"title: %@", pageModel.title];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"titleJpn: %@", pageModel.titleJpn];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"fileCount: %ld", pageModel.filecount];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"category: %@", pageModel.category];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"rating: %@", pageModel.rating];
+        
+        [self __startFetchingImagesWithInputs:inputs model:pageModel];
+    }];
+}
+- (void)__startFetchingImagesWithInputs:(NSArray<NSString *> *)inputs model:(MUBResourceExHentaiPageModel *)model {
     MUBResourceExHentaiImagesManager *manager = [MUBResourceExHentaiImagesManager managerWithURLs:inputs];
     manager.delegate = self;
-    if (model) {
-        manager.model = model;
-    }
+    manager.model = model;
     [manager start];
 }
 - (void)_startFetchingTorrentsWithInputs:(NSArray *)inputs {
