@@ -109,7 +109,7 @@
     [MUBFileManager trashFilePath:self.plistPath];
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [MUBAlertManager showInfomationalAlertOnMainWindowWithMessage:@"整理流程结束" info:nil runModal:YES handler:nil];
+        [MUBAlertManager showInfomationalAlertOnMainWindowWithMessage:@"整理流程结束" info:nil runModal:NO handler:nil];
     });
     
     if ([self.delegate respondsToSelector:@selector(managerDidFinishOrganizing:)]) {

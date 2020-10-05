@@ -30,13 +30,13 @@ static NSString * const MUBPixivUtilDBFilePath = @"/Users/Mercury/SynologyDrive/
             _mainFolderPath = MUBMainFolderPath;
             _mainDatabasesFolderPath = [MUBMainFolderPath stringByAppendingPathComponent:@"Databases"];
         } else {
-            [MUBAlertManager showCriticalAlertOnMainWindowWithMessage:@"主文件夹不存在" info:[NSString stringWithFormat:@"需要检查:\n%@", MUBMainFolderPath] runModal:YES handler:nil];
+            [MUBAlertManager showCriticalAlertOnMainWindowWithMessage:@"主文件夹不存在" info:[NSString stringWithFormat:@"需要检查:\n%@", MUBMainFolderPath] runModal:NO handler:nil];
         }
         
         if ([MUBFileManager fileExistsAtPath:MUBPixivUtilDBFilePath]) {
             _pixivUtilDBFilePath = MUBPixivUtilDBFilePath;
         } else {
-            [MUBAlertManager showCriticalAlertOnMainWindowWithMessage:@"PixivUtil 数据库文件不存在" info:[NSString stringWithFormat:@"需要检查:\n%@", MUBPixivUtilDBFilePath] runModal:YES handler:nil];
+            [MUBAlertManager showCriticalAlertOnMainWindowWithMessage:@"PixivUtil 数据库文件不存在" info:[NSString stringWithFormat:@"需要检查:\n%@", MUBPixivUtilDBFilePath] runModal:NO handler:nil];
         }
         
         [self setupPaths];

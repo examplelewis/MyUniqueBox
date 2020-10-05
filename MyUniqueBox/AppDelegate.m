@@ -58,7 +58,7 @@
     logFilePaths = [logFilePaths sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"self" ascending:NO]]];
     
     if (![[NSWorkspace sharedWorkspace] openFile:logFilePaths.firstObject]) {
-        [MUBAlertManager showCriticalAlertOnMainWindowWithMessage:@"打开日志文件时发生错误，打开失败" info:nil runModal:YES handler:nil];
+        [MUBAlertManager showCriticalAlertOnMainWindowWithMessage:@"打开日志文件时发生错误，打开失败" info:nil runModal:NO handler:nil];
     }
 }
 - (IBAction)openPrefsMenuItemDidPress:(NSMenuItem *)sender {

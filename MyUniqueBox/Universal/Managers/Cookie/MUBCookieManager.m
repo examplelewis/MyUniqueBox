@@ -43,7 +43,7 @@
     // Cookie即将过期，需要使用Chrome再次请求Cookie
     NSDate *expireDate = [NSDate dateWithTimeIntervalSince1970:[[self.models valueForKeyPath:@"@max.expirationDate"] doubleValue]];
     if ([expireDate isEarlierThan:[NSDate date]]) {
-        [MUBAlertManager showWarningAlertOnKeyWindowWithMessage:@"有部分Cookie即将过期" info:@"需要使用Chrome再次请求Cookie" runModal:YES handler:nil];
+        [MUBAlertManager showWarningAlertOnKeyWindowWithMessage:@"有部分Cookie即将过期" info:@"需要使用Chrome再次请求Cookie" runModal:NO handler:nil];
     }
     
     for (NSInteger i = 0; i < self.models.count; i++) {

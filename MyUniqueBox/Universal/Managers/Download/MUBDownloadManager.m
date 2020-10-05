@@ -144,7 +144,7 @@ static NSString * kDownloadRemainURLsExportFileName = @"MUBDownloadRemainURLsExp
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"下载流程结束"];
         if (self.model.showFinishAlert) {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [MUBAlertManager showInfomationalAlertOnMainWindowWithMessage:@"下载流程结束" info:nil runModal:YES handler:nil];
+                [MUBAlertManager showInfomationalAlertOnMainWindowWithMessage:@"下载流程结束" info:nil runModal:NO handler:nil];
             });
         }
         
