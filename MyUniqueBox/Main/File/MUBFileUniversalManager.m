@@ -138,12 +138,7 @@
 + (void)_rename32BitMD5AtRootFolderPath:(NSString *)rootFolderPath byType:(MUBFileUniversalType)byType {
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"为文件生成32位的随机名称, 流程开始, 选择的根目录: %@", rootFolderPath];
     
-    NSArray *filePaths;
-    if (byType == MUBFileUniversalTypeRename32BitMD5ByFolder) {
-        filePaths = [MUBFileManager allFilePathsInFolder:rootFolderPath];
-    } else if (byType == MUBFileUniversalTypeRename32BitMD5ByFile) {
-        filePaths = [MUBFileManager filePathsInFolder:rootFolderPath];
-    }
+    NSArray *filePaths = [MUBFileManager allFilePathsInFolder:rootFolderPath];
     if (filePaths.count == 0) {
         [[MUBLogManager defaultManager] addWarningLogWithFormat:@"为文件生成32位的随机名称, 流程结束: 选择的文件夹中没有项目"];
         return;
@@ -153,9 +148,15 @@
         NSString *filePath = filePaths[i];
         NSString *folderPath = filePath.stringByDeletingLastPathComponent;
         
-        NSString *folderMD5 = [self _md5MiddleStringFromPath:folderPath];
-        NSString *fileMD5 = [self _md5MiddleStringFromPath:filePath];
-        NSString *newFilePath = [folderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@.%@", folderMD5, fileMD5, filePath.pathExtension]];
+        NSString *newFilePath = @"";
+        if (byType == MUBFileUniversalTypeRename32BitMD5ByFolder) {
+            NSString *folderMD5 = [self _md5MiddleStringFromPath:folderPath];
+            NSString *fileMD5 = [self _md5MiddleStringFromPath:filePath];
+            newFilePath = [folderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@%@.%@", folderMD5, fileMD5, filePath.pathExtension]];
+        } else if (byType == MUBFileUniversalTypeRename32BitMD5ByFile) {
+            NSString *fileMD5 = [self _md5StringFromPath:filePath];
+            newFilePath = [folderPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.%@", fileMD5, filePath.pathExtension]];
+        }
         
         [MUBFileManager moveItemFromPath:filePath toPath:newFilePath];
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"\n重命名前：\t%@/%@\n重命名后：\t%@/%@", filePath.stringByDeletingLastPathComponent.lastPathComponent, filePath.lastPathComponent, newFilePath.stringByDeletingLastPathComponent.lastPathComponent, newFilePath.lastPathComponent];
@@ -167,6 +168,11 @@
     NSDate *creationDate = [MUBFileManager attribute:NSFileCreationDate ofItemAtPath:path];
     NSString *desc = [NSString stringWithFormat:@"%@%@", path.lastPathComponent, creationDate];
     return desc.md5String.md5Middle;
+}
++ (NSString *)_md5StringFromPath:(NSString *)path {
+    NSDate *creationDate = [MUBFileManager attribute:NSFileCreationDate ofItemAtPath:path];
+    NSString *desc = [NSString stringWithFormat:@"%@%@", path.lastPathComponent, creationDate];
+    return desc.md5String;
 }
 
 #pragma mark - MUBFileUniversalTypeSearchHiddenFile
