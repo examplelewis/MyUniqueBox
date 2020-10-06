@@ -15,12 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MUBUIManager : NSObject
 
-@property (strong, readonly) AppDelegate *appDelegate;
-@property (strong, readonly) WindowController *mainWindowController;
-@property (strong, readonly) ViewController *viewController;
+@property (nonatomic, strong) AppDelegate *appDelegate;
+@property (nonatomic, strong) WindowController *mainWindowController;
+@property (nonatomic, strong) ViewController *viewController;
 
 + (instancetype)defaultManager;
-- (void)setup;
 
 - (void)scrollNewestLogVisible;
 - (void)resetProgressIndicator;

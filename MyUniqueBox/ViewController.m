@@ -20,8 +20,6 @@
 - (void)viewDidAppear {
     [super viewDidAppear];
     
-    [[MUBUIManager defaultManager] setup];
-    
     [[NSApplication sharedApplication].mainWindow makeFirstResponder:self.inputTextView]; // 设置组件为第一响应
 }
 - (void)setRepresentedObject:(id)representedObject {
