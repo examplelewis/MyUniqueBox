@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSUInteger, MUBFileUniversalType) {
     MUBFileUniversalTypeRename32BitMD5ByFolder,
     MUBFileUniversalTypeRename32BitMD5ByFile,
+    MUBFileUniversalTypeRename32BitMD5BySeries,
     MUBFileUniversalTypeSearchHiddenFile,
     MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleFolder,
     MUBFileUniversalTypeRenameAsSuperFodlerNameOnSingleFile,
