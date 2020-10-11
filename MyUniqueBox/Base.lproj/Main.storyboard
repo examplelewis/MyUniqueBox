@@ -684,6 +684,9 @@
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="ZCR-6q-OKX"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="取消多个拉黑的用户 [用户ID / 用户页面地址]" tag="1060007" id="G5G-5B-UCn">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
                                                     <menuItem isSeparatorItem="YES" id="Ldc-9Z-7DJ"/>
                                                     <menuItem title="查询多个用户的关注状态 [用户ID / 用户页面地址]" tag="1060101" id="qD6-Lg-4GR">
                                                         <modifierMask key="keyEquivalentModifierMask"/>

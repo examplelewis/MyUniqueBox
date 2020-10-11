@@ -46,6 +46,11 @@
                     [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeUpdateBlock2];
                 }
                     break;
+                case 7: {
+                    [[MUBLogManager defaultManager] reset];
+                    [MUBResourcePixivUniversalManager getInputsWithType:MUBResourcePixivUniversalTypeRemoveBlock];
+                }
+                    break;
                 default:
                     break;
             }

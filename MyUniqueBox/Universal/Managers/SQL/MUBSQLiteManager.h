@@ -31,6 +31,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updatePixivUsersBlock1StatusWithMemberIDs:(NSArray<NSString *> *)memberIDs;
 // 更新不确定拉黑的用户列表
 - (void)updatePixivUsersBlock2StatusWithMemberIDs:(NSArray<NSString *> *)memberIDs;
+// 删除拉黑的用户列表
+- (void)removePixivUsersBlockWithMemberIDs:(NSArray<NSString *> *)memberIDs;
 
 #pragma mark - Pixiv Fetch
 // 获取抓取的用户列表

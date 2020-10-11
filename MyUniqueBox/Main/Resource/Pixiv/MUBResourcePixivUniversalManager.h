@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 typedef NS_ENUM(NSUInteger, MUBResourcePixivUniversalType) {
     MUBResourcePixivUniversalTypeUpdateBlock1,
     MUBResourcePixivUniversalTypeUpdateBlock2,
+    MUBResourcePixivUniversalTypeRemoveBlock,
     MUBResourcePixivUniversalTypeFollowStatus,
     MUBResourcePixivUniversalTypeBlockStatus,
     MUBResourcePixivUniversalTypeFetchStatus,

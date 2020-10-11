@@ -66,6 +66,10 @@
             [[MUBSQLiteManager defaultManager] updatePixivUsersBlock2StatusWithMemberIDs:memberIDs];
         }
             break;
+        case MUBResourcePixivUniversalTypeRemoveBlock: {
+            [[MUBSQLiteManager defaultManager] removePixivUsersBlockWithMemberIDs:memberIDs];
+        }
+            break;
         case MUBResourcePixivUniversalTypeFollowStatus: {
             [MUBResourcePixivUniversalManager _checkFollowStatusWithMemberIDs:memberIDs];
         }

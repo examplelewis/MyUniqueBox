@@ -174,6 +174,20 @@
         }
     }
 }
+// 删除拉黑的用户列表
+- (void)removePixivUsersBlockWithMemberIDs:(NSArray<NSString *> *)memberIDs {
+    for (NSString *memberID in memberIDs) {
+        [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+            BOOL success = [db executeUpdate:@"DELETE FROM MUBPixivBlockUser WHERE member_id = ?", @(memberID.integerValue)];
+            if (success) {
+                [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"Pixiv userId: %ld 已删除拉黑记录", memberID.integerValue];
+            } else {
+                [[MUBLogManager defaultManager] addErrorLogWithFormat:@"在数据表:MUBPixivBlockUser中删除数据时发生错误：%@", [db lastErrorMessage]];
+                [[MUBLogManager defaultManager] addErrorLogWithFormat:@"数据：userId: %ld", memberID.integerValue];
+            }
+        }];
+    }
+}
 
 #pragma mark - Pixiv Fetch
 // 获取抓取的用户列表
