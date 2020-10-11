@@ -879,6 +879,12 @@
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="jhf-6z-GD1"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem title="为文件生成32位的随机名称(系列区分) [选取根文件夹]" tag="3000503" id="jPu-ar-Jaz">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="nvr-Tw-7Gw"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem isSeparatorItem="YES" id="hMK-X8-8j9"/>
                                         <menuItem title="导出文件名中包含OneDrive禁止字符的路径 [选取根文件夹]【功能未测试】" tag="3000601" id="ubW-lk-iGh">
                                             <modifierMask key="keyEquivalentModifierMask"/>

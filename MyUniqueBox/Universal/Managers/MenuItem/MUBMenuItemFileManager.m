@@ -145,6 +145,11 @@ static NSInteger const kDefaultTag = 3000000;
                     [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeRename32BitMD5ByFile];
                 }
                     break;
+                case 3: {
+                    [[MUBLogManager defaultManager] reset];
+                    [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeRename32BitMD5BySeries];
+                }
+                    break;
                 default:
                     break;
             }

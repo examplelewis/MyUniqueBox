@@ -21,6 +21,13 @@
         return [self substringWithRange:NSMakeRange(self.length / 4, self.length / 2)];
     }
 }
+- (NSString *)md5Middle8 {
+    if (self.length != 32) { // MD5都是32位的
+        return self;
+    } else {
+        return [self substringWithRange:NSMakeRange(self.length * 3 / 8, self.length / 4)];
+    }
+}
 
 #pragma mark - Export
 - (void)exportToPath:(NSString *)path {

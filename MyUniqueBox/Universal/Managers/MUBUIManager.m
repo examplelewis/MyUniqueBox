@@ -25,11 +25,6 @@
     
     return defaultManager;
 }
-- (void)setup {
-    _appDelegate = (AppDelegate *)[NSApplication sharedApplication].delegate;
-    _mainWindowController = (WindowController *)[NSApplication sharedApplication].mainWindow.windowController;
-    _viewController = (ViewController *)self.mainWindowController.contentViewController;
-}
 
 - (void)scrollNewestLogVisible {
     dispatch_main_async_safe((^{
@@ -61,5 +56,26 @@
     }));
 }
 
+- (AppDelegate *)appDelegate {
+    if (!_appDelegate) {
+        _appDelegate = (AppDelegate *)[NSApplication sharedApplication].delegate;
+    }
+
+    return _appDelegate;
+}
+- (WindowController *)mainWindowController {
+    if (!_mainWindowController) {
+        _mainWindowController = (WindowController *)[NSApplication sharedApplication].mainWindow.windowController;
+    }
+    
+    return _mainWindowController;
+}
+- (ViewController *)viewController {
+    if (!_viewController) {
+        _viewController = (ViewController *)self.mainWindowController.contentViewController;
+    }
+    
+    return _viewController;
+}
 
 @end
