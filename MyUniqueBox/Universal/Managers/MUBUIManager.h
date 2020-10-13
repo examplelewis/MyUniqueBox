@@ -15,12 +15,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MUBUIManager : NSObject
 
-@property (nonatomic, strong) AppDelegate *appDelegate;
-@property (nonatomic, strong) WindowController *mainWindowController;
-@property (nonatomic, strong) ViewController *viewController;
+@property (strong, readonly) AppDelegate *appDelegate;
+@property (strong, readonly) WindowController *mainWindowController;
+@property (strong, readonly) ViewController *viewController;
 
+#pragma mark - Lifecycle
 + (instancetype)defaultManager;
 
+#pragma mark - Update
+- (void)updateAppDelegate:(AppDelegate *)appDelegate;
+- (void)updateMainWindowController:(WindowController *)mainWindowController;
+- (void)updateViewController:(ViewController *)viewController;
+
+#pragma mark - UI
 - (void)scrollNewestLogVisible;
 - (void)resetProgressIndicator;
 - (void)resetProgressIndicatorMaxValue:(double)maxValue;

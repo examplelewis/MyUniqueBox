@@ -16,6 +16,8 @@
     
     [self.inputTextView setFont:[NSFont fontWithName:@"PingFangSC-Regular" size:12.0f]];
     [self.logTextView setFont:[NSFont fontWithName:@"PingFangSC-Regular" size:12.0f]];
+    
+    [[MUBUIManager defaultManager] updateViewController:self];
 }
 - (void)viewDidAppear {
     [super viewDidAppear];

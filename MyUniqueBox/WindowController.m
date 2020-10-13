@@ -16,6 +16,8 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
+    
+    [[MUBUIManager defaultManager] updateMainWindowController:self];
 }
 
 @end

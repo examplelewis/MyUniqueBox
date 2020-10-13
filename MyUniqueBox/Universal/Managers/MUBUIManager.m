@@ -16,6 +16,7 @@
 
 @implementation MUBUIManager
 
+#pragma mark - Lifecycle
 + (instancetype)defaultManager {
     static MUBUIManager *defaultManager = nil;
     static dispatch_once_t onceToken;
@@ -26,6 +27,18 @@
     return defaultManager;
 }
 
+#pragma mark - Update
+- (void)updateAppDelegate:(AppDelegate *)appDelegate {
+    _appDelegate = appDelegate;
+}
+- (void)updateMainWindowController:(WindowController *)mainWindowController {
+    _mainWindowController = mainWindowController;
+}
+- (void)updateViewController:(ViewController *)viewController {
+    _viewController = viewController;
+}
+
+#pragma mark - UI
 - (void)scrollNewestLogVisible {
     dispatch_main_async_safe((^{
         [self.viewController.logTextView scrollRangeToVisible:NSMakeRange(self.viewController.logTextView.string.length, 0)];
@@ -54,28 +67,6 @@
         self.viewController.progressIndicator.doubleValue = doubleValue;
         self.viewController.progressLabel.stringValue = [NSString stringWithFormat:@"%.0f / %.0f", doubleValue, self.progressIndicatorMaxValue];
     }));
-}
-
-- (AppDelegate *)appDelegate {
-    if (!_appDelegate) {
-        _appDelegate = (AppDelegate *)[NSApplication sharedApplication].delegate;
-    }
-
-    return _appDelegate;
-}
-- (WindowController *)mainWindowController {
-    if (!_mainWindowController) {
-        _mainWindowController = (WindowController *)[NSApplication sharedApplication].mainWindow.windowController;
-    }
-    
-    return _mainWindowController;
-}
-- (ViewController *)viewController {
-    if (!_viewController) {
-        _viewController = (ViewController *)self.mainWindowController.contentViewController;
-    }
-    
-    return _viewController;
 }
 
 @end

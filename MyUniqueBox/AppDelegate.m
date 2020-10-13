@@ -31,6 +31,8 @@
     [self setupLogger];
     [self setupBuild];
     
+    [[MUBUIManager defaultManager] updateAppDelegate:self];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didGetWeiboToken:) name:MUBDidGetWeiboTokenNotification object:nil];
 }
 - (void)applicationWillFinishLaunching:(NSNotification *)notification {
