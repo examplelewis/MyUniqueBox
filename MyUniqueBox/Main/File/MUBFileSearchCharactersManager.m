@@ -39,7 +39,7 @@
 
 - (void)showOpenPanel {
     if (!self.characters.isNotEmpty) {
-        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"没有获得任何字符，请检查输入框"];
+        [[MUBLogManager defaultManager] addWarningLogWithFormat:MUBWarningNoneContentFoundInInputTextView];
         return;
     }
     

@@ -103,7 +103,7 @@
         weiboIDStr = [MUBUIManager defaultManager].viewController.inputTextView.string;
     }
     if (!weiboIDStr.isNotEmpty) {
-        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"没有获得任何数据，请检查输入框"];
+        [[MUBLogManager defaultManager] addWarningLogWithFormat:MUBWarningNoneContentFoundInInputTextView];
         return;
     }
     
@@ -127,7 +127,7 @@
             if (!model.status.favorited) {
                 [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"%@ 取消收藏成功", weiboID];
             } else {
-                [[MUBLogManager defaultManager] addWarningLogWithFormat:@"%@ 取消收藏失败: %@", weiboID, object[@"error"]];
+                [[MUBLogManager defaultManager] addErrorLogWithFormat:@"%@ 取消收藏失败: %@", weiboID, object[@"error"]];
             }
         }];
     }

@@ -42,7 +42,7 @@
 + (void)getInputsWithType:(MUBResourcePixivUniversalType)type {
     NSString *inputStr = [MUBUIManager defaultManager].viewController.inputTextView.string;
     if (!inputStr.isNotEmpty) {
-        [[MUBLogManager defaultManager] addWarningLogWithFormat:@"没有获得任何数据，请检查输入框"];
+        [[MUBLogManager defaultManager] addWarningLogWithFormat:MUBWarningNoneContentFoundInInputTextView];
         return;
     }
     NSArray<NSString *> *inputs = [inputStr componentsSeparatedByString:@"\n"];

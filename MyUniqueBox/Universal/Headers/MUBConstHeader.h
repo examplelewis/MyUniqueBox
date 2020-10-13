@@ -27,4 +27,7 @@ static NSString * const MUBTimeFormatyMdHmsCompact = @"yyyyMMddHHmmss";
 // Notification Key
 static NSString * const MUBDidGetWeiboTokenNotification = @"com.gongyu.MyUniqueBox.MUBDidGetWeiboTokenNotification";
 
+// Warning
+static NSString * const MUBWarningNoneContentFoundInInputTextView = @"没有获得任何输入内容，请检查输入框";
+
 #endif /* MUBConstHeader_h */
