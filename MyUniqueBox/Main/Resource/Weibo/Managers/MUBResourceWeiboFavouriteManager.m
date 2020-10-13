@@ -87,7 +87,7 @@
             
             [self.ids addObject:status.idstr];
             [self.models addObject:status];
-            NSString *statusKey = [self _weiboStatusFolderNameFromModel:status];
+            NSString *statusKey = [MUBResourceWeiboFavouriteManager _weiboStatusFolderNameFromModel:status];
             [self.statuses setObject:status.imgUrls forKey:statusKey];
             [self.images addObjectsFromArray:status.imgUrls];
         }
@@ -101,7 +101,7 @@
         }
     }];
 }
-- (NSString *)_weiboStatusFolderNameFromModel:(MUBResourceWeiboStatusModel *)model {
++ (NSString *)_weiboStatusFolderNameFromModel:(MUBResourceWeiboStatusModel *)model {
     // 1、先添加用户昵称
     NSString *statusKey = [NSString stringWithFormat:@"%@+", model.user.screenName];
 
@@ -142,7 +142,12 @@
     }
 
     // 3、添加微博发布时间
-    statusKey = [statusKey stringByAppendingFormat:@"%@", model.createdAtReadableStr];
+    // 根据微博内容生成文件夹的名称 时没有时间，因此把最后一个加号去掉
+    if (model.createdAtReadableStr.isNotEmpty) {
+        statusKey = [statusKey stringByAppendingFormat:@"%@", model.createdAtReadableStr];
+    } else {
+        statusKey = [statusKey substringToIndex:statusKey.length - 1];
+    }
 
     // 4、防止有 / 出现以及其他特殊字符
     statusKey = [statusKey stringByReplacingOccurrencesOfString:@"/" withString:@" "];
@@ -151,7 +156,30 @@
     return statusKey;
 }
 
-#pragma mark -- 辅助方法 --
+#pragma mark - Tools
++ (void)outputFolderNameFromWeiboStatusText:(NSString * _Nullable)text {
+    NSString *statusText = [text copy];
+    if (!statusText.isNotEmpty) {
+        statusText = [MUBUIManager defaultManager].viewController.inputTextView.string;
+    }
+    if (!statusText.isNotEmpty) {
+        [[MUBLogManager defaultManager] addWarningLogWithFormat:MUBWarningNoneContentFoundInInputTextView];
+        return;
+    }
+    
+//    MUBResourceWeiboUserModel *user = [MUBResourceWeiboUserModel new];
+//    user.screenName = @"";
+    MUBResourceWeiboStatusModel *model = [MUBResourceWeiboStatusModel new];
+    model.text = statusText;
+    model.user = [MUBResourceWeiboUserModel new];
+    model.user.screenName = @"";
+    model.createdAtReadableStr = @"";
+    
+    NSString *folderName = [MUBResourceWeiboFavouriteManager _weiboStatusFolderNameFromModel:model];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"生成的文件夹名称为:\n%@", folderName];
+}
+
+#pragma mark - 辅助方法
 - (void)_exportResult {
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"一共抓取到 %ld 条微博，去重后剩余 %ld 条，重复 %ld 条", self.fetchedCount, self.statuses.count, self.fetchedCount - self.statuses.count];
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"流程已经完成，共有 %ld 条微博的 %ld 条图片地址被获取到", self.statuses.count, self.images.count];

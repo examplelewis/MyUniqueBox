@@ -43,6 +43,10 @@
                     [manager start];
                 }
                     break;
+                case 98: {
+                    [MUBResourceWeiboFavouriteManager outputFolderNameFromWeiboStatusText:nil];
+                }
+                    break;
                 case 99: {
                     [[MUBResourceOrganizeManager managerWithType:MUBResourceOrganizeTypeWeibo plistPath:nil] start];
                 }

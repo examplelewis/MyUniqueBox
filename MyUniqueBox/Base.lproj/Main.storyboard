@@ -543,6 +543,12 @@
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="UCz-FE-72D"/>
                                                         </connections>
                                                     </menuItem>
+                                                    <menuItem title="根据微博内容生成文件夹的名称" tag="1030098" id="2Jd-Yc-D7c">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="aiC-zp-wgn"/>
+                                                        </connections>
+                                                    </menuItem>
                                                     <menuItem title="整理下载好的图片" tag="1030099" id="MZ5-Ax-Ous">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>

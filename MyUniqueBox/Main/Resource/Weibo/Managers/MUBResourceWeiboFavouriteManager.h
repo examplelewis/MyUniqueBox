@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)start;
 
+#pragma mark - Tools
++ (void)outputFolderNameFromWeiboStatusText:(NSString * _Nullable)text;
+
 @end
 
 NS_ASSUME_NONNULL_END
