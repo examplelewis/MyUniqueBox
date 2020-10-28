@@ -107,8 +107,11 @@
                     } else {
                         NSArray<MUBResourceExHentaiTorrentModel *> *torrentModels = [model.torrents sortedArrayUsingDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"added" ascending:YES]]];
                         MUBResourceExHentaiTorrentModel *torrentModel = torrentModels.lastObject;
-                        // 如果种子的添加时间比当前Gallery的创建时间早，那就说明该种子对应的是之前版本的Gallery，就忽略掉
-                        if (torrentModel.added < model.posted) {
+                        
+                        // 1、如果种子的添加时间比当前Gallery的创建时间早，那就说明该种子对应的是之前版本的Gallery，就忽略掉
+                        // 2、漫画和同人本不需要判断时间
+                        BOOL isNotMangaOrDoujinshi = ![model.category isEqualToString:@"Doujinshi"] && ![model.category isEqualToString:@"Manga"];
+                        if (torrentModel.added < model.posted && isNotMangaOrDoujinshi) {
                             [[MUBLogManager defaultManager] addWarningLogWithFormat:@"% 没有适用于当前版本Gallery的种子信息，跳过", self.URLs[i]];
                             return;
                         }
