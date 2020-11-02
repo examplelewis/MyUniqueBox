@@ -11,6 +11,7 @@
 		AC2032A12526279700C90ABD /* MUBResourceOrganizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2032A02526279700C90ABD /* MUBResourceOrganizeManager.m */; };
 		AC20449525297C8800337F25 /* MUBSQLiteExHentaiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC20449425297C8800337F25 /* MUBSQLiteExHentaiManager.m */; };
 		AC20449E2529C3D700337F25 /* MUBResourceExHentaiCommentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC20449D2529C3D700337F25 /* MUBResourceExHentaiCommentManager.m */; };
+		AC4192C42550273100E34156 /* MUBResourceWeiboFavouriteLess9ImagesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4192C32550273100E34156 /* MUBResourceWeiboFavouriteLess9ImagesManager.m */; };
 		AC68A1732522419000DC46DD /* MUBHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC68A1722522419000DC46DD /* MUBHTTPManager.m */; };
 		AC702F84251F689700C4431A /* MUBMenuItemDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC702F83251F689700C4431A /* MUBMenuItemDownloadManager.m */; };
 		AC702F90251F70DB00C4431A /* NSError+MUBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = AC702F8F251F70DB00C4431A /* NSError+MUBAdd.m */; };
@@ -145,6 +146,8 @@
 		AC20449425297C8800337F25 /* MUBSQLiteExHentaiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBSQLiteExHentaiManager.m; sourceTree = "<group>"; };
 		AC20449C2529C3D700337F25 /* MUBResourceExHentaiCommentManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBResourceExHentaiCommentManager.h; sourceTree = "<group>"; };
 		AC20449D2529C3D700337F25 /* MUBResourceExHentaiCommentManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBResourceExHentaiCommentManager.m; sourceTree = "<group>"; };
+		AC4192C22550273100E34156 /* MUBResourceWeiboFavouriteLess9ImagesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBResourceWeiboFavouriteLess9ImagesManager.h; sourceTree = "<group>"; };
+		AC4192C32550273100E34156 /* MUBResourceWeiboFavouriteLess9ImagesManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBResourceWeiboFavouriteLess9ImagesManager.m; sourceTree = "<group>"; };
 		AC670CB8251ED77200698B74 /* RACEXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACEXTScope.h; sourceTree = "<group>"; };
 		AC670CB9251ED77200698B74 /* RACMetaMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACMetaMacros.h; sourceTree = "<group>"; };
 		AC68A16D2522403900DC46DD /* MUBHTTPHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBHTTPHeader.h; sourceTree = "<group>"; };
@@ -889,6 +892,8 @@
 				ACF3600325222ED300BD1DC6 /* MUBResourceWeiboFavouriteManager.m */,
 				ACF9619B2524A7C80091FC02 /* MUBResourceWeiboFaviouriteDuplicateManager.h */,
 				ACF9619C2524A7C80091FC02 /* MUBResourceWeiboFaviouriteDuplicateManager.m */,
+				AC4192C22550273100E34156 /* MUBResourceWeiboFavouriteLess9ImagesManager.h */,
+				AC4192C32550273100E34156 /* MUBResourceWeiboFavouriteLess9ImagesManager.m */,
 				ACF961A12524C15D0091FC02 /* MUBResourceWeiboBoundaryManager.h */,
 				ACF961A22524C15D0091FC02 /* MUBResourceWeiboBoundaryManager.m */,
 			);
@@ -1173,6 +1178,7 @@
 				ACC9EBFD250BBC8400B0311D /* NSObject+YYAdd.m in Sources */,
 				ACC9EC07250BBC8400B0311D /* NSObject+YYAddForKVO.m in Sources */,
 				ACF363B1250D4C4A00C1DC47 /* MUBUtilityManager.m in Sources */,
+				AC4192C42550273100E34156 /* MUBResourceWeiboFavouriteLess9ImagesManager.m in Sources */,
 				ACF2276B250E5A5E00A2E3F6 /* NSDictionary+MUBAdd.m in Sources */,
 				AC68A1732522419000DC46DD /* MUBHTTPManager.m in Sources */,
 				ACC9EC2B250BC30100B0311D /* SAPIIllust.m in Sources */,
