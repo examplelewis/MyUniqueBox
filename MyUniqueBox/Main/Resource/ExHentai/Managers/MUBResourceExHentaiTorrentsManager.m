@@ -112,14 +112,13 @@
                         // 2、漫画和同人本不需要判断时间
                         BOOL isNotMangaOrDoujinshi = ![model.category isEqualToString:@"Doujinshi"] && ![model.category isEqualToString:@"Manga"];
                         if (torrentModel.added < model.posted && isNotMangaOrDoujinshi) {
-                            [[MUBLogManager defaultManager] addWarningLogWithFormat:@"% 没有适用于当前版本Gallery的种子信息，跳过", self.URLs[i]];
-                            return;
+                            [[MUBLogManager defaultManager] addWarningLogWithFormat:@"%@ 没有适用于当前版本Gallery的种子信息，跳过", self.URLs[i]];
+                        } else {
+                            NSURL *pageURL = [NSURL URLWithString:self.URLs[i]];
+                            torrentModel.URL = [NSString stringWithFormat:@"%@://%@/torrent/%@/%@.torrent", pageURL.scheme, pageURL.host, trackerID, torrentModel.tHash];
+                            [self.torrentModels addObject:torrentModel];
+                            [[self.torrentModels valueForKey:@"URL"] exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourceExHentaiSuccessTorrentsFilePath]];
                         }
-                        
-                        NSURL *pageURL = [NSURL URLWithString:self.URLs[i]];
-                        torrentModel.URL = [NSString stringWithFormat:@"%@://%@/torrent/%@/%@.torrent", pageURL.scheme, pageURL.host, trackerID, torrentModel.tHash];
-                        [self.torrentModels addObject:torrentModel];
-                        [[self.torrentModels valueForKey:@"URL"] exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourceExHentaiSuccessTorrentsFilePath]];
                     }
                 }
                 
