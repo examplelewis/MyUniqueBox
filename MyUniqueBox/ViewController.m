@@ -39,6 +39,16 @@
 }
 - (IBAction)tempButtonDidPress:(NSButton *)sender {
     [[MUBLogManager defaultManager] addWarningLogWithFormat:@"临时方法执行失败，该方法没有实现"];
+    
+//    NSString *rootFolder = @"/Volumes/Wait DS920/图包资源/20200905 下载/孔雀海/【合集67套】福利系列《少女映画》写真67套(包含高清视频和套图合辑)【17.27G】";
+//    NSArray *folderPaths = [MUBFileManager allFolderPathsInFolder:rootFolder];
+//    folderPaths = [folderPaths bk_select:^BOOL(NSString *obj) {
+//        return [obj.lastPathComponent hasPrefix:@"【"];
+//    }];
+//    for (NSString *folderPath in folderPaths) {
+//        NSString *newFolderPath = [rootFolder stringByAppendingPathComponent:folderPath.lastPathComponent];
+//        [MUBFileManager moveItemFromPath:folderPath toPath:newFolderPath];
+//    }
 
 //    NSString *content = self.inputTextView.string;
 //    NSString *content = [NSString stringWithContentsOfFile:@"" encoding:NSUTF8StringEncoding error:nil];
