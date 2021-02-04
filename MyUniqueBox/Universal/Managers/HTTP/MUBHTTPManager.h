@@ -6,11 +6,9 @@
 //  Copyright © 2020 龚宇. All rights reserved.
 //
 
-#import "MUBModel.h"
-
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MUBHTTPManager : MUBModel
+@interface MUBHTTPManager : NSObject
 
 - (void)GET:(NSString *)url parameters:(id)parameters completionHandler:(nonnull void (^)(NSURLResponse *response, id _Nullable responseObject, NSError * _Nullable error))completionHandler;
 
