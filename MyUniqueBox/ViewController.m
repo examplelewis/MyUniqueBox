@@ -40,6 +40,24 @@
 - (IBAction)tempButtonDidPress:(NSButton *)sender {
     [[MUBLogManager defaultManager] addWarningLogWithFormat:@"临时方法执行失败，该方法没有实现"];
     
+    // 微博分享图片文件夹名称超过长度
+//    NSArray *folderPaths = [MUBFileManager folderPathsInFolder:@"/Users/Mercury/Downloads/微博图片"];
+//    for (NSInteger i = 0; i < folderPaths.count; i++) {
+//        NSString *folderPath = folderPaths[i];
+//        if (folderPath.lastPathComponent.length < 100) {
+//            continue;
+//        } else {
+//            NSString *originFolderName = folderPath.lastPathComponent;
+//            NSString *newFolderName = [originFolderName substringToIndex:originFolderName.length - 18];
+//            newFolderName = [newFolderName substringToIndex:81];
+//            newFolderName = [newFolderName stringByAppendingFormat:@"+%@", [originFolderName componentsSeparatedByString:@"+"].lastObject];
+//            NSString *newFolderPath = [folderPath.stringByDeletingLastPathComponent stringByAppendingPathComponent:newFolderName];
+//
+//            [MUBFileManager moveItemFromPath:folderPath toPath:newFolderPath];
+//        }
+//    }
+    
+    // 孔雀海文件夹提取
 //    NSString *rootFolder = @"/Volumes/Wait DS920/图包资源/20200905 下载/孔雀海/【合集67套】福利系列《少女映画》写真67套(包含高清视频和套图合辑)【17.27G】";
 //    NSArray *folderPaths = [MUBFileManager allFolderPathsInFolder:rootFolder];
 //    folderPaths = [folderPaths bk_select:^BOOL(NSString *obj) {
@@ -49,7 +67,8 @@
 //        NSString *newFolderPath = [rootFolder stringByAppendingPathComponent:folderPath.lastPathComponent];
 //        [MUBFileManager moveItemFromPath:folderPath toPath:newFolderPath];
 //    }
-
+    
+    // 模板操作
 //    NSString *content = self.inputTextView.string;
 //    NSString *content = [NSString stringWithContentsOfFile:@"" encoding:NSUTF8StringEncoding error:nil];
 //    NSArray *components = [content componentsSeparatedByString:@"\n"];
