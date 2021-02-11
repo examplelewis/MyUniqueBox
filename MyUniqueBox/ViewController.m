@@ -41,7 +41,7 @@
     [[MUBLogManager defaultManager] addWarningLogWithFormat:@"临时方法执行失败，该方法没有实现"];
     
     // 微博分享图片文件夹名称超过长度
-//    NSArray *folderPaths = [MUBFileManager folderPathsInFolder:@"/Users/Mercury/Downloads/微博图片"];
+//    NSArray *folderPaths = [MUBFileManager folderPathsInFolder:@"/Users/Mercury/Downloads/ShareImages"];
 //    for (NSInteger i = 0; i < folderPaths.count; i++) {
 //        NSString *folderPath = folderPaths[i];
 //        if (folderPath.lastPathComponent.length < 100) {
@@ -53,6 +53,7 @@
 //            newFolderName = [newFolderName stringByAppendingFormat:@"+%@", [originFolderName componentsSeparatedByString:@"+"].lastObject];
 //            NSString *newFolderPath = [folderPath.stringByDeletingLastPathComponent stringByAppendingPathComponent:newFolderName];
 //
+//            [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"\n重命名前：\t%@\n重命名后：\t%@", folderPath, newFolderPath];
 //            [MUBFileManager moveItemFromPath:folderPath toPath:newFolderPath];
 //        }
 //    }
