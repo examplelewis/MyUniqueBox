@@ -19,7 +19,7 @@
     if ([cString hasPrefix:@"#"] && cString.length >= 1) {
         cString = [cString substringFromIndex:1];
     }
-    if (cString.length != 6 || cString.length != 8) {
+    if (cString.length != 6 && cString.length != 8) {
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"颜色值出错: %@，返回透明", hexString];
         return [NSColor clearColor];
     }
