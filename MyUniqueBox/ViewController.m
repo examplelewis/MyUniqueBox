@@ -53,4 +53,15 @@
     [[MUBLogManager defaultManager] clean];
 }
 
+- (void)moveComicGlassMangas {
+    NSString *originFolder = @"/Users/mercury/Downloads/iPhone 漫画";
+    NSString *targetFolder = @"/Users/mercury/Downloads/iPhone 漫画 复制层级";
+    NSArray *filePaths = [MUBFileManager allFilePathsInFolder:originFolder];
+    for (NSInteger i = 0; i < filePaths.count; i++) {
+        NSString *filePath = filePaths[i];
+        NSString *targetFilePath = [filePath stringByReplacingOccurrencesOfString:originFolder withString:targetFolder];
+        [MUBFileManager moveItemFromPath:filePath toPath:targetFilePath];
+    }
+}
+
 @end
