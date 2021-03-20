@@ -138,6 +138,16 @@
         }
     }];
 }
++ (void)operationWithType:(MUBFileUniversalType)type {
+    switch (type) {
+        case MUBFileUniversalTypeCombineMultipleFolders: {
+            [MUBFileUniversalManager _combineMultipleFolders];
+        }
+            break;
+        default:
+            break;
+    }
+}
 
 #pragma mark - MUBFileUniversalTypeRename32BitMD5
 + (void)_rename32BitMD5AtRootFolderPath:(NSString *)rootFolderPath byType:(MUBFileUniversalType)byType {
@@ -364,7 +374,7 @@
 + (void)_trashNoItemsFolderAtRootFolderPath:(NSString *)rootFolderPath {
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"清空没有项目的文件夹, 流程开始, 选择的根目录: %@", rootFolderPath];
     
-    NSArray *folderPaths = [MUBFileManager folderPathsInFolder:rootFolderPath];
+    NSArray *folderPaths = [MUBFileManager allFolderPathsInFolder:rootFolderPath];
     for (NSInteger i = 0; i < folderPaths.count; i++) {
         NSString *folderPath = folderPaths[i];
         NSArray *contentPaths = [MUBFileManager contentPathsInFolder:folderPath];
@@ -388,6 +398,67 @@
     [MUBFileManager trashFilePaths:trashFilePaths];
     
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"清空清空图片视频之外的文件, 流程结束"];
+}
+
+#pragma mark - MUBFileUniversalTypeCombineMultipleFolders
++ (void)_combineMultipleFolders {
+    MUBAlert *alert = [MUBAlertManager alertWithStyle:NSAlertStyleInformational message:@"是否将相同名称的文件移动到废纸篓中" info:nil];
+    [alert addButtonWithTitles:@[@"否", @"是"] keyEquivalents:@[MUBAlertEscapeKeyEquivalent, MUBAlertReturnKeyEquivalent]];
+    [alert beginSheetModalForWindow:[NSApplication sharedApplication].mainWindow completionHandler:^(NSModalResponse returnCode) {
+        [MUBFileUniversalManager _combineMultipleFoldersWithTrashDuplicateFiles:returnCode == 1001];
+    }];
+}
++ (void)_combineMultipleFoldersWithTrashDuplicateFiles:(BOOL)trashDuplicateFiles {
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"合并多个文件夹, 流程开始"];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"遇到相同名称的文件【%@移动】到废纸篓中", trashDuplicateFiles ? @"" : @"不"];
+    
+    NSString *inputString = [MUBUIManager defaultManager].viewController.inputTextView.string;
+    NSArray *folderPaths = [inputString componentsSeparatedByString:@"\n"];
+    folderPaths = [NSOrderedSet orderedSetWithArray:folderPaths].array; // 使用NSOrderedSet去重
+    if (folderPaths.count < 2) {
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"请在输入框中输入多个[不同]文件夹路径并以换行符区分，且最后一个文件夹路径为目标文件夹路径。"];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"合并多个文件夹, 流程结束"];
+        return;
+    }
+    
+    NSArray *sourceFolderPaths = [folderPaths subarrayWithRange:NSMakeRange(0, folderPaths.count - 1)]; // 源文件夹
+    NSString *targetFolderPath = folderPaths.lastObject; // 目标文件夹
+    NSMutableArray *trashFolderPaths = [NSMutableArray array];
+    
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"输入的源文件夹路径为:\n%@", sourceFolderPaths.stringValue];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"输入的目标文件夹路径为:\n%@", targetFolderPath];
+    
+    // 单纯的替换根文件夹
+    for (NSInteger i = 0; i < sourceFolderPaths.count; i++) {
+        NSString *sourceFolderPath = sourceFolderPaths[i];
+        NSArray *sourceFilePaths = [MUBFileManager allFilePathsInFolder:sourceFolderPath];
+        for (NSInteger j = 0; j < sourceFilePaths.count; j++) {
+            NSString *sourceFilePath = sourceFilePaths[j];
+            NSString *targetFilePath = [sourceFilePath stringByReplacingOccurrencesOfString:sourceFolderPath withString:targetFolderPath];
+
+            // 如果目标文件存在，那么忽略
+            if ([MUBFileManager fileExistsAtPath:targetFilePath]) {
+                [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"%@ 文件已存在，移动到废纸篓", [sourceFilePath stringByReplacingOccurrencesOfString:sourceFolderPath withString:@""]];
+                [trashFolderPaths addObject:sourceFilePath];
+
+                continue;
+            }
+
+            // 先判断目标地址的父文件夹是否存在，如果不存在创建该文件夹
+            if (![MUBFileManager contentIsFolderAtPath:targetFilePath.stringByDeletingLastPathComponent]) {
+                [MUBFileManager createFolderAtPath:targetFilePath.stringByDeletingLastPathComponent];
+            }
+
+            [MUBFileManager moveItemFromPath:sourceFilePath toPath:targetFilePath];
+
+            [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"将: %@", sourceFilePath];
+            [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"合并至: %@", targetFilePath];
+        }
+    }
+
+    [MUBFileManager trashFilePaths:trashFolderPaths];
+
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"合并多个文件夹, 流程结束"];
 }
 
 @end

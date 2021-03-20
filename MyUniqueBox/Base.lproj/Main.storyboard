@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -797,13 +797,19 @@
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="SxM-fK-hr0"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="提取单个子文件夹(针对解压缩后的文件夹) [不递归] [选取根文件夹]" tag="3000102" id="B0g-0n-zvq">
+                                        <menuItem title="合并多个文件夹 [递归] [输入文件夹路径]" tag="3000102" id="78T-be-31I">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="jUw-XX-zKu"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="提取单个子文件夹(针对解压缩后的文件夹) [不递归] [选取根文件夹]" tag="3000103" id="B0g-0n-zvq">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="P0u-s3-jVN"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="提取单个子文件(针对用种子下载好的压缩包) [不递归] [选取根文件夹]" tag="3000103" id="J9H-Er-fGo">
+                                        <menuItem title="提取单个子文件(针对用种子下载好的压缩包) [不递归] [选取根文件夹]" tag="3000104" id="J9H-Er-fGo">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="liF-H2-gmX"/>
@@ -841,7 +847,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="CaB-O2-0FU"/>
-                                        <menuItem title="清空没有项目的子文件夹 [不递归] [选取根文件夹]" tag="3000301" id="gnm-0o-QSc">
+                                        <menuItem title="清空没有项目的子文件夹 [递归] [选取根文件夹]" tag="3000301" id="gnm-0o-QSc">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="kSH-1U-IPO"/>
@@ -922,6 +928,7 @@
                                                 <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="mxC-Xx-Z8b"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="BGC-cN-ezj"/>
                                     </items>
                                 </menu>
                             </menuItem>

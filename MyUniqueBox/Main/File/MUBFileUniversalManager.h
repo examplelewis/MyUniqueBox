@@ -26,11 +26,13 @@ typedef NS_ENUM(NSUInteger, MUBFileUniversalType) {
     MUBFileUniversalTypeExtractSingleFile,
     MUBFileUniversalTypeTrashNoItemsFolder,
     MUBFileUniversalTypeTrashAntiImageVideoFiles,
+    MUBFileUniversalTypeCombineMultipleFolders,
 };
 
 @interface MUBFileUniversalManager : NSObject
 
 + (void)showOpenPanelWithType:(MUBFileUniversalType)type;
++ (void)operationWithType:(MUBFileUniversalType)type;
 
 @end
 

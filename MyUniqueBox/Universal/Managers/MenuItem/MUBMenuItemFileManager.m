@@ -44,10 +44,15 @@ static NSInteger const kDefaultTag = 3000000;
                     break;
                 case 2: {
                     [[MUBLogManager defaultManager] reset];
-                    [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeExtractSingleFolder];
+                    [MUBFileUniversalManager operationWithType:MUBFileUniversalTypeCombineMultipleFolders];
                 }
                     break;
                 case 3: {
+                    [[MUBLogManager defaultManager] reset];
+                    [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeExtractSingleFolder];
+                }
+                    break;
+                case 4: {
                     [[MUBLogManager defaultManager] reset];
                     [MUBFileUniversalManager showOpenPanelWithType:MUBFileUniversalTypeExtractSingleFile];
                 }
