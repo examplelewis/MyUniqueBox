@@ -562,7 +562,13 @@
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="tK9-4E-eWF"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="取消多个重复收藏的微博 [微博ID]" tag="1030102" id="Qk2-d8-6bK">
+                                                    <menuItem title="获取少于9张图片的微博ID" tag="1030102" id="7zn-11-8Uq">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="Hoi-xR-44L"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="取消多个重复收藏的微博 [微博ID]" tag="1030199" id="Qk2-d8-6bK">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
                                                             <action selector="customMenuItemDidPress:" target="Voe-Tx-rLC" id="zQO-sT-udH"/>

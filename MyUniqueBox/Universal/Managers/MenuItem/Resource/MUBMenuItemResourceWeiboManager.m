@@ -12,6 +12,7 @@
 #import "MUBResourceWeiboFavouriteManager.h"
 #import "MUBResourceWeiboFaviouriteDuplicateManager.h"
 #import "MUBResourceWeiboBoundaryManager.h"
+#import "MUBResourceWeiboFavouriteLess9ImagesManager.h"
 #import "MUBResourceOrganizeManager.h"
 
 @implementation MUBMenuItemResourceWeiboManager
@@ -64,6 +65,11 @@
                 }
                     break;
                 case 2: {
+                    [[MUBLogManager defaultManager] reset];
+                    [[MUBResourceWeiboFavouriteLess9ImagesManager new] start];
+                }
+                    break;
+                case 99: {
                     [[MUBLogManager defaultManager] reset];
                     [MUBResourceWeiboFaviouriteDuplicateManager unfavouriteDuplicateWeibos];
                 }

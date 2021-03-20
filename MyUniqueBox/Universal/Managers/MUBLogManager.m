@@ -184,7 +184,7 @@
         } else if (behavior & MUBLogBehaviorLevelError) {
             textColor = [NSColor systemRedColor];
         }
-        NSAttributedString *attributedLog = [[NSAttributedString alloc] initWithString:logs attributes:@{NSForegroundColorAttributeName: textColor}];
+        NSAttributedString *attributedLog = [[NSAttributedString alloc] initWithString:logs attributes:@{NSForegroundColorAttributeName: textColor, NSFontAttributeName: [NSFont fontWithName:@"PingFangSC-Regular" size:12.0f]}];
         
         // 显示日志
         dispatch_main_async_safe((^{
