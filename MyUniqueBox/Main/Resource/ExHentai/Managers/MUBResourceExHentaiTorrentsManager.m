@@ -42,6 +42,7 @@
 
 - (void)start {
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"获取ExHentai种子信息, 流程开始"];
+    [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"一共获取到 %ld 条地址", self.URLs.count];
     [[MUBUIManager defaultManager] resetProgressIndicatorMaxValue: (double)self.URLs.count];
     
     [self _fetchPostDetail];
