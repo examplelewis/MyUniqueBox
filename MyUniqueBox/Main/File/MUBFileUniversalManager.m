@@ -348,6 +348,10 @@
             [[MUBLogManager defaultManager] addWarningLogWithFormat:@"%@ 内没有项目, 跳过", folderPath];
             continue;
         }
+        if (itemPaths.count != 1) {
+            [[MUBLogManager defaultManager] addWarningLogWithFormat:@"%@ 内有不止一个项目, 跳过", folderPath];
+            continue;
+        }
         
         NSString *itemPath = itemPaths.firstObject;
         NSString *destItemPath = [extractRootFolderPath stringByAppendingPathComponent:itemPath.lastPathComponent];
