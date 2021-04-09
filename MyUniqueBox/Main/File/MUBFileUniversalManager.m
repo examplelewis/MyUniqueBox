@@ -359,6 +359,8 @@
         
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"提取: %@", itemPath];
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"至: %@", destItemPath];
+        
+        [MUBFileManager trashFilePath:folderPath];
     }
     
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"提取文件夹的单个项目, 流程结束"];
