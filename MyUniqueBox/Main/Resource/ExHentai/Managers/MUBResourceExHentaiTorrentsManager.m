@@ -18,6 +18,7 @@
 @property (assign) NSInteger download;
 @property (strong) NSMutableArray<MUBResourceExHentaiTorrentModel *> *torrentModels;
 @property (strong) NSMutableArray *failures;
+@property (strong) NSMutableArray *noTorrents;
 
 @end
 
@@ -35,6 +36,7 @@
         self.download = 0;
         self.torrentModels = [NSMutableArray array];
         self.failures = [NSMutableArray array];
+        self.noTorrents = [NSMutableArray array];
     }
     
     return self;
@@ -114,6 +116,8 @@
                         BOOL isNotMangaOrDoujinshi = ![model.category isEqualToString:@"Doujinshi"] && ![model.category isEqualToString:@"Manga"];
                         if (torrentModel.added < model.posted && isNotMangaOrDoujinshi) {
                             [[MUBLogManager defaultManager] addWarningLogWithFormat:@"%@ 没有适用于当前版本Gallery的种子信息，跳过", self.URLs[i]];
+                            [self.noTorrents addObject:self.URLs[i]];
+                            [self.noTorrents exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourceExHentaiNoTorrentsFilePath]];
                         } else {
                             NSURL *pageURL = [NSURL URLWithString:self.URLs[i]];
                             torrentModel.URL = [NSString stringWithFormat:@"%@://%@/torrent/%@/%@.torrent", pageURL.scheme, pageURL.host, trackerID, torrentModel.tHash];
@@ -145,6 +149,9 @@
     
     if (self.failures.count > 0) {
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"有%ld个页面无法解析，已导出到下载文件夹的 MUBResourceExHentaiFailureTorrents.txt 文件中", self.failures.count];
+    }
+    if (self.noTorrents.count > 0) {
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"有%ld个页面没有种子文件，已导出到下载文件夹的 MUBResourceExHentaiNoTorrents.txt 文件中", self.noTorrents.count];
     }
     
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"已获取到%lu条种子信息", self.torrentModels.count];
