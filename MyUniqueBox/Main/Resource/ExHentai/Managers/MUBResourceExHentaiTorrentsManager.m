@@ -63,6 +63,8 @@
             
             if (models.count == 0) {
                 [[MUBLogManager defaultManager] addWarningLogWithFormat:@"接口未返回图包的信息, 跳过"];
+                [self.failures addObject:self.URLs[i]];
+                [self.failures exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourceExHentaiFailureTorrentsFilePath]];
                 [self _didFinishFetchPostDetail];
                 
                 return;
@@ -71,6 +73,8 @@
             MUBResourceExHentaiPageModel *model = models.firstObject;
             if (model.torrentcount == 0) {
                 [[MUBLogManager defaultManager] addWarningLogWithFormat:@"接口未返回图包: %@ 的种子信息, 跳过", self.URLs[i]];
+                [self.failures addObject:self.URLs[i]];
+                [self.failures exportToPath:[[MUBSettingManager defaultManager] pathOfContentInDownloadFolder:MUBResourceExHentaiFailureTorrentsFilePath]];
                 [self _didFinishFetchPostDetail];
                 
                 return;
