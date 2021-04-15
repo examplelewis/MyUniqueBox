@@ -40,6 +40,28 @@
 - (IBAction)tempButtonDidPress:(NSButton *)sender {
     [[MUBLogManager defaultManager] addWarningLogWithFormat:@"临时方法执行失败，该方法没有实现"];
     
+    // 去除文件路径中的Emoji表情
+//    NSArray *folderPaths = [MUBFileManager folderPathsInFolder:@"/Users/mercury/Downloads/微博图片"];
+//    for (NSInteger i = 0; i < folderPaths.count; i++) {
+//        NSString *folderPath = folderPaths[i];
+//        NSString *newFolderPath = [folderPath removeEmoji];
+//        if ([folderPath isEqualToString:newFolderPath]) {
+//            continue;
+//        }
+//
+//        NSLog(@"%@", folderPath);
+//        NSLog(@"%@", newFolderPath);
+//
+//        [MUBFileManager createFolderAtPath:newFolderPath];
+//        NSArray *filePaths = [MUBFileManager filePathsInFolder:folderPath];
+//        for (NSInteger j = 0; j < filePaths.count; j++) {
+//            NSString *filePath = filePaths[j];
+//            NSString *newFilePath = [newFolderPath stringByAppendingPathComponent:filePath.lastPathComponent];
+//
+//            [MUBFileManager moveItemFromPath:filePath toPath:newFilePath];
+//        }
+//    }
+    
     // 微博分享图片文件夹名称超过长度
 //    NSArray *folderPaths = [MUBFileManager folderPathsInFolder:@"/Users/Mercury/Downloads/ShareImages"];
 //    for (NSInteger i = 0; i < folderPaths.count; i++) {
