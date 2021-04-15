@@ -358,6 +358,10 @@
             [[MUBLogManager defaultManager] addWarningLogWithFormat:@"%@ 内没有项目, 跳过", folderPath];
             continue;
         }
+        if (itemPaths.count != 1) {
+            [[MUBLogManager defaultManager] addWarningLogWithFormat:@"%@ 内有不止一个项目, 跳过", folderPath];
+            continue;
+        }
         
         NSString *itemPath = itemPaths.firstObject;
         NSString *destItemPath = [extractRootFolderPath stringByAppendingPathComponent:itemPath.lastPathComponent];
@@ -365,6 +369,8 @@
         
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"提取: %@", itemPath];
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"至: %@", destItemPath];
+        
+        [MUBFileManager trashFilePath:folderPath];
     }
     
     [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"提取文件夹的单个项目, 流程结束"];
