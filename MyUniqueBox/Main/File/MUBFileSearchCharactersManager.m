@@ -146,6 +146,7 @@
 
         // 补上路径前的 /
         NSString *newFilePath = [@"/" stringByAppendingString:[filePathComponents componentsJoinedByString:@"/"]];
+        [MUBFileManager createFolderAtPath:newFilePath.stringByDeletingLastPathComponent]; // 有可能文件名没有问题，文件夹的名称有问题，那么就需要创建文件夹
 
         [MUBFileManager moveItemFromPath:filePath toPath:newFilePath];
         [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"已修改第 %ld 个文件:\n%@\n%@", i + 1, filePath, newFilePath];
