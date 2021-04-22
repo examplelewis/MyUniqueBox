@@ -205,6 +205,31 @@
 //        }
 //    }
     
+    // 去除文件夹名称中的Emoji表情
+    NSString *rootFolderPath = @"/Users/mercury/Downloads/未命名文件夹";
+    NSArray *folderPaths = [MUBFileManager folderPathsInFolder:rootFolderPath];
+    for (NSInteger i = 0; i < folderPaths.count; i++) {
+        NSString *folderPath = folderPaths[i];
+        NSString *folderName = folderPath.lastPathComponent;
+        NSString *newFolderName = folderName.removeEmoji;
+        
+        if ([newFolderName isEqualToString:folderName]) {
+            continue;
+        }
+        
+        NSString *newFolderPath = [rootFolderPath stringByAppendingPathComponent:newFolderName];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"\n重命名前：\t%@\n重命名后：\t%@", folderPath, newFolderPath];
+
+        [MUBFileManager createFolderAtPath:newFolderPath];
+        NSArray *filePaths = [MUBFileManager filePathsInFolder:folderPath];
+        for (NSInteger j = 0; j < filePaths.count; j++) {
+            NSString *filePath = filePaths[j];
+            NSString *newFilePath = [newFolderPath stringByAppendingPathComponent:filePath.lastPathComponent];
+            
+            [MUBFileManager moveItemFromPath:filePath toPath:newFilePath];
+        }
+    }
+    
     // 去除文件路径中的Emoji表情
 //    NSArray *folderPaths = [MUBFileManager folderPathsInFolder:@"/Users/mercury/Downloads/微博图片"];
 //    for (NSInteger i = 0; i < folderPaths.count; i++) {
@@ -214,8 +239,7 @@
 //            continue;
 //        }
 //
-//        NSLog(@"%@", folderPath);
-//        NSLog(@"%@", newFolderPath);
+//        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"\n重命名前：\t%@\n重命名后：\t%@", folderPath, newFolderPath];
 //
 //        [MUBFileManager createFolderAtPath:newFolderPath];
 //        NSArray *filePaths = [MUBFileManager filePathsInFolder:folderPath];
