@@ -276,19 +276,19 @@
     }
 }
 
-// 重命名文件夹以便满足群晖文件系统的长度限制(文件夹的名称长度 <100)
+// 重命名文件夹以便满足群晖文件系统的长度限制(文件夹的名称长度 <99)
 - (void)substructFolderNameForSynologyNASUpload {
     NSString *rootFolderPath = @"/Users/mercury/Downloads/未命名文件夹";
     NSArray *folderPaths = [MUBFileManager folderPathsInFolder:rootFolderPath];
     for (NSInteger i = 0; i < folderPaths.count; i++) {
         NSString *folderPath = folderPaths[i];
         NSString *folderName = folderPath.lastPathComponent;
-        if (folderName.length < 100) {
+        if (folderName.length < 99) {
             continue;
         }
 
         NSString *newFolderName = [folderName substringToIndex:folderName.length - 15];
-        if (newFolderName.length < 85) {
+        if (newFolderName.length < 84) {
             continue;
         }
         newFolderName = [newFolderName substringToIndex:84];
