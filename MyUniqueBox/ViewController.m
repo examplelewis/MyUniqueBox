@@ -283,18 +283,20 @@
     for (NSInteger i = 0; i < folderPaths.count; i++) {
         NSString *folderPath = folderPaths[i];
         NSString *folderName = folderPath.lastPathComponent;
-        if (folderName.length <= 100) {
+        if (folderName.length < 100) {
             continue;
         }
 
         NSString *newFolderName = [folderName substringToIndex:folderName.length - 15];
-        if (newFolderName.length <= 85) {
+        if (newFolderName.length < 85) {
             continue;
         }
-        newFolderName = [newFolderName substringToIndex:85];
+        newFolderName = [newFolderName substringToIndex:84];
         newFolderName = [newFolderName stringByAppendingString:[folderName substringFromIndex:folderName.length - 15]];
         NSString *newFolderPath = [rootFolderPath stringByAppendingPathComponent:newFolderName];
-
+        
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"\n重命名前：\t%@\n重命名后：\t%@", folderPath, newFolderPath];
+        
         [MUBFileManager createFolderAtPath:newFolderPath];
         NSArray *filePaths = [MUBFileManager filePathsInFolder:folderPath];
         for (NSInteger j = 0; j < filePaths.count; j++) {
