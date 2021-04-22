@@ -177,6 +177,34 @@
 //        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"\n重命名前：\t%@\n重命名后：\t%@", filePath, newFilePath];
 //    }
     
+    // 重命名文件夹以便满足群晖文件系统的长度限制(文件夹的名称长度 <100)
+//    NSString *rootFolderPath = @"/Users/mercury/Downloads/未命名文件夹";
+//    NSArray *folderPaths = [MUBFileManager folderPathsInFolder:rootFolderPath];
+//    for (NSInteger i = 0; i < folderPaths.count; i++) {
+//        NSString *folderPath = folderPaths[i];
+//        NSString *folderName = folderPath.lastPathComponent;
+//        if (folderName.length <= 100) {
+//            continue;
+//        }
+//
+//        NSString *newFolderName = [folderName substringToIndex:folderName.length - 15];
+//        if (newFolderName.length <= 85) {
+//            continue;
+//        }
+//        newFolderName = [newFolderName substringToIndex:85];
+//        newFolderName = [newFolderName stringByAppendingString:[folderName substringFromIndex:folderName.length - 15]];
+//        NSString *newFolderPath = [@rootFolderPath stringByAppendingPathComponent:newFolderName];
+//
+//        [MUBFileManager createFolderAtPath:newFolderPath];
+//        NSArray *filePaths = [MUBFileManager filePathsInFolder:folderPath];
+//        for (NSInteger j = 0; j < filePaths.count; j++) {
+//            NSString *filePath = filePaths[j];
+//            NSString *newFilePath = [newFolderPath stringByAppendingPathComponent:filePath.lastPathComponent];
+//
+//            [MUBFileManager moveItemFromPath:filePath toPath:newFilePath];
+//        }
+//    }
+    
     // 去除文件路径中的Emoji表情
 //    NSArray *folderPaths = [MUBFileManager folderPathsInFolder:@"/Users/mercury/Downloads/微博图片"];
 //    for (NSInteger i = 0; i < folderPaths.count; i++) {
