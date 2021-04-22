@@ -74,6 +74,7 @@ static NSString * const MUBPixivUtilDBFilePath = @"/Users/Mercury/SynologyDrive/
     _mimeImageAndVideoTypes = [self.mimeImageTypes arrayByAddingObjectsFromArray:self.mimeVideoTypes];
     
     _fileSearchCharactersModel = [MUBSettingFileSearchCharactersModel yy_modelWithJSON:[newPrefs valueForKeyPath:@"File.SearchCharacters"]];
+    _StringEmojis = [newPrefs valueForKeyPath:@"String.Emojis"];
 }
 - (void)updateWeiboBoundaryModel {
     NSMutableDictionary *prefs = [NSMutableDictionary dictionaryWithContentsOfFile:[self pathOfContentInMainFolder:@"MUBPreference.plist"]];

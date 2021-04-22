@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, readonly) MUBSettingDeviantartAuthModel *deviantartAuthModel;
 @property (strong, readonly) MUBSettingDeviantartBoundaryModel *deviantartBoundaryModel;
 @property (strong, readonly) MUBSettingFileSearchCharactersModel *fileSearchCharactersModel;
+@property (strong, readonly) NSArray *StringEmojis;
 
 @property (strong, readonly) NSArray *mimeImageTypes;
 @property (strong, readonly) NSArray *mimeVideoTypes;
