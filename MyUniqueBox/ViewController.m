@@ -54,6 +54,37 @@
     [[MUBLogManager defaultManager] clean];
 }
 
+// 去除文章中无用文字
+- (void)removeUselessContentInArticle {
+    BOOL firstLineIsTitle = YES; // 第一行是否是标题
+    NSString *uselessContent = @" cool18.com";
+    
+    NSString *article = self.inputTextView.string; // 从输入框获取文本
+    NSString *lineBreak = @"\r";
+    NSArray *articleComponents = [article componentsSeparatedByString:lineBreak]; // 根据换行符分割
+    // 如果不是根据\r分割那就根据\n分割
+    if (articleComponents.count == 1) {
+        lineBreak = @"\n";
+        articleComponents = [article componentsSeparatedByString:lineBreak];
+    }
+    
+    NSString *title;
+    // 如果第一行是标题，那么先取出标题，再删除第一个数据
+    if (firstLineIsTitle) {
+        title = articleComponents.firstObject;
+        articleComponents = [articleComponents subarrayWithRange:NSMakeRange(1, articleComponents.count - 1)];
+    }
+    
+    NSString *output = [articleComponents componentsJoinedByString:@""]; // 去掉换行符后，拼成一行文字
+    NSArray *cleanComponents = [output componentsSeparatedByString:uselessContent]; // 拼好的一行文字再根据 uselessContent 分割
+    if (firstLineIsTitle) {
+        cleanComponents = [@[title] arrayByAddingObjectsFromArray:cleanComponents]; // 如果原文本第一行是标题的话，分割完成后在第一个加上标题
+    }
+    output = [cleanComponents componentsJoinedByString:@"\n"]; // 将干净的内容按换行符合并
+
+    self.logTextView.string = output;
+}
+
 // 孔雀海文件夹提取
 - (void)extractKongquehaiFolder {
     NSString *rootFolder = @"/Volumes/Wait DS920/图包资源/20200905 下载/孔雀海/【合集67套】福利系列《少女映画》写真67套(包含高清视频和套图合辑)【17.27G】";
