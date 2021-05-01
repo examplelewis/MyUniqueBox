@@ -54,6 +54,66 @@
     [[MUBLogManager defaultManager] clean];
 }
 
+- (void)filterTwitterImageFiles {
+    NSString *rootFolderPath = @"/Users/Mercury/Pictures/Day/";
+    
+    NSString *twitterFolderPath = [rootFolderPath stringByAppendingPathComponent:@"Twitter"];
+    [MUBFileManager createFolderAtPath:twitterFolderPath];
+    
+    NSArray *filePaths = [MUBFileManager filePathsInFolder:rootFolderPath];
+    for (NSInteger i = 0; i < filePaths.count; i++) {
+        NSString *filePath = filePaths[i];
+        
+        NSString *fileName = filePath.lastPathComponent.stringByDeletingPathExtension;
+        NSArray *fileNameComps = [fileName componentsSeparatedByString:@"_"];
+        NSString *dateString = fileNameComps.lastObject;
+        NSArray *dateStringComps = [dateString componentsSeparatedByString:@" "];
+        dateString = dateStringComps.firstObject;
+        
+        NSDate *date = [NSDate dateWithString:dateString format:@"yyyy-MMM-dd"];
+        if (!date) {
+            continue;
+        }
+        
+        NSString *newFilePath = [twitterFolderPath stringByAppendingPathComponent:filePath.lastPathComponent];
+        
+        [MUBFileManager moveItemFromPath:filePath toPath:newFilePath];
+        
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"移动前: %@", filePath];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"移动后: %@", newFilePath];
+    }
+}
+- (void)filterPixivImageFiles {
+    NSString *rootFolderPath = @"/Users/Mercury/Pictures/Day/";
+    
+    NSString *pixivFolderPath = [rootFolderPath stringByAppendingPathComponent:@"Pixiv"];
+    [MUBFileManager createFolderAtPath:pixivFolderPath];
+    
+    NSArray *filePaths = [MUBFileManager filePathsInFolder:rootFolderPath];
+    for (NSInteger i = 0; i < filePaths.count; i++) {
+        NSString *filePath = filePaths[i];
+        
+        NSString *fileName = filePath.lastPathComponent.stringByDeletingPathExtension;
+        NSArray *fileNameComps = [fileName componentsSeparatedByString:@"_"];
+        if (fileNameComps.count < 2) {
+            continue;
+        }
+        if ([fileNameComps[0] integerValue] <= 60000000 && [fileNameComps[0] integerValue] >= 200000000) {
+            continue;
+        }
+        if (![fileNameComps[1] hasPrefix:@"p"]) {
+            continue;
+        }
+        
+        NSString *newFilePath = [pixivFolderPath stringByAppendingPathComponent:filePath.lastPathComponent];
+        
+        [MUBFileManager moveItemFromPath:filePath toPath:newFilePath];
+        
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"移动前: %@", filePath];
+        [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"移动后: %@", newFilePath];
+    }
+}
+
 // 去除文章中无用文字
 - (void)removeUselessContentInArticle {
     BOOL firstLineIsTitle = YES; // 第一行是否是标题
