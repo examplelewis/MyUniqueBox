@@ -33,6 +33,43 @@
     return defaultManager;
 }
 
+#pragma mark - File Operations
+- (NSMutableArray<MUBFileOperationModel *> *)fileOperationModelsInDatabase {
+    NSMutableArray<MUBFileOperationModel *> *result = [NSMutableArray array];
+    [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+        FMResultSet *rs = [db executeQuery:@"select * from MUBFileOperations"];
+        while ([rs next]) {
+            MUBFileOperationModel *model = [MUBFileOperationModel new];
+            model.oID = (NSInteger)[rs intForColumn:@"id"];
+            model.title = [rs stringForColumn:@"title"];
+            model.oDesc = [rs stringForColumn:@"desc"];
+            model.keywordsStr = [rs stringForColumn:@"keywords"];
+            model.level = (MUBFileOperationLevel)[rs intForColumn:@"level"];
+            model.groupTitle = [rs stringForColumn:@"groupTitle"];
+            
+            [result addObject:model];
+        }
+        
+        [rs close];
+    }];
+    
+    return result;
+}
+- (BOOL)updateFileOperationDescription:(NSString *)description forModelID:(NSInteger)modelID {
+    __block BOOL success = NO;
+    [self.queue inDatabase:^(FMDatabase * _Nonnull db) {
+        success = [db executeUpdateWithFormat:@"UPDATE MUBFileOperations SET desc = %@ WHERE id = %ld", description, modelID];
+        if (success) {
+            [[MUBLogManager defaultManager] addDefaultLogWithFormat:@"File Operation ID: %ld 已更新描述: %@", modelID, description];
+        } else {
+            [[MUBLogManager defaultManager] addErrorLogWithFormat:@"往数据表: MUBFileOperations 中更新数据时发生错误：%@", [db lastErrorMessage]];
+            [[MUBLogManager defaultManager] addErrorLogWithFormat:@"数据: modelID: %ld, description: %@", modelID, description];
+        }
+    }];
+    
+    return success;
+}
+
 #pragma mark - Pixiv Follow
 // 获取关注的用户列表
 - (NSArray *)getPixivUsersFollowStatusWithMemberIDs:(NSArray<NSString *> *)memberIDs isFollow:(BOOL)isFollow {

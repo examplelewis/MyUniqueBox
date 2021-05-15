@@ -11,6 +11,9 @@
 		AC2032A12526279700C90ABD /* MUBResourceOrganizeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2032A02526279700C90ABD /* MUBResourceOrganizeManager.m */; };
 		AC20449525297C8800337F25 /* MUBSQLiteExHentaiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC20449425297C8800337F25 /* MUBSQLiteExHentaiManager.m */; };
 		AC20449E2529C3D700337F25 /* MUBResourceExHentaiCommentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC20449D2529C3D700337F25 /* MUBResourceExHentaiCommentManager.m */; };
+		AC2B7599264ED3A400ABFC47 /* MUBFileWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2B7597264ED3A400ABFC47 /* MUBFileWindowController.m */; };
+		AC2B759A264ED3A400ABFC47 /* MUBFileWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC2B7598264ED3A400ABFC47 /* MUBFileWindowController.xib */; };
+		AC2B75A0264EDBD200ABFC47 /* MUBFileOperationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = AC2B759F264EDBD200ABFC47 /* MUBFileOperationModel.m */; };
 		AC4192C42550273100E34156 /* MUBResourceWeiboFavouriteLess9ImagesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC4192C32550273100E34156 /* MUBResourceWeiboFavouriteLess9ImagesManager.m */; };
 		AC67BEE426064CE600FFD69E /* MUBMangaUniversalManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC67BEE326064CE600FFD69E /* MUBMangaUniversalManager.m */; };
 		AC68A1732522419000DC46DD /* MUBHTTPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC68A1722522419000DC46DD /* MUBHTTPManager.m */; };
@@ -68,6 +71,7 @@
 		ACDCE28A250BAC100014BE47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCE289250BAC100014BE47 /* main.m */; };
 		ACDCE295250BAC100014BE47 /* MyUniqueBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCE294250BAC100014BE47 /* MyUniqueBoxTests.m */; };
 		ACDCE2A0250BAC100014BE47 /* MyUniqueBoxUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = ACDCE29F250BAC100014BE47 /* MyUniqueBoxUITests.m */; };
+		ACE1234B2650044F00206D16 /* MUBFileDispatchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACE1234A2650044F00206D16 /* MUBFileDispatchManager.m */; };
 		ACF22754250E0D7300A2E3F6 /* MUBAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF22753250E0D7300A2E3F6 /* MUBAlert.m */; };
 		ACF22757250E100400A2E3F6 /* NSString+MUBAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF22756250E100400A2E3F6 /* NSString+MUBAdd.m */; };
 		ACF2275B250E1F3C00A2E3F6 /* MUBAlertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ACF2275A250E1F3C00A2E3F6 /* MUBAlertManager.m */; };
@@ -147,6 +151,11 @@
 		AC20449425297C8800337F25 /* MUBSQLiteExHentaiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBSQLiteExHentaiManager.m; sourceTree = "<group>"; };
 		AC20449C2529C3D700337F25 /* MUBResourceExHentaiCommentManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBResourceExHentaiCommentManager.h; sourceTree = "<group>"; };
 		AC20449D2529C3D700337F25 /* MUBResourceExHentaiCommentManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBResourceExHentaiCommentManager.m; sourceTree = "<group>"; };
+		AC2B7596264ED3A400ABFC47 /* MUBFileWindowController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBFileWindowController.h; sourceTree = "<group>"; };
+		AC2B7597264ED3A400ABFC47 /* MUBFileWindowController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBFileWindowController.m; sourceTree = "<group>"; };
+		AC2B7598264ED3A400ABFC47 /* MUBFileWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MUBFileWindowController.xib; sourceTree = "<group>"; };
+		AC2B759E264EDBD200ABFC47 /* MUBFileOperationModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBFileOperationModel.h; sourceTree = "<group>"; };
+		AC2B759F264EDBD200ABFC47 /* MUBFileOperationModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBFileOperationModel.m; sourceTree = "<group>"; };
 		AC4192C22550273100E34156 /* MUBResourceWeiboFavouriteLess9ImagesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBResourceWeiboFavouriteLess9ImagesManager.h; sourceTree = "<group>"; };
 		AC4192C32550273100E34156 /* MUBResourceWeiboFavouriteLess9ImagesManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBResourceWeiboFavouriteLess9ImagesManager.m; sourceTree = "<group>"; };
 		AC670CB8251ED77200698B74 /* RACEXTScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RACEXTScope.h; sourceTree = "<group>"; };
@@ -259,6 +268,8 @@
 		ACDCE29B250BAC100014BE47 /* MyUniqueBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyUniqueBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDCE29F250BAC100014BE47 /* MyUniqueBoxUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyUniqueBoxUITests.m; sourceTree = "<group>"; };
 		ACDCE2A1250BAC100014BE47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ACE123492650044F00206D16 /* MUBFileDispatchManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBFileDispatchManager.h; sourceTree = "<group>"; };
+		ACE1234A2650044F00206D16 /* MUBFileDispatchManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBFileDispatchManager.m; sourceTree = "<group>"; };
 		ACF22752250E0D7300A2E3F6 /* MUBAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MUBAlert.h; sourceTree = "<group>"; };
 		ACF22753250E0D7300A2E3F6 /* MUBAlert.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MUBAlert.m; sourceTree = "<group>"; };
 		ACF22755250E100400A2E3F6 /* NSString+MUBAdd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+MUBAdd.h"; sourceTree = "<group>"; };
@@ -535,12 +546,19 @@
 			isa = PBXGroup;
 			children = (
 				AC988135250FBC7B00CC3372 /* MUBFileHeader.h */,
+				ACE123492650044F00206D16 /* MUBFileDispatchManager.h */,
+				ACE1234A2650044F00206D16 /* MUBFileDispatchManager.m */,
 				AC9EA55D25125BA000084B80 /* MUBFileUniversalManager.h */,
 				AC9EA55E25125BA000084B80 /* MUBFileUniversalManager.m */,
 				ACF22774250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.h */,
 				ACF22775250E6EC100A2E3F6 /* MUBFileSearchCharactersManager.m */,
 				AC9EA560251265C200084B80 /* MUBFileExtractTypeFileManager.h */,
 				AC9EA561251265C200084B80 /* MUBFileExtractTypeFileManager.m */,
+				AC2B7596264ED3A400ABFC47 /* MUBFileWindowController.h */,
+				AC2B7597264ED3A400ABFC47 /* MUBFileWindowController.m */,
+				AC2B7598264ED3A400ABFC47 /* MUBFileWindowController.xib */,
+				AC2B759E264EDBD200ABFC47 /* MUBFileOperationModel.h */,
+				AC2B759F264EDBD200ABFC47 /* MUBFileOperationModel.m */,
 			);
 			path = File;
 			sourceTree = "<group>";
@@ -1093,6 +1111,7 @@
 			files = (
 				AC8B29DE251EEE9C00F91EBF /* Download Prefs default.plist in Resources */,
 				ACC9EC28250BC30100B0311D /* PixivAPI.js in Resources */,
+				AC2B759A264ED3A400ABFC47 /* MUBFileWindowController.xib in Resources */,
 				AC8B29F1251EF58700F91EBF /* Download Prefs suit for Video.plist in Resources */,
 				ACFFFB3B251F4E50000786E1 /* Download Prefs custom 1.plist in Resources */,
 				AC8B29E8251EF47E00F91EBF /* Download Prefs concurrent 1.plist in Resources */,
@@ -1181,6 +1200,7 @@
 				ACF2276B250E5A5E00A2E3F6 /* NSDictionary+MUBAdd.m in Sources */,
 				AC68A1732522419000DC46DD /* MUBHTTPManager.m in Sources */,
 				ACC9EC2B250BC30100B0311D /* SAPIIllust.m in Sources */,
+				AC2B75A0264EDBD200ABFC47 /* MUBFileOperationModel.m in Sources */,
 				ACC9EBFE250BBC8400B0311D /* NSData+YYAdd.m in Sources */,
 				ACF9619D2524A7C80091FC02 /* MUBResourceWeiboFaviouriteDuplicateManager.m in Sources */,
 				ACC9EC26250BC30100B0311D /* PAPIAuthor.m in Sources */,
@@ -1216,6 +1236,7 @@
 				ACC9EC2A250BC30100B0311D /* PixivAPI.m in Sources */,
 				ACF420A725271DAE004176D9 /* MUBResourceExHentaiPagesManager.m in Sources */,
 				ACF3C410250D36E900070C8E /* MUBUIManager.m in Sources */,
+				ACE1234B2650044F00206D16 /* MUBFileDispatchManager.m in Sources */,
 				AC9EA562251265C200084B80 /* MUBFileExtractTypeFileManager.m in Sources */,
 				ACA93E85250BFC10008F65A8 /* MUBCookieModel.m in Sources */,
 				ACF363B6250D536600C1DC47 /* MUBSettingManager.m in Sources */,
@@ -1224,6 +1245,7 @@
 				ACF523F5251A46E00073BFEE /* MUBMenuItemToolPictureManager.m in Sources */,
 				ACF35FDE25222CA300BD1DC6 /* MUBMenuItemResourceWeiboManager.m in Sources */,
 				ACF3600E25222FAE00BD1DC6 /* MUBResourceWeiboModels.m in Sources */,
+				AC2B7599264ED3A400ABFC47 /* MUBFileWindowController.m in Sources */,
 				ACF28FEE251B8BC0003B35D0 /* MUBToolSystemWebArchiveUnarchivingManager.m in Sources */,
 				ACF961AD252516260091FC02 /* MUBResourcePixivUniversalManager.m in Sources */,
 				ACC9EC2F250BC30800B0311D /* XMLReader.m in Sources */,

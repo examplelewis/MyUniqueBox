@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17701"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -774,9 +774,12 @@
                                     </items>
                                 </menu>
                             </menuItem>
-                            <menuItem title="文件" tag="3000000" id="iMF-gw-bp6">
+                            <menuItem title="文件" id="bP7-5T-bTE">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="文件" id="e7n-Pk-1kt">
+                            </menuItem>
+                            <menuItem title="文件备份" tag="3000000" id="iMF-gw-bp6">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="文件备份" id="e7n-Pk-1kt">
                                     <items>
                                         <menuItem title="将筛选整理好的图片移动到网络图片文件夹中【需要数据库，暂时不做】" tag="3000001" id="LDg-2w-Sfx">
                                             <modifierMask key="keyEquivalentModifierMask"/>
@@ -1340,7 +1343,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Cpz-cK-toM">
-                                <rect key="frame" x="61" y="595" width="94" height="32"/>
+                                <rect key="frame" x="60" y="595" width="88" height="32"/>
                                 <buttonCell key="cell" type="push" title="导出输入" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="t7P-Ka-1mo">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" usesAppearanceFont="YES"/>
@@ -1350,7 +1353,7 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3G6-tC-Xhf">
-                                <rect key="frame" x="279" y="595" width="67" height="32"/>
+                                <rect key="frame" x="285" y="595" width="62" height="32"/>
                                 <buttonCell key="cell" type="push" title="临时" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2eA-uL-mYN">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" usesAppearanceFont="YES"/>
@@ -1426,7 +1429,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8cW-io-TPu">
-                                <rect key="frame" x="401" y="595" width="94" height="32"/>
+                                <rect key="frame" x="400" y="595" width="88" height="32"/>
                                 <buttonCell key="cell" type="push" title="清除日志" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UT0-o0-bN8">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" usesAppearanceFont="YES"/>
@@ -1435,13 +1438,25 @@
                                     <action selector="cleanButtonDidPress:" target="XfG-lQ-9wD" id="mEW-1C-iK4"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dbP-JI-sNu">
+                                <rect key="frame" x="221" y="595" width="62" height="32"/>
+                                <buttonCell key="cell" type="push" title="文件" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="lyK-Pe-Bfy">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="fileButtonDidPress:" target="XfG-lQ-9wD" id="z0q-nk-T0N"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="KRD-t3-QTb" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="24b-bB-vUU"/>
                             <constraint firstItem="8cW-io-TPu" firstAttribute="leading" secondItem="fQu-o7-CSd" secondAttribute="trailing" constant="20" id="5IQ-wb-bxJ"/>
                             <constraint firstItem="wzP-oV-JYC" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="5i7-dk-6aD"/>
                             <constraint firstItem="Cpz-cK-toM" firstAttribute="centerY" secondItem="wzP-oV-JYC" secondAttribute="centerY" id="7V9-jJ-s6x"/>
+                            <constraint firstItem="3G6-tC-Xhf" firstAttribute="leading" secondItem="dbP-JI-sNu" secondAttribute="trailing" constant="16" id="8vF-mG-fEJ"/>
                             <constraint firstItem="wzP-oV-JYC" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="BXY-56-LtB"/>
+                            <constraint firstItem="dbP-JI-sNu" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Cpz-cK-toM" secondAttribute="trailing" constant="12" symbolic="YES" id="GqM-Zc-P5V"/>
                             <constraint firstItem="fQu-o7-CSd" firstAttribute="centerY" secondItem="3G6-tC-Xhf" secondAttribute="centerY" id="H65-6t-a8k"/>
                             <constraint firstItem="6kt-8C-eBW" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="KNw-kd-UZs"/>
                             <constraint firstItem="fQu-o7-CSd" firstAttribute="leading" secondItem="XRQ-YY-fmv" secondAttribute="leading" id="Lx6-Ob-Hs0"/>
@@ -1449,6 +1464,7 @@
                             <constraint firstItem="qRV-Ad-cMb" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="S8Q-QJ-uKN"/>
                             <constraint firstAttribute="bottom" secondItem="KRD-t3-QTb" secondAttribute="bottom" constant="20" id="UL1-iY-k7p"/>
                             <constraint firstItem="qRV-Ad-cMb" firstAttribute="top" secondItem="Cpz-cK-toM" secondAttribute="bottom" constant="20" id="cFH-kj-M2i"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8cW-io-TPu" secondAttribute="trailing" constant="20" symbolic="YES" id="eGv-n0-XUz"/>
                             <constraint firstItem="ugw-W6-Byu" firstAttribute="top" secondItem="8cW-io-TPu" secondAttribute="bottom" constant="20" id="iaw-Zz-KbL"/>
                             <constraint firstAttribute="trailing" secondItem="6kt-8C-eBW" secondAttribute="trailing" constant="20" id="jN3-xi-1sI"/>
                             <constraint firstItem="Cpz-cK-toM" firstAttribute="leading" secondItem="wzP-oV-JYC" secondAttribute="trailing" constant="20" id="lQY-NQ-qbz"/>
@@ -1460,6 +1476,7 @@
                             <constraint firstItem="fQu-o7-CSd" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="vJJ-mx-Tj1"/>
                             <constraint firstItem="3G6-tC-Xhf" firstAttribute="trailing" secondItem="zgQ-9o-SU6" secondAttribute="trailing" id="wWX-Wc-QZ3"/>
                             <constraint firstAttribute="trailing" secondItem="KRD-t3-QTb" secondAttribute="trailing" constant="20" id="wm6-wc-k0h"/>
+                            <constraint firstItem="dbP-JI-sNu" firstAttribute="centerY" secondItem="3G6-tC-Xhf" secondAttribute="centerY" id="yii-uP-LSf"/>
                             <constraint firstItem="ugw-W6-Byu" firstAttribute="leading" secondItem="qRV-Ad-cMb" secondAttribute="trailing" constant="20" id="yma-ed-ugV"/>
                         </constraints>
                     </view>

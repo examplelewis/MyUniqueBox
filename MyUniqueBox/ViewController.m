@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "MUBFileWindowController.h"
 
 @implementation ViewController
 
@@ -52,6 +53,10 @@
 }
 - (IBAction)cleanButtonDidPress:(NSButton *)sender {
     [[MUBLogManager defaultManager] clean];
+}
+- (IBAction)fileButtonDidPress:(NSButton *)sender {
+    MUBFileWindowController *wc = [[MUBFileWindowController alloc] initWithWindowNibName:@"MUBFileWindowController"];
+    [[MUBWindowManager defaultManager] showWindowController:wc];
 }
 
 - (void)filterTwitterImageFiles {
